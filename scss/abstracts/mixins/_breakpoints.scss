@@ -1,0 +1,37 @@
+/// Media query for minimum width (mobile-first)
+@mixin media-up($breakpoint) {
+    $min: breakpoint-min($breakpoint);
+    
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+  
+  /// Media query for maximum width
+  @mixin media-down($breakpoint) {
+    $max: breakpoint-max($breakpoint);
+    
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @error "Breakpoint '#{$breakpoint}' has no maximum value";
+    }
+  }
+  
+  /// Media query for specific breakpoint range
+  @mixin media-between($min-breakpoint, $max-breakpoint) {
+    $min: breakpoint-min($min-breakpoint);
+    $max: breakpoint-max($max-breakpoint);
+    
+    @if $max {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) {
+        @content;
+      }
+    }
+  }

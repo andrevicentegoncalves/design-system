@@ -1,0 +1,22 @@
+@use "sass:list";
+
+@use '../flags' as flags;
+@use 'colors';
+@use 'design-tokens';
+
+// ============================================================================ //
+//                                 TOKENS: INDEX                                //
+// ============================================================================ //
+
+@mixin generate-tokens($categories: 'all') {
+    
+    // Colors  
+    @if $categories == 'all' or list.index($categories, 'colors') {
+        @include colors.generate-colors-tokens();
+    }
+
+    // Design Tokens  
+    @if $categories == 'all' or list.index($categories, 'design-tokens') {
+        @include design-tokens.generate-tokens-tokens();
+    }
+}

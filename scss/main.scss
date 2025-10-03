@@ -1,0 +1,13 @@
+@use 'abstracts/flags' with (
+    $is_main: true,
+    $is_pat: false,
+    $primitives: 'default'
+);
+@use 'abstracts/design-tokens-wrapper' as *;
+@use 'animations' as *;  
+@use 'base' as *;  
+@use 'components' as *;  
+@use 'layout' as *;  
+@use 'pages' as *;  
+@use 'utilities' as *;  
+@use 'vendor' as *;

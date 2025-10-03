@@ -1,0 +1,119 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                             COMPONENTS: TABLE                             */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// Responsive Table Styles
+//-------------------------------------------
+
+.phone,
+.tablet {
+    // Default responsive behavior
+    .table:not(.table-no-responsive) {
+        tr:not(:last-child) {
+            margin-bottom: var(--space-base);
+        }
+    }
+}
+
+// For inactive rows
+.table-row {
+  td {
+    &.table--is-inactive,
+    &.table--is-inactive ~ td {
+      background-color: var(--color-neutral-3);
+      color: var(--color-neutral-7);
+
+      // Target buttons inside affected cells
+      button, .icon, a {
+        background-color: var(--color-neutral-3);
+        color: var(--color-neutral-7);
+        border-color: var(--color-neutral-7);
+      }
+
+      // Special styling for buttons and icons inside badge containers when inactive
+      .badge {
+        button, .icon {
+          background-color: transparent;
+          color: var(--color-neutral-0);
+          border-color: transparent;
+        }
+      }
+      .badge--danger{
+        background-color: var(--color-neutral-7);
+      }
+    }
+  }
+}
+
+
+.table [data-checkbox]:checked:after {
+  border: var(--border-size-m) solid var(--color-neutral-7);
+}
+
+.table-column-fixed {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.1); 
+}
+
+.align-table-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-custom-header {
+
+  &__column{
+    padding-left: var(--space-lm);
+    padding-right: var(--space-lm);
+  }
+
+  // Height modifiers
+  &--height {
+    height: 30px;
+  }
+
+  &--height-double {
+    height: 68px;
+  }
+
+  &--height-triple {
+    height: 98px;
+  }
+  
+  table {
+    border: var(--border-size-none) solid var(--color-neutral-4);
+  }
+
+  // Header element
+  th {
+    text-align: center;
+    font-size: var(--font-size-default);
+    background: var(--color-neutral-3);
+    border: none;
+    height: 38px;
+  }
+
+  // Row element
+  td {
+    font-size: var(--font-size-default);
+    text-align: center;
+    border-left: none;
+  }
+
+  .border-right-s {
+    border-right: var(--border-size-s) solid var(--color-neutral-5);
+  }
+
+  .border-bottom-s {
+    border-bottom: var(--border-size-s) solid var(--color-neutral-5);
+  }
+
+  .table-header th:last-child {
+    border-radius: var(--border-radius-none) var(--border-radius-none) var(--border-radius-none) var(--border-radius-none);
+  }
+}

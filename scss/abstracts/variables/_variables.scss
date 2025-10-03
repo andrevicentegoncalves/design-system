@@ -1,0 +1,216 @@
+@use '../../abstracts/flags' as flags;
+@use '../../abstracts/functions' as fn;
+
+//-------------------------------------------
+// Brand Colors
+//-------------------------------------------
+/*
+$color-primary: #72BE44;
+$color-primary-light: #F1F9EC;
+
+// Semantic Colors
+$color-success: #28a745;
+$color-danger: #dc3545;
+$color-danger-light: #f7dddb;
+$color-danger-extra-light: #ffecec;
+$color-warning: #ffc107;
+$color-warning-light: #FEFBCD;
+$color-info: #17a2b8;
+$color-info-light: #add8e6;
+$color-info-extra-light: #e5f5fc;
+
+// Neutral Scale
+$color-neutral-0: #ffffff;
+$color-neutral-1: #f8f9fa;
+$color-neutral-2: #f1f3f5;
+$color-neutral-3: #e9ecef;
+$color-neutral-4: #dee2e6;
+$color-neutral-5: #ced4da;
+$color-neutral-6: #adb5bd;
+$color-neutral-7: #6a7178;
+$color-neutral-8: #4f575e;
+$color-neutral-9: #272b30;
+$color-neutral-10: #101213;
+
+// Theme Colors
+$color-light: $color-neutral-1;
+$color-dark: $color-neutral-9;
+$color-footer: #333333;
+$color-footer-section: #2C2C2C;
+*/
+
+//-------------------------------------------
+// Typography
+//-------------------------------------------
+
+$font-family-base: 'Arial', sans-serif;
+$font-size-xxxs: fn.rem(5);
+$font-size-xxs: fn.rem(10);
+$font-size-xs: fn.rem(12);
+$font-size-s: fn.rem(14);
+$font-size-base: fn.rem(16);
+$font-size-m: fn.rem(24);
+$font-size-l: fn.rem(32);
+$font-size-xl: fn.rem(48);
+$line-height-base: 1.5;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-bold: bold;
+
+// Icons
+$icon-font-family: 'MegasisIconsFont';
+
+//-------------------------------------------
+// Layout & Spacing
+//-------------------------------------------
+
+// Container Widths
+$layout-max-width: fn.rem(1440);
+$layout-half-max-width: fn.rem(720);
+$popup-max-width: fn.rem(650);
+
+// Grid System
+$grid-columns: 12;
+$grid-columns-standard: 4;
+$grid-gap: 25px;
+$grid-gutter-width: 30px;
+
+// Breakpoints
+$breakpoint-phone: 480px;
+$breakpoint-phone-horizontal: 767px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-horizontal: 1024px;
+$breakpoint-desktop: 1200px;
+
+// Grid Maps
+$grid-breakpoints: (
+  xs: 0,
+  sm: $breakpoint-phone,
+  md: $breakpoint-tablet,
+  lg: $breakpoint-tablet-horizontal,
+  xl: $breakpoint-desktop
+);
+
+$grid-container-max-widths: (
+  sm: $breakpoint-phone-horizontal,
+  md: $breakpoint-tablet-horizontal,
+  lg: $breakpoint-desktop,
+  xl: $layout-max-width
+);
+
+// Spacing Scale
+$space-none: 0;
+$space-xs: fn.rem(4);
+$space-s: fn.rem(8);
+$space-sm: fn.rem(10);
+$space-base: fn.rem(16);
+$space-m: fn.rem(24);
+$space-ls: fn.rem(28);
+$space-l: fn.rem(30);
+$space-lm: fn.rem(35);
+$space-xl: fn.rem(40);
+$space-xxl: fn.rem(48);
+$space-xxxl: fn.rem(96);
+
+//-------------------------------------------
+// Components
+//-------------------------------------------
+
+// Border Styles
+$border-size-none: 0px;
+$border-size-xs: 0.5px;
+$border-size-s: 1px;
+$border-width-selected: 3px;
+$border-width: 0.3px;
+$border-style: solid;
+//$border-color: $color-primary;
+$border-radius-soft: 4px;
+$border-radius-extra-soft: 15px;
+
+// Z-index Stack
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Effects
+$transition-base: all 0.2s ease-in-out;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$truncate-width: 100%;
+
+// Opacity Levels
+$banner-overlay-opacity: 0.4;
+$opacity-s: 40%;
+$opacity-m: 60%;
+$opacity-l: 80%;
+$opacity-xl: 90%;
+$opaque: 1;
+
+//-------------------------------------------
+// Feature-Specific
+//-------------------------------------------
+
+// Login
+$login-form-width: fn.rem(432);
+$login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+
+// Images & Icons
+
+$image-width-xs: fn.rem(152);
+$image-width-s: fn.rem(203);
+$image-width-sm: fn.rem(250);
+$image-width-m: fn.rem(338);
+$image-width-l: fn.rem(474);
+$image-width-display: fn.rem(778);
+
+$image-height-xs: fn.rem(90);
+$image-height-s: fn.rem(120);
+$image-height-m: fn.rem(200);
+$image-height-l: fn.rem(280);
+$image-height-display: fn.rem(460);
+
+$image-width-captcha: fn.rem(286);
+$image-height-captcha: fn.rem(40);
+$image-star-alliance: fn.rem(270);
+$logo-max-width: fn.rem(180);
+
+$fa-base: 1.5em;
+
+// Checkboxes
+$size-checkbox-s: fn.rem(12);
+
+// Banner
+$banner-height: fn.rem(400);
+$banner-height-phone: fn.rem(309);
+
+// Bottom Tabs
+$bottom-tab-width: 170px;
+$bottom-tab-height: 60px;
+
+// Positioning Reset
+$position-top-none: 0;
+$position-right-none: 0;
+$position-bottom-none: 0;
+$position-left-none: 0;
+
+// Flip Card
+$flip-card-height: 240px;
+$flip-card-expanded-height: 480px;
+$flip-card-transition-time: 0.6s;
+
+$font-path: if(flags.$is_main, '/TapPortal_TH/', 
+               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
+             );
+
+// Font weight mapping
+$weight-names: (
+  100: 'Thin',
+  300: 'Light',
+  400: 'Regular',
+  700: 'Bold'
+);

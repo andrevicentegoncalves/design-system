@@ -1,0 +1,130 @@
+@use 'sass:map';
+@use '../../functions/foundation/unit-conversion' as units;
+@use 'core' as *;
+
+/* ==========================================================================*/
+/*                 VARIABLES: FOUNDATION - BREAKPOINTS SCALE                 */
+/* ==========================================================================*/
+
+/// Phone breakpoint (min-width)
+/// Covers: 320px - 600px
+/// @type Number
+$breakpoint-phone: units.rem(320px) !default;  // 20rem
+
+/// Tablet breakpoint (min-width)
+/// Covers: 601px - 1024px
+/// @type Number
+$breakpoint-tablet: units.rem(601px) !default;  // 37.5625rem
+
+/// Desktop S breakpoint (min-width)
+/// Covers: 1025px - 1440px
+/// @type Number
+$breakpoint-desktop-s: units.rem(1025px) !default;  // 64.0625rem
+
+/// Desktop L breakpoint (min-width)
+/// Covers: 1441px+
+/// @type Number
+$breakpoint-desktop-l: units.rem(1441px) !default;  // 90.0625rem
+
+//-------------------------------------------
+// MAXIMUM BREAKPOINT VALUES
+//-------------------------------------------
+// Used for max-width queries (less common in mobile-first)
+// Calculated as (next breakpoint - 0.02px) to avoid overlap
+
+$breakpoint-phone-max: units.rem(600px) !default;      // 37.5rem
+$breakpoint-tablet-max: units.rem(1024px) !default;    // 64rem
+$breakpoint-desktop-s-max: units.rem(1440px) !default; // 90rem
+// Desktop L has no max (infinite)
+
+//-------------------------------------------
+// BREAKPOINT MAP (Primary Reference)
+//-------------------------------------------
+// Simple mobile-first structure
+// Most queries will use min-width from this map
+
+$breakpoints: (
+  'phone': $breakpoint-phone,           // 20rem (320px)
+  'tablet': $breakpoint-tablet,         // 37.5625rem (601px)
+  'desktop-s': $breakpoint-desktop-s,   // 64.0625rem (1025px)
+  'desktop-l': $breakpoint-desktop-l,   // 90.0625rem (1441px)
+) !default;
+
+//-------------------------------------------
+// SEMANTIC ALIASES MAP
+//-------------------------------------------
+// Descriptive names for better code readability
+
+$breakpoints-semantic: (
+  'mobile': $breakpoint-phone,
+  'phone': $breakpoint-phone,
+  'tablet': $breakpoint-tablet,
+  'laptop': $breakpoint-desktop-s,
+  'desktop': $breakpoint-desktop-l,
+) !default;
+
+//-------------------------------------------
+// STANDARD T-SHIRT SIZING MAP
+//-------------------------------------------
+// For teams that prefer xs/s/m/l/xl naming
+
+$breakpoints-standard: (
+  'xs': $breakpoint-phone,        // 20rem (320px)
+  's': $breakpoint-phone,         // 20rem (320px)
+  'm': $breakpoint-tablet,        // 37.5625rem (601px)
+  'l': $breakpoint-desktop-s,     // 64.0625rem (1025px)
+  'xl': $breakpoint-desktop-l,    // 90.0625rem (1441px)
+) !default;
+
+//-------------------------------------------
+// BREAKPOINT RANGE MAP (Complete Specification)
+//-------------------------------------------
+// Full min/max ranges for each breakpoint
+// Useful for documentation and "only" queries
+
+$breakpoint-ranges: (
+  'phone': (
+    'min': $breakpoint-phone,           // 320px
+    'max': $breakpoint-phone-max,       // 600px
+    'columns': 4,
+    'gutter': 16px,
+    'margin': 16px,
+    'type': 'fluid',
+  ),
+  'tablet': (
+    'min': $breakpoint-tablet,          // 601px
+    'max': $breakpoint-tablet-max,      // 1024px
+    'columns': 8,
+    'gutter': 16px,
+    'margin': 24px,
+    'type': 'fluid',
+  ),
+  'desktop-s': (
+    'min': $breakpoint-desktop-s,       // 1025px
+    'max': $breakpoint-desktop-s-max,   // 1440px
+    'columns': 12,
+    'gutter': 24px,
+    'margin': 24px,
+    'type': 'fluid',
+  ),
+  'desktop-l': (
+    'min': $breakpoint-desktop-l,       // 1441px
+    'max': null,                        // No max (infinite)
+    'columns': 12,
+    'gutter': 24px,
+    'margin': 0,
+    'type': 'fixed',
+  ),
+) !default;
+
+//-------------------------------------------
+// CONTAINER QUERY BREAKPOINTS
+//-------------------------------------------
+
+$container-breakpoints: (
+  'xs': units.rem(320px),     
+  'sm': units.rem(480px),    
+  'md': units.rem(640px),     
+  'lg': units.rem(768px),     
+  'xl': units.rem(1024px),   
+) !default;

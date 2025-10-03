@@ -1,0 +1,93 @@
+@use 'sass:map';
+@use 'core' as *;
+
+/* ==========================================================================*/
+/*                       FOUNDATION: BREAKPOINTS                             */
+/* ==========================================================================*/
+// Viewport breakpoint system matching OutSystems UI specifications
+
+//-------------------------------------------
+// BREAKPOINT VALUES (Overridable Tokens)
+//-------------------------------------------
+
+$breakpoint-phone-min: 320px !default;
+$breakpoint-phone-max: 600px !default;
+
+$breakpoint-tablet-min: 601px !default;
+$breakpoint-tablet-max: 1024px !default;
+
+$breakpoint-desktop-s-min: 1025px !default;
+$breakpoint-desktop-s-max: 1440px !default;
+
+$breakpoint-desktop-l-min: 1441px !default;
+
+//-------------------------------------------
+// BREAKPOINT MAP
+//-------------------------------------------
+
+$breakpoints: (
+  'phone': (
+    'min': $breakpoint-phone-min,
+    'max': $breakpoint-phone-max,
+  ),
+  'tablet': (
+    'min': $breakpoint-tablet-min,
+    'max': $breakpoint-tablet-max,
+  ),
+  'desktop-s': (
+    'min': $breakpoint-desktop-s-min,
+    'max': $breakpoint-desktop-s-max,
+  ),
+  'desktop-l': (
+    'min': $breakpoint-desktop-l-min,
+    'max': null,
+  ),
+) !default;
+
+//-------------------------------------------
+// HELPER FUNCTIONS
+//-------------------------------------------
+
+
+
+//-------------------------------------------
+// MEDIA QUERY MIXINS
+//-------------------------------------------
+
+/// Media query for minimum width (mobile-first)
+@mixin media-up($breakpoint) {
+  $min: breakpoint-min($breakpoint);
+  
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+/// Media query for maximum width
+@mixin media-down($breakpoint) {
+  $max: breakpoint-max($breakpoint);
+  
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' has no maximum value";
+  }
+}
+
+/// Media query for specific breakpoint range
+@mixin media-between($min-breakpoint, $max-breakpoint) {
+  $min: breakpoint-min($min-breakpoint);
+  $max: breakpoint-max($max-breakpoint);
+  
+  @if $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+}

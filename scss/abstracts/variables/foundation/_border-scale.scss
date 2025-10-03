@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use 'core' as *;
+@use 'sizing-scale' as sizing;
+
+/* ==========================================================================*/
+/*                        FOUNDATION: BORDER SCALE                           */
+/* ==========================================================================*/
+// Border width and style system for UI elements
+// Uses sizing-scale for fixed border dimensions (NOT spacing-scale)
+
+//-------------------------------------------
+// BORDER WIDTH SCALE
+//-------------------------------------------
+/// Fixed border widths matching OutSystems Size-Border scale
+/// Use for consistent stroke/border thickness across UI
+
+$border-width-scale: (
+  'none': 0,
+  'xs': sizing.$sizing-1,    // 1px - Subtle dividers, minimal borders
+  's': sizing.$sizing-2,     // 2px - Default borders, standard thickness
+  'm': sizing.$sizing-3,     // 3px - Emphasized borders, focus states
+  'l': sizing.$sizing-4,     // 4px - Heavy borders, strong emphasis
+) !default;
+
+//-------------------------------------------
+// BORDER WIDTH ALIASES
+//-------------------------------------------
+/// Semantic aliases for common border usage patterns
+
+$border-width-none: map.get($border-width-scale, 'none') !default;   // 0
+$border-width-xs: map.get($border-width-scale, 'xs') !default;       // 1px
+$border-width-s: map.get($border-width-scale, 's') !default;         // 2px
+$border-width-m: map.get($border-width-scale, 'm') !default;         // 3px
+$border-width-l: map.get($border-width-scale, 'l') !default;         // 4px
+
+// Default border width (most common)
+$border-width-base: $border-width-s !default;  // 2px
+
+//-------------------------------------------
+// BORDER STYLE OPTIONS
+//-------------------------------------------
+/// Standard CSS border style options
+
+$border-style-options: (
+  'none': none,
+  'solid': solid,
+  'dashed': dashed,
+  'dotted': dotted,
+  'double': double,
+  'groove': groove,
+  'ridge': ridge,
+  'inset': inset,
+  'outset': outset,
+  'hidden': hidden,
+) !default;
+
+//-------------------------------------------
+// BORDER CONTEXT PRESETS
+//-------------------------------------------
+/// Common border configurations for specific UI contexts
+
+$border-presets: (
+  // Dividers and separators
+  'divider': (
+    'width': $border-width-xs,
+    'style': solid,
+  ),
+  
+  // Default component borders
+  'default': (
+    'width': $border-width-s,
+    'style': solid,
+  ),
+  
+  // Interactive element borders (inputs, buttons)
+  'interactive': (
+    'width': $border-width-s,
+    'style': solid,
+  ),
+  
+  // Focus state borders
+  'focus': (
+    'width': $border-width-m,
+    'style': solid,
+  ),
+  
+  // Emphasized borders (alerts, callouts)
+  'emphasis': (
+    'width': $border-width-l,
+    'style': solid,
+  ),
+  
+  // Decorative borders
+  'decorative': (
+    'width': $border-width-xs,
+    'style': dashed,
+  ),
+) !default;

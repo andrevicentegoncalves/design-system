@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../../variables/foundation/radius-scale' as scale;
+
+// ============================================================================ //
+//                    FUNCTIONS: FOUNDATION - RADIUS SCALE                      //
+// ============================================================================ //
+
+/// Get radius value from scale
+/// @param {String} $size - Radius size key (2xs, xs, s, m, l, xl, 2xl, round)
+/// @return {Number} Radius value
+@function radius($size) {
+  $value: map.get($radius-scale, $size);
+  
+  @if not $value {
+    @error "Radius size '#{$size}' not found. Available: #{map.keys($radius-scale)}";
+  }
+  
+  @return $value;
+}
+
+/// Get component-specific radius
+/// @param {String} $component - Component name
+/// @return {Number} Component radius value
+@function radius-component($component) {
+  $value: map.get($radius-components, $component);
+  
+  @if not $value {
+    @error "Component radius '#{$component}' not found. Available: #{map.keys($radius-components)}";
+  }
+  
+  @return $value;
+}

@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use 'sass:math';
+
+// ============================================================================ //
+//                        FOUNDATION: OPACITY SCALE                             //
+// ============================================================================ //
+
+//-------------------------------------------
+// OPACITY SCALE - Percentage based
+//-------------------------------------------
+
+$opacity-scale: (
+  // Full transparency
+  0: 0,
+  
+  // Light opacities (subtle effects)
+  5: 0.05,      // 5% - barely visible
+  10: 0.10,     // 10% - very subtle
+  15: 0.15,     // 15% - subtle
+  20: 0.20,     // 20% - light
+  
+  // Medium opacities (overlays, disabled states)
+  25: 0.25,     // 25% - light medium
+  30: 0.30,     // 30% - medium light
+  40: 0.40,     // 40% - medium
+  50: 0.50,     // 50% - half
+  60: 0.60,     // 60% - prominent
+  
+  // Strong opacities (emphasis)
+  70: 0.70,     // 70% - strong
+  75: 0.75,     // 75% - very strong
+  80: 0.80,     // 80% - heavy
+  85: 0.85,     // 85% - heavier
+  90: 0.90,     // 90% - almost opaque
+  95: 0.95,     // 95% - barely transparent
+  
+  // Full opacity
+  100: 1,
+) !default;
+
+//-------------------------------------------
+// SEMANTIC OPACITY TOKENS
+//-------------------------------------------
+
+$opacity-semantic: (
+  'transparent': 0,
+  'invisible': 0,
+  
+  // Interaction states
+  'hover-light': 0.05,       // Subtle hover effect
+  'hover-medium': 0.08,      // Standard hover effect
+  'hover-strong': 0.12,      // Strong hover effect
+  'active': 0.15,            // Active/pressed state
+  'focus': 0.12,             // Focus state
+  
+  // Content states
+  'disabled': 0.40,          // Disabled content
+  'secondary': 0.70,         // Secondary text
+  'placeholder': 0.50,       // Placeholder text
+  
+  // Overlay states
+  'overlay-light': 0.40,     // Light overlay
+  'overlay-medium': 0.60,    // Medium overlay
+  'overlay-heavy': 0.80,     // Heavy overlay
+  'overlay-modal': 0.50,     // Modal backdrop
+  
+  // Loading states
+  'skeleton-base': 0.12,     // Skeleton background
+  'skeleton-shine': 0.20,    // Skeleton shimmer
+  
+  'opaque': 1,
+  'visible': 1,
+) !default;

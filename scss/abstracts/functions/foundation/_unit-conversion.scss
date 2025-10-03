@@ -1,0 +1,105 @@
+@use "sass:math";
+
+/* ==========================================================================*/
+/*                        FUNCTIONS: UNIT CONVERSION                         */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// BASE CONFIGURATION
+//-------------------------------------------
+
+/**
+ * Base font size for rem/em conversions
+ * Should match your root html font-size
+ */
+$font-size--base: 16px !default;
+
+
+//-------------------------------------------
+// STRIP UNIT FUNCTION
+//-------------------------------------------
+
+/**
+ * Remove units from a number for calculations
+ * 
+ * @param {Number} $value - Number with unit to strip
+ * @return {Number} - Unitless number
+ * 
+ * @example
+ *   strip-unit(16px)  => 16
+ *   strip-unit(2rem)  => 2
+ *   strip-unit(-10px) => -10
+ */
+@function strip-unit($value) {
+  @if type-of($value) != 'number' {
+    @error "strip-unit() expects a number, got #{type-of($value)}";
+  }
+  
+  @if math.is-unitless($value) {
+    @return $value;
+  }
+  
+  // Handle negative values by converting to positive first
+  $abs-value: if($value < 0, $value * -1, $value);
+  
+  // Divide by a value with same unit to cancel units
+  $unit: math.div($abs-value, ($abs-value * 0 + 1));
+  
+  // Return original sign
+  @return if($value < 0, $unit * -1, $unit);
+}
+
+
+//-------------------------------------------
+// PX TO REM CONVERSION
+//-------------------------------------------
+
+/**
+ * Convert pixels to rem units
+ * 
+ * @param {Number} $pixels - Pixel value (with or without unit)
+ * @return {Number} - Value in rem
+ * 
+ * @example
+ *   rem(16px)  => 1rem
+ *   rem(32)    => 2rem
+ *   rem(8px)   => 0.5rem
+ */
+@function rem($pixels) {
+  @if type-of($pixels) != 'number' {
+    @error "rem() expects a number, got #{type-of($pixels)}";
+  }
+  
+  $pixels: strip-unit($pixels);
+  @return math.div($pixels, strip-unit($font-size--base)) * 1rem;
+}
+
+
+//-------------------------------------------
+// PX TO EM CONVERSION
+//-------------------------------------------
+
+/**
+ * Convert pixels to em units with optional context
+ * 
+ * @param {Number} $pixels - Pixel value to convert
+ * @param {Number} $context - Context font-size (default: $font-size--base)
+ * @return {Number} - Value in em
+ * 
+ * @example
+ *   em(32px)        => 2em (relative to 16px base)
+ *   em(32px, 16px)  => 2em
+ *   em(16px, 32px)  => 0.5em (relative to 32px context)
+ */
+@function em($pixels, $context: $font-size--base) {
+  @if type-of($pixels) != 'number' {
+    @error "em() expects a number as first argument, got #{type-of($pixels)}";
+  }
+  
+  @if type-of($context) != 'number' {
+    @error "em() expects a number as context, got #{type-of($context)}";
+  }
+  
+  // Ensure both values are unitless before division
+  @return math.div(strip-unit($pixels), strip-unit($context)) * 1em;
+}

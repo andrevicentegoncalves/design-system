@@ -1,0 +1,111 @@
+@use 'sass:map';
+
+@use '../../abstracts/variables/colors/theme-mapping' as theme;
+
+@mixin generate-colors-tokens() {
+    
+    /* ========================================================================== */
+    /*                            DESIGN TOKENS: COLORS                           */
+    /* ========================================================================== */
+    
+    color-scheme: light dark;
+
+    // ==========================================================================
+    // MANUAL THEME OVERRIDE CLASSES 
+    // ==========================================================================
+    
+    // Force Light Theme
+    &[data-theme="light"] {
+        color-scheme: light;
+        
+        @each $token-name, $theme-map in theme.$theme-mappings {
+            $light-color: map.get($theme-map, 'light');
+            @if $light-color {
+                --color-#{$token-name}: #{$light-color};
+            }
+        }
+    }
+    
+    // Force Dark Theme
+    &[data-theme="dark"] {
+        color-scheme: dark;
+        
+        @each $token-name, $theme-map in theme.$theme-mappings {
+            $dark-color: map.get($theme-map, 'dark');
+            @if $dark-color {
+                --color-#{$token-name}: #{$dark-color};
+            }
+        }
+    }
+
+    // ==========================================================================
+    // DEFAULT THEME (Light) - No data-theme attribute
+    // ==========================================================================
+    
+    // Default to light theme when no data-theme is set
+    @each $token-name, $theme-map in theme.$theme-mappings {
+        $light-color: map.get($theme-map, 'light');
+        @if $light-color {
+            --color-#{$token-name}: #{$light-color};
+        }
+    }
+
+    // ==========================================================================
+    // DEFAULT THEME (Dark) - No data-theme attribute
+    // ==========================================================================
+    
+    // Automatically switch to dark mode based on browser preference
+    // Only when no manual data-theme is set
+    &:not([data-theme]) {
+        @media (prefers-color-scheme: dark) {
+            @each $token-name, $theme-map in theme.$theme-mappings {
+                $dark-color: map.get($theme-map, 'dark');
+                @if $dark-color {
+                    --color-#{$token-name}: #{$dark-color};
+                }
+            }
+        }
+    }
+
+    /* ========================================================================== */
+    /*                  DESIGN TOKENS: LEGACY COLORS - DEPRECATED                 */
+    /* ========================================================================== */
+    
+    --color-primary-light: #F1F9EC;
+    //--color-primary-hover: #72BE44;
+    //--color-primary-active: #72BE44;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-danger-light: #f7dddb;
+    --color-danger-extra-light: #ffecec;
+    --color-warning: #ffc107;
+    --color-warning-light: #FEFBCD;
+    --color-info: #17a2b8;
+    --color-info-light: #add8e6;
+    --color-info-extra-light: #e5f5fc;
+    --color-light: #f8f9fa;
+    --color-dark: #272b30;
+    //--color-footer: #333333;
+    --color-footer-section: #2C2C2C;
+
+    // ==========================================================================
+    // SMOOTH TRANSITIONS FOR THEME CHANGES
+    // ==========================================================================
+    
+    * {
+        transition: 
+            background-color 200ms ease,
+            border-color 200ms ease,
+            color 200ms ease,
+            fill 200ms ease,
+            stroke 200ms ease,
+            box-shadow 200ms ease;
+    }
+
+    // Respect user's motion preferences
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition-duration: 0.01ms !important;
+        }
+    }
+}

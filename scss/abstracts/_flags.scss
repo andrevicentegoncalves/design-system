@@ -1,0 +1,13 @@
+// ============================================================================= //
+//                                      FLAGS                                    //
+// ============================================================================= //
+
+$is_main: false !default;
+$is_pat: false !default;
+
+$primitives-options: (
+  'default': 'primitives',
+  'flygroups': 'primitives-flygroups',
+) !default;
+
+$primitives: 'default' !default;

@@ -1,0 +1,177 @@
+@use '../../abstracts/flags' as flags;
+
+@use '../variables' as *;
+
+@mixin generate-tokens-tokens() {
+
+/* ========================================================================== */
+/*                                DESIGN TOKENS                               */
+/* ========================================================================== */
+
+  /* Color Palette 
+  --color-primary: #72BE44;
+  --color-primary-light: #F1F9EC;
+  --color-primary-hover: #72BE44;
+  --color-primary-active: #72BE44;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-danger-light: #f7dddb;
+  --color-danger-extra-light: #ffecec;
+  --color-warning: #ffc107;
+  --color-warning-light: #FEFBCD;
+  --color-info: #17a2b8;
+  --color-info-light: #add8e6;
+  --color-info-extra-light: #e5f5fc;
+  --color-neutral-0: #ffffff;
+  --color-neutral-1: #f8f9fa;
+  --color-neutral-2: #f1f3f5;
+  --color-neutral-3: #e9ecef;
+  --color-neutral-4: #dee2e6;
+  --color-neutral-5: #ced4da;
+  --color-neutral-6: #adb5bd;
+  --color-neutral-7: #6a7178;
+  --color-neutral-8: #4f575e;
+  --color-neutral-9: #272b30;
+  --color-neutral-10: #101213;
+  --color-light: #f8f9fa;
+  --color-dark: #272b30;
+  --color-footer: #333333;
+  --color-footer-section: #2C2C2C;*/
+
+  /* Layout */
+  --layout-max-width: 90rem;            /* 1440px */
+  --layout-half-max-width: 45rem;       /* 720px */
+  --popup-max-width: 40.625rem;         /* 650px */
+
+  @if flags.$is_main {
+    /* Login (only for main) */
+    --login-form-width: 27rem;          /* 432px */
+    --login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+  }
+
+  /* Image */
+  --image-width-captcha: 17.875rem;     /* 286px */
+  --image-height-captcha: 2.5rem;       /* 40px */
+  --image-star-alliance: 16.875rem;     /* 270px */
+  --logo-max-width: 11.25rem;           /* 180px */
+
+  --image-width-xs: 9.5rem;             /* 152px */
+  --image-width-s: 12.6875rem;          /* 203px */
+  --image-width-sm: 15.625rem;          /* 250px */
+  --image-width-m: 21.125rem;           /* 338px */
+  --image-width-l: 29.625rem;           /* 474px */
+  --image-width-display: 48.625rem;     /* 778px */
+
+  --image-height-xs: 5.625rem;          /* 90px */
+  --image-height-s: 7.5rem;             /* 120px */
+  --image-height-m: 12.5rem;            /* 200px */
+  --image-height-l: 17.5rem;            /* 280px */
+  --image-height-display: 28.75rem;     /* 460px */
+
+  /* Icons */
+  --fa-base: 1.5em;
+
+  /* Typography */
+  --font-family-base: 'Arial', sans-serif;
+  --font-size-xxxs: 0.3125rem;          /* 5px */
+  --font-size-xxs: 0.625rem;            /* 10px */
+  --font-size-xs: 0.75rem;              /* 12px */
+  --font-size-s: 0.875rem;              /* 14px */
+  --font-size-base: 1rem;               /* 16px */
+  --font-size-m: 1.5rem;                /* 24px */
+  --font-size-l: 2rem;                  /* 32px */
+  --font-size-xl: 3rem;                 /* 48px */
+
+  --line-height-base: 1.5;
+
+  
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Icon font */
+  --icon-font-family: 'MegasisIconsFont';
+
+  /* Components */
+  --size-checkbox-s: 0.75rem;           /* 12px */
+
+  /* Border */
+  --border-size-none: 0px;
+  --border-size-xs: 0.5px;
+  --border-size-s: 1px;
+  --border-width-selected: 3px;
+  --border-width: 0.3px;
+  --border-style: solid;
+  --border-color: #72BE44;
+  --border-radius-soft: 4px;
+  --border-radius-extra-soft: 15px;
+
+  /* Breakpoints */
+  --breakpoint-phone: 480px;
+  --breakpoint-phone-horizontal: 767px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet-horizontal: 1024px;
+  --breakpoint-desktop: 1200px;
+
+  /* Grid */
+  --grid-columns: 12;
+  --grid-columns-standard: 4;
+  --grid-gap: 25px;
+  --grid-gutter-width: 30px;
+
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+
+  /* Transitions & Effects */
+  --transition-base: all 0.2s ease-in-out;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --truncate-width: 100%;
+
+  /* Spacing */
+  --space-none: 0;
+  --space-xs: 0.25rem;                  /* 4px */
+  --space-s: 0.5rem;                    /* 8px */
+  --space-sm: 0.625rem;                 /* 10px */
+  --space-base: 1rem;                   /* 16px */
+  --space-m: 1.5rem;                    /* 24px */
+  --space-ls: 1.75rem;                  /* 28px */
+  --space-l: 1.875rem;                  /* 30px */
+  --space-lm: 2.1875rem;                /* 35px */
+  --space-xl: 2.5rem;                   /* 40px */
+  --space-xxl: 3rem;                    /* 48px */
+  --space-xxxl: 6rem;                   /* 96px */
+
+  /* Dimensions */
+  --banner-height: 25rem;               /* 400px */
+  --banner-height-phone: 19.3125rem;    /* 309px */
+  --bottom-tab-width: 170px;
+  --bottom-tab-height: 60px;
+
+  /* Positioning */
+  --position-top-none: 0;
+  --position-right-none: 0;
+  --position-bottom-none: 0;
+  --position-left-none: 0;
+
+  /* Opacity */
+  --banner-overlay-opacity: 0.4;
+  --opacity-s: 40%;
+  --opacity-m: 60%;
+  --opacity-l: 80%;
+  --opacity-xl: 90%;
+  --opaque: 1;
+
+  /* Flip Card */
+  --flip-card-height: 15rem;            /* 240px */
+  --flip-card-expanded-height: 30rem;   /* 480px */
+  --flip-card-transition-time: 0.6s;
+}

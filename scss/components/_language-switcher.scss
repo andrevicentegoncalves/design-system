@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                       COMPONENTS: LANGUAGE SWITCHER                       */
+/* ==========================================================================*/
+
+.language-switcher-wrapper{
+    @media screen and (max-width: $breakpoint-phone) {
+        .submenu-custom__icon-wrapper{
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../variables/foundation/breakpoints-scale' as scale;
+
+// ============================================================================ //
+//                  FUNCTIONS: FOUNDATION - BREAKPOINTS SCALE                   //
+// ============================================================================ //
+
+@function breakpoint-min($name) {
+    $bp: map.get($breakpoints, $name);
+    @if not $bp {
+      @error "Breakpoint '#{$name}' not found. Available: #{map.keys($breakpoints)}";
+    }
+    @return map.get($bp, 'min');
+  }
+  
+  @function breakpoint-max($name) {
+    $bp: map.get($breakpoints, $name);
+    @if not $bp {
+      @error "Breakpoint '#{$name}' not found. Available: #{map.keys($breakpoints)}";
+    }
+    @return map.get($bp, 'max');
+  }
