@@ -5,18 +5,77 @@
 //                  FUNCTIONS: FOUNDATION - BREAKPOINTS SCALE                   //
 // ============================================================================ //
 
-@function breakpoint-min($name) {
-    $bp: map.get($breakpoints, $name);
-    @if not $bp {
-      @error "Breakpoint '#{$name}' not found. Available: #{map.keys($breakpoints)}";
-    }
-    @return map.get($bp, 'min');
+/// Get breakpoint value by key
+/// Supports multiple naming conventions (phone, mobile, xs, etc.)
+/// @param {String} $name - Breakpoint name
+/// @return {Number|null} - Breakpoint value or null
+/// @example
+///   $tablet: breakpoint-get('tablet'); // 601px
+///   $medium: breakpoint-get('m');      // 601px (same value)
+@function breakpoint-get($name) {
+  // Try primary breakpoints map first
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
   }
   
-  @function breakpoint-max($name) {
-    $bp: map.get($breakpoints, $name);
-    @if not $bp {
-      @error "Breakpoint '#{$name}' not found. Available: #{map.keys($breakpoints)}";
-    }
-    @return map.get($bp, 'max');
+  // Try semantic aliases
+  @if map.has-key($breakpoints-semantic, $name) {
+    @return map.get($breakpoints-semantic, $name);
   }
+  
+  // Try standard sizing
+  @if map.has-key($breakpoints-standard, $name) {
+    @return map.get($breakpoints-standard, $name);
+  }
+  
+  @warn "Breakpoint '#{$name}' not found in any breakpoint map";
+  @return null;
+}
+
+/// Get max-width value for a breakpoint
+/// Returns the maximum width before the next breakpoint kicks in
+/// @param {String} $name - Breakpoint name
+/// @return {Number|null} - Max-width value or null
+/// @example
+///   $max: breakpoint-max('phone'); // 600px
+@function breakpoint-max($name) {
+  // Check if max exists in range map
+  @if map.has-key($breakpoint-ranges, $name) {
+    $range: map.get($breakpoint-ranges, $name);
+    @return map.get($range, 'max');
+  }
+  
+  @return null;
+}
+
+/// Get complete breakpoint range information
+/// @param {String} $name - Breakpoint name
+/// @param {String} $property - Specific property (optional)
+/// @return {Map|*} - Range map or specific property value
+/// @example
+///   $range: breakpoint-range('tablet');
+///   $cols: breakpoint-range('tablet', 'columns'); // 8
+@function breakpoint-range($name, $property: null) {
+  @if map.has-key($breakpoint-ranges, $name) {
+    $range: map.get($breakpoint-ranges, $name);
+    
+    @if $property {
+      @return map.get($range, $property);
+    }
+    
+    @return $range;
+  }
+  
+  @warn "Breakpoint range '#{$name}' not found";
+  @return null;
+}
+
+/// Check if a breakpoint exists
+/// @param {String} $name - Breakpoint name
+/// @return {Boolean}
+
+@function breakpoint-exists($name) {
+  @return map.has-key($breakpoints, $name) or 
+          map.has-key($breakpoints-semantic, $name) or
+          map.has-key($breakpoints-standard, $name);
+}

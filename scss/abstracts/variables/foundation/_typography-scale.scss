@@ -5,13 +5,10 @@
 /* ==========================================================================*/
 /*                       FOUNDATION: TYPOGRAPHY SCALE                        */
 /* ==========================================================================*/
-// Typography system matching OutSystems UI specifications
-// Responsive typography with desktop and phone breakpoints
 
 //-------------------------------------------
 // FONT SIZE SCALES - Desktop & Phone
 //-------------------------------------------
-/// Exact pixel values from OutSystems style guide
 
 $font-size-desktop: (
   // Headline sizes (Desktop)
@@ -41,7 +38,6 @@ $font-size-phone: (
 //-------------------------------------------
 // LINE HEIGHT SCALE
 //-------------------------------------------
-/// Line height values (percentage-based, converted to unitless)
 
 $line-height-scale: (
   'none': 1,       // 100% - Headlines
@@ -54,7 +50,6 @@ $line-height-scale: (
 //-------------------------------------------
 // LETTER SPACING SCALE
 //-------------------------------------------
-/// Letter spacing (tracking) values in pixels
 
 $letter-spacing-scale: (
   'tighter': -0.25rem,  // -4px (Headlines)
@@ -67,7 +62,6 @@ $letter-spacing-scale: (
 //-------------------------------------------
 // FONT WEIGHT SCALE
 //-------------------------------------------
-/// Standard font weight values
 
 $font-weight-scale: (
   'light': 300,
@@ -80,8 +74,6 @@ $font-weight-scale: (
 //-------------------------------------------
 // TYPOGRAPHY TOKENS - Headline
 //-------------------------------------------
-/// Large display text for page titles, hero sections
-/// Desktop and Phone variants with responsive sizing
 
 $typography-headline: (
   '3xl': (
@@ -159,10 +151,9 @@ $typography-headline: (
 ) !default;
 
 //-------------------------------------------
-// PLACEHOLDER - Other Typography Categories
+// TYPOGRAPHY TOKENS - title
 //-------------------------------------------
-/// TODO: Add Title, Body, Action, Label, Eyebrow, Price
-/// These will follow the same pattern with their specific sizes
+
 
 $typography-title: (
   '3xl': (
@@ -239,6 +230,10 @@ $typography-title: (
   ),
 ) !default;
 
+//-------------------------------------------
+// TYPOGRAPHY TOKENS - Body
+//-------------------------------------------
+
 $typography-body: (
   'xl': (
     'size-desktop': 20px,
@@ -290,6 +285,10 @@ $typography-body: (
   ),
 ) !default;
 
+//-------------------------------------------
+// TYPOGRAPHY TOKENS - action
+//-------------------------------------------
+
 $typography-action: (
   'button-l': (
     'size-desktop': 16px,
@@ -328,6 +327,10 @@ $typography-action: (
   ),
 ) !default;
 
+//-------------------------------------------
+// TYPOGRAPHY TOKENS - label
+//-------------------------------------------
+
 $typography-label: (
   'm': (
     'size-desktop': 16px,
@@ -344,6 +347,10 @@ $typography-label: (
     'weight-medium': map.get($font-weight-scale, 'medium'),
   ),
 ) !default;
+
+//-------------------------------------------
+// TYPOGRAPHY TOKENS - eyebrow
+//-------------------------------------------
 
 $typography-eyebrow: (
   'l': (
@@ -371,6 +378,10 @@ $typography-eyebrow: (
     'weight-bold': map.get($font-weight-scale, 'bold'),
   ),
 ) !default;
+
+//-------------------------------------------
+// TYPOGRAPHY TOKENS - price
+//-------------------------------------------
 
 $typography-price: (
   'xl': (

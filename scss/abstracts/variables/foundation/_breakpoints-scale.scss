@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use '../../functions/foundation/unit-conversion' as units;
 @use 'core' as *;
 
 /* ==========================================================================*/
@@ -9,58 +8,72 @@
 /// Phone breakpoint (min-width)
 /// Covers: 320px - 600px
 /// @type Number
-$breakpoint-phone: units.rem(320px) !default;  // 20rem
+$breakpoint-phone: 320px !default;
 
 /// Tablet breakpoint (min-width)
 /// Covers: 601px - 1024px
 /// @type Number
-$breakpoint-tablet: units.rem(601px) !default;  // 37.5625rem
+$breakpoint-tablet: 601px !default;
 
-/// Desktop S breakpoint (min-width)
+/// Laptop breakpoint (min-width)
 /// Covers: 1025px - 1440px
 /// @type Number
-$breakpoint-desktop-s: units.rem(1025px) !default;  // 64.0625rem
+$breakpoint-laptop: 1025px !default;
 
-/// Desktop L breakpoint (min-width)
-/// Covers: 1441px+
+/// Desktop breakpoint (min-width, fixed layout)
+/// Covers: 1441px - 1919px
 /// @type Number
-$breakpoint-desktop-l: units.rem(1441px) !default;  // 90.0625rem
+$breakpoint-desktop: 1441px !default;
+
+/// Desktop XL breakpoint (min-width, fluid layout for ultra-wide)
+/// Covers: 1920px+
+/// @type Number
+$breakpoint-desktop-xl: 1920px !default;
+
+//-------------------------------------------
+// STANDARD NAMING ALIASES
+//-------------------------------------------
+
+$breakpoint-xs: $breakpoint-phone !default;
+$breakpoint-s: $breakpoint-phone !default;
+$breakpoint-m: $breakpoint-tablet !default;
+$breakpoint-l: $breakpoint-laptop !default;
+$breakpoint-xl: $breakpoint-desktop !default;
+$breakpoint-2xl: $breakpoint-desktop-xl !default;
 
 //-------------------------------------------
 // MAXIMUM BREAKPOINT VALUES
 //-------------------------------------------
-// Used for max-width queries (less common in mobile-first)
-// Calculated as (next breakpoint - 0.02px) to avoid overlap
 
-$breakpoint-phone-max: units.rem(600px) !default;      // 37.5rem
-$breakpoint-tablet-max: units.rem(1024px) !default;    // 64rem
-$breakpoint-desktop-s-max: units.rem(1440px) !default; // 90rem
-// Desktop L has no max (infinite)
+$breakpoint-phone-max: 600px !default;
+$breakpoint-tablet-max: 1024px !default;
+$breakpoint-laptop-max: 1440px !default;
+$breakpoint-desktop-max: 1919px !default;
+// Desktop XL has no max (infinite)
 
 //-------------------------------------------
 // BREAKPOINT MAP (Primary Reference)
 //-------------------------------------------
-// Simple mobile-first structure
-// Most queries will use min-width from this map
 
 $breakpoints: (
-  'phone': $breakpoint-phone,           // 20rem (320px)
-  'tablet': $breakpoint-tablet,         // 37.5625rem (601px)
-  'desktop-s': $breakpoint-desktop-s,   // 64.0625rem (1025px)
-  'desktop-l': $breakpoint-desktop-l,   // 90.0625rem (1441px)
+  'phone': $breakpoint-phone,           
+  'tablet': $breakpoint-tablet,        
+  'laptop': $breakpoint-laptop,         
+  'desktop': $breakpoint-desktop,       
+  'desktop-xl': $breakpoint-desktop-xl, 
 ) !default;
 
 //-------------------------------------------
 // SEMANTIC ALIASES MAP
 //-------------------------------------------
-// Descriptive names for better code readability
 
 $breakpoints-semantic: (
   'mobile': $breakpoint-phone,
   'phone': $breakpoint-phone,
   'tablet': $breakpoint-tablet,
-  'laptop': $breakpoint-desktop-s,
-  'desktop': $breakpoint-desktop-l,
+  'laptop': $breakpoint-laptop,
+  'desktop': $breakpoint-desktop,
+  'desktop-xl': $breakpoint-desktop-xl,
 ) !default;
 
 //-------------------------------------------
@@ -69,18 +82,17 @@ $breakpoints-semantic: (
 // For teams that prefer xs/s/m/l/xl naming
 
 $breakpoints-standard: (
-  'xs': $breakpoint-phone,        // 20rem (320px)
-  's': $breakpoint-phone,         // 20rem (320px)
-  'm': $breakpoint-tablet,        // 37.5625rem (601px)
-  'l': $breakpoint-desktop-s,     // 64.0625rem (1025px)
-  'xl': $breakpoint-desktop-l,    // 90.0625rem (1441px)
+  'xs': $breakpoint-phone,        // 320px
+  's': $breakpoint-phone,         // 320px
+  'm': $breakpoint-tablet,        // 601px
+  'l': $breakpoint-laptop,        // 1025px
+  'xl': $breakpoint-desktop,      // 1441px
+  '2xl': $breakpoint-desktop-xl,  // 1920px
 ) !default;
 
 //-------------------------------------------
 // BREAKPOINT RANGE MAP (Complete Specification)
 //-------------------------------------------
-// Full min/max ranges for each breakpoint
-// Useful for documentation and "only" queries
 
 $breakpoint-ranges: (
   'phone': (
@@ -99,32 +111,42 @@ $breakpoint-ranges: (
     'margin': 24px,
     'type': 'fluid',
   ),
-  'desktop-s': (
-    'min': $breakpoint-desktop-s,       // 1025px
-    'max': $breakpoint-desktop-s-max,   // 1440px
+  'laptop': (
+    'min': $breakpoint-laptop,          // 1025px
+    'max': $breakpoint-laptop-max,      // 1440px
     'columns': 12,
     'gutter': 24px,
     'margin': 24px,
     'type': 'fluid',
   ),
-  'desktop-l': (
-    'min': $breakpoint-desktop-l,       // 1441px
-    'max': null,                        // No max (infinite)
+  'desktop': (
+    'min': $breakpoint-desktop,         // 1441px
+    'max': $breakpoint-desktop-max,     // 1919px
     'columns': 12,
     'gutter': 24px,
     'margin': 0,
     'type': 'fixed',
+  ),
+  'desktop-xl': (
+    'min': $breakpoint-desktop-xl,      // 1920px
+    'max': null,                        // No max (infinite)
+    'columns': 12,
+    'gutter': 32px,
+    'margin': 32px,
+    'type': 'fluid',
   ),
 ) !default;
 
 //-------------------------------------------
 // CONTAINER QUERY BREAKPOINTS
 //-------------------------------------------
+// For container queries (component-level responsiveness)
+// These are independent of viewport breakpoints
 
 $container-breakpoints: (
-  'xs': units.rem(320px),     
-  'sm': units.rem(480px),    
-  'md': units.rem(640px),     
-  'lg': units.rem(768px),     
-  'xl': units.rem(1024px),   
+  'xs': 320px,
+  'sm': 480px,
+  'md': 640px,
+  'lg': 768px,
+  'xl': 1024px,
 ) !default;

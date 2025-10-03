@@ -4,3 +4,47 @@
 // ============================================================================ //
 //                      FUNCTIONS: FOUNDATION - GRID SCALE                      //
 // ============================================================================ //
+
+/// Get grid property for a specific breakpoint
+/// @param {String} $breakpoint - Breakpoint name (phone, tablet, laptop, desktop, desktop-xl)
+/// @param {String} $property - Property name (columns, gutter, margin, type, max-width, breakpoint)
+/// @return {*} - Property value or null if not found
+/// @example
+///   $gutter: grid-get('tablet', 'gutter'); // Returns 1rem (16px)
+///   $cols: grid-get('laptop', 'columns');  // Returns 12
+@function grid-get($breakpoint, $property) {
+    $config: map.get($grid-config, $breakpoint);
+    
+    @if $config {
+      @return map.get($config, $property);
+    }
+    
+    @warn "Grid breakpoint '#{$breakpoint}' not found in $grid-config";
+    @return null;
+  }
+  
+  /// Calculate column width as percentage
+  /// @param {Number} $columns - Number of columns to span
+  /// @param {String} $breakpoint - Breakpoint context
+  /// @return {String} - Percentage width with calc() for gutters
+  /// @example
+  ///   width: grid-span(6, 'tablet'); // Spans 6 of 8 columns
+  @function grid-span($columns, $breakpoint: 'laptop') {
+    $total-columns: grid-get($breakpoint, 'columns');
+    $gutter: grid-get($breakpoint, 'gutter');
+    
+    @if $total-columns {
+      $percentage: percentage(calc($columns / $total-columns));
+      @return calc(#{$percentage} - #{$gutter});
+    }
+    
+    @return 100%;
+  }
+  
+  /// Check if grid breakpoint exists
+  /// @param {String} $breakpoint - Breakpoint name
+  /// @return {Boolean}
+  
+  @function grid-exists($breakpoint) {
+    @return map.has-key($grid-config, $breakpoint);
+  }

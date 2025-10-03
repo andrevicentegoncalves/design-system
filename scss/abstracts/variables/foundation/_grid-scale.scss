@@ -1,93 +1,98 @@
 @use 'sass:map';
-@use 'core' as *;
+@use 'spacing-scale' as spacing;
+@use 'breakpoints-scale' as bp;
 
 /* ==========================================================================*/
-/*                       FOUNDATION: BREAKPOINTS                             */
+/*                    VARIABLES: FOUNDATION - GRID SCALE                     */
 /* ==========================================================================*/
-// Viewport breakpoint system matching OutSystems UI specifications
 
 //-------------------------------------------
-// BREAKPOINT VALUES (Overridable Tokens)
+// GRID CONFIGURATION - References Spacing Scale
 //-------------------------------------------
 
-$breakpoint-phone-min: 320px !default;
-$breakpoint-phone-max: 600px !default;
+// Phone grid (4 columns, mobile-first)
+$grid-phone-columns: 4 !default;
+$grid-phone-gutter: spacing.$spacing-4 !default;          // 1rem (16px)
+$grid-phone-margin: spacing.$spacing-4 !default;          // 1rem (16px)
+$grid-phone-type: 'fluid' !default;
 
-$breakpoint-tablet-min: 601px !default;
-$breakpoint-tablet-max: 1024px !default;
+// Tablet grid (8 columns, medium screens)
+$grid-tablet-columns: 8 !default;
+$grid-tablet-gutter: spacing.$spacing-4 !default;         // 1rem (16px)
+$grid-tablet-margin: spacing.$spacing-6 !default;         // 1.5rem (24px)
+$grid-tablet-type: 'fluid' !default;
 
-$breakpoint-desktop-s-min: 1025px !default;
-$breakpoint-desktop-s-max: 1440px !default;
+// Laptop grid (12 columns, standard laptops)
+$grid-laptop-columns: 12 !default;
+$grid-laptop-gutter: spacing.$spacing-6 !default;         // 1.5rem (24px)
+$grid-laptop-margin: spacing.$spacing-6 !default;         // 1.5rem (24px)
+$grid-laptop-type: 'fluid' !default;
 
-$breakpoint-desktop-l-min: 1441px !default;
+// Desktop grid (12 columns, fixed width desktops)
+$grid-desktop-columns: 12 !default;
+$grid-desktop-gutter: spacing.$spacing-6 !default;        // 1.5rem (24px)
+$grid-desktop-margin: spacing.$spacing-0 !default;        // 0 (full-bleed for fixed container)
+$grid-desktop-type: 'fixed' !default;
+
+// Desktop XL grid (12 columns, ultra-wide fluid)
+$grid-desktop-xl-columns: 12 !default;
+$grid-desktop-xl-gutter: spacing.$spacing-8 !default;     // 2rem (32px)
+$grid-desktop-xl-margin: spacing.$spacing-8 !default;     // 2rem (32px)
+$grid-desktop-xl-type: 'fluid' !default;
 
 //-------------------------------------------
-// BREAKPOINT MAP
+// GRID MAX-WIDTH - Content Constraints
 //-------------------------------------------
 
-$breakpoints: (
+$grid-max-width-phone: 100% !default;              // Full width on mobile
+$grid-max-width-tablet: 100% !default;             // Full width on tablet
+$grid-max-width-laptop: 100% !default;             // Full width, constrained by margins
+$grid-max-width-desktop: 1280px !default;          // Fixed max width for desktop
+$grid-max-width-desktop-xl: 100% !default;         // Fluid on ultra-wide
+
+//-------------------------------------------
+// GRID MAP - Complete Specifications
+//-------------------------------------------
+
+$grid-config: (
   'phone': (
-    'min': $breakpoint-phone-min,
-    'max': $breakpoint-phone-max,
+    'columns': $grid-phone-columns,
+    'gutter': $grid-phone-gutter,
+    'margin': $grid-phone-margin,
+    'type': $grid-phone-type,
+    'max-width': $grid-max-width-phone,
+    'breakpoint': bp.$breakpoint-phone,
   ),
   'tablet': (
-    'min': $breakpoint-tablet-min,
-    'max': $breakpoint-tablet-max,
+    'columns': $grid-tablet-columns,
+    'gutter': $grid-tablet-gutter,
+    'margin': $grid-tablet-margin,
+    'type': $grid-tablet-type,
+    'max-width': $grid-max-width-tablet,
+    'breakpoint': bp.$breakpoint-tablet,
   ),
-  'desktop-s': (
-    'min': $breakpoint-desktop-s-min,
-    'max': $breakpoint-desktop-s-max,
+  'laptop': (
+    'columns': $grid-laptop-columns,
+    'gutter': $grid-laptop-gutter,
+    'margin': $grid-laptop-margin,
+    'type': $grid-laptop-type,
+    'max-width': $grid-max-width-laptop,
+    'breakpoint': bp.$breakpoint-laptop,
   ),
-  'desktop-l': (
-    'min': $breakpoint-desktop-l-min,
-    'max': null,
+  'desktop': (
+    'columns': $grid-desktop-columns,
+    'gutter': $grid-desktop-gutter,
+    'margin': $grid-desktop-margin,
+    'type': $grid-desktop-type,
+    'max-width': $grid-max-width-desktop,
+    'breakpoint': bp.$breakpoint-desktop,
+  ),
+  'desktop-xl': (
+    'columns': $grid-desktop-xl-columns,
+    'gutter': $grid-desktop-xl-gutter,
+    'margin': $grid-desktop-xl-margin,
+    'type': $grid-desktop-xl-type,
+    'max-width': $grid-max-width-desktop-xl,
+    'breakpoint': bp.$breakpoint-desktop-xl,
   ),
 ) !default;
-
-//-------------------------------------------
-// HELPER FUNCTIONS
-//-------------------------------------------
-
-
-
-//-------------------------------------------
-// MEDIA QUERY MIXINS
-//-------------------------------------------
-
-/// Media query for minimum width (mobile-first)
-@mixin media-up($breakpoint) {
-  $min: breakpoint-min($breakpoint);
-  
-  @media (min-width: $min) {
-    @content;
-  }
-}
-
-/// Media query for maximum width
-@mixin media-down($breakpoint) {
-  $max: breakpoint-max($breakpoint);
-  
-  @if $max {
-    @media (max-width: $max) {
-      @content;
-    }
-  } @else {
-    @error "Breakpoint '#{$breakpoint}' has no maximum value";
-  }
-}
-
-/// Media query for specific breakpoint range
-@mixin media-between($min-breakpoint, $max-breakpoint) {
-  $min: breakpoint-min($min-breakpoint);
-  $max: breakpoint-max($max-breakpoint);
-  
-  @if $max {
-    @media (min-width: $min) and (max-width: $max) {
-      @content;
-    }
-  } @else {
-    @media (min-width: $min) {
-      @content;
-    }
-  }
-}
