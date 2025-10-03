@@ -1,0 +1,77 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'core' as *;
+
+/* ==========================================================================*/
+/*                      FOUNDATION: ASPECT RATIO SCALE                       */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// ASPECT RATIO SCALE
+//-------------------------------------------
+
+$aspect-ratio-scale: (
+  // Standard ratios
+  'square': math.div(1, 1),              // 1:1 - Square content, profile images
+  'landscape': math.div(4, 3),           // 4:3 - Traditional photos, presentations
+  'widescreen': math.div(16, 9),         // 16:9 - Video, hero banners
+  'ultrawide': math.div(21, 9),          // 21:9 - Cinematic content
+  'portrait': math.div(3, 4),            // 3:4 - Vertical mobile content
+  'photo': math.div(3, 2),               // 3:2 - Traditional photography
+  
+  // Social media
+  'video': math.div(16, 9),              // Standard video
+  'story': math.div(9, 16),              // Instagram/Facebook Stories
+  'twitter-card': math.div(2, 1),        // Twitter card
+  'facebook-cover': math.div(205, 78),   // Facebook cover
+  
+  // Design ratios
+  'golden': math.div(1.618, 1),          // Golden ratio
+  'silver': math.div(1.414, 1),          // Silver ratio (√2)
+  
+  // Cinema
+  'cinema': math.div(2.39, 1),           // Anamorphic widescreen
+  'imax': math.div(1.43, 1),             // IMAX format
+  
+  // Special
+  'auto': auto,                          // Automatic (intrinsic)
+) !default;
+
+//-------------------------------------------
+// ASPECT RATIO ALIASES
+//-------------------------------------------
+
+$aspect-ratio-square: map.get($aspect-ratio-scale, 'square') !default;
+$aspect-ratio-landscape: map.get($aspect-ratio-scale, 'landscape') !default;
+$aspect-ratio-widescreen: map.get($aspect-ratio-scale, 'widescreen') !default;
+$aspect-ratio-portrait: map.get($aspect-ratio-scale, 'portrait') !default;
+$aspect-ratio-video: map.get($aspect-ratio-scale, 'video') !default;
+$aspect-ratio-story: map.get($aspect-ratio-scale, 'story') !default;
+$aspect-ratio-golden: map.get($aspect-ratio-scale, 'golden') !default;
+
+// Default aspect ratio
+$aspect-ratio-base: $aspect-ratio-widescreen !default;
+
+//-------------------------------------------
+// COMPONENT-SPECIFIC ASPECT RATIOS
+//-------------------------------------------
+
+$aspect-ratio-components: (
+  // Media
+  'hero-banner': $aspect-ratio-widescreen,    // 16:9
+  'card-image': $aspect-ratio-landscape,      // 4:3
+  'thumbnail': $aspect-ratio-square,          // 1:1
+  'video-player': $aspect-ratio-video,        // 16:9
+  
+  // Product/E-commerce
+  'product-image': $aspect-ratio-square,      // 1:1
+  'product-detail': $aspect-ratio-portrait,   // 3:4
+  
+  // Social
+  'social-post': $aspect-ratio-square,        // 1:1
+  'social-story': $aspect-ratio-story,        // 9:16
+  
+  // UI Elements
+  'avatar': $aspect-ratio-square,             // 1:1
+  'logo': $aspect-ratio-landscape,            // 4:3
+) !default;

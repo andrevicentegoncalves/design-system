@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use '../../functions/foundation/unit-conversion' as units;
+@use 'sizing-scale' as sizing;
+
+/* ==========================================================================*/
+/*                         FOUNDATION: FOCUS SCALE                           */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// FOCUS RING CONFIGURATION
+//-------------------------------------------
+
+$focus-ring-config: (
+  // Ring dimensions
+  'width': sizing.$sizing-2,              // 2px - Standard focus ring
+  'width-bold': sizing.$sizing-3,         // 3px - Bold focus ring
+  'offset': sizing.$sizing-2,             // 2px - Space between element and ring
+  'offset-small': sizing.$sizing-1,       // 1px - Tight offset for small elements
+  
+  // Ring style
+  'style': solid,
+  'radius': inherit,                      // Use element's border-radius
+  
+  // Animation
+  'transition-duration': 150ms,
+  'transition-easing': ease-out,
+) !default;
+
+//-------------------------------------------
+// FOCUS INDICATORS (for custom focus states)
+//-------------------------------------------
+
+$focus-indicators: (
+  // Line indicators (underlines, borders)
+  'line': (
+    'width': sizing.$sizing-2,
+    'style': solid,
+  ),
+  'line-bold': (
+    'width': sizing.$sizing-3,
+    'style': solid,
+  ),
+  
+  // Glow/shadow indicators
+  'glow': (
+    'spread': sizing.$sizing-4,           // 4px
+    'blur': sizing.$sizing-8,             // 8px
+    'opacity': 0.5,
+  ),
+  'glow-subtle': (
+    'spread': sizing.$sizing-2,           // 2px
+    'blur': sizing.$sizing-6,             // 6px
+    'opacity': 0.3,
+  ),
+) !default;
+
+//-------------------------------------------
+// HIGH CONTRAST MODE
+//-------------------------------------------
+
+$high-contrast-config: (
+  // Border/outline widths for high contrast
+  'border-width': sizing.$sizing-3,       // 3px
+  'outline-width': sizing.$sizing-2,      // 2px
+  'outline-offset': sizing.$sizing-2,     // 2px
+  
+  // Minimum contrast ratios (WCAG)
+  'contrast-ratio-normal': 4.5,           // WCAG AA (normal text)
+  'contrast-ratio-large': 3,              // WCAG AA (large text)
+  'contrast-ratio-enhanced': 7,           // WCAG AAA
+) !default;
+
+//-------------------------------------------
+// FOCUS PRESETS FOR COMPONENTS
+//-------------------------------------------
+
+$focus-component-presets: (
+  // Buttons
+  'button': (
+    'width': map.get($focus-ring-config, 'width'),
+    'offset': map.get($focus-ring-config, 'offset'),
+    'style': solid,
+  ),
+  
+  // Form inputs
+  'input': (
+    'width': map.get($focus-ring-config, 'width-bold'),
+    'offset': 0,
+    'style': solid,
+  ),
+  
+  // Links
+  'link': (
+    'width': sizing.$sizing-2,
+    'offset': sizing.$sizing-1,
+    'style': solid,
+  ),
+  
+  // Cards/interactive surfaces
+  'card': (
+    'width': map.get($focus-ring-config, 'width'),
+    'offset': map.get($focus-ring-config, 'offset'),
+    'style': solid,
+  ),
+) !default;

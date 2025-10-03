@@ -2,5 +2,6 @@
 //                          VARIABLES: PRIMITIVES INDEX                         //
 // ============================================================================ //
 
-@forward 'primitives' as primitives-*;
-@forward 'primitives-flygroups' as primitives-flygroups-*;
+@forward 'base' as base-*;
+@forward 'default' as default-*;
+@forward 'flygroups' as flygroups-*;

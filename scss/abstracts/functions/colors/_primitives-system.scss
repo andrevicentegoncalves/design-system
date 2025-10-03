@@ -4,6 +4,7 @@
 
 @use 'sass:map';
 @use '../../flags' as flags;
+@use '../colors/factory' as factory;
 
 // Import the forwarded primitives with correct prefixes
 @use '../../variables/colors/primitives' as primitives;
@@ -12,63 +13,20 @@
 // CORE PRIMITIVE FUNCTION
 // =============================================================================
 
-/// Get a primitive color using flag-based selection
-/// @param {String} $family - Color family name (primary, success, neutral, etc.)
-/// @param {Number} $weight - Color weight (0-950)
-/// @return {Color} The HSL primitive color value
 @function get-color($family, $weight: 500) {
-  // Get the active primitives name based on flag
-  $primitives-name: map.get(flags.$primitives-options, flags.$primitives);
-  
-  // Select the right configuration based on flag
   $color-config: null;
   $base-lightness: null;
   $custom-lightness: null;
   
-  @if $primitives-name == 'primitives' {
-    // Use default primitives
-    $color-config: primitives.$primitives-color-config;
-    $base-lightness: primitives.$primitives-base-lightness;
-    $custom-lightness: primitives.$primitives-custom-lightness;
-  } @else if $primitives-name == 'primitives-flygroups' {
-    // Use flygroups primitives
-    $color-config: primitives.$primitives-flygroups-color-config;
-    $base-lightness: primitives.$primitives-flygroups-base-lightness;
-    $custom-lightness: primitives.$primitives-flygroups-custom-lightness;
+  @if flags.$primitives == 'flygroups' {
+    $color-config: primitives.$flygroups-color-config;
+    $base-lightness: primitives.$base-base-lightness;
+    $custom-lightness: primitives.$flygroups-custom-lightness;
   } @else {
-    @error "Unknown primitives configuration: #{$primitives-name}. Available: #{map.values(flags.$primitives-options)}";
+    $color-config: primitives.$default-color-config;
+    $base-lightness: primitives.$base-base-lightness;
+    $custom-lightness: primitives.$default-custom-lightness;
   }
   
-  // Validate family exists
-  @if not map.has-key($color-config, $family) {
-    @error "Color family '#{$family}' not found. Available families: #{map.keys($color-config)}";
-  }
-  
-  // Get family configuration
-  $config: map.get($color-config, $family);
-  $hue: map.get($config, hue);
-  $saturation: map.get($config, saturation);
-  
-  // Get the specific lightness for this weight
-  $lightness: null;
-  
-  // Check custom overrides first
-  @if map.has-key($custom-lightness, $family) {
-    $family-overrides: map.get($custom-lightness, $family);
-    @if map.has-key($family-overrides, $weight) {
-      $lightness: map.get($family-overrides, $weight);
-    }
-  }
-  
-  // Fall back to base lightness if no custom override
-  @if $lightness == null {
-    @if map.has-key($base-lightness, $weight) {
-      $lightness: map.get($base-lightness, $weight);
-    } @else {
-      @error "Weight '#{$weight}' not found for family '#{$family}'. Available weights: #{map.keys($base-lightness)}";
-    }
-  }
-  
-  // Generate and return the primitive color
-  @return hsl($hue, $saturation, $lightness);
+  @return factory.create-color($color-config, $custom-lightness, $base-lightness, $family, $weight);
 }

@@ -1,0 +1,30 @@
+@use '../../../functions/colors/primitives-system' as primitives;
+@use 'neutral' as neutral;
+@use 'brand' as brand;
+@use 'feedback' as feedback;
+
+// ============================================================================= //
+//                      VARIABLES: COLOR SEMANTICS - BORDER                      //
+// ============================================================================= //
+
+$color-border-default: neutral.$color-neutral-200 !default;
+$color-border-subtle: neutral.$color-neutral-100 !default;
+$color-border-strong: neutral.$color-neutral-400 !default;
+
+$color-border-default-dark: neutral.$color-neutral-600 !default;
+$color-border-subtle-dark: neutral.$color-neutral-700 !default;
+$color-border-strong-dark: neutral.$color-neutral-500 !default;
+
+$color-border-primary-electric: brand.$color-brand-primary-electric !default;
+$color-border-primary: brand.$color-brand-primary !default;
+$color-border-secondary: brand.$color-brand-secondary !default;
+$color-border-tertiary: brand.$color-brand-tertiary !default;
+
+$color-border-hover: neutral.$color-neutral-300 !default;
+$color-border-pressed: neutral.$color-neutral-350 !default;
+$color-border-focus: primitives.get-color('info', 500) !default;
+$color-border-error: feedback.$color-feedback-danger !default;
+$color-border-success: feedback.$color-feedback-success !default;
+
+$color-border-hover-dark: neutral.$color-neutral-550 !default;
+$color-border-pressed-dark: neutral.$color-neutral-525 !default;

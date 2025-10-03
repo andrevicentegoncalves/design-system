@@ -1,0 +1,68 @@
+@use 'sass:map';
+
+// ============================================================================
+// PRIMITIVES: DEFAULT BRAND
+// ============================================================================
+
+$color-config: (
+  'primary-electric': (hue: 89, saturation: 96%),
+  'primary': (hue: 97, saturation: 48%),
+  'secondary': (hue: 69, saturation: 68%),
+  'tertiary': (hue: 130, saturation: 46%),
+  'success': (hue: 134, saturation: 61%),
+  'warning': (hue: 45, saturation: 100%),
+  'info': (hue: 189, saturation: 77%),
+  'danger': (hue: 354, saturation: 70%),
+  'accent': (hue: 189, saturation: 77%),
+  'neutral': (hue: 210, saturation: 14%),
+  'tier-miles': (hue: 96, saturation: 71%),
+  'tier-gold': (hue: 43, saturation: 30%),
+  'tier-silver': (hue: 240, saturation: 2%),
+  'tier-navigator': (hue: 20, saturation: 4%)
+) !default;
+
+$neutral-scale: (
+  0: 100%,
+  25: 99.5%,
+  50: 99%,
+  75: 98.5%,
+  100: 98%,
+  125: 97.25%,
+  150: 96.5%,
+  175: 95.75%,
+  200: 95%,
+  225: 94.25%,
+  250: 93.5%,
+  275: 92.75%,
+  300: 92%,
+  325: 91.25%,
+  350: 90.5%,
+  375: 89.75%,
+  400: 89%,
+  425: 88.25%,
+  450: 87.5%,
+  475: 86.75%,
+  500: 86%,
+  525: 85.25%,
+  550: 84.5%,
+  575: 83.75%,
+  600: 83%,
+  625: 82.25%,
+  650: 81.5%,
+  675: 80.75%,
+  700: 80%,
+  725: 79.25%,
+  750: 78.5%,
+  775: 77.75%,
+  800: 77%,
+  825: 76.25%,
+  850: 75.5%,
+  875: 74.75%,
+  900: 74%,
+  925: 73.25%,
+  950: 72.5%
+) !default;
+
+$custom-lightness: (
+  'neutral': $neutral-scale,
+) !default;
