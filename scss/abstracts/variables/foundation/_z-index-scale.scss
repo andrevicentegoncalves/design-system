@@ -1,0 +1,164 @@
+@use 'sass:map';
+@use 'core' as *;
+
+/* ==========================================================================*/
+/*                   VARIABLES: FOUNDATION - Z-INDEX SCALE                   */
+/* ==========================================================================*/
+
+$z-index-content: (
+  'below': -1,          // Below normal flow (backgrounds, decorative)
+  'base': 0,            // Default/initial (reset value)
+  'content': 1,         // Normal content
+  'hover': 1,           // Hover state (button groups, input groups)
+  'active': 2,          // Active/pressed state
+  'focus': 3,           // Focused state (highest priority for user)
+  'raised': 10,         // Slightly raised (cards on hover)
+  'elevated': 100,      // Elevated content (sticky within sections)
+) !default;
+
+$z-index-overlay: (
+  'dropdown': 1000,        // Dropdown menus, select dropdowns
+  'sticky': 1020,          // Sticky headers, sticky sidebars
+  'fixed': 1030,           // Fixed positioned elements
+  'overlay': 1040,         // Modal backdrops, overlays, sheets
+  'modal': 1050,           // Modal dialogs, drawers
+  'popover': 1060,         // Popovers, context menus
+  'tooltip': 1070,         // Tooltips
+  'notification': 1080,    // Toast notifications, snackbars, banners
+  'alert': 1090,           // Alert dialogs, confirmations
+  
+  // System-level (highest priority)
+  'skip-link': 9998,       // Accessibility skip links (WCAG requirement)
+  'debug': 9999,           // Debug overlays (development only)
+  'max': 10000,            // Maximum z-index (emergency use only)
+) !default;
+
+//-------------------------------------------
+// COMPLETE Z-INDEX LAYERS MAP
+//-------------------------------------------
+// Unified map combining content and overlay tiers
+
+$z-index-layers: map.merge($z-index-content, $z-index-overlay) !default;
+
+//-------------------------------------------
+// CONTENT-LEVEL ALIASES (Quick Access)
+//-------------------------------------------
+
+$z-index-below: map.get($z-index-content, 'below') !default;                    // -1
+$z-index-base: map.get($z-index-content, 'base') !default;                      // 0
+$z-index-default: map.get($z-index-content, 'content') !default;                // 1
+$z-index-hover: map.get($z-index-content, 'hover') !default;                    // 1
+$z-index-active: map.get($z-index-content, 'active') !default;                  // 2
+$z-index-focus: map.get($z-index-content, 'focus') !default;                    // 3
+$z-index-raised: map.get($z-index-content, 'raised') !default;                  // 10
+$z-index-elevated: map.get($z-index-content, 'elevated') !default;              // 100
+$z-index-dropdown: map.get($z-index-overlay, 'dropdown') !default;              // 1000
+$z-index-sticky: map.get($z-index-overlay, 'sticky') !default;                  // 1020
+$z-index-fixed: map.get($z-index-overlay, 'fixed') !default;                    // 1030
+$z-index-overlay: map.get($z-index-overlay, 'modal-overlay') !default;          // 1040
+$z-index-modal: map.get($z-index-overlay, 'modal') !default;                    // 1050
+$z-index-popover: map.get($z-index-overlay, 'popover') !default;                // 1060
+$z-index-tooltip: map.get($z-index-overlay, 'tooltip') !default;                // 1070
+$z-index-notification: map.get($z-index-overlay, 'notification') !default;      // 1080
+$z-index-alert: map.get($z-index-overlay, 'alert') !default;                    // 1090
+$z-index-skip-link: map.get($z-index-overlay, 'skip-link') !default;            // 9998
+$z-index-debug: map.get($z-index-overlay, 'debug') !default;                    // 9999
+$z-index-max: map.get($z-index-overlay, 'max') !default;                        // 10000
+
+// Deprecated:
+$z-index-modal-backdrop: map.get($z-index-overlay, 'modal-overlay') !default;   // 1040
+
+//-------------------------------------------
+// COMPONENT-SPECIFIC Z-INDEX
+//-------------------------------------------
+// Semantic mapping for common UI components
+
+$z-index-components: (
+  // Navigation
+  'header': $z-index-sticky,                    // 1020
+  'nav': $z-index-sticky,                       // 1020
+  'sidebar': $z-index-fixed,                    // 1030
+  'menu': $z-index-dropdown,                    // 1000
+  'submenu': $z-index-dropdown + 1,             // 1001
+  'mega-menu': $z-index-dropdown,               // 1000
+  
+  // Dropdowns & Selects
+  'select-dropdown': $z-index-dropdown,         // 1000
+  'autocomplete': $z-index-dropdown,            // 1000
+  'datepicker': $z-index-dropdown,              // 1000
+  'combobox': $z-index-dropdown,                // 1000
+  
+  // Overlays & Modals
+  'backdrop': $z-index-overlay,                 // 1040
+  'overlay': $z-index-overlay,                  // 1040
+  'modal-dialog': $z-index-modal,               // 1050
+  'drawer': $z-index-modal,                     // 1050
+  'sheet': $z-index-modal,                      // 1050
+  'dialog': $z-index-modal,                     // 1050
+  'lightbox': $z-index-modal,                   // 1050
+  
+  // Floating Elements
+  'popover-menu': $z-index-popover,             // 1060
+  'context-menu': $z-index-popover,             // 1060
+  'flyout': $z-index-popover,                   // 1060
+  'tooltip': $z-index-tooltip,                  // 1070
+  
+  // Notifications & Feedback
+  'toast': $z-index-notification,               // 1080
+  'snackbar': $z-index-notification,            // 1080
+  'banner': $z-index-notification,              // 1080
+  'alert-dialog': $z-index-alert,               // 1090
+  'confirm-dialog': $z-index-alert,             // 1090
+  
+  // Utilities
+  'loading-overlay': $z-index-modal-backdrop,   // 1040
+  'focus-trap': $z-index-modal,                 // 1050
+  'screen-reader': $z-index-skip-link,          // 9998
+) !default;
+
+//-------------------------------------------
+// Z-INDEX FAMILIES (Grouped Related Elements)
+//-------------------------------------------
+// For components that need multiple related z-index values
+
+$z-index-families: (
+  // Dropdown family (1000-1019)
+  'dropdown': (
+    'container': 1000,         // Dropdown container
+    'item': 1001,              // Dropdown items
+    'submenu': 1002,           // Nested submenus
+    'backdrop': 1003,          // Dropdown backdrop (if needed)
+  ),
+  
+  // Modal family (1040-1059)
+  'modal': (
+    'backdrop': 1040,          // Modal backdrop
+    'container': 1050,         // Modal container
+    'dialog': 1050,            // Modal dialog
+    'header': 1051,            // Modal header (if sticky)
+    'footer': 1051,            // Modal footer (if sticky)
+    'close-button': 1052,      // Close button (above header)
+  ),
+  
+  // Popover family (1060-1079)
+  'popover': (
+    'trigger': 1,              // Trigger stays in normal flow
+    'container': 1060,         // Popover container
+    'content': 1060,           // Popover content
+    'arrow': 1061,             // Popover arrow (above content)
+  ),
+  
+  // Tooltip family (1070-1079)
+  'tooltip': (
+    'container': 1070,         // Tooltip container
+    'arrow': 1071,             // Tooltip arrow
+  ),
+  
+  // Notification family (1080-1089)
+  'notification': (
+    'container': 1080,         // Notification container
+    'item': 1081,              // Individual notification
+    'action': 1082,            // Notification action buttons
+    'close': 1083,             // Close button
+  ),
+) !default;
