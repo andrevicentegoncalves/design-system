@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use '../../variables/foundation/container-scale' as scale;
 
-/* ==========================================================================*/
-/*                    FUNCTIONS: FOUNDATION - CONTAINER                      */
-/* ==========================================================================*/
+// ========================================================================== //
+//                    FUNCTIONS: FOUNDATION - CONTAINER                       //
+// ========================================================================== //
 
 /// Get container width from scale
 /// @param {String} $size - Container size name

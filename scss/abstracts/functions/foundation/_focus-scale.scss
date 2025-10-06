@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use '../../variables/foundation/focus-scale' as scale;
 
-/* ==========================================================================*/
-/*                      FUNCTIONS: FOUNDATION - FOCUS                        */
-/* ==========================================================================*/
+// ========================================================================== //
+//                      FUNCTIONS: FOUNDATION - FOCUS                         //
+// ========================================================================== //
 
 /// Get focus ring configuration property
 /// @param {String} $property - Property name

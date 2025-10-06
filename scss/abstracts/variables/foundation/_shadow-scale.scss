@@ -2,23 +2,19 @@
 @use 'core' as *;
 @use 'sizing-scale' as sizing;
 
-/* ==========================================================================*/
-/*                         FOUNDATION: SHADOW SCALE                          */
-/* ==========================================================================*/
-// Shadow elevation system for UI depth and hierarchy
-// Uses sizing-scale for fixed dimensions (NOT spacing-scale)
+// ========================================================================== //
+//                         FOUNDATION: SHADOW SCALE                           //
+// ========================================================================== //
 
-//-------------------------------------------
+// -------------------------------------------
 // SHADOW COLOR BASE
-//-------------------------------------------
+// -------------------------------------------
 
 $shadow-color-base: #000000 !default;
 
-//-------------------------------------------
-// SHADOW COMPONENTS - Building blocks
-//-------------------------------------------
-/// Shadow definitions matching OutSystems Size-Shadow scale
-/// Each shadow level defines elevation for different UI contexts
+// -------------------------------------------
+// SHADOW COMPONENTS 
+// -------------------------------------------
 
 $shadow-components: (
   // Elevation 1 (xs) - Subtle lift, minimal depth
@@ -62,10 +58,9 @@ $shadow-components: (
   ),
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // SHADOW ALIASES
-//-------------------------------------------
-/// Direct access to shadow components
+// -------------------------------------------
 
 $shadow-xs: map.get($shadow-components, 'xs') !default;
 $shadow-s: map.get($shadow-components, 's') !default;

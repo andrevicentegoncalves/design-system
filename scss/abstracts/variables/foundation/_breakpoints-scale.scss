@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use 'core' as *;
 
-/* ==========================================================================*/
-/*                 VARIABLES: FOUNDATION - BREAKPOINTS SCALE                 */
-/* ==========================================================================*/
+// ========================================================================== //
+//                 VARIABLES: FOUNDATION - BREAKPOINTS SCALE                  //
+// ========================================================================== //
 
 /// Phone breakpoint (min-width)
 /// Covers: 320px - 600px
@@ -30,9 +30,9 @@ $breakpoint-desktop: 1441px !default;
 /// @type Number
 $breakpoint-desktop-xl: 1920px !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // STANDARD NAMING ALIASES
-//-------------------------------------------
+// -------------------------------------------
 
 $breakpoint-xs: $breakpoint-phone !default;
 $breakpoint-s: $breakpoint-phone !default;
@@ -41,9 +41,9 @@ $breakpoint-l: $breakpoint-laptop !default;
 $breakpoint-xl: $breakpoint-desktop !default;
 $breakpoint-2xl: $breakpoint-desktop-xl !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // MAXIMUM BREAKPOINT VALUES
-//-------------------------------------------
+// -------------------------------------------
 
 $breakpoint-phone-max: 600px !default;
 $breakpoint-tablet-max: 1024px !default;
@@ -51,9 +51,9 @@ $breakpoint-laptop-max: 1440px !default;
 $breakpoint-desktop-max: 1919px !default;
 // Desktop XL has no max (infinite)
 
-//-------------------------------------------
-// BREAKPOINT MAP (Primary Reference)
-//-------------------------------------------
+// -------------------------------------------
+// BREAKPOINT MAP 
+// -------------------------------------------
 
 $breakpoints: (
   'phone': $breakpoint-phone,           
@@ -63,9 +63,9 @@ $breakpoints: (
   'desktop-xl': $breakpoint-desktop-xl, 
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // SEMANTIC ALIASES MAP
-//-------------------------------------------
+// -------------------------------------------
 
 $breakpoints-semantic: (
   'mobile': $breakpoint-phone,
@@ -76,10 +76,9 @@ $breakpoints-semantic: (
   'desktop-xl': $breakpoint-desktop-xl,
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // STANDARD T-SHIRT SIZING MAP
-//-------------------------------------------
-// For teams that prefer xs/s/m/l/xl naming
+// -------------------------------------------
 
 $breakpoints-standard: (
   'xs': $breakpoint-phone,        // 320px
@@ -90,9 +89,9 @@ $breakpoints-standard: (
   '2xl': $breakpoint-desktop-xl,  // 1920px
 ) !default;
 
-//-------------------------------------------
-// BREAKPOINT RANGE MAP (Complete Specification)
-//-------------------------------------------
+// -------------------------------------------
+// BREAKPOINT RANGE MAP 
+// -------------------------------------------
 
 $breakpoint-ranges: (
   'phone': (
@@ -137,11 +136,9 @@ $breakpoint-ranges: (
   ),
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTAINER QUERY BREAKPOINTS
-//-------------------------------------------
-// For container queries (component-level responsiveness)
-// These are independent of viewport breakpoints
+// -------------------------------------------
 
 $container-breakpoints: (
   'xs': 320px,

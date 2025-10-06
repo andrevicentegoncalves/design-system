@@ -1,229 +1,5 @@
 @charset "UTF-8";
 /* ==========================================================================*/
-/*                        FUNCTIONS: UNIT CONVERSION                         */
-/* ==========================================================================*/
-/**
- * Base font size for rem/em conversions
- * Should match your root html font-size
- */
-/**
- * Remove units from a number for calculations
- * 
- * @param {Number} $value - Number with unit to strip
- * @return {Number} - Unitless number
- * 
- * @example
- *   strip-unit(16px)  => 16
- *   strip-unit(2rem)  => 2
- *   strip-unit(-10px) => -10
- */
-/**
- * Convert pixels to rem units
- * 
- * @param {Number} $pixels - Pixel value (with or without unit)
- * @return {Number} - Value in rem
- * 
- * @example
- *   rem(16px)  => 1rem
- *   rem(32)    => 2rem
- *   rem(8px)   => 0.5rem
- */
-/**
- * Convert pixels to em units with optional context
- * 
- * @param {Number} $pixels - Pixel value to convert
- * @param {Number} $context - Context font-size (default: $font-size--base)
- * @return {Number} - Value in em
- * 
- * @example
- *   em(32px)        => 2em (relative to 16px base)
- *   em(32px, 16px)  => 2em
- *   em(16px, 32px)  => 0.5em (relative to 32px context)
- */
-/* ==========================================================================*/
-/*                         FOUNDATION: SIZING SCALE                          */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                            SIZING BASE UNIT                               */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                           CORE SIZING SCALE                               */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                       NUMERIC SEMANTIC ALIASES                            */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                         SEMANTIC MAPS                                     */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                        FOUNDATION: SPACING SCALE                          */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                          SPACING BASE UNIT                                */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                          CORE SPACING SCALE                               */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                        NUMERIC SEMANTIC ALIASES                           */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                        SEMANTIC MAPS                                      */
-/* ==========================================================================*/
-/* ========================================================================== */
-/*                       FOUNDATION: TYPOGRAPHY SCALE                         */
-/* ========================================================================== */
-/* ==========================================================================*/
-/*                        FOUNDATION: BORDER SCALE                           */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                      FOUNDATION: BORDER RADIUS SYSTEM                     */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                         FOUNDATION: SHADOW SCALE                          */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                          FOUNDATION: ICON SCALE                           */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                      FOUNDATION: ASPECT RATIO SCALE                       */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                   VARIABLES: FOUNDATION - Z-INDEX SCALE                   */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                        FOUNDATION: MOTION SCALE                           */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                         FOUNDATION: FOCUS SCALE                           */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                       FOUNDATION: CONTAINER SCALE                         */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                        FOUNDATION: SIZING FUNCTIONS                       */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                         SIZING CALCULATIONS                               */
-/* ==========================================================================*/
-/**
- * Multiply size by a factor
- * 
- * @param {String|Number} $size - Base size key
- * @param {Number} $multiplier - Multiplication factor
- * @return {String} - Calculated size
- * 
- * @example
- *   width: size-multiply(5, 2);      // 80px (40px × 2)
- *   height: size-multiply('md', 1.5); // 60px (40px × 1.5)
- */
-/**
- * Add two size values
- * 
- * @param {String|Number} $size1 - First size key
- * @param {String|Number} $size2 - Second size key
- * @return {String} - Sum of sizes
- * 
- * @example
- *   width: size-add(5, 3);       // 64px (40px + 24px)
- *   height: size-add('md', 'sm'); // 72px (40px + 32px)
- */
-/**
- * Subtract two size values
- * 
- * @param {String|Number} $size1 - First size key
- * @param {String|Number} $size2 - Second size key to subtract
- * @return {String} - Difference
- * 
- * @example
- *   width: size-subtract(8, 3);    // 40px (64px - 24px)
- *   height: size-subtract('lg', 'sm'); // 16px (48px - 32px)
- */
-/* ==========================================================================*/
-/*                            UTILITY FUNCTIONS                              */
-/* ==========================================================================*/
-/**
- * Check if a size value exists in the scale
- * 
- * @param {String|Number} $size - Size key to check
- * @return {Boolean} - True if size exists
- */
-/**
- * Get the entire sizing scale map
- * 
- * @return {Map} - Complete sizing scale
- */
-/**
- * Get list of available size keys
- * 
- * @return {List} - List of available size keys
- */
-/* ==========================================================================*/
-/*                 VARIABLES: FOUNDATION - BREAKPOINTS SCALE                 */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                    VARIABLES: FOUNDATION - GRID SCALE                     */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                   FUNCTIONS: FOUNDATION - ASPECT RATIO                    */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                     FUNCTIONS: FOUNDATION - Z-INDEX                       */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                     FUNCTIONS: FOUNDATION - MOTION                        */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                      FUNCTIONS: FOUNDATION - FOCUS                        */
-/* ==========================================================================*/
-/* ==========================================================================*/
-/*                    FUNCTIONS: FOUNDATION - CONTAINER                      */
-/* ==========================================================================*/
-/*
-$color-primary: #72BE44;
-$color-primary-light: #F1F9EC;
-
-// Semantic Colors
-$color-success: #28a745;
-$color-danger: #dc3545;
-$color-danger-light: #f7dddb;
-$color-danger-extra-light: #ffecec;
-$color-warning: #ffc107;
-$color-warning-light: #FEFBCD;
-$color-info: #17a2b8;
-$color-info-light: #add8e6;
-$color-info-extra-light: #e5f5fc;
-
-// Neutral Scale
-$color-neutral-0: #ffffff;
-$color-neutral-1: #f8f9fa;
-$color-neutral-2: #f1f3f5;
-$color-neutral-3: #e9ecef;
-$color-neutral-4: #dee2e6;
-$color-neutral-5: #ced4da;
-$color-neutral-6: #adb5bd;
-$color-neutral-7: #6a7178;
-$color-neutral-8: #4f575e;
-$color-neutral-9: #272b30;
-$color-neutral-10: #101213;
-
-// Theme Colors
-$color-light: $color-neutral-1;
-$color-dark: $color-neutral-9;
-$color-footer: #333333;
-$color-footer-section: #2C2C2C;
-*/
-/*
-// Z-index Stack
-$z-index-dropdown: 1000;
-$z-index-sticky: 1020;
-$z-index-fixed: 1030;
-$z-index-modal-backdrop: 1040;
-$z-index-modal: 1050;
-$z-index-popover: 1060;
-$z-index-tooltip: 1070;
-*/
-/* ==========================================================================*/
 /*                                PATTERNS: FORM                             */
 /* ==========================================================================*/
 .osui-search .search-tap.form-control[data-input] {
@@ -1309,7 +1085,7 @@ $z-index-tooltip: 1070;
 .suggestion-content .feedback-container textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(90.576, 150.96, 53.04, 0.4);
+  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, 0.4);
 }
 .suggestion-content .feedback-container textarea::placeholder {
   color: var(--color-neutral-6);
@@ -1329,14 +1105,14 @@ $z-index-tooltip: 1070;
   transition: var(--transition-base);
 }
 .suggestion-button button:hover {
-  background-color: hsl(97, 48%, 30%);
+  background-color: hsl(97, 48%, 41%);
 }
 .suggestion-button button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(90.576, 150.96, 53.04, 0.4);
+  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, 0.4);
 }
 .suggestion-button button:disabled {
-  background-color: hsl(97, 48%, 60%);
+  background-color: hsl(97, 48%, 71%);
   cursor: not-allowed;
   opacity: var(--opacity-s);
 }
@@ -1625,7 +1401,7 @@ $z-index-tooltip: 1070;
   text-decoration: underline;
 }
 .list-files-item:hover {
-  background-color: hsl(97, 48%, 85%);
+  background-color: hsl(97, 48%, 96%);
   transform: translateY(-2px);
 }
 .list-files-item a {
@@ -1634,7 +1410,7 @@ $z-index-tooltip: 1070;
   font-weight: 500;
 }
 .list-files-item a:hover {
-  background-color: hsl(97, 48%, 85%);
+  background-color: hsl(97, 48%, 96%);
   text-decoration: underline;
 }
 

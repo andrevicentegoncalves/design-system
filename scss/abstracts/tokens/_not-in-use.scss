@@ -1,0 +1,32 @@
+@mixin generate-tokens-tokens() {
+
+  //Color Palette 
+  --color-primary: #72BE44;
+  --color-primary-light: #F1F9EC;
+  --color-primary-hover: #72BE44;
+  --color-primary-active: #72BE44;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-danger-light: #f7dddb;
+  --color-danger-extra-light: #ffecec;
+  --color-warning: #ffc107;
+  --color-warning-light: #FEFBCD;
+  --color-info: #17a2b8;
+  --color-info-light: #add8e6;
+  --color-info-extra-light: #e5f5fc;
+  --color-neutral-0: #ffffff;
+  --color-neutral-1: #f8f9fa;
+  --color-neutral-2: #f1f3f5;
+  --color-neutral-3: #e9ecef;
+  --color-neutral-4: #dee2e6;
+  --color-neutral-5: #ced4da;
+  --color-neutral-6: #adb5bd;
+  --color-neutral-7: #6a7178;
+  --color-neutral-8: #4f575e;
+  --color-neutral-9: #272b30;
+  --color-neutral-10: #101213;
+  --color-light: #f8f9fa;
+  --color-dark: #272b30;
+  --color-footer: #333333;
+  --color-footer-section: #2C2C2C;
+}

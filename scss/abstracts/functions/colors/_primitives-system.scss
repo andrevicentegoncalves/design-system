@@ -9,9 +9,9 @@
 // Import the forwarded primitives with correct prefixes
 @use '../../variables/colors/primitives' as primitives;
 
-// =============================================================================
-// CORE PRIMITIVE FUNCTION
-// =============================================================================
+// ============================================================================= //
+//                     FUNCTIONS: COLOR - PRIMITIVES SYSTEM                      //
+// ============================================================================= //
 
 @function get-color($family, $weight: 500) {
   $color-config: null;

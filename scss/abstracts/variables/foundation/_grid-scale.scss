@@ -2,13 +2,13 @@
 @use 'spacing-scale' as spacing;
 @use 'breakpoints-scale' as bp;
 
-/* ==========================================================================*/
-/*                    VARIABLES: FOUNDATION - GRID SCALE                     */
-/* ==========================================================================*/
+// ========================================================================== //
+//                    VARIABLES: FOUNDATION - GRID SCALE                      //
+// ========================================================================== //
 
-//-------------------------------------------
-// GRID CONFIGURATION - References Spacing Scale
-//-------------------------------------------
+// -------------------------------------------
+// GRID CONFIGURATION 
+// -------------------------------------------
 
 // Phone grid (4 columns, mobile-first)
 $grid-phone-columns: 4 !default;
@@ -40,9 +40,9 @@ $grid-desktop-xl-gutter: spacing.$spacing-8 !default;     // 2rem (32px)
 $grid-desktop-xl-margin: spacing.$spacing-8 !default;     // 2rem (32px)
 $grid-desktop-xl-type: 'fluid' !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // GRID MAX-WIDTH - Content Constraints
-//-------------------------------------------
+// -------------------------------------------
 
 $grid-max-width-phone: 100% !default;              // Full width on mobile
 $grid-max-width-tablet: 100% !default;             // Full width on tablet
@@ -50,9 +50,9 @@ $grid-max-width-laptop: 100% !default;             // Full width, constrained by
 $grid-max-width-desktop: 1280px !default;          // Fixed max width for desktop
 $grid-max-width-desktop-xl: 100% !default;         // Fluid on ultra-wide
 
-//-------------------------------------------
+// -------------------------------------------
 // GRID MAP - Complete Specifications
-//-------------------------------------------
+// -------------------------------------------
 
 $grid-config: (
   'phone': (

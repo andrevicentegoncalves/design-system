@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use '../../variables/foundation/z-index-scale' as scale;
 
-/* ==========================================================================*/
-/*                     FUNCTIONS: FOUNDATION - Z-INDEX                       */
-/* ==========================================================================*/
+// ========================================================================== //
+//                     FUNCTIONS: FOUNDATION - Z-INDEX                        //
+// ========================================================================== //
 
 /// Get z-index layer value
 /// @param {String} $layer - Layer name
@@ -35,7 +35,7 @@
 
 /// Check if z-index layer exists
 /// @param {String} $layer - Layer name
-/// @return {Boolean}
+/// @return {Boolean} True if exists
 @function z-index-exists($layer) {
   @return map.has-key(scale.$z-index-layers, $layer);
 }

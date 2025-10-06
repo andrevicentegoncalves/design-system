@@ -2,22 +2,21 @@
 @use '../../functions/foundation/unit-conversion' as units;
 @use 'core' as *;
 
-/* ==========================================================================*/
-/*                        FOUNDATION: SPACING SCALE                          */
-/* ==========================================================================*/
+// ========================================================================== //
+//                        FOUNDATION: SPACING SCALE                           //
+// ========================================================================== //
  
-/* ==========================================================================*/
-/*                          SPACING BASE UNIT                                */
-/* ==========================================================================*/
+// -------------------------------------------
+// SPACING BASE UNIT                                
+// -------------------------------------------
 
 /// Base unit for all spacing calculations (4px grid system)
 /// @type Number
 $spacing-base-unit: 4px !default;
 
-/* ==========================================================================*/
-/*                          CORE SPACING SCALE                               */
-/* ==========================================================================*/
-/// All spacing values converted to rem for scalability and accessibility
+// -------------------------------------------
+// CORE SPACING SCALE                               
+// -------------------------------------------
 /// Based on 4px base unit with 16px = 1rem conversion
 
 $spacing-scale: (
@@ -63,9 +62,9 @@ $spacing-scale: (
   144: units.rem($spacing-base-unit * 144),  // 576px → 36rem
 ) !default;
 
-/* ==========================================================================*/
-/*                        NUMERIC SEMANTIC ALIASES                           */
-/* ==========================================================================*/
+// -------------------------------------------
+// NUMERIC SEMANTIC ALIASES                           
+// -------------------------------------------
 
 $spacing-0: map.get($spacing-scale, 0) !default;      // 0
 $spacing-1: map.get($spacing-scale, 1) !default;      // 0.25rem  (4px)
@@ -99,10 +98,9 @@ $spacing-104: map.get($spacing-scale, 104) !default;  // 26rem    (416px)
 $spacing-112: map.get($spacing-scale, 112) !default;  // 28rem    (448px)
 $spacing-144: map.get($spacing-scale, 144) !default;  // 36rem    (576px)
 
-/* ==========================================================================*/
-/*                        SEMANTIC MAPS                                      */
-/* ==========================================================================*/
-/// Complete maps for programmatic access in mixins and functions
+// -------------------------------------------
+// SEMANTIC MAPS                                      
+// -------------------------------------------
 
 $spacing-numeric: (
   '0': $spacing-0,

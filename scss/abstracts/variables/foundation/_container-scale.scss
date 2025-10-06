@@ -2,13 +2,13 @@
 @use '../../functions/foundation/unit-conversion' as units;
 @use 'core' as *;
 
-/* ==========================================================================*/
-/*                       FOUNDATION: CONTAINER SCALE                         */
-/* ==========================================================================*/
+// ========================================================================== //
+//                       FOUNDATION: CONTAINER SCALE                          //
+// ========================================================================== //
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTAINER WIDTH SCALE
-//-------------------------------------------
+// -------------------------------------------
 
 $container-scale: (
   // Breakpoint-based containers
@@ -31,9 +31,9 @@ $container-scale: (
   'screen': 100vw,            // Full viewport width
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTAINER ALIASES
-//-------------------------------------------
+// -------------------------------------------
 
 $container-xs: map.get($container-scale, 'xs') !default;
 $container-sm: map.get($container-scale, 'sm') !default;
@@ -50,9 +50,9 @@ $container-full: map.get($container-scale, 'full') !default;
 // Default container
 $container-base: $container-xl !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTAINER PADDING SCALE
-//-------------------------------------------
+// -------------------------------------------
 
 $container-padding-scale: (
   'xs': units.rem(16),       // 16px - Mobile
@@ -62,9 +62,9 @@ $container-padding-scale: (
   'xl': units.rem(64),       // 64px - Extra large
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTAINER CONTEXT PRESETS
-//-------------------------------------------
+// -------------------------------------------
 
 $container-presets: (
   // Page containers

@@ -1,0 +1,232 @@
+@use 'sass:map';
+
+// ========================================================================== //
+//                        FOUNDATION: CURSOR SCALE                            //
+// ========================================================================== //
+
+// -------------------------------------------
+// CURSOR TYPES
+// -------------------------------------------
+
+$cursor-scale: (
+  // Default cursors
+  'auto': auto,
+  'default': default,
+  'none': none,
+  
+  // Links and buttons
+  'pointer': pointer,                  // Clickable elements (links, buttons)
+  'not-allowed': not-allowed,          // Disabled/unavailable actions
+  
+  // Text and input
+  'text': text,                        // Text selection
+  'vertical-text': vertical-text,      // Vertical text selection
+  
+  // Drag and drop
+  'move': move,                        // Draggable elements
+  'grab': grab,                        // Grabbable elements (before grab)
+  'grabbing': grabbing,                // Grabbed elements (during drag)
+  'copy': copy,                        // Copy action
+  'alias': alias,                      // Shortcut/alias creation
+  
+  // Resize cursors
+  'col-resize': col-resize,            // Column resize
+  'row-resize': row-resize,            // Row resize
+  'n-resize': n-resize,                // North resize
+  'e-resize': e-resize,                // East resize
+  's-resize': s-resize,                // South resize
+  'w-resize': w-resize,                // West resize
+  'ne-resize': ne-resize,              // Northeast resize
+  'nw-resize': nw-resize,              // Northwest resize
+  'se-resize': se-resize,              // Southeast resize
+  'sw-resize': sw-resize,              // Southwest resize
+  'ew-resize': ew-resize,              // East-west resize
+  'ns-resize': ns-resize,              // North-south resize
+  'nesw-resize': nesw-resize,          // Northeast-southwest resize
+  'nwse-resize': nwse-resize,          // Northwest-southeast resize
+  
+  // Zoom cursors
+  'zoom-in': zoom-in,                  // Zoom in action
+  'zoom-out': zoom-out,                // Zoom out action
+  
+  // Progress and waiting
+  'wait': wait,                        // Loading/processing
+  'progress': progress,                // Background process running
+  
+  // Help
+  'help': help,                        // Help/question cursor
+  
+  // Context menu
+  'context-menu': context-menu,        // Context menu available
+  
+  // Cell selection
+  'cell': cell,                        // Table cell selection
+  'crosshair': crosshair,              // Precise selection
+  
+  // Media cursors
+  'no-drop': no-drop,                  // Invalid drop target
+  'all-scroll': all-scroll,            // Omni-directional scroll
+) !default;
+
+// -------------------------------------------
+// SEMANTIC CURSOR TOKENS
+// -------------------------------------------
+
+$cursor-semantic: (
+  // Interactive elements
+  'interactive': pointer,              // All clickable elements
+  'link': pointer,                     // Links
+  'button': pointer,                   // Buttons
+  'card-clickable': pointer,           // Clickable cards
+  
+  // Disabled states
+  'disabled': not-allowed,             // Disabled elements
+  'readonly': default,                 // Read-only inputs
+  
+  // Input elements
+  'input': text,                       // Text inputs
+  'textarea': text,                    // Text areas
+  'select': pointer,                   // Select dropdowns
+  'checkbox': pointer,                 // Checkboxes
+  'radio': pointer,                    // Radio buttons
+  
+  // Drag interactions
+  'draggable': grab,                   // Draggable items
+  'dragging': grabbing,                // Currently dragging
+  'dropzone': copy,                    // Valid drop target
+  'dropzone-invalid': no-drop,         // Invalid drop target
+  'sortable': grab,                    // Sortable list items
+  
+  // Resize interactions
+  'resize-horizontal': ew-resize,      // Horizontal resize handle
+  'resize-vertical': ns-resize,        // Vertical resize handle
+  'resize-corner-ne': ne-resize,       // Northeast corner
+  'resize-corner-nw': nw-resize,       // Northwest corner
+  'resize-corner-se': se-resize,       // Southeast corner
+  'resize-corner-sw': sw-resize,       // Southwest corner
+  'splitter-horizontal': col-resize,   // Horizontal splitter
+  'splitter-vertical': row-resize,     // Vertical splitter
+  
+  // Loading states
+  'loading': wait,                     // Loading indicator
+  'processing': progress,              // Background processing
+  
+  // Image/media interactions
+  'zoom-in': zoom-in,                  // Zoom in on images
+  'zoom-out': zoom-out,                // Zoom out on images
+  'pan': move,                         // Pan/move canvas
+  'panning': grabbing,                 // Currently panning
+  
+  // Drawing/canvas
+  'draw': crosshair,                   // Drawing tool
+  'erase': crosshair,                  // Eraser tool
+  'select-area': crosshair,            // Area selection
+  
+  // Navigation
+  'scroll': all-scroll,                // Scrollable area indicator
+  
+  // Help/info
+  'tooltip-trigger': help,             // Element with tooltip
+  'info': help,                        // Information available
+) !default;
+
+// -------------------------------------------
+// COMPONENT-SPECIFIC CURSORS
+// -------------------------------------------
+
+$cursor-components: (
+  // Navigation
+  'nav-link': pointer,
+  'nav-link-disabled': not-allowed,
+  'breadcrumb': pointer,
+  'pagination': pointer,
+  
+  // Buttons
+  'button-default': pointer,
+  'button-disabled': not-allowed,
+  'button-loading': progress,
+  
+  // Cards
+  'card-default': default,
+  'card-interactive': pointer,
+  'card-draggable': grab,
+  
+  // Tables
+  'table-header-sortable': pointer,
+  'table-row-clickable': pointer,
+  'table-cell-editable': text,
+  'table-resize-handle': col-resize,
+  
+  // Forms
+  'input-text': text,
+  'input-disabled': not-allowed,
+  'checkbox': pointer,
+  'radio': pointer,
+  'select': pointer,
+  'slider-thumb': grab,
+  'slider-dragging': grabbing,
+  
+  // Modals and overlays
+  'modal-close': pointer,
+  'overlay-backdrop': default,
+  'dialog-draggable': move,
+  
+  // File upload
+  'dropzone-active': copy,
+  'dropzone-reject': no-drop,
+  
+  // Image gallery
+  'thumbnail': pointer,
+  'lightbox-zoom': zoom-in,
+  'lightbox-zoomed': zoom-out,
+  'lightbox-pan': grab,
+  
+  // Tabs
+  'tab': pointer,
+  'tab-disabled': not-allowed,
+  
+  // Accordion
+  'accordion-trigger': pointer,
+  
+  // Menu
+  'menu-item': pointer,
+  'menu-item-disabled': not-allowed,
+  'context-menu-trigger': context-menu,
+) !default;
+
+// -------------------------------------------
+// CURSOR STATE TRANSITIONS
+// -------------------------------------------
+/// Cursor changes for different interaction states
+
+$cursor-transitions: (
+  // Button states
+  'button': (
+    'default': pointer,
+    'hover': pointer,
+    'active': pointer,
+    'disabled': not-allowed,
+    'loading': progress,
+  ),
+  
+  // Draggable states
+  'draggable': (
+    'idle': grab,
+    'hover': grab,
+    'dragging': grabbing,
+  ),
+  
+  // Zoom states
+  'zoomable': (
+    'default': zoom-in,
+    'zoomed': zoom-out,
+    'panning': grabbing,
+  ),
+  
+  // Resize states
+  'resizable': (
+    'idle': default,
+    'hover': ew-resize,
+    'resizing': ew-resize,
+  ),
+) !default;

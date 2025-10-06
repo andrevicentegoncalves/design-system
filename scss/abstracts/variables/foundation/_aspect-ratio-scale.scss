@@ -2,13 +2,13 @@
 @use 'sass:math';
 @use 'core' as *;
 
-/* ==========================================================================*/
-/*                      FOUNDATION: ASPECT RATIO SCALE                       */
-/* ==========================================================================*/
+// ========================================================================== //
+//                      FOUNDATION: ASPECT RATIO SCALE                        //
+// ========================================================================== //
 
-//-------------------------------------------
+// ------------------------------------------
 // ASPECT RATIO SCALE
-//-------------------------------------------
+// -------------------------------------------
 
 $aspect-ratio-scale: (
   // Standard ratios
@@ -37,9 +37,9 @@ $aspect-ratio-scale: (
   'auto': auto,                          // Automatic (intrinsic)
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // ASPECT RATIO ALIASES
-//-------------------------------------------
+// -------------------------------------------
 
 $aspect-ratio-square: map.get($aspect-ratio-scale, 'square') !default;
 $aspect-ratio-landscape: map.get($aspect-ratio-scale, 'landscape') !default;
@@ -52,9 +52,9 @@ $aspect-ratio-golden: map.get($aspect-ratio-scale, 'golden') !default;
 // Default aspect ratio
 $aspect-ratio-base: $aspect-ratio-widescreen !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // COMPONENT-SPECIFIC ASPECT RATIOS
-//-------------------------------------------
+// -------------------------------------------
 
 $aspect-ratio-components: (
   // Media

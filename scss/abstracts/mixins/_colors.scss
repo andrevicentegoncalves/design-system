@@ -22,7 +22,7 @@
 @mixin generate-background-colors($theme-mappings, $prefix: 'background') {
   @each $token-name, $values in $theme-mappings {
     // Skip "on-*" tokens - they're for text/foreground only
-    @if not str-index($token-name, 'on-') {
+    @if not string.index($token-name, 'on-') {
       .#{$prefix}-#{$token-name} {
         background-color: var(--color-#{$token-name});
       }
@@ -33,13 +33,14 @@
 @mixin generate-border-colors($theme-mappings, $prefix: 'border') {
   @each $token-name, $values in $theme-mappings {
     // Only include tokens that start with "border-"
-    @if str-index($token-name, 'border-') == 1 {
-      .#{$prefix}-#{str-slice($token-name, 8)} {
+    @if string.index($token-name, 'border-') == 1 {
+      .#{$prefix}-#{string.slice($token-name, 8)} {
         border-color: var(--color-#{$token-name});
       }
     }
   }
 }
+
 /// Generate badge and tier color combinations
 @mixin generate-color-combos() {
   // Feedback badges

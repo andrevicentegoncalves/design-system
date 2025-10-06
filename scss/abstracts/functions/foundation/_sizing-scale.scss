@@ -1,12 +1,11 @@
-
 @use 'sass:math';
 @use 'sass:map';
 @use '../../variables/foundation/core' as core;
 @use '../../variables/foundation/sizing-scale' as sizing-vars;
 
-/* ==========================================================================*/
-/*                        FOUNDATION: SIZING FUNCTIONS                       */
-/* ==========================================================================*/
+// ========================================================================== //
+//                        FOUNDATION: SIZING FUNCTIONS                        //
+// ========================================================================== //
 
  @function size($size) {
    // Try numeric scale first
@@ -28,21 +27,19 @@
  }
  
  
- /* ==========================================================================*/
- /*                         SIZING CALCULATIONS                               */
- /* ==========================================================================*/
+// -------------------------------------------
+//  SIZING CALCULATIONS                        
+// -------------------------------------------
  
- /**
-  * Multiply size by a factor
-  * 
-  * @param {String|Number} $size - Base size key
-  * @param {Number} $multiplier - Multiplication factor
-  * @return {String} - Calculated size
-  * 
-  * @example
-  *   width: size-multiply(5, 2);      // 80px (40px × 2)
-  *   height: size-multiply('md', 1.5); // 60px (40px × 1.5)
-  */
+/// Multiply size by a factor
+/// 
+/// @param {String|Number} $size - Base size key
+/// @param {Number} $multiplier - Multiplication factor
+/// @return {String} - Calculated size
+/// 
+/// @example
+///   width: size-multiply(5, 2);      // 80px (40px × 2)
+///   height: size-multiply('md', 1.5); // 60px (40px × 1.5)
  @function size-multiply($size, $multiplier) {
    @if type-of($multiplier) != 'number' {
      @warn "Multiplier must be a number. Got: #{$multiplier}";
@@ -53,69 +50,60 @@
  }
  
  
- /**
-  * Add two size values
-  * 
-  * @param {String|Number} $size1 - First size key
-  * @param {String|Number} $size2 - Second size key
-  * @return {String} - Sum of sizes
-  * 
-  * @example
-  *   width: size-add(5, 3);       // 64px (40px + 24px)
-  *   height: size-add('md', 'sm'); // 72px (40px + 32px)
-  */
+/// Add two size values
+/// 
+/// @param {String|Number} $size1 - First size key
+/// @param {String|Number} $size2 - Second size key
+/// @return {String} - Sum of sizes
+/// 
+/// @example
+///   width: size-add(5, 3);       // 64px (40px + 24px)
+///   height: size-add('md', 'sm'); // 72px (40px + 32px)
  @function size-add($size1, $size2) {
    @return calc(#{size($size1)} + #{size($size2)});
  }
  
  
- /**
-  * Subtract two size values
-  * 
-  * @param {String|Number} $size1 - First size key
-  * @param {String|Number} $size2 - Second size key to subtract
-  * @return {String} - Difference
-  * 
-  * @example
-  *   width: size-subtract(8, 3);    // 40px (64px - 24px)
-  *   height: size-subtract('lg', 'sm'); // 16px (48px - 32px)
-  */
+/// Subtract two size values
+/// 
+/// @param {String|Number} $size1 - First size key
+/// @param {String|Number} $size2 - Second size key to subtract
+/// @return {String} - Difference
+/// 
+/// @example
+///   width: size-subtract(8, 3);    // 40px (64px - 24px)
+///   height: size-subtract('lg', 'sm'); // 16px (48px - 32px)
  @function size-subtract($size1, $size2) {
    @return calc(#{size($size1)} - #{size($size2)});
  }
  
  
- /* ==========================================================================*/
- /*                            UTILITY FUNCTIONS                              */
- /* ==========================================================================*/
+// -------------------------------------------
+// UTILITY                        
+// -------------------------------------------
  
- /**
-  * Check if a size value exists in the scale
-  * 
-  * @param {String|Number} $size - Size key to check
-  * @return {Boolean} - True if size exists
-  */
+ 
+/// Check if a size value exists in the scale
+/// 
+/// @param {String|Number} $size - Size key to check
+/// @return {Boolean} - True if size exists
  @function size-exists($size) {
    @return map.has-key(sizing-vars.$sizing-scale, $size) or 
            map.has-key(sizing-vars.$size-semantic, $size);
  }
  
  
- /**
-  * Get the entire sizing scale map
-  * 
-  * @return {Map} - Complete sizing scale
-  */
+/// Get the entire sizing scale map
+/// 
+/// @return {Map} - Complete sizing scale
  @function sizing-scale() {
    @return sizing-vars.$sizing-scale;
  }
  
  
- /**
-  * Get list of available size keys
-  * 
-  * @return {List} - List of available size keys
-  */
+/// Get list of available size keys
+/// 
+/// @return {List} - List of available size keys
  @function size-keys() {
    @return map.keys(sizing-vars.$sizing-scale);
  }

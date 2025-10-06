@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use 'core' as *;
 
-/* ==========================================================================*/
-/*                   VARIABLES: FOUNDATION - Z-INDEX SCALE                   */
-/* ==========================================================================*/
+// ========================================================================== //
+//                   VARIABLES: FOUNDATION - Z-INDEX SCALE                    //
+// ========================================================================== //
 
 $z-index-content: (
   'below': -1,          // Below normal flow (backgrounds, decorative)
@@ -33,16 +33,16 @@ $z-index-overlay: (
   'max': 10000,            // Maximum z-index (emergency use only)
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // COMPLETE Z-INDEX LAYERS MAP
-//-------------------------------------------
+// -------------------------------------------
 // Unified map combining content and overlay tiers
 
 $z-index-layers: map.merge($z-index-content, $z-index-overlay) !default;
 
-//-------------------------------------------
-// CONTENT-LEVEL ALIASES (Quick Access)
-//-------------------------------------------
+// -------------------------------------------
+// CONTENT-LEVEL ALIASES 
+// -------------------------------------------
 
 $z-index-below: map.get($z-index-content, 'below') !default;                    // -1
 $z-index-base: map.get($z-index-content, 'base') !default;                      // 0
@@ -68,10 +68,9 @@ $z-index-max: map.get($z-index-overlay, 'max') !default;                        
 // Deprecated:
 $z-index-modal-backdrop: map.get($z-index-overlay, 'modal-overlay') !default;   // 1040
 
-//-------------------------------------------
+// -------------------------------------------
 // COMPONENT-SPECIFIC Z-INDEX
-//-------------------------------------------
-// Semantic mapping for common UI components
+// -------------------------------------------
 
 $z-index-components: (
   // Navigation

@@ -2,17 +2,13 @@
 @use 'core' as *;
 @use 'sizing-scale' as sizing;
 
-/* ==========================================================================*/
-/*                          FOUNDATION: ICON SCALE                           */
-/* ==========================================================================*/
-// Fixed icon sizes for consistent iconography system
-// Uses sizing-scale for fixed dimensions (NOT spacing-scale)
+// ========================================================================== //
+//                          FOUNDATION: ICON SCALE                            //
+// ========================================================================== //
 
-//-------------------------------------------
+// -------------------------------------------
 // ICON SIZE SCALE
-//-------------------------------------------
-/// Fixed icon sizes matching OutSystems Size-Icon scale
-/// Use for consistent icon dimensions across UI
+// -------------------------------------------
 
 $icon-size-scale: (
   'xs': sizing.$sizing-16,   // 16px - Small icons, inline text icons
@@ -22,10 +18,9 @@ $icon-size-scale: (
   'xl': sizing.$sizing-48,   // 48px - Extra large icons, hero sections
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // ICON SIZE ALIASES
-//-------------------------------------------
-/// Semantic aliases for common icon usage patterns
+// -------------------------------------------
 
 $icon-size-xs: map.get($icon-size-scale, 'xs') !default;   // 16px
 $icon-size-s: map.get($icon-size-scale, 's') !default;     // 20px
@@ -36,11 +31,9 @@ $icon-size-xl: map.get($icon-size-scale, 'xl') !default;   // 48px
 // Default icon size (most common)
 $icon-size-base: $icon-size-m !default;  // 24px
 
-//-------------------------------------------
+// -------------------------------------------
 // CONTEXT-SPECIFIC ICON SIZES
-//-------------------------------------------
-/// Pre-defined icon sizes for specific UI contexts
-/// Ensures consistency across similar components
+// -------------------------------------------
 
 $icon-context: (
   // Typography alignment
@@ -68,11 +61,9 @@ $icon-context: (
   'badge': $icon-size-xs,              // 16px - Badge icons
 ) !default;
 
-//-------------------------------------------
+// -------------------------------------------
 // ICON SPACING HELPERS
-//-------------------------------------------
-/// Gap values for icon + text combinations
-/// These use spacing-scale since they define whitespace, not icon size
+// -------------------------------------------
 
 $icon-text-gap: (
   'tight': 0.25rem,    // 4px  - Compact layouts

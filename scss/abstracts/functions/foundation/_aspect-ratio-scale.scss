@@ -1,9 +1,9 @@
 @use 'sass:map';
 @use '../../variables/foundation/aspect-ratio-scale' as scale;
 
-/* ==========================================================================*/
-/*                   FUNCTIONS: FOUNDATION - ASPECT RATIO                    */
-/* ==========================================================================*/
+// ========================================================================== //
+//                   FUNCTIONS: FOUNDATION - ASPECT RATIO                     //
+// ========================================================================== //
 
 /// Get aspect ratio from scale
 /// @param {String} $name - Aspect ratio name
@@ -27,7 +27,7 @@
 
 /// Check if aspect ratio exists
 /// @param {String} $name - Aspect ratio name
-/// @return {Boolean}
+/// @return {Boolean} aspect ratio exists
 @function aspect-ratio-exists($name) {
   @return map.has-key(scale.$aspect-ratio-scale, $name);
 }
