@@ -1,77 +1,69 @@
-@use 'sass:map';
 @use 'sass:math';
-@use 'core' as *;
 
 // ========================================================================== //
-//                      FOUNDATION: ASPECT RATIO SCALE                        //
+//                     FOUNDATION: ASPECT RATIO SCALE                         //
 // ========================================================================== //
 
 // ------------------------------------------
-// ASPECT RATIO SCALE
-// -------------------------------------------
+// RAW ASPECT RATIO SCALE
+// ------------------------------------------
 
 $aspect-ratio-scale: (
   // Standard ratios
-  'square': math.div(1, 1),              // 1:1 - Square content, profile images
+  'square': math.div(1, 1),              // 1:1 - Square content, avatars, product images
   'landscape': math.div(4, 3),           // 4:3 - Traditional photos, presentations
-  'widescreen': math.div(16, 9),         // 16:9 - Video, hero banners
-  'ultrawide': math.div(21, 9),          // 21:9 - Cinematic content
+  'widescreen': math.div(16, 9),         // 16:9 - Video content, hero banners
+  'ultrawide': math.div(21, 9),          // 21:9 - Cinematic content, immersive headers
   'portrait': math.div(3, 4),            // 3:4 - Vertical mobile content
   'photo': math.div(3, 2),               // 3:2 - Traditional photography
   
-  // Social media
-  'video': math.div(16, 9),              // Standard video
-  'story': math.div(9, 16),              // Instagram/Facebook Stories
-  'twitter-card': math.div(2, 1),        // Twitter card
-  'facebook-cover': math.div(205, 78),   // Facebook cover
+  // Social media ratios 
+  'video': math.div(16, 9),              // Standard video embedding
+  'story': math.div(9, 16),              // Instagram/Facebook Stories, TikTok
+  'twitter-card': math.div(2, 1),        // Twitter/X card previews
+  'facebook-cover': math.div(205, 78),   // Facebook cover images
+  'instagram-post': math.div(1, 1),      // Instagram feed posts
+  'youtube-thumbnail': math.div(16, 9),  // YouTube video thumbnails
   
-  // Design ratios
-  'golden': math.div(1.618, 1),          // Golden ratio
-  'silver': math.div(1.414, 1),          // Silver ratio (√2)
+  // Design ratios 
+  'golden': math.div(1.618, 1),          // Golden ratio (φ) - Harmonious layouts
+  'silver': math.div(1.414, 1),          // Silver ratio (√2) - A-series paper
   
-  // Cinema
-  'cinema': math.div(2.39, 1),           // Anamorphic widescreen
-  'imax': math.div(1.43, 1),             // IMAX format
+  // Cinema & Entertainment
+  'cinema': math.div(2.39, 1),           // Anamorphic widescreen (CinemaScope)
+  'imax': math.div(1.43, 1),             // IMAX format (taller experience)
   
-  // Special
-  'auto': auto,                          // Automatic (intrinsic)
+  // Special cases
+  'auto': auto,                          // Intrinsic (maintain natural ratio)
 ) !default;
 
-// -------------------------------------------
-// ASPECT RATIO ALIASES
-// -------------------------------------------
+// ------------------------------------------
+// ACCESSIBILITY & READABILITY RATIOS
+// ------------------------------------------
 
-$aspect-ratio-square: map.get($aspect-ratio-scale, 'square') !default;
-$aspect-ratio-landscape: map.get($aspect-ratio-scale, 'landscape') !default;
-$aspect-ratio-widescreen: map.get($aspect-ratio-scale, 'widescreen') !default;
-$aspect-ratio-portrait: map.get($aspect-ratio-scale, 'portrait') !default;
-$aspect-ratio-video: map.get($aspect-ratio-scale, 'video') !default;
-$aspect-ratio-story: map.get($aspect-ratio-scale, 'story') !default;
-$aspect-ratio-golden: map.get($aspect-ratio-scale, 'golden') !default;
+$aspect-ratio-content: (
+  'article-hero': math.div(12, 5),       // 12:5 - Article header images (not too tall)
+  'card-compact': math.div(5, 4),        // 5:4 - Compact cards with good text space
+  'banner-wide': math.div(5, 1),         // 5:1 - Wide promotional banners
+) !default;
 
-// Default aspect ratio
-$aspect-ratio-base: $aspect-ratio-widescreen !default;
+// ------------------------------------------
+// E-COMMERCE SPECIFIC RATIOS
+// ------------------------------------------
 
-// -------------------------------------------
-// COMPONENT-SPECIFIC ASPECT RATIOS
-// -------------------------------------------
+$aspect-ratio-ecommerce: (
+  'product-square': math.div(1, 1),      // 1:1 - Most common product images
+  'product-portrait': math.div(4, 5),    // 4:5 - Fashion/apparel products
+  'product-landscape': math.div(3, 2),   // 3:2 - Electronics/wide products
+  'product-detail': math.div(3, 4),      // 3:4 - Detailed product views
+) !default;
 
-$aspect-ratio-components: (
-  // Media
-  'hero-banner': $aspect-ratio-widescreen,    // 16:9
-  'card-image': $aspect-ratio-landscape,      // 4:3
-  'thumbnail': $aspect-ratio-square,          // 1:1
-  'video-player': $aspect-ratio-video,        // 16:9
-  
-  // Product/E-commerce
-  'product-image': $aspect-ratio-square,      // 1:1
-  'product-detail': $aspect-ratio-portrait,   // 3:4
-  
-  // Social
-  'social-post': $aspect-ratio-square,        // 1:1
-  'social-story': $aspect-ratio-story,        // 9:16
-  
-  // UI Elements
-  'avatar': $aspect-ratio-square,             // 1:1
-  'logo': $aspect-ratio-landscape,            // 4:3
+// ------------------------------------------
+// RESPONSIVE BREAKPOINT RATIOS
+// ------------------------------------------
+
+$aspect-ratio-responsive: (
+  'mobile-hero': math.div(3, 4),         // 3:4 - Taller on mobile
+  'tablet-hero': math.div(4, 3),         // 4:3 - Balanced on tablet
+  'desktop-hero': math.div(16, 9),       // 16:9 - Wide on desktop
 ) !default;

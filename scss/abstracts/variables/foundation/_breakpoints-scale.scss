@@ -1,149 +1,34 @@
-@use 'sass:map';
-@use 'core' as *;
-
 // ========================================================================== //
-//                 VARIABLES: FOUNDATION - BREAKPOINTS SCALE                  //
+//                 FOUNDATION: BREAKPOINTS SCALE                              //
 // ========================================================================== //
 
-/// Phone breakpoint (min-width)
-/// Covers: 320px - 600px
-/// @type Number
-$breakpoint-phone: 320px !default;
-
-/// Tablet breakpoint (min-width)
-/// Covers: 601px - 1024px
-/// @type Number
-$breakpoint-tablet: 601px !default;
-
-/// Laptop breakpoint (min-width)
-/// Covers: 1025px - 1440px
-/// @type Number
-$breakpoint-laptop: 1025px !default;
-
-/// Desktop breakpoint (min-width, fixed layout)
-/// Covers: 1441px - 1919px
-/// @type Number
-$breakpoint-desktop: 1441px !default;
-
-/// Desktop XL breakpoint (min-width, fluid layout for ultra-wide)
-/// Covers: 1920px+
-/// @type Number
-$breakpoint-desktop-xl: 1920px !default;
-
-// -------------------------------------------
-// STANDARD NAMING ALIASES
-// -------------------------------------------
-
-$breakpoint-xs: $breakpoint-phone !default;
-$breakpoint-s: $breakpoint-phone !default;
-$breakpoint-m: $breakpoint-tablet !default;
-$breakpoint-l: $breakpoint-laptop !default;
-$breakpoint-xl: $breakpoint-desktop !default;
-$breakpoint-2xl: $breakpoint-desktop-xl !default;
-
-// -------------------------------------------
-// MAXIMUM BREAKPOINT VALUES
-// -------------------------------------------
-
-$breakpoint-phone-max: 600px !default;
-$breakpoint-tablet-max: 1024px !default;
-$breakpoint-laptop-max: 1440px !default;
-$breakpoint-desktop-max: 1919px !default;
-// Desktop XL has no max (infinite)
-
-// -------------------------------------------
-// BREAKPOINT MAP 
-// -------------------------------------------
-
-$breakpoints: (
-  'phone': $breakpoint-phone,           
-  'tablet': $breakpoint-tablet,        
-  'laptop': $breakpoint-laptop,         
-  'desktop': $breakpoint-desktop,       
-  'desktop-xl': $breakpoint-desktop-xl, 
-) !default;
-
-// -------------------------------------------
-// SEMANTIC ALIASES MAP
-// -------------------------------------------
-
-$breakpoints-semantic: (
-  'mobile': $breakpoint-phone,
-  'phone': $breakpoint-phone,
-  'tablet': $breakpoint-tablet,
-  'laptop': $breakpoint-laptop,
-  'desktop': $breakpoint-desktop,
-  'desktop-xl': $breakpoint-desktop-xl,
-) !default;
-
-// -------------------------------------------
-// STANDARD T-SHIRT SIZING MAP
-// -------------------------------------------
-
-$breakpoints-standard: (
-  'xs': $breakpoint-phone,        // 320px
-  's': $breakpoint-phone,         // 320px
-  'm': $breakpoint-tablet,        // 601px
-  'l': $breakpoint-laptop,        // 1025px
-  'xl': $breakpoint-desktop,      // 1441px
-  '2xl': $breakpoint-desktop-xl,  // 1920px
-) !default;
-
-// -------------------------------------------
-// BREAKPOINT RANGE MAP 
-// -------------------------------------------
-
-$breakpoint-ranges: (
-  'phone': (
-    'min': $breakpoint-phone,           // 320px
-    'max': $breakpoint-phone-max,       // 600px
-    'columns': 4,
-    'gutter': 16px,
-    'margin': 16px,
-    'type': 'fluid',
-  ),
-  'tablet': (
-    'min': $breakpoint-tablet,          // 601px
-    'max': $breakpoint-tablet-max,      // 1024px
-    'columns': 8,
-    'gutter': 16px,
-    'margin': 24px,
-    'type': 'fluid',
-  ),
-  'laptop': (
-    'min': $breakpoint-laptop,          // 1025px
-    'max': $breakpoint-laptop-max,      // 1440px
-    'columns': 12,
-    'gutter': 24px,
-    'margin': 24px,
-    'type': 'fluid',
-  ),
-  'desktop': (
-    'min': $breakpoint-desktop,         // 1441px
-    'max': $breakpoint-desktop-max,     // 1919px
-    'columns': 12,
-    'gutter': 24px,
-    'margin': 0,
-    'type': 'fixed',
-  ),
-  'desktop-xl': (
-    'min': $breakpoint-desktop-xl,      // 1920px
-    'max': null,                        // No max (infinite)
-    'columns': 12,
-    'gutter': 32px,
-    'margin': 32px,
-    'type': 'fluid',
-  ),
-) !default;
-
-// -------------------------------------------
-// CONTAINER QUERY BREAKPOINTS
-// -------------------------------------------
-
-$container-breakpoints: (
+$breakpoints-scale: (
   'xs': 320px,
-  'sm': 480px,
-  'md': 640px,
-  'lg': 768px,
-  'xl': 1024px,
+  's': 640px,
+  'm': 768px,
+  'l': 1024px,
+  'xl': 1280px,
+  '2xl': 1920px,
 ) !default;
+
+// -------------------------------------------
+// BREAKPOINT MAX VALUES 
+// -------------------------------------------
+
+$breakpoints-max: (
+  'xs': 639px,
+  's': 767px,
+  'm': 1023px,
+  'l': 1279px,
+) !default;
+
+// -------------------------------------------
+// LEGACY: DEPRECATED
+// -------------------------------------------
+
+$breakpoint-phone: 480px;
+$breakpoint-phone-horizontal: 767px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-horizontal: 1024px;
+$breakpoint-desktop: 1200px;
+

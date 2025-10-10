@@ -22,14 +22,38 @@
         box-shadow: var(--box-shadow);
         font-size: rem(15);
         padding: var(--space-m) !important;
+        border: 0.5px solid #ddd;
     }
 
     .GDS-Box {
         border-radius: var(--border-radius-soft);
         box-shadow: var(--box-shadow);
         font-size: rem(15);
-        padding: var(--space-m) !important;
+        padding: var(--space-none) !important;
+        font-family: Arial, sans-serif;
+        border: 0.5px solid #ddd;
+        overflow: hidden;
+    
+        .ArticleHeader {
+            background-color: #f4f4f4;
+            color: #2e7d32;
+            font-weight: bold;
+            padding: var(--space-s) var(--space-m);
+            display: block;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-size: rem(16);
+        }
+    
+        .GDS-Entry {
+            display: block;
+            padding: var(--space-xs) var(--space-m);
+            font-size: rem(14);
+            color: #333;
+            white-space: pre-wrap;
+        }
     }
+    
 
     //-------------------------------------------
     // Typography Components

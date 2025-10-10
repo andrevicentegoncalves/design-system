@@ -17,10 +17,7 @@ $font-size-l: fn.rem(32);
 $font-size-xl: fn.rem(48);
 $line-height-base: 1.5;
 
-// Font Weights
-$font-weight-thin: 100;
-$font-weight-extra-light: 200;
-$font-weight-bold: bold;
+
 
 // Icons
 $icon-font-family: 'MegasisIconsFont';
@@ -40,28 +37,9 @@ $grid-columns-standard: 4;
 $grid-gap: 25px;
 $grid-gutter-width: 30px;
 
-// Breakpoints
-$breakpoint-phone: 480px;
-$breakpoint-phone-horizontal: 767px;
-$breakpoint-tablet: 768px;
-$breakpoint-tablet-horizontal: 1024px;
-$breakpoint-desktop: 1200px;
 
-// Grid Maps
-$grid-breakpoints: (
-  xs: 0,
-  sm: $breakpoint-phone,
-  md: $breakpoint-tablet,
-  lg: $breakpoint-tablet-horizontal,
-  xl: $breakpoint-desktop
-);
 
-$grid-container-max-widths: (
-  sm: $breakpoint-phone-horizontal,
-  md: $breakpoint-tablet-horizontal,
-  lg: $breakpoint-desktop,
-  xl: $layout-max-width
-);
+
 
 // Spacing Scale
 $space-none: 0;
@@ -81,16 +59,7 @@ $space-xxxl: fn.rem(96);
 // Components
 // -------------------------------------------
 
-// Border Styles
-$border-size-none: 0px;
-$border-size-xs: 0.5px;
-$border-size-s: 1px;
-$border-width-selected: 3px;
-$border-width: 0.3px;
-$border-style: solid;
-//$border-color: $color-primary;
-$border-radius-soft: 4px;
-$border-radius-extra-soft: 15px;
+
 
 // Effects
 $transition-base: all 0.2s ease-in-out;
@@ -161,10 +130,3 @@ $font-path: if(flags.$is_main, '/TapPortal_TH/',
                if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
              );
 
-// Font weight mapping
-$weight-names: (
-  100: 'Thin',
-  300: 'Light',
-  400: 'Regular',
-  700: 'Bold'
-);

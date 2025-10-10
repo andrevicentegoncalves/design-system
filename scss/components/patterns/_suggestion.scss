@@ -83,7 +83,7 @@
                 // States
                 &:before {
                     background-color: var(--color-neutral-0);
-                    border: var(--border-width) var(--border-style) var(--color-neutral-5);
+                    border: var(--border-width) var(--border-style-solid) var(--color-neutral-5);
                     border-radius: 50%;
                     content: "";
                     display: flex;
@@ -119,7 +119,7 @@
 
                     &:before {
                         background-color: var(--color-neutral-2);
-                        border: var(--border-width) var(--border-style) var(--color-neutral-4);
+                        border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
                     }
 
                     &:checked:before {
@@ -146,7 +146,7 @@
         // Invalid State
         &.not-valid [data-radio-button] .radio-button {
             &:before {
-                border: var(--border-width) var(--border-style) var(--color-danger);
+                border: var(--border-width) var(--border-style-solid) var(--color-danger);
             }
 
             &:checked:before {
@@ -165,7 +165,7 @@
             width: var(--truncate-width);
             min-height: calc($flip-card-height / 2);
             padding: var(--space-s);
-            border: var(--border-width) $border-style var(--color-neutral-4);
+            border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
             border-radius: var(--border-radius-extra-soft);
             resize: vertical;
             font-family: var(--font-family-base);

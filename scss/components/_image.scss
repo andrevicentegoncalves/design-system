@@ -60,7 +60,7 @@
 
     // Responsive Backgrounds
     &-responsive {
-        @include responsive($breakpoint-tablet) {
+        @include bp-up(m) {
             background-image: none;
         }
     }

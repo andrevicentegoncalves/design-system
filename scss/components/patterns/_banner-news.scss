@@ -33,28 +33,23 @@
         overflow: hidden;
         z-index: var(--z-index-dropdown);
         transition: var(--transition-base);
-
+    
         // Background Image
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-
+    
         @media (max-width: $breakpoint-phone) {
             background-position: 35% center;
         }
-
-        // Overlay
+    
+        // Overlay using mixin
+        @include bg-color-alpha(--color-neutral-10, 0.4);
+    
         &::before {
-            content: "";
-            position: absolute;
-            top: var(--position-top-none);
-            left: var(--position-left-none);
-            right: var(--position-right-none);
-            bottom: var(--position-bottom-none);
-            background: rgba(var(--color-neutral-10), $banner-overlay-opacity);
             z-index: var(--z-index-sticky);
         }
-
+    
         // Content Z-index
         > * {
             position: relative;

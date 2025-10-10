@@ -1,81 +1,151 @@
 @use 'sass:map';
-@use '../../variables/foundation/breakpoints-scale' as scale;
+@use '../../variables/semantics/breakpoints' as semantics;
 
-// ============================================================================ //
-//                  FUNCTIONS: FOUNDATION - BREAKPOINTS SCALE                   //
-// ============================================================================ //
+// ========================================================================== //
+//                      FUNCTIONS: BREAKPOINT SYSTEM                          //
+// ========================================================================== //
 
-/// Get breakpoint value by key
-/// Supports multiple naming conventions (phone, mobile, xs, etc.)
-/// @param {String} $name - Breakpoint name
-/// @return {Number|null} - Breakpoint value or null
-/// @example
-///   $tablet: breakpoint-get('tablet'); // 601px
-///   $medium: breakpoint-get('m');      // 601px (same value)
-@function breakpoint-get($name) {
-  // Try primary breakpoints map first
-  @if map.has-key($breakpoints, $name) {
-    @return map.get($breakpoints, $name);
+// ========================================================================== //
+//                    FUNCTION: GET BREAKPOINT VALUE                          //
+// ========================================================================== //
+// Retrieves the breakpoint value for a given size
+//
+// @param {String} $breakpoint - Breakpoint name (xs, s, m, l, xl, 2xl)
+// @return {Number} Breakpoint value in pixels
+//
+// @example
+//   $tablet: breakpoint-get('m');  // Returns: 768px
+//   $desktop: breakpoint-get('l'); // Returns: 1024px
+// ========================================================================== //
+
+@function breakpoint-get($breakpoint) {
+  // Map short names to semantic variable names
+  $bp-map: (
+    'xs': semantics.$breakpoint-xs,
+    's': semantics.$breakpoint-s,
+    'm': semantics.$breakpoint-m,
+    'l': semantics.$breakpoint-l,
+    'xl': semantics.$breakpoint-xl,
+    '2xl': semantics.$breakpoint-2xl
+  );
+  
+  @if not map.has-key($bp-map, $breakpoint) {
+    @error "Breakpoint '#{$breakpoint}' not found. Available: xs, s, m, l, xl, 2xl";
   }
   
-  // Try semantic aliases
-  @if map.has-key($breakpoints-semantic, $name) {
-    @return map.get($breakpoints-semantic, $name);
-  }
-  
-  // Try standard sizing
-  @if map.has-key($breakpoints-standard, $name) {
-    @return map.get($breakpoints-standard, $name);
-  }
-  
-  @warn "Breakpoint '#{$name}' not found in any breakpoint map";
-  @return null;
+  @return map.get($bp-map, $breakpoint);
 }
 
-/// Get max-width value for a breakpoint
-/// Returns the maximum width before the next breakpoint kicks in
-/// @param {String} $name - Breakpoint name
-/// @return {Number|null} - Max-width value or null
-/// @example
-///   $max: breakpoint-max('phone'); // 600px
-@function breakpoint-max($name) {
-  // Check if max exists in range map
-  @if map.has-key($breakpoint-ranges, $name) {
-    $range: map.get($breakpoint-ranges, $name);
-    @return map.get($range, 'max');
+// ========================================================================== //
+//                    FUNCTION: GET BREAKPOINT MAX VALUE                      //
+// ========================================================================== //
+// Retrieves the maximum breakpoint value for a given size
+//
+// @param {String} $breakpoint - Breakpoint name (xs, s, m, l)
+// @return {Number} Maximum breakpoint value in pixels
+//
+// @example
+//   $mobile-max: breakpoint-max('xs'); // Returns: 639px
+//   $tablet-max: breakpoint-max('m');  // Returns: 1023px
+// ========================================================================== //
+
+@function breakpoint-max($breakpoint) {
+  // Map short names to semantic variable names
+  $bp-map: (
+    'xs': semantics.$breakpoint-xs-max,
+    's': semantics.$breakpoint-s-max,
+    'm': semantics.$breakpoint-m-max,
+    'l': semantics.$breakpoint-l-max
+  );
+  
+  @if not map.has-key($bp-map, $breakpoint) {
+    @error "Max breakpoint '#{$breakpoint}' not found. Available: xs, s, m, l";
   }
   
-  @return null;
+  @return map.get($bp-map, $breakpoint);
 }
 
-/// Get complete breakpoint range information
-/// @param {String} $name - Breakpoint name
-/// @param {String} $property - Specific property (optional)
-/// @return {Map|*} - Range map or specific property value
-/// @example
-///   $range: breakpoint-range('tablet');
-///   $cols: breakpoint-range('tablet', 'columns'); // 8
-@function breakpoint-range($name, $property: null) {
-  @if map.has-key($breakpoint-ranges, $name) {
-    $range: map.get($breakpoint-ranges, $name);
-    
-    @if $property {
-      @return map.get($range, $property);
-    }
-    
-    @return $range;
+// ========================================================================== //
+//                    FUNCTION: BREAKPOINT UP                                 //
+// ========================================================================== //
+// Generates a min-width media query for the given breakpoint
+//
+// @param {String} $breakpoint - Breakpoint name
+// @return {String} Media query string
+//
+// @example
+//   @media #{breakpoint-up('m')} {
+//     // Styles for tablet and up
+//   }
+// ========================================================================== //
+
+@function breakpoint-up($breakpoint) {
+  $value: breakpoint-get($breakpoint);
+  @return 'screen and (min-width: #{$value})';
+}
+
+// ========================================================================== //
+//                    FUNCTION: BREAKPOINT DOWN                               //
+// ========================================================================== //
+// Generates a max-width media query for the given breakpoint
+//
+// @param {String} $breakpoint - Breakpoint name
+// @return {String} Media query string
+//
+// @example
+//   @media #{breakpoint-down('m')} {
+//     // Styles for tablet and down
+//   }
+// ========================================================================== //
+
+@function breakpoint-down($breakpoint) {
+  $value: breakpoint-max($breakpoint);
+  @return 'screen and (max-width: #{$value})';
+}
+
+// ========================================================================== //
+//                    FUNCTION: BREAKPOINT BETWEEN                            //
+// ========================================================================== //
+// Generates a media query for a range between two breakpoints
+//
+// @param {String} $lower - Lower breakpoint name
+// @param {String} $upper - Upper breakpoint name
+// @return {String} Media query string
+//
+// @example
+//   @media #{breakpoint-between('s', 'l')} {
+//     // Styles for small to large only
+//   }
+// ========================================================================== //
+
+@function breakpoint-between($lower, $upper) {
+  $min: breakpoint-get($lower);
+  $max: breakpoint-max($upper);
+  @return 'screen and (min-width: #{$min}) and (max-width: #{$max})';
+}
+
+// ========================================================================== //
+//                    FUNCTION: BREAKPOINT ONLY                               //
+// ========================================================================== //
+// Generates a media query for a specific breakpoint range only
+//
+// @param {String} $breakpoint - Breakpoint name
+// @return {String} Media query string
+//
+// @example
+//   @media #{breakpoint-only('m')} {
+//     // Styles for tablet only (768px - 1023px)
+//   }
+// ========================================================================== //
+
+@function breakpoint-only($breakpoint) {
+  $min: breakpoint-get($breakpoint);
+  
+  // XL and 2XL don't have max values (they're open-ended)
+  @if $breakpoint == 'xl' or $breakpoint == '2xl' {
+    @return 'screen and (min-width: #{$min})';
   }
   
-  @warn "Breakpoint range '#{$name}' not found";
-  @return null;
-}
-
-/// Check if a breakpoint exists
-/// @param {String} $name - Breakpoint name
-/// @return {Boolean}
-
-@function breakpoint-exists($name) {
-  @return map.has-key($breakpoints, $name) or 
-          map.has-key($breakpoints-semantic, $name) or
-          map.has-key($breakpoints-standard, $name);
+  $max: breakpoint-max($breakpoint);
+  @return 'screen and (min-width: #{$min}) and (max-width: #{$max})';
 }

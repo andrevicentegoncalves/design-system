@@ -1,0 +1,79 @@
+@use '../../tokens/borders' as *;
+
+// ========================================================================= //
+//                            MIXINS: BORDERS                                //
+// ========================================================================= //
+
+/// Apply border using tokens
+/// @param {String} $width - Token key for border width (2xs, xs, s, etc.)
+/// @param {String} $style - Token key for border style (solid, dashed, etc.)
+/// @param {Color} $color - Border color
+@mixin border($width: 's', $style: 'solid', $color: currentColor) {
+    border: var(--border-width-#{$width}) var(--border-style-#{$style}) #{$color};
+  }
+  
+  /// Apply border to a specific side using tokens
+  /// @param {String} $side - Side (top, right, bottom, left)
+  /// @param {String} $width - Token key for border width
+  /// @param {String} $style - Token key for border style
+  /// @param {Color} $color - Border color
+  @mixin border-side($side, $width: 's', $style: 'solid', $color: currentColor) {
+    border-#{$side}: var(--border-width-#{$width}) var(--border-style-#{$style}) #{$color};
+  }
+  
+  /// Remove border
+  @mixin border-none {
+    border: 0;
+  }
+
+  /// Remove bottom border
+  @mixin border-top-none {
+    border: 0;
+  }
+
+  /// Remove top border
+  @mixin border-bottom-none {
+    border: 0;
+  }
+  
+  /// Apply border-radius using tokens
+  /// @param {String} $size - Token key for radius (2xs, xs, s, etc.)
+  @mixin border-radius($size: 's') {
+    border-radius: var(--border-radius-#{$size});
+  }
+  
+  /// Apply border-radius to a specific corner using tokens
+  /// @param {String} $corner - Corner (top-left, top-right, bottom-right, bottom-left)
+  /// @param {String} $size - Token key for radius
+  @mixin border-radius-corner($corner, $size: 's') {
+    border-#{$corner}-radius: var(--border-radius-#{$size});
+  }
+  
+  /// Apply border-radius to top corners using tokens
+  /// @param {String} $size - Token key for radius
+  @mixin border-radius-top($size: 's') {
+    border-top-left-radius: var(--border-radius-#{$size});
+    border-top-right-radius: var(--border-radius-#{$size});
+  }
+  
+  /// Apply border-radius to bottom corners using tokens
+  /// @param {String} $size - Token key for radius
+  @mixin border-radius-bottom($size: 's') {
+    border-bottom-left-radius: var(--border-radius-#{$size});
+    border-bottom-right-radius: var(--border-radius-#{$size});
+  }
+  
+  /// Apply border-radius to left corners using tokens
+  /// @param {String} $size - Token key for radius
+  @mixin border-radius-left($size: 's') {
+    border-top-left-radius: var(--border-radius-#{$size});
+    border-bottom-left-radius: var(--border-radius-#{$size});
+  }
+  
+  /// Apply border-radius to right corners using tokens
+  /// @param {String} $size - Token key for radius
+  @mixin border-radius-right($size: 's') {
+    border-top-right-radius: var(--border-radius-#{$size});
+    border-bottom-right-radius: var(--border-radius-#{$size});
+  }
+  

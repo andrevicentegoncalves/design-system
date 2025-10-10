@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../variables/foundation/opacity-scale' as scale;
+
+// ============================================================================ //
+//                          SEMANTICS: OPACITY PRESETS                          //
+// ============================================================================ //
+
+$opacity-semantic: (
+  'transparent': map.get(scale.$opacity-scale, 0),
+  'invisible': map.get(scale.$opacity-scale, 0),
+  'hover-light': map.get(scale.$opacity-scale, 5),
+  'hover-medium': map.get(scale.$opacity-scale, 10),
+  'hover-strong': map.get(scale.$opacity-scale, 15),
+  'active': map.get(scale.$opacity-scale, 15),
+  'focus': map.get(scale.$opacity-scale, 15),
+
+  'disabled': map.get(scale.$opacity-scale, 40),
+  'secondary': map.get(scale.$opacity-scale, 70),
+  'placeholder': map.get(scale.$opacity-scale, 50),
+
+  'overlay-light': map.get(scale.$opacity-scale, 40),
+  'overlay-medium': map.get(scale.$opacity-scale, 60),
+  'overlay-heavy': map.get(scale.$opacity-scale, 80),
+  'overlay-modal': map.get(scale.$opacity-scale, 50),
+
+  'skeleton-base': map.get(scale.$opacity-scale, 15),
+  'skeleton-shine': map.get(scale.$opacity-scale, 20),
+
+  'opaque': map.get(scale.$opacity-scale, 100),
+  'visible': map.get(scale.$opacity-scale, 100),
+) !default;
+
+$legacy-opacity-tokens: (
+  'banner-overlay-opacity': map.get($opacity-semantic, 'overlay-light'), // 0.4
+  'opacity-s': map.get(scale.$opacity-scale, 40),  // 0.4 (40%)
+  'opacity-m': map.get(scale.$opacity-scale, 60),  // 0.6 (60%)
+  'opacity-l': map.get(scale.$opacity-scale, 80),  // 0.8 (80%)
+  'opacity-xl': map.get(scale.$opacity-scale, 90), // 0.9 (90%)
+  'opaque': map.get(scale.$opacity-scale, 100),    // 1 (100%)
+);

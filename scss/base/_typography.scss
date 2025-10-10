@@ -10,12 +10,11 @@
 @include font-face-generator('Material Icons', '#{$font-path}MaterialIcons-Regular.ttf', normal);
 
 // Generate Font Faces
-@each $weight, $style in $weight-names {
+@each $style, $weight in $font-weight-scale {
   @include font-face-generator('Montserrat', '#{$font-path}Montserrat-#{$style}.ttf', $weight);
   @include font-face-generator('Roboto', '#{$font-path}Roboto-#{$style}.ttf', $weight);
   @include font-face-generator('Lato', '#{$font-path}Lato-#{$style}.ttf', $weight);
 }
-
 //-------------------------------------------
 // Font Family Classes
 //-------------------------------------------

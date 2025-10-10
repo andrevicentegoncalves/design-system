@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../variables/semantics/opacity' as semantics;
+
+@mixin generate-opacity-tokens() {
+
+/* ============================================================================ */
+/*                              TOKENS: OPACITY                                 */
+/* ============================================================================ */
+
+    @each $name, $value in semantics.$opacity-semantic {
+      --opacity-#{$name}: #{$value};
+    }
+
+    /* Legacy - DEPRECATED */
+    @each $name, $val in semantics.$legacy-opacity-tokens {
+        --#{$name}: #{$val};
+    }
+}

@@ -34,83 +34,24 @@
   /* Icons */
   --fa-base: 1.5em;
 
-  /* Typography */
-  --font-family-base: 'Arial', sans-serif;
-  --font-size-xxxs: 0.3125rem;          /* 5px */
-  --font-size-xxs: 0.625rem;            /* 10px */
-  --font-size-xs: 0.75rem;              /* 12px */
-  --font-size-s: 0.875rem;              /* 14px */
-  --font-size-base: 1rem;               /* 16px */
-  --font-size-m: 1.5rem;                /* 24px */
-  --font-size-l: 2rem;                  /* 32px */
-  --font-size-xl: 3rem;                 /* 48px */
-
-  --line-height-base: 1.5;
-
-  /* Font Weights */
-  --font-weight-thin: 100;
-  --font-weight-extra-light: 200;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-
   /* Icon font */
   --icon-font-family: 'MegasisIconsFont';
 
   /* Components */
   --size-checkbox-s: 0.75rem;           /* 12px */
 
-  /* Border */
-  --border-size-none: 0px;
-  --border-size-xs: 0.5px;
-  --border-size-s: 1px;
-  --border-width-selected: 3px;
-  --border-width: 0.3px;
-  --border-style: solid;
-  --border-color: #72BE44;
-  --border-radius-soft: 4px;
-  --border-radius-extra-soft: 15px;
+ 
 
-  /* Breakpoints */
-  --breakpoint-phone: 480px;
-  --breakpoint-phone-horizontal: 767px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-tablet-horizontal: 1024px;
-  --breakpoint-desktop: 1200px;
 
-  /* Grid */
-  --grid-columns: 12;
-  --grid-columns-standard: 4;
-  --grid-gap: 25px;
-  --grid-gutter-width: 30px;
 
-  /* Z-index */
-  --z-index-dropdown: 1000;
-  --z-index-sticky: 1020;
-  --z-index-fixed: 1030;
-  --z-index-modal-backdrop: 1040;
-  --z-index-modal: 1050;
-  --z-index-popover: 1060;
-  --z-index-tooltip: 1070;
+
 
   /* Transitions & Effects */
   --transition-base: all 0.2s ease-in-out;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   --truncate-width: 100%;
 
-  /* Spacing */
-  --space-none: 0;
-  --space-xs: 0.25rem;                  /* 4px */
-  --space-s: 0.5rem;                    /* 8px */
-  --space-sm: 0.625rem;                 /* 10px */
-  --space-base: 1rem;                   /* 16px */
-  --space-m: 1.5rem;                    /* 24px */
-  --space-ls: 1.75rem;                  /* 28px */
-  --space-l: 1.875rem;                  /* 30px */
-  --space-lm: 2.1875rem;                /* 35px */
-  --space-xl: 2.5rem;                   /* 40px */
-  --space-xxl: 3rem;                    /* 48px */
-  --space-xxxl: 6rem;                   /* 96px */
+
 
   /* Dimensions */
   --banner-height: 25rem;               /* 400px */
@@ -124,13 +65,7 @@
   --position-bottom-none: 0;
   --position-left-none: 0;
 
-  /* Opacity */
-  --banner-overlay-opacity: 0.4;
-  --opacity-s: 40%;
-  --opacity-m: 60%;
-  --opacity-l: 80%;
-  --opacity-xl: 90%;
-  --opaque: 1;
+
 
   /* Flip Card */
   --flip-card-height: 15rem;            /* 240px */

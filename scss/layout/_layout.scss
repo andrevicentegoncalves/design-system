@@ -14,13 +14,13 @@
     max-width: var(--layout-max-width);
     box-sizing: border-box;
     
-    // Extra large screens
-    @include responsive(xl) {
+    // Extra large screens/*
+    @include bp-up(xl) {
         width: 90%;
     }
     
     // Medium screens
-    @include responsive(md) {
+    @include bp-up(m) {
         width: 95%;
     }
 }
@@ -48,7 +48,7 @@
             max-width: var(--layout-max-width);
     
             // Mobile padding
-            @media (max-width: $breakpoint-phone-horizontal) {
+            @include bp-down(s) {
                 padding: var(--space-s) var(--space-xl);
             }
         }

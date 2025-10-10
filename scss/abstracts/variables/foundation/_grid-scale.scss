@@ -1,98 +1,90 @@
 @use 'sass:map';
-@use 'spacing-scale' as spacing;
-@use 'breakpoints-scale' as bp;
+@use '../../functions/foundation/unit-conversion' as units;
 
 // ========================================================================== //
 //                    VARIABLES: FOUNDATION - GRID SCALE                      //
 // ========================================================================== //
 
 // -------------------------------------------
-// GRID CONFIGURATION 
+// GRID SCALE: COLUMNS
 // -------------------------------------------
 
-// Phone grid (4 columns, mobile-first)
-$grid-phone-columns: 4 !default;
-$grid-phone-gutter: spacing.$spacing-4 !default;          // 1rem (16px)
-$grid-phone-margin: spacing.$spacing-4 !default;          // 1rem (16px)
-$grid-phone-type: 'fluid' !default;
-
-// Tablet grid (8 columns, medium screens)
-$grid-tablet-columns: 8 !default;
-$grid-tablet-gutter: spacing.$spacing-4 !default;         // 1rem (16px)
-$grid-tablet-margin: spacing.$spacing-6 !default;         // 1.5rem (24px)
-$grid-tablet-type: 'fluid' !default;
-
-// Laptop grid (12 columns, standard laptops)
-$grid-laptop-columns: 12 !default;
-$grid-laptop-gutter: spacing.$spacing-6 !default;         // 1.5rem (24px)
-$grid-laptop-margin: spacing.$spacing-6 !default;         // 1.5rem (24px)
-$grid-laptop-type: 'fluid' !default;
-
-// Desktop grid (12 columns, fixed width desktops)
-$grid-desktop-columns: 12 !default;
-$grid-desktop-gutter: spacing.$spacing-6 !default;        // 1.5rem (24px)
-$grid-desktop-margin: spacing.$spacing-0 !default;        // 0 (full-bleed for fixed container)
-$grid-desktop-type: 'fixed' !default;
-
-// Desktop XL grid (12 columns, ultra-wide fluid)
-$grid-desktop-xl-columns: 12 !default;
-$grid-desktop-xl-gutter: spacing.$spacing-8 !default;     // 2rem (32px)
-$grid-desktop-xl-margin: spacing.$spacing-8 !default;     // 2rem (32px)
-$grid-desktop-xl-type: 'fluid' !default;
-
-// -------------------------------------------
-// GRID MAX-WIDTH - Content Constraints
-// -------------------------------------------
-
-$grid-max-width-phone: 100% !default;              // Full width on mobile
-$grid-max-width-tablet: 100% !default;             // Full width on tablet
-$grid-max-width-laptop: 100% !default;             // Full width, constrained by margins
-$grid-max-width-desktop: 1280px !default;          // Fixed max width for desktop
-$grid-max-width-desktop-xl: 100% !default;         // Fluid on ultra-wide
-
-// -------------------------------------------
-// GRID MAP - Complete Specifications
-// -------------------------------------------
-
-$grid-config: (
-  'phone': (
-    'columns': $grid-phone-columns,
-    'gutter': $grid-phone-gutter,
-    'margin': $grid-phone-margin,
-    'type': $grid-phone-type,
-    'max-width': $grid-max-width-phone,
-    'breakpoint': bp.$breakpoint-phone,
-  ),
-  'tablet': (
-    'columns': $grid-tablet-columns,
-    'gutter': $grid-tablet-gutter,
-    'margin': $grid-tablet-margin,
-    'type': $grid-tablet-type,
-    'max-width': $grid-max-width-tablet,
-    'breakpoint': bp.$breakpoint-tablet,
-  ),
-  'laptop': (
-    'columns': $grid-laptop-columns,
-    'gutter': $grid-laptop-gutter,
-    'margin': $grid-laptop-margin,
-    'type': $grid-laptop-type,
-    'max-width': $grid-max-width-laptop,
-    'breakpoint': bp.$breakpoint-laptop,
-  ),
-  'desktop': (
-    'columns': $grid-desktop-columns,
-    'gutter': $grid-desktop-gutter,
-    'margin': $grid-desktop-margin,
-    'type': $grid-desktop-type,
-    'max-width': $grid-max-width-desktop,
-    'breakpoint': bp.$breakpoint-desktop,
-  ),
-  'desktop-xl': (
-    'columns': $grid-desktop-xl-columns,
-    'gutter': $grid-desktop-xl-gutter,
-    'margin': $grid-desktop-xl-margin,
-    'type': $grid-desktop-xl-type,
-    'max-width': $grid-max-width-desktop-xl,
-    'breakpoint': bp.$breakpoint-desktop-xl,
-  ),
+$grid-scale-columns: (
+  'xs': 4,
+  's': 4,
+  'm': 8,
+  'l': 12,
+  'xl': 12,
+  '2xl': 12,
 ) !default;
+
+// -------------------------------------------
+// GRID SCALE: GUTTERS
+// -------------------------------------------
+
+$grid-scale-gutters: (
+  'xs': units.rem(16),       // 1rem (16px)
+  's': units.rem(16),       // 1rem (16px)
+  'm': units.rem(16),       // 1rem (16px)
+  'l': units.rem(24),       // 1.5rem (24px)
+  'xl': units.rem(24),       // 1.5rem (24px)
+  '2xl': units.rem(32),      // 2rem (32px)
+) !default;
+
+// -------------------------------------------
+// GRID SCALE: MARGINS
+// -------------------------------------------
+
+$grid-scale-margins: (
+  'xs': units.rem(16),       // 1rem (16px)
+  's': units.rem(16),       // 1rem (16px)
+  'm': units.rem(24),       // 1.5rem (24px)
+  'l': units.rem(24),       // 1.5rem (24px)
+  'xl': 0,                   // 0 - full bleed for fixed container
+  '2xl': units.rem(32),      // 2rem (32px) - fluid layout with margins
+) !default;
+
+// -------------------------------------------
+// GRID SCALE: MAX WIDTHS
+// -------------------------------------------
+
+$grid-scale-max-widths: (
+  'xs': 100%,
+  's': 100%,
+  'm': 100%,
+  'l': 100%,
+  'xl': units.rem(1280),     // 80rem (1280px) - Fixed centered container
+  '2xl': 100%,               // Fluid for ultra-wide screens
+) !default;
+
+// -------------------------------------------
+// GRID SCALE: TYPES
+// -------------------------------------------
+
+$grid-scale-types: (
+  'xs': 'fluid',
+  's': 'fluid',
+  'm': 'fluid',
+  'l': 'fluid',
+  'xl': 'fixed',
+  '2xl': 'fluid',
+) !default;
+
+// -------------------------------------------
+// LEGACY: DEPRECATED
+// -------------------------------------------
+
+$grid-breakpoints: (
+  xs: 0,
+  s: 480px,
+  m: 768px,
+  l: 1024px,
+  xl: 1200px
+);
+
+$grid-container-max-widths: (
+  s: 767px,
+  m: 1024px,
+  l: 1200px,
+  xl: 1440px
+);

@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use '../../functions/foundation/unit-conversion' as units;
 @use 'core' as *;
 @use 'sizing-scale' as sizing;
 
@@ -12,24 +13,13 @@
 
 $border-width-scale: (
   'none': 0,
-  'xs': sizing.$sizing-1,    // 1px - Subtle dividers, minimal borders
-  's': sizing.$sizing-2,     // 2px - Default borders, standard thickness
-  'm': sizing.$sizing-3,     // 3px - Emphasized borders, focus states
-  'l': sizing.$sizing-4,     // 4px - Heavy borders, strong emphasis
+  '2xs': units.rem(0.5px),   // 0.5px - Hairline borders, ultra-subtle dividers
+  'xs': sizing.$sizing-1,    // 1px   - Subtle dividers, minimal borders
+  's': sizing.$sizing-2,     // 2px   - Default borders, standard thickness
+  'm': sizing.$sizing-3,     // 3px   - Emphasized borders, focus states
+  'l': sizing.$sizing-4,     // 4px   - Heavy borders, strong emphasis
+  'xl': sizing.$sizing-6,    // 6px   - Extra heavy borders, rare use
 ) !default;
-
-// -------------------------------------------
-// BORDER WIDTH ALIASES
-// -------------------------------------------
-
-$border-width-none: map.get($border-width-scale, 'none') !default;   // 0
-$border-width-xs: map.get($border-width-scale, 'xs') !default;       // 1px
-$border-width-s: map.get($border-width-scale, 's') !default;         // 2px
-$border-width-m: map.get($border-width-scale, 'm') !default;         // 3px
-$border-width-l: map.get($border-width-scale, 'l') !default;         // 4px
-
-// Default border width (most common)
-$border-width-base: $border-width-s !default;  // 2px
 
 // -------------------------------------------
 // BORDER STYLE OPTIONS
@@ -46,46 +36,4 @@ $border-style-options: (
   'inset': inset,
   'outset': outset,
   'hidden': hidden,
-) !default;
-
-// -------------------------------------------
-// BORDER CONTEXT PRESETS
-// -------------------------------------------
-
-$border-presets: (
-  // Dividers and separators
-  'divider': (
-    'width': $border-width-xs,
-    'style': solid,
-  ),
-  
-  // Default component borders
-  'default': (
-    'width': $border-width-s,
-    'style': solid,
-  ),
-  
-  // Interactive element borders (inputs, buttons)
-  'interactive': (
-    'width': $border-width-s,
-    'style': solid,
-  ),
-  
-  // Focus state borders
-  'focus': (
-    'width': $border-width-m,
-    'style': solid,
-  ),
-  
-  // Emphasized borders (alerts, callouts)
-  'emphasis': (
-    'width': $border-width-l,
-    'style': solid,
-  ),
-  
-  // Decorative borders
-  'decorative': (
-    'width': $border-width-xs,
-    'style': dashed,
-  ),
 ) !default;

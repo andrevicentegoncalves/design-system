@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../variables/foundation/spacing-scale' as scale;
+
+@mixin generate-spacing-tokens() {
+  /* ======================================================================== */
+  /*                              TOKENS: SPACING                             */
+  /* ======================================================================== */
+
+  @each $key, $value in scale.$spacing-numeric {
+    --spacing-#{$key}: #{$value};
+  }
+
+    /* Legacy Spacing Tokens (DEPRECATED) */
+    --space-none: 0;
+    --space-xs: 0.25rem;         /* 4px */
+    --space-s: 0.5rem;           /* 8px */
+    --space-sm: 0.625rem;        /* 10px */
+    --space-base: 1rem;          /* 16px */
+    --space-m: 1.5rem;           /* 24px */
+    --space-ls: 1.75rem;         /* 28px */
+    --space-l: 1.875rem;         /* 30px */
+    --space-lm: 2.1875rem;       /* 35px */
+    --space-xl: 2.5rem;          /* 40px */
+    --space-xxl: 3rem;           /* 48px */
+    --space-xxxl: 6rem;          /* 96px */
+  
+}

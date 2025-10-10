@@ -3,20 +3,68 @@
 @use '../flags' as flags;
 @use 'colors';
 @use 'design-tokens';
+@use 'borders';
+@use 'typography';
+@use 'z-index';
+@use 'spacing';
+@use 'opacity';
+@use 'breakpoints';
+@use 'aspect-ratio';
+@use 'grid';
 
 // ============================================================================ //
 //                                 TOKENS: INDEX                                //
 // ============================================================================ //
 
 @mixin generate-tokens($categories: 'all') {
+
+    // Aspect Ratio  
+    @if $categories == 'all' or list.index($categories, 'aspect-ratio') {
+        @include aspect-ratio.generate-aspect-ratio-tokens();
+    }
+
+    // Breakpoints  
+    @if $categories == 'all' or list.index($categories, 'breakpoints') {
+        @include breakpoints.generate-breakpoints-tokens();
+    }
     
     // Colors  
     @if $categories == 'all' or list.index($categories, 'colors') {
         @include colors.generate-colors-tokens();
     }
 
+    // Borders
+    @if $categories == 'all' or list.index($categories, 'borders') {
+        @include borders.generate-border-tokens();
+    }
+
     // Design Tokens  
     @if $categories == 'all' or list.index($categories, 'design-tokens') {
         @include design-tokens.generate-tokens-tokens();
+    }
+
+    // Grid 
+    @if $categories == 'all' or list.index($categories, 'grid') {
+        @include grid.generate-grid-tokens();
+    }
+
+    // Opacity 
+    @if $categories == 'all' or list.index($categories, 'opacity') {
+        @include opacity.generate-opacity-tokens();
+    }
+
+    // Spacing 
+    @if $categories == 'all' or list.index($categories, 'spacing') {
+        @include spacing.generate-spacing-tokens();
+    }
+
+    // Typography 
+    @if $categories == 'all' or list.index($categories, 'typography') {
+        @include typography.generate-typography-tokens();
+    }
+
+    // Z-Index 
+    @if $categories == 'all' or list.index($categories, 'z-index') {
+        @include z-index.generate-z-index-tokens();
     }
 }

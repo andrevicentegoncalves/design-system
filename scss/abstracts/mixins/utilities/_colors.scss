@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:string';
+@use 'helpers' as *;
 
 // ========================================================================== //
 //                              MIXINS: COLORS                                //
@@ -30,11 +31,13 @@
   }
 }
 
-@mixin generate-border-colors($theme-mappings, $prefix: 'border') {
+@mixin generate-border-colors($theme-mappings, $prefix: 'border-color') {
   @each $token-name, $values in $theme-mappings {
     // Only include tokens that start with "border-"
     @if string.index($token-name, 'border-') == 1 {
-      .#{$prefix}-#{string.slice($token-name, 8)} {
+      // Remove 'border-' (which is 7 characters)
+      $suffix: string.slice($token-name, 8);
+      .#{$prefix}-#{$suffix} {
         border-color: var(--color-#{$token-name});
       }
     }
@@ -87,6 +90,20 @@
       color: var(--color-on-tier-navigator);
       background-color: var(--color-tier-navigator);
     }
+  }
+}
+
+@mixin bg-color-alpha($color-var, $opacity) {
+  position: relative;
+  
+  &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: var($color-var);
+      opacity: $opacity;
+      z-index: -1;
+      @include gpu-accelerate;
   }
 }
 

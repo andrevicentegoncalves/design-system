@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../variables/foundation/aspect-ratio-scale' as scale;
+
+@mixin generate-aspect-ratio-tokens() {
+
+/* ============================================================================ */
+/*                             TOKENS: ASPECT RATIO                             */
+/* ============================================================================ */
+
+    @each $name, $value in scale.$aspect-ratio-scale {
+        --aspect-ratio-#{$name}: #{$value};
+    }
+
+}

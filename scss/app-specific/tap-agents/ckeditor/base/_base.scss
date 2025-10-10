@@ -100,4 +100,17 @@
         height: auto;
         aspect-ratio: 16 / 9;
     }
+
+    .cke_contents_ltr iframe {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        border: none;
+      
+        // Optional fallback for older browsers
+        @supports not (aspect-ratio: 16 / 9) {
+          height: calc(100vw * 9 / 16);
+        }
+      }
+      
 }

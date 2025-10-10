@@ -310,6 +310,7 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  position: relative;
 }
 @media (max-width: 480px) {
   .banner-news__background {
@@ -319,11 +320,16 @@
 .banner-news__background::before {
   content: "";
   position: absolute;
-  top: var(--position-top-none);
-  left: var(--position-left-none);
-  right: var(--position-right-none);
-  bottom: var(--position-bottom-none);
-  background: rgba(var(--color-neutral-10), 0.4);
+  inset: 0;
+  background-color: var(--color-neutral-10);
+  opacity: 0.4;
+  z-index: -1;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+.banner-news__background::before {
   z-index: var(--z-index-sticky);
 }
 .banner-news__background > * {
@@ -576,12 +582,24 @@
   justify-content: center;
   color: var(--color-neutral-0);
   cursor: pointer;
-  background-color: rgba(var(--color-neutral-10), 0.4);
+  position: relative;
   border-top: var(--border-width) solid transparent;
   transition: background-color 0.2s ease;
   box-sizing: border-box;
   padding: 0 var(--space-s);
   margin-right: var(--space-s);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+.carousel__tabs-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-neutral-10);
+  opacity: 0.7;
+  z-index: -1;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -859,107 +877,244 @@
 }
 
 /* ==========================================================================*/
-/*                       PATTERNS: FLIPPABLE CARD GRID                       */
+/*                         PATTERNS: GRID FLIP CARDS                         */
 /* ==========================================================================*/
-.flippable-card-grid script {
+.grid-flip-wrapper {
+  width: 100%;
+}
+.grid-flip-wrapper.is-transitioning .flip-card,
+.grid-flip-wrapper.is-transitioning .flip-card-inner,
+.grid-flip-wrapper.is-transitioning .flip-card-front,
+.grid-flip-wrapper.is-transitioning .flip-card-back {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, height;
+}
+.grid-flip-wrapper script {
   display: none !important;
+  visibility: hidden !important;
   height: 0 !important;
   width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  opacity: var(--opacity-transparent) !important;
 }
-.flippable-card-grid__list {
+.grid-flip-wrapper .flip-card-list {
   display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+  position: relative;
 }
-@media (min-width: 768px) {
-  .flippable-card-grid__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1024px) {
-  .flippable-card-grid__list {
+@media (max-width: 1200px) {
+  .grid-flip-wrapper .flip-card-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 1200px) {
-  .flippable-card-grid__list {
-    grid-template-columns: repeat(4, 1fr);
+@media (max-width: 1024px) {
+  .grid-flip-wrapper .flip-card-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-.flippable-card-grid__card {
-  min-height: 270px;
-  perspective: 1000px;
-  position: relative;
-  transform-style: preserve-3d;
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-card-list {
+    grid-template-columns: 1fr;
+    gap: var(--space-base);
+  }
 }
-.flippable-card-grid__card--is-flipped .flippable-card-grid__inner {
+.grid-flip-wrapper .flip-transition-wrapper {
+  width: 100%;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+}
+.grid-flip-wrapper .flip-transition-wrapper[style*=height] {
+  min-height: 270px !important;
+}
+.grid-flip-wrapper .flip-transition-wrapper:last-child {
+  margin-bottom: var(--space-none);
+}
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-transition-wrapper {
+    min-height: 270px;
+  }
+}
+.grid-flip-wrapper .perspective-container {
+  perspective: 1000px;
+  width: 100%;
+  min-height: 270px;
+  flex: 1;
+  display: flex;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+@media (max-width: 480px) {
+  .grid-flip-wrapper .perspective-container {
+    min-height: 270px;
+  }
+}
+.grid-flip-wrapper .perspective-container:hover .flip-card-front,
+.grid-flip-wrapper .perspective-container:hover .flip-card-back {
+  box-shadow: 0 6px 12px rgba(16, 18, 19, var(--opacity-hover-strong));
+}
+.grid-flip-wrapper .flip-card {
+  position: relative;
+  width: 100%;
+  min-height: 270px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  will-change: transform, height;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.grid-flip-wrapper .flip-card[style*=height] {
+  min-height: 270px !important;
+}
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-card {
+    min-height: 270px;
+  }
+}
+.grid-flip-wrapper .flip-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 270px;
+  flex: 1;
+  text-align: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  will-change: transform, height;
+}
+.grid-flip-wrapper .flip-card-inner.flipped {
   transform: rotateY(180deg);
 }
-.flippable-card-grid__inner {
-  position: relative;
-  height: 100%;
-  transform-style: preserve-3d;
+.grid-flip-wrapper .flip-card-inner[style*=height] {
+  min-height: 270px !important;
 }
-.flippable-card-grid__front, .flippable-card-grid__back {
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-card-inner {
+    min-height: 270px;
+  }
+}
+.grid-flip-wrapper .flip-card-front,
+.grid-flip-wrapper .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 270px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: var(--color-neutral-0);
+  background: var(--color-neutral-0);
+  border-radius: var(--border-radius-soft);
+  box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transform-style: preserve-3d;
 }
-.flippable-card-grid__back {
+.grid-flip-wrapper .flip-card-front[style*=height],
+.grid-flip-wrapper .flip-card-back[style*=height] {
+  min-height: 270px !important;
+}
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-card-front,
+  .grid-flip-wrapper .flip-card-back {
+    min-height: 270px;
+    height: auto;
+  }
+}
+.grid-flip-wrapper .flip-card-back {
   transform: rotateY(180deg);
 }
-.flippable-card-grid__image {
+.grid-flip-wrapper img {
   width: 100%;
-  background-color: var(--color-neutral-1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flippable-card-grid__image img {
-  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
   display: block;
-  object-fit: contain;
 }
-.flippable-card-grid__content {
-  display: flex;
-  flex-direction: column;
+.grid-flip-wrapper .flip-card-content {
   padding: var(--space-base);
   flex: 1;
-}
-.flippable-card-grid__content-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 0;
 }
-.flippable-card-grid__title {
-  text-align: center;
-  margin-bottom: var(--space-base);
+@media (max-width: 480px) {
+  .grid-flip-wrapper .flip-card-content {
+    padding-bottom: calc(var(--space-base) + 48px);
+  }
+  .grid-flip-wrapper .flip-card-content .flip-card-content-title {
+    margin: var(--space-none) var(--space-none) var(--space-xs) var(--space-none);
+  }
+  .grid-flip-wrapper .flip-card-content .flip-card-content-title .content-text-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    line-height: 1.2;
+    margin: var(--space-none);
+  }
+  .grid-flip-wrapper .flip-card-content .flip-card-content-subtitle {
+    display: block;
+    margin: var(--space-none) var(--space-none) var(--space-base) var(--space-none);
+  }
+  .grid-flip-wrapper .flip-card-content .flip-card-content-subtitle .content-text-light {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    line-height: 1.2;
+    margin: var(--space-none);
+  }
 }
-.flippable-card-grid__subtitle {
-  text-align: center;
-  margin-bottom: var(--space-base);
+.grid-flip-wrapper .flip-button-container {
+  display: none;
 }
-.flippable-card-grid__button {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: var(--space-base);
+@media (max-width: 1024px) {
+  .grid-flip-wrapper .flip-button-container {
+    display: block;
+    margin: var(--space-base);
+    z-index: 1;
+  }
 }
-.flippable-card-grid__button-flip {
-  width: 100%;
-  padding: var(--space-s) var(--space-base);
-  cursor: pointer;
+.grid-flip-wrapper .flip-button {
+  font-weight: 400;
 }
-.flippable-card-grid__expanded {
-  margin-top: var(--space-base);
+@media (max-width: 480px) {
+  .grid-flip-wrapper .margin-top-s,
+  .grid-flip-wrapper .margin-bottom-base,
+  .grid-flip-wrapper .margin-y-base {
+    margin: var(--space-none);
+  }
+}
+@media (min-width: 1200px) {
+  .grid-flip-wrapper .flip-button-container {
+    display: none !important;
+  }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .grid-flip-wrapper .flip-transition-wrapper,
+  .grid-flip-wrapper .flip-card,
+  .grid-flip-wrapper .flip-card-inner,
+  .grid-flip-wrapper .flip-card-front,
+  .grid-flip-wrapper .flip-card-back {
+    transition-duration: 0.3s;
+  }
+}
 /* ==========================================================================*/
 /*                        PATTERNS: HIGHLIOGHT CONTENT                       */
 /* ==========================================================================*/
@@ -1295,7 +1450,7 @@
 }
 .suggestion-content [data-radio-group] [data-radio-button] .radio-button:before, .suggestion-content .radio-group [data-radio-button] .radio-button:before {
   background-color: var(--color-neutral-0);
-  border: var(--border-width) var(--border-style) var(--color-neutral-5);
+  border: var(--border-width) var(--border-style-solid) var(--color-neutral-5);
   border-radius: 50%;
   content: "";
   display: flex;
@@ -1325,7 +1480,7 @@
 }
 .suggestion-content [data-radio-group] [data-radio-button] .radio-button:disabled:before, .suggestion-content .radio-group [data-radio-button] .radio-button:disabled:before {
   background-color: var(--color-neutral-2);
-  border: var(--border-width) var(--border-style) var(--color-neutral-4);
+  border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
 }
 .suggestion-content [data-radio-group] [data-radio-button] .radio-button:disabled:checked:before, .suggestion-content .radio-group [data-radio-button] .radio-button:disabled:checked:before {
   background-color: var(--color-neutral-2);
@@ -1342,7 +1497,7 @@
   color: var(--color-primary);
 }
 .suggestion-content [data-radio-group].not-valid [data-radio-button] .radio-button:before, .suggestion-content .radio-group.not-valid [data-radio-button] .radio-button:before {
-  border: var(--border-width) var(--border-style) var(--color-danger);
+  border: var(--border-width) var(--border-style-solid) var(--color-danger);
 }
 .suggestion-content [data-radio-group].not-valid [data-radio-button] .radio-button:checked:before, .suggestion-content .radio-group.not-valid [data-radio-button] .radio-button:checked:before {
   background-color: var(--color-neutral-0);
@@ -1352,7 +1507,7 @@
   width: var(--truncate-width);
   min-height: 120px;
   padding: var(--space-s);
-  border: var(--border-width) solid var(--color-neutral-4);
+  border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
   border-radius: var(--border-radius-extra-soft);
   resize: vertical;
   font-family: var(--font-family-base);

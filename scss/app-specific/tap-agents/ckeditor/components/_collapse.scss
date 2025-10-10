@@ -94,9 +94,15 @@
             padding: var(--space-xl);
 
             @media (max-width: $breakpoint-phone) {
-                padding: var(--space-s);
+                padding: var(--space-base);
             }
             
+        }
+
+        ul, ol {
+            @media (max-width: $breakpoint-tablet) {
+                padding-left: var(--space-base); 
+            }
         }
 
         // Nested containers

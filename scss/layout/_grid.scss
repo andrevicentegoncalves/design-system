@@ -1,20 +1,25 @@
 @use 'sass:map';
-@use 'sass:list';
-
 @use '../abstracts' as *;
 
-/* ==========================================================================*/
-/*                                LAYOUT: GRID                               */
-/* ==========================================================================*/
+/* ========================================================================== */
+/*                          LAYOUT: GRID SYSTEM                               */
+/* ========================================================================== */
 
-//-------------------------------------------
-// Base Grid Container
-//-------------------------------------------
+// ============================================================================
+//                            CONTAINERS
+// ============================================================================
 
+.container {
+    @include grid-container();
+}
+
+.container-fluid {
+    @include grid-container($fluid: true);
+}
+
+// Legacy class for backward compatibility
 .grid-container {
-    width: 100%;
-    max-width: var(--layout-max-width);
-    margin: 0 auto;
+    @include grid-container();
     
     // Script safety measures
     script {
@@ -29,32 +34,18 @@
     }
 }
 
-//-------------------------------------------
-// Responsive Container Widths
-//-------------------------------------------
-
-@each $breakpoint, $width in $grid-container-max-widths {
-    @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
-        .grid-container {
-            max-width: $width;
-        }
-    }
-}
-
-//-------------------------------------------
-// Grid Item Base Styles
-//-------------------------------------------
+// ============================================================================
+//                         GRID ITEM BASE STYLES
+// ============================================================================
 
 .grid-item {
     overflow: hidden;
-    -webkit-transition: var(--transition-base);
     transition: var(--transition-base);
     height: auto !important;
     min-height: unset !important;
     display: flex !important;
     flex-direction: column !important;
 
-    // Height override for zero-height items
     &[style*="height: 0px"] {
         height: auto !important;
         min-height: unset !important;
@@ -62,72 +53,114 @@
     }
 }
 
-//-------------------------------------------
-// Grid Item Content
-//-------------------------------------------
-
 .grid-item-content {
     padding: var(--space-base);
 }
 
-//-------------------------------------------
-// Predefined Grid Layouts
-//-------------------------------------------
+// ============================================================================
+//                      PREDEFINED RESPONSIVE GRIDS
+// ============================================================================
 
-@include create-grid(2, (
-    xs: 1,
-    sm: 1,
-    md: 2,
-    lg: 2,
-    xl: 2
-));
-
-@include create-grid(3, (
-    xs: 1,
-    sm: 2,
-    md: 3,
-    lg: 3,
-    xl: 3
-));
-
-@include create-grid(4, (
-    xs: 1,
-    sm: 2,
-    md: 3,
-    lg: 4,
-    xl: 4
-));
-
-//-------------------------------------------
-// 12-Column Grid System
-//-------------------------------------------
-
-.row {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-flow: row;
-    gap: 16px;
+.grid-2 {
+    @include responsive-grid((
+        xs: 1,
+        s: 1,
+        m: 2,
+        l: 2,
+        xl: 2
+    ));
 }
 
-// Generate responsive columns
-@include generate-grid-columns($grid-breakpoints, $grid-columns);
+.grid-3 {
+    @include responsive-grid((
+        xs: 1,
+        s: 2,
+        m: 3,
+        l: 3,
+        xl: 3
+    ));
+}
 
-// Default column spans
-@include default-grid-columns($grid-columns);
+.grid-4 {
+    @include responsive-grid((
+        xs: 1,
+        s: 2,
+        m: 3,
+        l: 4,
+        xl: 4
+    ));
+}
 
-//-------------------------------------------
-// Fractional Layout Classes
-//-------------------------------------------
+// ============================================================================
+//                      AUTO-RESPONSIVE GRIDS (NEW)
+// ============================================================================
 
-.grid-fourth { grid-column: span 3; }
-.grid-third { grid-column: span 4; }
-.grid-half { grid-column: span 6; }
-.grid-two-thirds { grid-column: span 8; }
-.grid-three-fourths { grid-column: span 9; }
+.grid-auto {
+    @include auto-fit-grid(280px);
+    
+    &--sm { @include auto-fit-grid(200px); }
+    &--md { @include auto-fit-grid(280px); }
+    &--lg { @include auto-fit-grid(350px); }
+    &--xl { @include auto-fit-grid(450px); }
+}
 
-//-------------------------------------------
-// Grid Column Start Positions
-//-------------------------------------------
+.cards {
+    @include auto-fit-grid(280px);
+    
+    &--sm { @include auto-fit-grid(200px); }
+    &--md { @include auto-fit-grid(280px); }
+    &--lg { @include auto-fit-grid(350px); }
+    &--xl { @include auto-fit-grid(450px); }
+}
+
+// ============================================================================
+//                         12-COLUMN GRID SYSTEM
+// ============================================================================
+
+.row {
+    @include grid-layout(12, 16px);
+    grid-auto-flow: row;
+}
+
+// Generate responsive column classes
+@each $bp in (xs, s, m, l, xl) {
+    @if $bp == 'xs' {
+        @for $i from 1 through 12 {
+            .row .col-#{$bp}-#{$i} { 
+                @include grid-span($i);
+            }
+        }
+    } @else {
+        @include bp-up($bp) {
+            @for $i from 1 through 12 {
+                .row .col-#{$bp}-#{$i} { 
+                    @include grid-span($i);
+                }
+            }
+        }
+    }
+}
+
+// Default non-responsive column spans
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        @include grid-span($i);
+    }
+}
+
+// ============================================================================
+//                      FRACTIONAL LAYOUT CLASSES
+// ============================================================================
+
+.grid-fourth { @include grid-span(3); }
+.grid-third { @include grid-span(4); }
+.grid-half { @include grid-span(6); }
+.grid-two-thirds { @include grid-span(8); }
+.grid-three-fourths { @include grid-span(9); }
+
+// ============================================================================
+//                      GRID COLUMN START POSITIONS
+// ============================================================================
 
 .grid-start-first { grid-column-start: 1; }
 .grid-start-fourth { grid-column-start: 4; }
@@ -136,22 +169,30 @@
 .grid-start-two-thirds { grid-column-start: 9; }
 .grid-start-three-fourths { grid-column-start: 10; }
 
-//-------------------------------------------
-// Responsive Column Start Positions
-//-------------------------------------------
-
-@each $breakpoint, $width in $grid-breakpoints {
-    @include responsive($breakpoint) {
-        @for $i from 1 through ($grid-columns - 1) {
-            .grid-start-#{$breakpoint}-#{$i} { grid-column-start: $i; }
+// Responsive column start positions
+@each $bp in (xs, s, m, l, xl) {
+    @if $bp == 'xs' {
+        @for $i from 1 through 11 {
+            .grid-start-#{$bp}-#{$i} { 
+                grid-column-start: $i; 
+            }
+        }
+    } @else {
+        @include bp-up($bp) {
+            @for $i from 1 through 11 {
+                .grid-start-#{$bp}-#{$i} { 
+                    grid-column-start: $i; 
+                }
+            }
         }
     }
 }
 
-//-------------------------------------------
-// Gap Utilities
-//-------------------------------------------
+// ============================================================================
+//                         GAP UTILITIES
+// ============================================================================
 
+// Legacy gaps
 .gap-05 { gap: 0.5rem; }
 .gap-1 { gap: 1rem; }
 .gap-2 { gap: 2rem; }
@@ -159,17 +200,75 @@
 .column-gap-xxl { column-gap: var(--space-xxl); }
 .column-gap-xxxl { column-gap: var(--space-xxxl); }
 
-//-------------------------------------------
-// Grid Alignment Utilities
-//-------------------------------------------
+// Modern token-based gaps
+.gap-none { gap: 0; }
+.gap-xs { gap: var(--space-xs); }
+.gap-s { gap: var(--space-s); }
+.gap-base { gap: var(--space-base); }
+.gap-m { gap: var(--space-m); }
+.gap-l { gap: var(--space-l); }
+.gap-xl { gap: var(--space-xl); }
+.gap-xxl { gap: var(--space-xxl); }
 
+.col-gap-xs { column-gap: var(--space-xs); }
+.col-gap-s { column-gap: var(--space-s); }
+.col-gap-base { column-gap: var(--space-base); }
+.col-gap-m { column-gap: var(--space-m); }
+.col-gap-l { column-gap: var(--space-l); }
+.col-gap-xl { column-gap: var(--space-xl); }
+
+.row-gap-xs { row-gap: var(--space-xs); }
+.row-gap-s { row-gap: var(--space-s); }
+.row-gap-base { row-gap: var(--space-base); }
+.row-gap-m { row-gap: var(--space-m); }
+.row-gap-l { row-gap: var(--space-l); }
+.row-gap-xl { row-gap: var(--space-xl); }
+
+// ============================================================================
+//                      ALIGNMENT UTILITIES
+// ============================================================================
+
+// Legacy alignment
 .grid-align-center { align-items: center; }
 .grid-justify-center { justify-items: center; }
 .grid-auto-flow-dense { grid-auto-flow: dense; }
 
-//-------------------------------------------
-// Gutter Control
-//-------------------------------------------
+// Modern alignment utilities
+.items-start { align-items: start; }
+.items-center { align-items: center; }
+.items-end { align-items: end; }
+.items-stretch { align-items: stretch; }
+.items-baseline { align-items: baseline; }
+
+.justify-start { justify-items: start; }
+.justify-center { justify-items: center; }
+.justify-end { justify-items: end; }
+.justify-stretch { justify-items: stretch; }
+
+.content-start { align-content: start; }
+.content-center { align-content: center; }
+.content-end { align-content: end; }
+.content-between { align-content: space-between; }
+.content-around { align-content: space-around; }
+.content-evenly { align-content: space-evenly; }
+
+.justify-content-start { justify-content: start; }
+.justify-content-center { justify-content: center; }
+.justify-content-end { justify-content: end; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.justify-content-evenly { justify-content: space-evenly; }
+
+.place-center { place-items: center; }
+
+// Grid flow
+.flow-row { grid-auto-flow: row; }
+.flow-col { grid-auto-flow: column; }
+.flow-dense { grid-auto-flow: dense; }
+
+// ============================================================================
+//                         GUTTER CONTROL
+// ============================================================================
 
 .no-gutters {
     margin-right: 0;
@@ -183,89 +282,118 @@
     }
 }
 
-//-------------------------------------------
-// Special Cases
-//-------------------------------------------
+// ============================================================================
+//                         SPECIAL CASES
+// ============================================================================
 
 .card.grid-item { padding: 0; }
 .grid .grid { grid-column: 1 / -1; }
 
-//-------------------------------------------
-// Responsive Visibility Utilities
-//-------------------------------------------
+// ============================================================================
+//                      RESPONSIVE VISIBILITY
+// ============================================================================
 
-@each $breakpoint, $width in $grid-breakpoints {
-    @media (min-width: $width) {
-        .hidden-#{$breakpoint}-up {
+@each $bp in (s, m, l, xl) {
+    @include bp-up($bp) {
+        .hidden-#{$bp}-up {
             display: none !important;
         }
     }
 }
 
-@each $breakpoint, $width in $grid-breakpoints {
-    $breakpoint-names: map.keys($grid-breakpoints);
-    $breakpoint-index: list.index($breakpoint-names, $breakpoint);
+.hidden-xs-down { display: none !important; }
+
+@include bp-down(s) {
+    .hidden-s-down { display: none !important; }
+}
+
+@include bp-down(m) {
+    .hidden-m-down { display: none !important; }
+}
+
+@include bp-down(l) {
+    .hidden-l-down { display: none !important; }
+}
+
+// ============================================================================
+//                   RESPONSIVE GRID CONTAINER VARIATIONS
+// ============================================================================
+
+.container-2-2-1 { @include responsive-columns(1, 2, 2); }
+.container-3-2-1 { @include responsive-columns(1, 2, 3); }
+.container-3-3-1 { @include responsive-columns(1, 3, 3); }
+.container-4-2-1 { @include responsive-columns(1, 2, 4); }
+.container-4-2-2 { @include responsive-columns(2, 2, 4); }
+.container-4-3-2 { @include responsive-columns(2, 3, 4); }
+.container-5-3-1 { @include responsive-columns(1, 3, 5); }
+.container-5-3-2 { @include responsive-columns(2, 3, 5); }
+.container-5-4-2 { @include responsive-columns(2, 4, 5); }
+.container-6-3-1 { @include responsive-columns(1, 3, 6); }
+.container-6-3-2 { @include responsive-columns(2, 3, 6); }
+.container-6-4-2 { @include responsive-columns(2, 4, 6); }
+
+// ============================================================================
+//                      ADVANCED LAYOUT PATTERNS (NEW)
+// ============================================================================
+
+.layout-sidebar {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-areas: 
+        "sidebar"
+        "main";
+    grid-template-columns: 1fr;
     
-    @if $breakpoint-index < list.length($breakpoint-names) {
-        $next-breakpoint: list.nth($breakpoint-names, $breakpoint-index + 1);
-        $next-width: map.get($grid-breakpoints, $next-breakpoint);
-        
-        @media (max-width: ($next-width - 0.02)) {
-            .hidden-#{$breakpoint}-down {
-                display: none !important;
-            }
+    @include bp-up(l) {
+        grid-template-areas: "sidebar main";
+        grid-template-columns: 250px 1fr;
+    }
+    
+    &__sidebar { grid-area: sidebar; }
+    &__main { grid-area: main; }
+    
+    &--right {
+        @include bp-up(l) {
+            grid-template-areas: "main sidebar";
+            grid-template-columns: 1fr 250px;
         }
     }
 }
 
-//-------------------------------------------
-// Responsive Grid Container Variations
-//-------------------------------------------
-
-.container-2-2-1 {
-    @include create-responsive-grid-container(2, 2, 1);
+.layout-holy-grail {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    
+    @include bp-up(l) {
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+    }
+    
+    &__header { grid-area: header; }
+    &__nav { grid-area: nav; }
+    &__main { grid-area: main; }
+    &__aside { grid-area: aside; }
+    &__footer { grid-area: footer; }
 }
 
-.container-3-2-1 {
-    @include create-responsive-grid-container(3, 2, 1);
+.grid-center {
+    display: grid;
+    place-items: center;
 }
 
-.container-3-3-1 {
-    @include create-responsive-grid-container(3, 3, 1);
-}
-  
-.container-4-2-1 {
-    @include create-responsive-grid-container(4, 2, 1);
-}
- 
-.container-4-2-2 {
-    @include create-responsive-grid-container(4, 2, 2);
-}
-
-.container-4-3-2 {
-    @include create-responsive-grid-container(4, 3, 2);
-}
-
-.container-5-3-1 {
-    @include create-responsive-grid-container(5, 3, 1);
-}
-
-.container-5-3-2 {
-    @include create-responsive-grid-container(5, 3, 2);
-}
-
-.container-5-4-2 {
-    @include create-responsive-grid-container(5, 4, 2);
-}
-  
-.container-6-3-1 {
-    @include create-responsive-grid-container(6, 3, 1);
-}
-
-.container-6-3-2 {
-    @include create-responsive-grid-container(6, 3, 2);
-}
-
-.container-6-4-2 {
-    @include create-responsive-grid-container(6, 4, 2);
+.grid-stack {
+    display: grid;
+    gap: var(--space-m);
+    
+    @include bp-up(m) {
+        gap: var(--space-l);
+    }
 }

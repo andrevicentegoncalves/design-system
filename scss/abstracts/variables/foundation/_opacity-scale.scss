@@ -5,10 +5,6 @@
 //                        FOUNDATION: OPACITY SCALE                             //
 // ============================================================================ //
 
-// -------------------------------------------
-// OPACITY SCALE 
-// -------------------------------------------
-
 $opacity-scale: (
   // Full transparency
   0: 0,
@@ -36,38 +32,4 @@ $opacity-scale: (
   
   // Full opacity
   100: 1,
-) !default;
-
-// -------------------------------------------
-// SEMANTIC OPACITY TOKENS
-// -------------------------------------------
-
-$opacity-semantic: (
-  'transparent': 0,
-  'invisible': 0,
-  
-  // Interaction states
-  'hover-light': 0.05,       // Subtle hover effect
-  'hover-medium': 0.08,      // Standard hover effect
-  'hover-strong': 0.12,      // Strong hover effect
-  'active': 0.15,            // Active/pressed state
-  'focus': 0.12,             // Focus state
-  
-  // Content states
-  'disabled': 0.40,          // Disabled content
-  'secondary': 0.70,         // Secondary text
-  'placeholder': 0.50,       // Placeholder text
-  
-  // Overlay states
-  'overlay-light': 0.40,     // Light overlay
-  'overlay-medium': 0.60,    // Medium overlay
-  'overlay-heavy': 0.80,     // Heavy overlay
-  'overlay-modal': 0.50,     // Modal backdrop
-  
-  // Loading states
-  'skeleton-base': 0.12,     // Skeleton background
-  'skeleton-shine': 0.20,    // Skeleton shimmer
-  
-  'opaque': 1,
-  'visible': 1,
 ) !default;

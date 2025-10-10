@@ -105,7 +105,7 @@
         justify-content: center;
         color: var(--color-neutral-0);
         cursor: pointer;
-        background-color: rgba(var(--color-neutral-10), 0.4);
+        @include bg-color-alpha(--color-neutral-10, 0.7);
         border-top: var(--border-width) solid transparent;
         transition: background-color 0.2s ease;
         box-sizing: border-box;

@@ -9,7 +9,7 @@
 //-------------------------------------------
 
 [data-popup-backdrop] {
-    z-index: var(--z-index-modal-backdrop);
+    z-index: var(--z-index-modal-overlay);
 }
 
 .popup {
@@ -74,12 +74,12 @@
         display: flex;
         width: 100%;
 
-        @media (max-width: $breakpoint-tablet) {
+        @include bp-down(m) {
             flex-direction: column;
             gap: var(--space-m);
         }
 
-        @media (min-width: $breakpoint-tablet) {
+        @include bp-down(m) {
             flex-direction: row;
             justify-content: flex-end;
             gap: var(--space-base);
@@ -103,18 +103,18 @@
                 font-weight: 400;
             }
 
-            @media (max-width: $breakpoint-tablet) {
+            @include bp-down(m) {
                 margin-left: 0 !important;
             }
 
-            @media (min-width: $breakpoint-tablet) {
+            @include bp-down(m) {
                 order: -1;
             }
         }
 
         // Responsive Button Styles
         &--main, &--cancel {
-            @media (max-width: $breakpoint-tablet) {
+            @include bp-down(m) {
                 width: 100%;
 
                 .btn {

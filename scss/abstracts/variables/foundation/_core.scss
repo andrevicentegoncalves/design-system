@@ -48,25 +48,6 @@ $scale-ratio-golden: 1.618 !default;         // 1:φ (golden ratio)
 $typography-scale-ratio: $scale-ratio-minor-third !default;
 
 // -------------------------------------------
-// VIEWPORT REFERENCES - Breakpoint foundations
-// -------------------------------------------
-
-$viewport-xs: 0 !default;
-$viewport-s: 576 !default;
-$viewport-m: 768 !default;
-$viewport-l: 1024 !default;
-$viewport-xl: 1280 !default;
-$viewport-2xl: 1536 !default;
-$viewport-3xl: 1920 !default;
-
-// -------------------------------------------
-// Z-INDEX FOUNDATION - Layering system
-// -------------------------------------------
-
-$z-index-base: 1 !default;
-$z-index-step: 10 !default;
-
-// -------------------------------------------
 // CORE UNITS MAP - Programmatic access
 // -------------------------------------------
 
