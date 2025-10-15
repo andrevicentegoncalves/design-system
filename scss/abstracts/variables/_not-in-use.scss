@@ -90,3 +90,14 @@ $grid-container-max-widths: (
   lg: $breakpoint-desktop,
   xl: $layout-max-width
 );
+
+// Grid System
+$grid-columns: 12;
+$grid-columns-standard: 4;
+$grid-gap: 25px;
+$grid-gutter-width: 30px;
+
+$font-path: if(flags.$is_main, '/TapPortal_TH/', 
+               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
+             );
+

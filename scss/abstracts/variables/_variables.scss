@@ -31,11 +31,7 @@ $layout-max-width: fn.rem(1440);
 $layout-half-max-width: fn.rem(720);
 $popup-max-width: fn.rem(650);
 
-// Grid System
-$grid-columns: 12;
-$grid-columns-standard: 4;
-$grid-gap: 25px;
-$grid-gutter-width: 30px;
+
 
 
 
@@ -125,8 +121,4 @@ $position-left-none: 0;
 $flip-card-height: 240px;
 $flip-card-expanded-height: 480px;
 $flip-card-transition-time: 0.6s;
-
-$font-path: if(flags.$is_main, '/TapPortal_TH/', 
-               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
-             );
 

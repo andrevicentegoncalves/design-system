@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use '../flags' as flags;
 @use 'colors';
 @use 'design-tokens';
@@ -11,13 +10,14 @@
 @use 'breakpoints';
 @use 'aspect-ratio';
 @use 'grid';
+@use 'cursor';
+@use 'focus';
 
 // ============================================================================ //
 //                                 TOKENS: INDEX                                //
 // ============================================================================ //
 
 @mixin generate-tokens($categories: 'all') {
-
     // Aspect Ratio  
     @if $categories == 'all' or list.index($categories, 'aspect-ratio') {
         @include aspect-ratio.generate-aspect-ratio-tokens();
@@ -33,6 +33,11 @@
         @include colors.generate-colors-tokens();
     }
 
+    // Cursor  
+    @if $categories == 'all' or list.index($categories, 'cursor') {
+        @include cursor.generate-cursor-tokens();
+    }
+
     // Borders
     @if $categories == 'all' or list.index($categories, 'borders') {
         @include borders.generate-border-tokens();
@@ -43,9 +48,9 @@
         @include design-tokens.generate-tokens-tokens();
     }
 
-    // Grid 
-    @if $categories == 'all' or list.index($categories, 'grid') {
-        @include grid.generate-grid-tokens();
+    // Focus 
+    @if $categories == 'all' or list.index($categories, 'focus') {
+        @include focus.generate-focus-tokens();
     }
 
     // Opacity 

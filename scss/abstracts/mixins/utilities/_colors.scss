@@ -94,7 +94,9 @@
 }
 
 @mixin bg-color-alpha($color-var, $opacity) {
-  position: relative;
+  & {
+    position: relative;
+  }
   
   &::before {
       content: '';

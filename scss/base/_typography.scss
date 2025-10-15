@@ -5,15 +5,16 @@
 /* ==========================================================================*/
 
 //-------------------------------------------
-// Material Icons
+// Font Face
 //-------------------------------------------
+
 @include font-face-generator('Material Icons', '#{$font-path}MaterialIcons-Regular.ttf', normal);
 
 // Generate Font Faces
-@each $style, $weight in $font-weight-scale {
-  @include font-face-generator('Montserrat', '#{$font-path}Montserrat-#{$style}.ttf', $weight);
-  @include font-face-generator('Roboto', '#{$font-path}Roboto-#{$style}.ttf', $weight);
-  @include font-face-generator('Lato', '#{$font-path}Lato-#{$style}.ttf', $weight);
+@each $style, $weight in $font-weights-to-load {
+  @include load-font-weights('Montserrat', $font-path);
+  @include load-font-weights('Roboto', $font-path);
+  @include load-font-weights('Lato', $font-path);
 }
 //-------------------------------------------
 // Font Family Classes

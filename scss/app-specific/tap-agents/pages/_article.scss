@@ -1,4 +1,4 @@
-@use  '../../../abstracts' as *;
+@use '../../../abstracts' as *;
 
 /* ==========================================================================*/
 /*                                PAGES: ARTICLE                             */
@@ -13,8 +13,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    @include prevent-overflow;
 
-    // Horizontal line styling
     .line {
         margin: 0 auto;
     }
@@ -30,7 +30,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: var(--space-m);
+    gap: var(--spacing-6);
+    @include prevent-overflow;
 }
 
 //-------------------------------------------
@@ -40,14 +41,13 @@
 .article-title {
     flex: 1;
     text-align: center;
+    @include text-container;
+    min-width: 0;
 
-    // Desktop breakpoint adjustments
-    @media (max-width: var(--breakpoint-desktop)) {
-        padding-right: var(--space-none);
-        margin: {
-            bottom: var(--space-base);
-            right: var(--space-none);
-        }
+    @include bp-down(m) {
+        padding-right: var(--spacing-0);
+        margin-bottom: var(--spacing-4);
+        margin-right: var(--spacing-0);
     }
 }
 
@@ -60,12 +60,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: var(--space-m);
+    margin-top: var(--spacing-6);
     width: 100%;
+    @include text-container;
 
-    // Responsive spacing
-    @media (max-width: $breakpoint-desktop) {
-        margin-top: var(--space-base);
+    @include bp-down(m) {
+        margin-top: var(--spacing-4);
     }
 }
 
@@ -78,15 +78,13 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0.5rem;
-    right: 0;
-}
+    top: var(--spacing-2);
+    right: var(--spacing-0);
+    flex-shrink: 0;
 
-// Desktop icon positioning
-@media (max-width: $breakpoint-desktop) {
-    .article-icon {
+    @include bp-down(m) {
         position: static;
-        margin-top: 1rem;
+        margin-top: var(--spacing-4);
         width: 100%;
     }
 }
@@ -98,33 +96,51 @@
 .title-with-bookmark {
     display: flex;
     align-items: center;
-    gap: var(--space-s);
+    gap: var(--spacing-2);
     justify-content: center;
-    text-align: center;       
+    text-align: center;
+    @include prevent-overflow;
     
-    @media (max-width: $breakpoint-phone) {
+    @include bp-down(xs) {
         flex-direction: column;
     }
-    // CKEditor content alignment
+
     .cke_contents_ltr {
         text-align: center;
     }
 
-    // Bookmark styling
     .article-bookmark {
         display: flex;
         align-items: center;
         font-size: var(--font-size-base);
+        flex-shrink: 0;
 
-        // Responsive font size
-        @media (max-width: $breakpoint-desktop) {
+        @include bp-down(m) {
             font-size: var(--font-size-h6);
         }
     }
 
-    // Icon container
     .icon {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
+    }
+}
+
+//-------------------------------------------
+// CKEditor Content Wrapper
+//-------------------------------------------
+
+.cke_contents_ltr,
+.article-content {
+    @include text-wrap;
+}
+
+.article-title,
+.article-subtitle,
+.title-with-bookmark {
+    h1, h2, h3, h4, h5, h6, p, span, div {
+        @include text-wrap;
+        max-width: 100%;
     }
 }

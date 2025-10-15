@@ -7,12 +7,10 @@
 /*                              TOKENS: Z-INDEX                                 */
 /* ============================================================================ */
 
-
-    @each $layer, $value in scale.$z-index-layers {
+  @each $layer, $value in scale.$z-index-layers {
     --z-index-#{$layer}: #{$value};
   }
 
   /*Legacy - Deprecated*/
   --z-index-modal-backdrop: var(--z-index-modal-overlay);
-
 }

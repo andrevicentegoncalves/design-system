@@ -97,6 +97,7 @@
 
     // Tab Items
     &-item {
+        // ALL regular properties FIRST
         height: var(--bottom-tab-height);
         min-width: 210px;
         flex: 0 0 210px;
@@ -105,12 +106,14 @@
         justify-content: center;
         color: var(--color-neutral-0);
         cursor: pointer;
-        @include bg-color-alpha(--color-neutral-10, 0.7);
         border-top: var(--border-width) solid transparent;
         transition: background-color 0.2s ease;
         box-sizing: border-box;
         padding: 0 var(--space-s);
         margin-right: var(--space-s);
+        
+        // THEN mixins and nested rules
+        @include bg-color-alpha(--color-neutral-10, 0.7);
         @include gpu-accelerate;
 
         @media (max-width: $breakpoint-phone) {

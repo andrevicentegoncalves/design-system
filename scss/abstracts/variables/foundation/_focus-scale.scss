@@ -1,105 +1,121 @@
 @use 'sass:map';
-@use '../../functions/foundation/unit-conversion' as units;
 @use 'sizing-scale' as sizing;
 
 // ========================================================================== //
-//                         FOUNDATION: FOCUS SCALE                            //
+//                        FOUNDATION: FOCUS SCALE                             //
 // ========================================================================== //
 
 // -------------------------------------------
-// FOCUS RING CONFIGURATION
+// FOCUS WIDTH SCALE
 // -------------------------------------------
+// Standardized focus indicator widths
 
-$focus-ring-config: (
-  // Ring dimensions
-  'width': sizing.$sizing-2,              
-  'width-bold': sizing.$sizing-3,         
-  'offset': sizing.$sizing-2,             
-  'offset-small': sizing.$sizing-1,       
-  
-  // Ring style
-  'style': solid,
-  'radius': inherit,                      
-  
-  // Animation
-  'transition-duration': 150ms,
-  'transition-easing': ease-out,
+$focus-width-scale: (
+  '1': sizing.$sizing-1,                  // 0.25rem / 4px  - Minimal
+  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Standard
+  '3': sizing.$sizing-3,                  // 0.75rem / 12px - Bold
+  '4': sizing.$sizing-4,                  // 1rem    / 16px - Extra bold
 ) !default;
 
 // -------------------------------------------
-// FOCUS INDICATORS 
+// FOCUS OFFSET SCALE
 // -------------------------------------------
+// Standardized spacing between element and focus indicator
 
-$focus-indicators: (
-  // Line indicators (underlines, borders)
-  'line': (
-    'width': sizing.$sizing-2,
-    'style': solid,
-  ),
-  'line-bold': (
-    'width': sizing.$sizing-3,
-    'style': solid,
-  ),
-  
-  // Glow/shadow indicators
-  'glow': (
-    'spread': sizing.$sizing-4,           
-    'blur': sizing.$sizing-8,             
-    'opacity': 0.5,
-  ),
-  'glow-subtle': (
-    'spread': sizing.$sizing-2,          
-    'blur': sizing.$sizing-6,             
-    'opacity': 0.3,
-  ),
+$focus-offset-scale: (
+  '0': 0,                                 // No offset (flush)
+  '1': sizing.$sizing-1,                  // 0.25rem / 4px  - Tight
+  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Standard
+  '3': sizing.$sizing-3,                  // 0.75rem / 12px - Loose
+  '4': sizing.$sizing-4,                  // 1rem    / 16px - Extra loose
 ) !default;
 
 // -------------------------------------------
-// HIGH CONTRAST MODE
+// FOCUS SPREAD SCALE
 // -------------------------------------------
+// Box shadow spread values for glow effects
 
-$high-contrast-config: (
-  // Border/outline widths for high contrast
-  'border-width': sizing.$sizing-3,      
-  'outline-width': sizing.$sizing-2,      
-  'outline-offset': sizing.$sizing-2,    
-  
-  // Minimum contrast ratios (WCAG)
-  'contrast-ratio-normal': 4.5,           // WCAG AA (normal text)
-  'contrast-ratio-large': 3,              // WCAG AA (large text)
-  'contrast-ratio-enhanced': 7,           // WCAG AAA
+$focus-spread-scale: (
+  '0': 0,                                 // No spread
+  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Subtle
+  '4': sizing.$sizing-4,                  // 1rem    / 16px - Standard
+  '6': sizing.$sizing-6,                  // 1.5rem  / 24px - Prominent
 ) !default;
 
 // -------------------------------------------
-// FOCUS PRESETS FOR COMPONENTS
+// FOCUS BLUR SCALE
 // -------------------------------------------
+// Box shadow blur values for glow effects
 
-$focus-component-presets: (
-  // Buttons
-  'button': (
-    'width': map.get($focus-ring-config, 'width'),
-    'offset': map.get($focus-ring-config, 'offset'),
-    'style': solid,
-  ),
-  
-  // Form inputs
-  'input': (
-    'width': map.get($focus-ring-config, 'width-bold'),
-    'offset': 0,
-    'style': solid,
-  ),
-  
-  // Links
-  'link': (
-    'width': sizing.$sizing-2,
-    'offset': sizing.$sizing-1,
-    'style': solid,
-  ),
-  
-  // Cards/interactive surfaces
-  'card': (
-    'width': map.get($focus-ring-config, 'width'),
-    'offset': map.get($focus-ring-config, 'offset'),
-    'style': solid,
-  ),
+$focus-blur-scale: (
+  '0': 0,                                 // No blur (sharp)
+  '4': sizing.$sizing-4,                  // 1rem    / 16px - Soft
+  '6': sizing.$sizing-6,                  // 1.5rem  / 24px - Medium
+  '8': sizing.$sizing-8,                  // 2rem    / 32px - Diffused
+  '12': sizing.$sizing-12,                // 3rem    / 48px - Very soft
+) !default;
+
+// -------------------------------------------
+// FOCUS STYLE SCALE
+// -------------------------------------------
+// CSS border/outline style values
+
+$focus-style-scale: (
+  'solid': solid,
+  'dashed': dashed,
+  'dotted': dotted,
+  'double': double,
+) !default;
+
+// -------------------------------------------
+// FOCUS OPACITY SCALE
+// -------------------------------------------
+// Opacity values for focus indicators
+
+$focus-opacity-scale: (
+  '0': 0,
+  '10': 0.1,
+  '20': 0.2,
+  '30': 0.3,
+  '40': 0.4,
+  '50': 0.5,
+  '60': 0.6,
+  '70': 0.7,
+  '80': 0.8,
+  '90': 0.9,
+  '100': 1,
+) !default;
+
+// -------------------------------------------
+// FOCUS TRANSITION SCALE
+// -------------------------------------------
+// Animation timing for focus state changes
+
+$focus-transition-duration-scale: (
+  'instant': 0ms,
+  'fast': 100ms,
+  'normal': 150ms,
+  'slow': 200ms,
+  'slower': 300ms,
+) !default;
+
+$focus-transition-easing-scale: (
+  'linear': linear,
+  'ease': ease,
+  'ease-in': ease-in,
+  'ease-out': ease-out,
+  'ease-in-out': ease-in-out,
+) !default;
+
+// -------------------------------------------
+// WCAG CONTRAST RATIO SCALE
+// -------------------------------------------
+// WCAG 2.1 contrast ratio requirements
+
+$focus-contrast-ratio-scale: (
+  'aa-normal': 4.5,                       // WCAG AA - Normal text (< 18pt)
+  'aa-large': 3,                          // WCAG AA - Large text (≥ 18pt)
+  'aaa-normal': 7,                        // WCAG AAA - Normal text
+  'aaa-large': 4.5,                       // WCAG AAA - Large text
+  'ui-component': 3,                      // WCAG AA - UI Components
 ) !default;

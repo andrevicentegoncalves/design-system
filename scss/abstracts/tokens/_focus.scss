@@ -1,0 +1,55 @@
+@use 'sass:map';
+@use '../variables/foundation/focus-scale' as scale;
+
+@mixin generate-focus-tokens() {
+
+  /* ========================================================================== */
+  /*                                TOKENS: FOCUS                               */
+  /* ========================================================================== */
+
+  /* Width scale */
+  @each $name, $value in scale.$focus-width-scale {
+    --focus-width-#{$name}: #{$value};
+  }
+
+  /* Offset scale */
+  @each $name, $value in scale.$focus-offset-scale {
+    --focus-offset-#{$name}: #{$value};
+  }
+
+  /* Spread scale */
+  @each $name, $value in scale.$focus-spread-scale {
+    --focus-spread-#{$name}: #{$value};
+  }
+
+  /* Blur scale */
+  @each $name, $value in scale.$focus-blur-scale {
+    --focus-blur-#{$name}: #{$value};
+  }
+
+  /* Style scale */
+  @each $name, $value in scale.$focus-style-scale {
+    --focus-style-#{$name}: #{$value};
+  }
+
+  /* Opacity scale */
+  @each $name, $value in scale.$focus-opacity-scale {
+    --focus-opacity-#{$name}: #{$value};
+  }
+
+  /* Transition duration scale */
+  @each $name, $value in scale.$focus-transition-duration-scale {
+    --focus-transition-duration-#{$name}: #{$value};
+  }
+
+  /* Transition easing scale */
+  @each $name, $value in scale.$focus-transition-easing-scale {
+    --focus-transition-easing-#{$name}: #{$value};
+  }
+
+  /* Contrast ratio scale */
+  @each $name, $value in scale.$focus-contrast-ratio-scale {
+    --focus-contrast-ratio-#{$name}: #{$value};
+  }
+
+}

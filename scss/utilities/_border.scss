@@ -76,7 +76,7 @@
     //-------------------------------------------
 
     &-primary {
-        border-color: var(--border-color);  // Default border color
+        border-color: var(--border-color-primary);  // Default border color
     }
 
     &-success {
@@ -113,7 +113,7 @@
     &-default {
         border-width: var(--border-width);    // Default width
         border-style: var(--border-style);    // Default style
-        border-color: var(--border-color);    // Default color
+        border-color: var(-primary);    // Default color
     }
 
     //-------------------------------------------

@@ -3,43 +3,227 @@
 @use '../abstracts' as *;
 
 /* ========================================================================== */
-/*                                LAYOUT: GRID LEGACY                         */
+/*                      LAYOUT: GRID LEGACY - DEPRECATED                      */
 /* ========================================================================== */
 
+// -------------------------------------------------------------------------- //
+//                             LEGACY VARIABLES                               //
+// -------------------------------------------------------------------------- //
+
+// -------------------------------------------
+// BREAKPOINTS (Legacy)
+// -------------------------------------------
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px
+) !default;
+
+// Individual breakpoint variables
+$breakpoint-phone: 480px !default;
+$breakpoint-phone-horizontal: 767px !default;
+$breakpoint-tablet: 768px !default;
+$breakpoint-tablet-horizontal: 1024px !default;
+$breakpoint-desktop: 1200px !default;
+
+// -------------------------------------------
+// GRID SYSTEM (Legacy)
+// -------------------------------------------
+
+$grid-columns: 12 !default;
+$grid-columns-standard: 4 !default;
+$grid-gap: 16px !default;
+$grid-gutter-width: 30px !default;
+
+// -------------------------------------------
+// CONTAINER MAX WIDTHS (Legacy)
+// -------------------------------------------
+
+$grid-container-max-widths: (
+  sm: $breakpoint-phone-horizontal,
+  md: $breakpoint-tablet-horizontal,
+  lg: $breakpoint-desktop,
+  xl: 1440px
+) !default;
+
+// -------------------------------------------------------------------------- //
+//                               LEGACY MIXINS                                //
+// -------------------------------------------------------------------------- //
+
+// -------------------------------------------
+// MIXIN: CREATE GRID (Legacy)
+// -------------------------------------------
+// Creates responsive grid system with custom breakpoint columns
+// Used by: .grid-2, .grid-3, .grid-4
+
+@mixin create-grid($class, $columns) {
+  .grid-#{$class} {
+    display: grid;
+    gap: $grid-gap;
+
+    @each $breakpoint, $column-count in $columns {
+      @if $breakpoint == 'xs' {
+        grid-template-columns: repeat($column-count, minmax(0, 1fr));
+        -ms-grid-columns: repeat($column-count, 1fr); // IE11 fallback
+      } @else {
+        @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
+          grid-template-columns: repeat(map.get($columns, $breakpoint), minmax(0, 1fr));
+          -ms-grid-columns: repeat(map.get($columns, $breakpoint), 1fr); // IE11 fallback
+        }
+      }
+    }
+  }
+}
+
+// -------------------------------------------
+// MIXIN: GENERATE GRID COLUMNS (Legacy)
+// -------------------------------------------
+// Creates responsive column classes for specified breakpoints
+// Used by: .row .col-{breakpoint}-{number}
+
+@mixin generate-grid-columns($breakpoints, $grid-columns) {
+    @each $breakpoint, $min-width in $breakpoints {
+      @media (min-width: $min-width) {
+        @for $i from 1 through $grid-columns {
+          .row .col-#{$breakpoint}-#{$i} { 
+            grid-column: span $i;
+          }
+        }
+      }
+    }
+}
+
+// -------------------------------------------
+// MIXIN: DEFAULT GRID COLUMNS (Legacy)
+// -------------------------------------------
+// Generates non-responsive column classes
+// Used by: .col-{number}
+
+@mixin default-grid-columns($grid-columns) {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// -------------------------------------------
+// MIXIN: RESPONSIVE (Legacy)
+// -------------------------------------------
+// Manages media queries using predefined device breakpoints
+// Used by: @include responsive(md) { ... }
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == xs {
+    @content;
+  }
+  @else if $breakpoint == sm {
+    @media (min-width: #{$breakpoint-phone}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == md {
+    @media (min-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == lg {
+    @media (min-width: #{$breakpoint-tablet-horizontal}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == xl {
+    @media (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
+}
+
+// -------------------------------------------
+// MIXIN: CREATE RESPONSIVE GRID CONTAINER (Legacy)
+// -------------------------------------------
+// Creates responsive container with preset breakpoints
+// Used by: .container-{desktop}-{tablet}-{mobile}
+
+@mixin create-responsive-grid-container($items, $tablet-items: 2, $phone-items: 1) {
+  display: grid;
+  grid-template-columns: repeat($items, 1fr);
+  gap: var(--space-m);
+
+  @media (max-width: $breakpoint-desktop) {
+    grid-template-columns: repeat($tablet-items, 1fr);
+    gap: var(--space-base);
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat($phone-items, 1fr);
+    gap: var(--space-base);
+  }
+
+  @media (max-width: $breakpoint-phone) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    width: 100%;
+
+    .form-control {
+      width: 100%;
+    }
+
+    label {
+      margin-bottom: var(--space-s);
+    }
+  }
+}
+
+// -------------------------------------------------------------------------- //
+//                             GRID COMPONENTS                                //
+// -------------------------------------------------------------------------- //
 
 //-------------------------------------------
 // Base Grid Container
 //-------------------------------------------
 
 .grid-container {
-    @include grid-container();
+    width: 100%;
+    max-width: var(--layout-max-width);
+    margin-inline: auto;
     
-    // Script safety measures
+    // Script safety measures (OutSystems requirement)
     script {
         display: none !important;
         visibility: hidden !important;
-        height: var(--space-none) !important;
-        width: var(--space-none) !important;
+        height: 0 !important;
+        width: 0 !important;
         overflow: hidden !important;
         position: absolute !important;
         z-index: -1 !important;
-        opacity: var(--space-none) !important;
+        opacity: 0 !important;
     }
 }
 
 //-------------------------------------------
-// Responsive Container Widths
+// Responsive Container Max Widths
 //-------------------------------------------
-// Uses CSS custom properties from token system
-// Automatically responsive via --container-max-width token
+
+@each $breakpoint, $width in $grid-container-max-widths {
+    @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
+        .grid-container {
+            max-width: $width;
+        }
+    }
+}
 
 //-------------------------------------------
-// Grid Item Base Styles
+// Grid Item Base Styles (OutSystems Widget Wrapper)
 //-------------------------------------------
 
 .grid-item {
     overflow: hidden;
-    -webkit-transition: var(--transition-base);
     transition: var(--transition-base);
     height: auto !important;
     min-height: unset !important;
@@ -50,7 +234,7 @@
     &[style*="height: 0px"] {
         height: auto !important;
         min-height: unset !important;
-        margin: var(--space-none) !important;
+        margin: 0 !important;
     }
 }
 
@@ -63,92 +247,62 @@
 }
 
 //-------------------------------------------
-// Predefined Grid Layouts (Mobile-First)
+// Predefined Grid Layouts
 //-------------------------------------------
 
-.grid-2 {
-    @include responsive-grid((
-        xs: 1,
-        s: 1,
-        m: 2,
-        l: 2,
-        xl: 2
-    ));
-}
+// CRITICAL: Using minmax(0, 1fr) prevents grid blowout with long content
+// This matches the original OutSystems UI behavior
 
-.grid-3 {
-    @include responsive-grid((
-        xs: 1,
-        s: 2,
-        m: 3,
-        l: 3,
-        xl: 3
-    ));
-}
+@include create-grid(2, (
+    xs: 1,
+    sm: 1,
+    md: 2,
+    lg: 2,
+    xl: 2
+));
 
-.grid-4 {
-    @include responsive-grid((
-        xs: 1,
-        s: 2,
-        m: 3,
-        l: 4,
-        xl: 4
-    ));
-}
+@include create-grid(3, (
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 3,
+    xl: 3
+));
+
+@include create-grid(4, (
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 4
+));
 
 //-------------------------------------------
 // 12-Column Grid System
 //-------------------------------------------
 
 .row {
-    @include grid-layout(12, 16px);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     grid-auto-flow: row;
+    gap: 16px;
 }
 
-// Generate responsive column classes (.col-{breakpoint}-{number})
-// Mobile-first: xs is default, then s, m, l, xl
-@each $breakpoint-key, $breakpoint-value in (
-    xs: 0,
-    s: var(--breakpoint-s),
-    m: var(--breakpoint-m),
-    l: var(--breakpoint-l),
-    xl: var(--breakpoint-xl)
-) {
-    @if $breakpoint-key == 'xs' {
-        // Base mobile styles (no media query)
-        @for $i from 1 through 12 {
-            .row .col-#{$breakpoint-key}-#{$i} { 
-                @include grid-span($i);
-            }
-        }
-    } @else {
-        // Progressive enhancement for larger screens
-        @include bp-up($breakpoint-key) {
-            @for $i from 1 through 12 {
-                .row .col-#{$breakpoint-key}-#{$i} { 
-                    @include grid-span($i);
-                }
-            }
-        }
-    }
-}
+// Generate responsive columns
+@include generate-grid-columns($grid-breakpoints, $grid-columns);
 
-// Default non-responsive column spans
-@for $i from 1 through 12 {
-    .col-#{$i} {
-        @include grid-span($i);
-    }
-}
+// Default column spans
+@include default-grid-columns($grid-columns);
 
 //-------------------------------------------
-// Fractional Layout Classes
+// Semantic Fractional Layout Classes
 //-------------------------------------------
 
-.grid-fourth { @include grid-span(3); }
-.grid-third { @include grid-span(4); }
-.grid-half { @include grid-span(6); }
-.grid-two-thirds { @include grid-span(8); }
-.grid-three-fourths { @include grid-span(9); }
+.grid-fourth { grid-column: span 3; }
+.grid-third { grid-column: span 4; }
+.grid-half { grid-column: span 6; }
+.grid-two-thirds { grid-column: span 8; }
+.grid-three-fourths { grid-column: span 9; }
 
 //-------------------------------------------
 // Grid Column Start Positions
@@ -165,21 +319,11 @@
 // Responsive Column Start Positions
 //-------------------------------------------
 
-@each $breakpoint-key in (xs, s, m, l, xl) {
-    @if $breakpoint-key == 'xs' {
-        // Base mobile styles
-        @for $i from 1 through 11 {
-            .grid-start-#{$breakpoint-key}-#{$i} { 
+@each $breakpoint, $width in $grid-breakpoints {
+    @include responsive($breakpoint) {
+        @for $i from 1 through ($grid-columns - 1) {
+            .grid-start-#{$breakpoint}-#{$i} { 
                 grid-column-start: $i; 
-            }
-        }
-    } @else {
-        // Progressive enhancement
-        @include bp-up($breakpoint-key) {
-            @for $i from 1 through 11 {
-                .grid-start-#{$breakpoint-key}-#{$i} { 
-                    grid-column-start: $i; 
-                }
             }
         }
     }
@@ -224,95 +368,94 @@
 // Special Cases
 //-------------------------------------------
 
-.card.grid-item { padding: 0; }
-.grid .grid { grid-column: 1 / -1; }
+.card.grid-item {
+    padding: 0;
+}
+
+.grid .grid {
+    grid-column: 1 / -1;
+}
 
 //-------------------------------------------
-// Responsive Visibility Utilities (Mobile-First)
+// Responsive Visibility Utilities
 //-------------------------------------------
 
 // Hide on breakpoint and up
-@each $breakpoint-key in (xs, s, m, l, xl) {
-    @if $breakpoint-key != 'xs' {
-        @include bp-up($breakpoint-key) {
-            .hidden-#{$breakpoint-key}-up {
+@each $breakpoint, $width in $grid-breakpoints {
+    @media (min-width: $width) {
+        .hidden-#{$breakpoint}-up {
+            display: none !important;
+        }
+    }
+}
+
+// Hide on breakpoint and down
+@each $breakpoint, $width in $grid-breakpoints {
+    $breakpoint-names: map.keys($grid-breakpoints);
+    $breakpoint-index: list.index($breakpoint-names, $breakpoint);
+    
+    @if $breakpoint-index < list.length($breakpoint-names) {
+        $next-breakpoint: list.nth($breakpoint-names, $breakpoint-index + 1);
+        $next-width: map.get($grid-breakpoints, $next-breakpoint);
+        
+        @media (max-width: ($next-width - 0.02)) {
+            .hidden-#{$breakpoint}-down {
                 display: none !important;
             }
         }
     }
 }
 
-// Hide on breakpoint and down
-.hidden-xs-down {
-    display: none !important; // Always hidden (xs and down = everything on xs)
-}
-
-@include bp-down(s) {
-    .hidden-s-down {
-        display: none !important;
-    }
-}
-
-@include bp-down(m) {
-    .hidden-m-down {
-        display: none !important;
-    }
-}
-
-@include bp-down(l) {
-    .hidden-l-down {
-        display: none !important;
-    }
-}
-
 //-------------------------------------------
-// Responsive Grid Container Variations (Mobile-First)
+// Responsive Grid Container Variations
 //-------------------------------------------
+
+// Pattern: .container-{desktop}-{tablet}-{mobile}
 
 .container-2-2-1 {
-    @include responsive-columns(1, 2, 2);
+    @include create-responsive-grid-container(2, 2, 1);
 }
 
 .container-3-2-1 {
-    @include responsive-columns(1, 2, 3);
+    @include create-responsive-grid-container(3, 2, 1);
 }
 
 .container-3-3-1 {
-    @include responsive-columns(1, 3, 3);
+    @include create-responsive-grid-container(3, 3, 1);
 }
   
 .container-4-2-1 {
-    @include responsive-columns(1, 2, 4);
+    @include create-responsive-grid-container(4, 2, 1);
 }
  
 .container-4-2-2 {
-    @include responsive-columns(2, 2, 4);
+    @include create-responsive-grid-container(4, 2, 2);
 }
 
 .container-4-3-2 {
-    @include responsive-columns(2, 3, 4);
+    @include create-responsive-grid-container(4, 3, 2);
 }
 
 .container-5-3-1 {
-    @include responsive-columns(1, 3, 5);
+    @include create-responsive-grid-container(5, 3, 1);
 }
 
 .container-5-3-2 {
-    @include responsive-columns(2, 3, 5);
+    @include create-responsive-grid-container(5, 3, 2);
 }
 
 .container-5-4-2 {
-    @include responsive-columns(2, 4, 5);
+    @include create-responsive-grid-container(5, 4, 2);
 }
   
 .container-6-3-1 {
-    @include responsive-columns(1, 3, 6);
+    @include create-responsive-grid-container(6, 3, 1);
 }
 
 .container-6-3-2 {
-    @include responsive-columns(2, 3, 6);
+    @include create-responsive-grid-container(6, 3, 2);
 }
 
 .container-6-4-2 {
-    @include responsive-columns(2, 4, 6);
-}
+    @include create-responsive-grid-container(6, 4, 2);
+} 

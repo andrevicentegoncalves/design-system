@@ -10,5 +10,4 @@
     @each $name, $value in scale.$aspect-ratio-scale {
         --aspect-ratio-#{$name}: #{$value};
     }
-
 }

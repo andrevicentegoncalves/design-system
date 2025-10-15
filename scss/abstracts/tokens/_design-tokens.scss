@@ -3,82 +3,73 @@
 
 @mixin generate-tokens-tokens() {
 
-/* ========================================================================== */
-/*                                DESIGN TOKENS                               */
-/* ========================================================================== */
+  /* ========================================================================== */
+  /*                                DESIGN TOKENS                               */
+  /* ========================================================================== */
 
-  /* Layout */
-  --layout-max-width: 90rem;            /* 1440px */
-  --layout-half-max-width: 45rem;       /* 720px */
-  --popup-max-width: 40.625rem;         /* 650px */
+  & {
+    /* Layout */
+    --layout-max-width: 90rem;            /* 1440px */
+    --layout-half-max-width: 45rem;       /* 720px */
+    --popup-max-width: 40.625rem;         /* 650px */
 
-  /* Image */
-  --image-width-captcha: 17.875rem;     /* 286px */
-  --image-height-captcha: 2.5rem;       /* 40px */
-  --image-star-alliance: 16.875rem;     /* 270px */
-  --logo-max-width: 11.25rem;           /* 180px */
+    /* Image */
+    --image-width-captcha: 17.875rem;     /* 286px */
+    --image-height-captcha: 2.5rem;       /* 40px */
+    --image-star-alliance: 16.875rem;     /* 270px */
+    --logo-max-width: 11.25rem;           /* 180px */
 
-  --image-width-xs: 9.5rem;             /* 152px */
-  --image-width-s: 12.6875rem;          /* 203px */
-  --image-width-sm: 15.625rem;          /* 250px */
-  --image-width-m: 21.125rem;           /* 338px */
-  --image-width-l: 29.625rem;           /* 474px */
-  --image-width-display: 48.625rem;     /* 778px */
+    --image-width-xs: 9.5rem;             /* 152px */
+    --image-width-s: 12.6875rem;          /* 203px */
+    --image-width-sm: 15.625rem;          /* 250px */
+    --image-width-m: 21.125rem;           /* 338px */
+    --image-width-l: 29.625rem;           /* 474px */
+    --image-width-display: 48.625rem;     /* 778px */
 
-  --image-height-xs: 5.625rem;          /* 90px */
-  --image-height-s: 7.5rem;             /* 120px */
-  --image-height-m: 12.5rem;            /* 200px */
-  --image-height-l: 17.5rem;            /* 280px */
-  --image-height-display: 28.75rem;     /* 460px */
+    --image-height-xs: 5.625rem;          /* 90px */
+    --image-height-s: 7.5rem;             /* 120px */
+    --image-height-m: 12.5rem;            /* 200px */
+    --image-height-l: 17.5rem;            /* 280px */
+    --image-height-display: 28.75rem;     /* 460px */
 
-  /* Icons */
-  --fa-base: 1.5em;
+    /* Icons */
+    --fa-base: 1.5em;
 
-  /* Icon font */
-  --icon-font-family: 'MegasisIconsFont';
+    /* Icon font */
+    --icon-font-family: 'MegasisIconsFont';
 
-  /* Components */
-  --size-checkbox-s: 0.75rem;           /* 12px */
+    /* Components */
+    --size-checkbox-s: 0.75rem;           /* 12px */
 
- 
+    /* Transitions & Effects */
+    --transition-base: all 0.2s ease-in-out;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --truncate-width: 100%;
 
+    /* Dimensions */
+    --banner-height: 25rem;               /* 400px */
+    --banner-height-phone: 19.3125rem;    /* 309px */
+    --bottom-tab-width: 170px;
+    --bottom-tab-height: 60px;
 
+    /* Positioning */
+    --position-top-none: 0;
+    --position-right-none: 0;
+    --position-bottom-none: 0;
+    --position-left-none: 0;
 
+    /* Flip Card */
+    --flip-card-height: 15rem;            /* 240px */
+    --flip-card-expanded-height: 30rem;   /* 480px */
+    --flip-card-transition-time: 0.6s;
+  }
 
-
-  /* Transitions & Effects */
-  --transition-base: all 0.2s ease-in-out;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --truncate-width: 100%;
-
-
-
-  /* Dimensions */
-  --banner-height: 25rem;               /* 400px */
-  --banner-height-phone: 19.3125rem;    /* 309px */
-  --bottom-tab-width: 170px;
-  --bottom-tab-height: 60px;
-
-  /* Positioning */
-  --position-top-none: 0;
-  --position-right-none: 0;
-  --position-bottom-none: 0;
-  --position-left-none: 0;
-
-
-
-  /* Flip Card */
-  --flip-card-height: 15rem;            /* 240px */
-  --flip-card-expanded-height: 30rem;   /* 480px */
-  --flip-card-transition-time: 0.6s;
-
-  // -----------------------------------------------------------
-  // CONDITIONAL/NESTED RULES MUST COME AFTER ALL DECLARATIONS
-  // ----------------------------------------------------------- 
-
+  // Conditional rules must come after all property declarations
   @if flags.$is_main {
-    /* Login (only for main) */
-    --login-form-width: 27rem;          /* 432px */
-    --login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+    & {
+      /* Login (only for main) */
+      --login-form-width: 27rem;          /* 432px */
+      --login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+    }
   }
 }

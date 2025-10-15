@@ -70,21 +70,3 @@ $grid-scale-types: (
   '2xl': 'fluid',
 ) !default;
 
-// -------------------------------------------
-// LEGACY: DEPRECATED
-// -------------------------------------------
-
-$grid-breakpoints: (
-  xs: 0,
-  s: 480px,
-  m: 768px,
-  l: 1024px,
-  xl: 1200px
-);
-
-$grid-container-max-widths: (
-  s: 767px,
-  m: 1024px,
-  l: 1200px,
-  xl: 1440px
-);

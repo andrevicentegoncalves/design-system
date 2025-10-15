@@ -2,398 +2,173 @@
 @use '../abstracts' as *;
 
 /* ========================================================================== */
-/*                          LAYOUT: GRID SYSTEM                               */
+/*                           LAYOUT: GRID SYSTEM                              */
 /* ========================================================================== */
 
-// ============================================================================
-//                            CONTAINERS
-// ============================================================================
+/* -------------------------------------------------------------------------- */
+/*                                CONTAINERS                                  */
+/* -------------------------------------------------------------------------- */
 
 .container {
-    @include grid-container();
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--grid-margin);
+    
+    @media (min-width: 1280px) {
+        max-width: var(--grid-max-width);
+    }
 }
 
 .container-fluid {
-    @include grid-container($fluid: true);
-}
-
-// Legacy class for backward compatibility
-.grid-container {
-    @include grid-container();
-    
-    // Script safety measures
-    script {
-        display: none !important;
-        visibility: hidden !important;
-        height: var(--space-none) !important;
-        width: var(--space-none) !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        z-index: -1 !important;
-        opacity: var(--space-none) !important;
-    }
+    width: 100%;
+    padding-inline: var(--grid-margin);
 }
 
 // ============================================================================
-//                         GRID ITEM BASE STYLES
+//                         GRID UTILITIES (Core)
 // ============================================================================
 
-.grid-item {
-    overflow: hidden;
-    transition: var(--transition-base);
-    height: auto !important;
-    min-height: unset !important;
-    display: flex !important;
-    flex-direction: column !important;
-
-    &[style*="height: 0px"] {
-        height: auto !important;
-        min-height: unset !important;
-        margin: var(--space-none) !important;
-    }
+.grid {
+    display: grid;
+    gap: var(--grid-gutter);
 }
 
-.grid-item-content {
-    padding: var(--space-base);
-}
+// Equal column grids
+.grid-cols-1 { grid-template-columns: var(--grid-cols-1); }
+.grid-cols-2 { grid-template-columns: var(--grid-cols-2); }
+.grid-cols-3 { grid-template-columns: var(--grid-cols-3); }
+.grid-cols-4 { grid-template-columns: var(--grid-cols-4); }
+.grid-cols-6 { grid-template-columns: var(--grid-cols-6); }
+.grid-cols-8 { grid-template-columns: var(--grid-cols-8); }
+.grid-cols-12 { grid-template-columns: var(--grid-cols-12); }
 
-// ============================================================================
-//                      PREDEFINED RESPONSIVE GRIDS
-// ============================================================================
-
-.grid-2 {
-    @include responsive-grid((
-        xs: 1,
-        s: 1,
-        m: 2,
-        l: 2,
-        xl: 2
-    ));
-}
-
-.grid-3 {
-    @include responsive-grid((
-        xs: 1,
-        s: 2,
-        m: 3,
-        l: 3,
-        xl: 3
-    ));
-}
-
-.grid-4 {
-    @include responsive-grid((
-        xs: 1,
-        s: 2,
-        m: 3,
-        l: 4,
-        xl: 4
-    ));
-}
-
-// ============================================================================
-//                      AUTO-RESPONSIVE GRIDS (NEW)
-// ============================================================================
-
+// Auto-fit grid (cards that wrap automatically)
 .grid-auto {
-    @include auto-fit-grid(280px);
+    display: grid;
+    grid-template-columns: var(--grid-template-columns-auto);
+    gap: var(--grid-gutter);
+}
+
+// ============================================================================
+//                    COLUMN SPANNING (Modern Way)
+// ============================================================================
+
+// Semantic spans
+.col-span-full { grid-column: var(--grid-span-full); }
+
+// Numeric spans 1-12
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+// ============================================================================
+//                    RESPONSIVE UTILITIES (Mobile-First)
+// ============================================================================
+
+// Small (≥640px)
+@media (min-width: 640px) {
+    .s\:grid-cols-1 { grid-template-columns: var(--grid-cols-1); }
+    .s\:grid-cols-2 { grid-template-columns: var(--grid-cols-2); }
+    .s\:grid-cols-3 { grid-template-columns: var(--grid-cols-3); }
+    .s\:grid-cols-4 { grid-template-columns: var(--grid-cols-4); }
     
-    &--sm { @include auto-fit-grid(200px); }
-    &--md { @include auto-fit-grid(280px); }
-    &--lg { @include auto-fit-grid(350px); }
-    &--xl { @include auto-fit-grid(450px); }
+    .s\:col-span-1 { grid-column: span 1; }
+    .s\:col-span-2 { grid-column: span 2; }
+    .s\:col-span-3 { grid-column: span 3; }
+    .s\:col-span-4 { grid-column: span 4; }
 }
 
-.cards {
-    @include auto-fit-grid(280px);
+// Medium (≥768px)
+@media (min-width: 768px) {
+    .m\:grid-cols-1 { grid-template-columns: var(--grid-cols-1); }
+    .m\:grid-cols-2 { grid-template-columns: var(--grid-cols-2); }
+    .m\:grid-cols-3 { grid-template-columns: var(--grid-cols-3); }
+    .m\:grid-cols-4 { grid-template-columns: var(--grid-cols-4); }
+    .m\:grid-cols-6 { grid-template-columns: var(--grid-cols-6); }
+    .m\:grid-cols-8 { grid-template-columns: var(--grid-cols-8); }
     
-    &--sm { @include auto-fit-grid(200px); }
-    &--md { @include auto-fit-grid(280px); }
-    &--lg { @include auto-fit-grid(350px); }
-    &--xl { @include auto-fit-grid(450px); }
+    .m\:col-span-1 { grid-column: span 1; }
+    .m\:col-span-2 { grid-column: span 2; }
+    .m\:col-span-3 { grid-column: span 3; }
+    .m\:col-span-4 { grid-column: span 4; }
+    .m\:col-span-6 { grid-column: span 6; }
+    .m\:col-span-8 { grid-column: span 8; }
 }
 
-// ============================================================================
-//                         12-COLUMN GRID SYSTEM
-// ============================================================================
-
-.row {
-    @include grid-layout(12, 16px);
-    grid-auto-flow: row;
-}
-
-// Generate responsive column classes
-@each $bp in (xs, s, m, l, xl) {
-    @if $bp == 'xs' {
-        @for $i from 1 through 12 {
-            .row .col-#{$bp}-#{$i} { 
-                @include grid-span($i);
-            }
-        }
-    } @else {
-        @include bp-up($bp) {
-            @for $i from 1 through 12 {
-                .row .col-#{$bp}-#{$i} { 
-                    @include grid-span($i);
-                }
-            }
-        }
-    }
-}
-
-// Default non-responsive column spans
-@for $i from 1 through 12 {
-    .col-#{$i} {
-        @include grid-span($i);
-    }
-}
-
-// ============================================================================
-//                      FRACTIONAL LAYOUT CLASSES
-// ============================================================================
-
-.grid-fourth { @include grid-span(3); }
-.grid-third { @include grid-span(4); }
-.grid-half { @include grid-span(6); }
-.grid-two-thirds { @include grid-span(8); }
-.grid-three-fourths { @include grid-span(9); }
-
-// ============================================================================
-//                      GRID COLUMN START POSITIONS
-// ============================================================================
-
-.grid-start-first { grid-column-start: 1; }
-.grid-start-fourth { grid-column-start: 4; }
-.grid-start-third { grid-column-start: 5; }
-.grid-start-half { grid-column-start: 7; }
-.grid-start-two-thirds { grid-column-start: 9; }
-.grid-start-three-fourths { grid-column-start: 10; }
-
-// Responsive column start positions
-@each $bp in (xs, s, m, l, xl) {
-    @if $bp == 'xs' {
-        @for $i from 1 through 11 {
-            .grid-start-#{$bp}-#{$i} { 
-                grid-column-start: $i; 
-            }
-        }
-    } @else {
-        @include bp-up($bp) {
-            @for $i from 1 through 11 {
-                .grid-start-#{$bp}-#{$i} { 
-                    grid-column-start: $i; 
-                }
-            }
-        }
-    }
+// Large (≥1024px)
+@media (min-width: 1024px) {
+    .l\:grid-cols-1 { grid-template-columns: var(--grid-cols-1); }
+    .l\:grid-cols-2 { grid-template-columns: var(--grid-cols-2); }
+    .l\:grid-cols-3 { grid-template-columns: var(--grid-cols-3); }
+    .l\:grid-cols-4 { grid-template-columns: var(--grid-cols-4); }
+    .l\:grid-cols-6 { grid-template-columns: var(--grid-cols-6); }
+    .l\:grid-cols-8 { grid-template-columns: var(--grid-cols-8); }
+    .l\:grid-cols-12 { grid-template-columns: var(--grid-cols-12); }
+    
+    .l\:col-span-1 { grid-column: span 1; }
+    .l\:col-span-2 { grid-column: span 2; }
+    .l\:col-span-3 { grid-column: span 3; }
+    .l\:col-span-4 { grid-column: span 4; }
+    .l\:col-span-6 { grid-column: span 6; }
+    .l\:col-span-8 { grid-column: span 8; }
+    .l\:col-span-12 { grid-column: span 12; }
 }
 
 // ============================================================================
 //                         GAP UTILITIES
 // ============================================================================
 
-// Legacy gaps
-.gap-05 { gap: 0.5rem; }
-.gap-1 { gap: 1rem; }
-.gap-2 { gap: 2rem; }
-.gap-3 { gap: 3rem; }
-.column-gap-xxl { column-gap: var(--space-xxl); }
-.column-gap-xxxl { column-gap: var(--space-xxxl); }
-
-// Modern token-based gaps
-.gap-none { gap: 0; }
-.gap-xs { gap: var(--space-xs); }
-.gap-s { gap: var(--space-s); }
-.gap-base { gap: var(--space-base); }
-.gap-m { gap: var(--space-m); }
-.gap-l { gap: var(--space-l); }
-.gap-xl { gap: var(--space-xl); }
-.gap-xxl { gap: var(--space-xxl); }
-
-.col-gap-xs { column-gap: var(--space-xs); }
-.col-gap-s { column-gap: var(--space-s); }
-.col-gap-base { column-gap: var(--space-base); }
-.col-gap-m { column-gap: var(--space-m); }
-.col-gap-l { column-gap: var(--space-l); }
-.col-gap-xl { column-gap: var(--space-xl); }
-
-.row-gap-xs { row-gap: var(--space-xs); }
-.row-gap-s { row-gap: var(--space-s); }
-.row-gap-base { row-gap: var(--space-base); }
-.row-gap-m { row-gap: var(--space-m); }
-.row-gap-l { row-gap: var(--space-l); }
-.row-gap-xl { row-gap: var(--space-xl); }
+.gap-0 { gap: 0; }
+.gap-1 { gap: var(--spacing-1); }
+.gap-2 { gap: var(--spacing-2); }
+.gap-3 { gap: var(--spacing-3); }
+.gap-4 { gap: var(--spacing-4); }
+.gap-6 { gap: var(--spacing-6); }
+.gap-8 { gap: var(--spacing-8); }
+.gap-12 { gap: var(--spacing-12); }
 
 // ============================================================================
-//                      ALIGNMENT UTILITIES
+//                         ALIGNMENT UTILITIES
 // ============================================================================
 
-// Legacy alignment
-.grid-align-center { align-items: center; }
-.grid-justify-center { justify-items: center; }
-.grid-auto-flow-dense { grid-auto-flow: dense; }
-
-// Modern alignment utilities
 .items-start { align-items: start; }
 .items-center { align-items: center; }
 .items-end { align-items: end; }
 .items-stretch { align-items: stretch; }
-.items-baseline { align-items: baseline; }
 
 .justify-start { justify-items: start; }
 .justify-center { justify-items: center; }
 .justify-end { justify-items: end; }
-.justify-stretch { justify-items: stretch; }
-
-.content-start { align-content: start; }
-.content-center { align-content: center; }
-.content-end { align-content: end; }
-.content-between { align-content: space-between; }
-.content-around { align-content: space-around; }
-.content-evenly { align-content: space-evenly; }
-
-.justify-content-start { justify-content: start; }
-.justify-content-center { justify-content: center; }
-.justify-content-end { justify-content: end; }
-.justify-content-between { justify-content: space-between; }
-.justify-content-around { justify-content: space-around; }
-.justify-content-evenly { justify-content: space-evenly; }
 
 .place-center { place-items: center; }
 
-// Grid flow
-.flow-row { grid-auto-flow: row; }
-.flow-col { grid-auto-flow: column; }
-.flow-dense { grid-auto-flow: dense; }
-
 // ============================================================================
-//                         GUTTER CONTROL
+//                         RESPONSIVE VISIBILITY
 // ============================================================================
 
-.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
-    gap: 0;
-
-    > .col,
-    > [class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
+.hidden-s-down { 
+    @media (max-width: 767px) {
+        display: none !important;
     }
 }
 
-// ============================================================================
-//                         SPECIAL CASES
-// ============================================================================
-
-.card.grid-item { padding: 0; }
-.grid .grid { grid-column: 1 / -1; }
-
-// ============================================================================
-//                      RESPONSIVE VISIBILITY
-// ============================================================================
-
-@each $bp in (s, m, l, xl) {
-    @include bp-up($bp) {
-        .hidden-#{$bp}-up {
-            display: none !important;
-        }
+.hidden-m-down {
+    @media (max-width: 1023px) {
+        display: none !important;
     }
 }
 
-.hidden-xs-down { display: none !important; }
-
-@include bp-down(s) {
-    .hidden-s-down { display: none !important; }
-}
-
-@include bp-down(m) {
-    .hidden-m-down { display: none !important; }
-}
-
-@include bp-down(l) {
-    .hidden-l-down { display: none !important; }
-}
-
-// ============================================================================
-//                   RESPONSIVE GRID CONTAINER VARIATIONS
-// ============================================================================
-
-.container-2-2-1 { @include responsive-columns(1, 2, 2); }
-.container-3-2-1 { @include responsive-columns(1, 2, 3); }
-.container-3-3-1 { @include responsive-columns(1, 3, 3); }
-.container-4-2-1 { @include responsive-columns(1, 2, 4); }
-.container-4-2-2 { @include responsive-columns(2, 2, 4); }
-.container-4-3-2 { @include responsive-columns(2, 3, 4); }
-.container-5-3-1 { @include responsive-columns(1, 3, 5); }
-.container-5-3-2 { @include responsive-columns(2, 3, 5); }
-.container-5-4-2 { @include responsive-columns(2, 4, 5); }
-.container-6-3-1 { @include responsive-columns(1, 3, 6); }
-.container-6-3-2 { @include responsive-columns(2, 3, 6); }
-.container-6-4-2 { @include responsive-columns(2, 4, 6); }
-
-// ============================================================================
-//                      ADVANCED LAYOUT PATTERNS (NEW)
-// ============================================================================
-
-.layout-sidebar {
-    display: grid;
-    gap: var(--space-m);
-    grid-template-areas: 
-        "sidebar"
-        "main";
-    grid-template-columns: 1fr;
-    
-    @include bp-up(l) {
-        grid-template-areas: "sidebar main";
-        grid-template-columns: 250px 1fr;
-    }
-    
-    &__sidebar { grid-area: sidebar; }
-    &__main { grid-area: main; }
-    
-    &--right {
-        @include bp-up(l) {
-            grid-template-areas: "main sidebar";
-            grid-template-columns: 1fr 250px;
-        }
-    }
-}
-
-.layout-holy-grail {
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header"
-        "main"
-        "footer";
-    
-    @include bp-up(l) {
-        grid-template-columns: 200px 1fr 200px;
-        grid-template-areas:
-            "header header header"
-            "nav main aside"
-            "footer footer footer";
-    }
-    
-    &__header { grid-area: header; }
-    &__nav { grid-area: nav; }
-    &__main { grid-area: main; }
-    &__aside { grid-area: aside; }
-    &__footer { grid-area: footer; }
-}
-
-.grid-center {
-    display: grid;
-    place-items: center;
-}
-
-.grid-stack {
-    display: grid;
-    gap: var(--space-m);
-    
-    @include bp-up(m) {
-        gap: var(--space-l);
+.hidden-l-up {
+    @media (min-width: 1024px) {
+        display: none !important;
     }
 }

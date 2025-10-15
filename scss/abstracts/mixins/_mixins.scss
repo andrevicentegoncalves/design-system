@@ -62,15 +62,6 @@
   line-height: $line-height;
 }
 
-@mixin font-face-generator($family, $path, $weight, $style: normal) {
-  @font-face {
-    font-family: $family;
-    src: url('#{$path}') format('truetype');
-    font-weight: $weight;
-    font-style: $style;
-  }
-}
-
 // Handles text overflow with ellipsis and optional mobile adaptation
 // Ensures consistent text truncation across different screen sizes
 // Usage: @include truncate(200px, 150px);
