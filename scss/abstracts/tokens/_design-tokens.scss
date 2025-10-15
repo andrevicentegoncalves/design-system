@@ -7,7 +7,6 @@
   /*                                DESIGN TOKENS                               */
   /* ========================================================================== */
 
-  & {
     /* Layout */
     --layout-max-width: 90rem;            /* 1440px */
     --layout-half-max-width: 45rem;       /* 720px */
@@ -62,7 +61,7 @@
     --flip-card-height: 15rem;            /* 240px */
     --flip-card-expanded-height: 30rem;   /* 480px */
     --flip-card-transition-time: 0.6s;
-  }
+  
 
   // Conditional rules must come after all property declarations
   @if flags.$is_main {

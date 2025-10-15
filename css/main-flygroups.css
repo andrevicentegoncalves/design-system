@@ -1,25 +1,20 @@
 @charset "UTF-8";
 :root {
-  /* ============================================================================ */
-  /*                             TOKENS: ASPECT RATIO                             */
-  /* ============================================================================ */
+  /* ========================================================================== */
+  /*                             TOKENS: ASPECT RATIO                           */
+  /* ========================================================================== */
   --aspect-ratio-square: 1;
-  --aspect-ratio-landscape: 1.3333333333;
-  --aspect-ratio-widescreen: 1.7777777778;
-  --aspect-ratio-ultrawide: 2.3333333333;
-  --aspect-ratio-portrait: 0.75;
-  --aspect-ratio-photo: 1.5;
   --aspect-ratio-video: 1.7777777778;
-  --aspect-ratio-story: 0.5625;
-  --aspect-ratio-twitter-card: 2;
-  --aspect-ratio-facebook-cover: 2.6282051282;
-  --aspect-ratio-instagram-post: 1;
-  --aspect-ratio-youtube-thumbnail: 1.7777777778;
-  --aspect-ratio-golden: 1.618;
-  --aspect-ratio-silver: 1.414;
+  --aspect-ratio-16-9: ;
+  --aspect-ratio-4-3: ;
+  --aspect-ratio-21-9: ;
+  --aspect-ratio-3-2: ;
+  --aspect-ratio-2-3: ;
+  --aspect-ratio-9-16: ;
+  --aspect-ratio-portrait: 0.75;
+  --aspect-ratio-ultrawide: 2.3333333333;
   --aspect-ratio-cinema: 2.39;
-  --aspect-ratio-imax: 1.43;
-  --aspect-ratio-auto: auto;
+  --aspect-ratio-golden: 1.618;
   /* ========================================================================== */
   /*                             TOKENS: BREAKPOINTS                            */
   /* ========================================================================== */
@@ -298,6 +293,50 @@
   /* ========================================================================== */
   /*                                DESIGN TOKENS                               */
   /* ========================================================================== */
+  /* Layout */
+  --layout-max-width: 90rem; /* 1440px */
+  --layout-half-max-width: 45rem; /* 720px */
+  --popup-max-width: 40.625rem; /* 650px */
+  /* Image */
+  --image-width-captcha: 17.875rem; /* 286px */
+  --image-height-captcha: 2.5rem; /* 40px */
+  --image-star-alliance: 16.875rem; /* 270px */
+  --logo-max-width: 11.25rem; /* 180px */
+  --image-width-xs: 9.5rem; /* 152px */
+  --image-width-s: 12.6875rem; /* 203px */
+  --image-width-sm: 15.625rem; /* 250px */
+  --image-width-m: 21.125rem; /* 338px */
+  --image-width-l: 29.625rem; /* 474px */
+  --image-width-display: 48.625rem; /* 778px */
+  --image-height-xs: 5.625rem; /* 90px */
+  --image-height-s: 7.5rem; /* 120px */
+  --image-height-m: 12.5rem; /* 200px */
+  --image-height-l: 17.5rem; /* 280px */
+  --image-height-display: 28.75rem; /* 460px */
+  /* Icons */
+  --fa-base: 1.5em;
+  /* Icon font */
+  --icon-font-family: "MegasisIconsFont";
+  /* Components */
+  --size-checkbox-s: 0.75rem; /* 12px */
+  /* Transitions & Effects */
+  --transition-base: all 0.2s ease-in-out;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --truncate-width: 100%;
+  /* Dimensions */
+  --banner-height: 25rem; /* 400px */
+  --banner-height-phone: 19.3125rem; /* 309px */
+  --bottom-tab-width: 170px;
+  --bottom-tab-height: 60px;
+  /* Positioning */
+  --position-top-none: 0;
+  --position-right-none: 0;
+  --position-bottom-none: 0;
+  --position-left-none: 0;
+  /* Flip Card */
+  --flip-card-height: 15rem; /* 240px */
+  --flip-card-expanded-height: 30rem; /* 480px */
+  --flip-card-transition-time: 0.6s;
   /* ========================================================================== */
   /*                                TOKENS: FOCUS                               */
   /* ========================================================================== */
@@ -358,37 +397,35 @@
   --focus-contrast-ratio-aaa-normal: 7;
   --focus-contrast-ratio-aaa-large: 4.5;
   --focus-contrast-ratio-ui-component: 3;
-  /* ============================================================================ */
-  /*                              TOKENS: OPACITY                                 */
-  /* ============================================================================ */
-  --opacity-transparent: 0;
-  --opacity-invisible: 0;
-  --opacity-hover-light: 0.05;
-  --opacity-hover-medium: 0.1;
-  --opacity-hover-strong: 0.15;
-  --opacity-active: 0.15;
-  --opacity-focus: 0.15;
+  /* ========================================================================== */
+  /*                              TOKENS: OPACITY                               */
+  /* ========================================================================== */
   --opacity-disabled: 0.4;
-  --opacity-secondary: 0.7;
-  --opacity-placeholder: 0.5;
+  --opacity-hover: ;
+  --opacity-active: 0.15;
+  --opacity-inactive: ;
+  --opacity-subtle: ;
+  --opacity-muted: ;
+  --opacity-faded: ;
+  --opacity-ghost: ;
   --opacity-overlay-light: 0.4;
   --opacity-overlay-medium: 0.6;
-  --opacity-overlay-heavy: 0.8;
-  --opacity-overlay-modal: 0.5;
-  --opacity-skeleton-base: 0.15;
-  --opacity-skeleton-shine: 0.2;
-  --opacity-opaque: 1;
-  --opacity-visible: 1;
+  --opacity-overlay-dark: ;
+  --opacity-backdrop: ;
+  --opacity-glass-light: ;
+  --opacity-glass-medium: ;
+  --opacity-glass-dark: ;
+  --opacity-full: ;
+  --opacity-none: ;
   /* Legacy - DEPRECATED */
-  --banner-overlay-opacity: 0.4;
-  --opacity-s: 0.4;
-  --opacity-m: 0.6;
-  --opacity-l: 0.8;
-  --opacity-xl: 0.9;
-  --opaque: 1;
-  /* ======================================================================== */
-  /*                              TOKENS: SPACING                             */
-  /* ======================================================================== */
+  --alpha-disabled: ;
+  --alpha-hover: ;
+  --alpha-active: ;
+  --alpha-subtle: ;
+  --alpha-ghost: ;
+  /* ========================================================================== */
+  /*                              TOKENS: SPACING                               */
+  /* ========================================================================== */
   --spacing-0: 0;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
@@ -838,30 +875,23 @@
   --font-size-xl: 48px;
   /* Legacy Font Family */
   --font-family-base: Arial, Helvetica Neue, Helvetica, sans-serif;
-  /* ============================================================================ */
-  /*                              TOKENS: Z-INDEX                                 */
-  /* ============================================================================ */
-  --z-index-below: -1;
+  /* ========================================================================== */
+  /*                              TOKENS: Z-INDEX                               */
+  /* ========================================================================== */
   --z-index-base: 0;
+  --z-index-below: -1;
   --z-index-content: 1;
-  --z-index-hover: 1;
-  --z-index-active: 2;
-  --z-index-focus: 3;
-  --z-index-raised: 10;
-  --z-index-elevated: 100;
   --z-index-dropdown: 1000;
   --z-index-sticky: 1020;
   --z-index-fixed: 1030;
+  --z-index-banner: ;
   --z-index-modal-overlay: 1040;
   --z-index-modal: 1050;
   --z-index-popover: 1060;
+  --z-index-toast: ;
   --z-index-tooltip: 1070;
-  --z-index-notification: 1080;
-  --z-index-alert: 1090;
-  --z-index-skip-link: 9998;
-  --z-index-debug: 9999;
   --z-index-max: 10000;
-  /*Legacy - Deprecated*/
+  /* Legacy - DEPRECATED */
   --z-index-modal-backdrop: var(--z-index-modal-overlay);
 }
 :root[data-theme=light] {
@@ -1325,52 +1355,6 @@
   :root * {
     transition-duration: 0.01ms !important;
   }
-}
-:root {
-  /* Layout */
-  --layout-max-width: 90rem; /* 1440px */
-  --layout-half-max-width: 45rem; /* 720px */
-  --popup-max-width: 40.625rem; /* 650px */
-  /* Image */
-  --image-width-captcha: 17.875rem; /* 286px */
-  --image-height-captcha: 2.5rem; /* 40px */
-  --image-star-alliance: 16.875rem; /* 270px */
-  --logo-max-width: 11.25rem; /* 180px */
-  --image-width-xs: 9.5rem; /* 152px */
-  --image-width-s: 12.6875rem; /* 203px */
-  --image-width-sm: 15.625rem; /* 250px */
-  --image-width-m: 21.125rem; /* 338px */
-  --image-width-l: 29.625rem; /* 474px */
-  --image-width-display: 48.625rem; /* 778px */
-  --image-height-xs: 5.625rem; /* 90px */
-  --image-height-s: 7.5rem; /* 120px */
-  --image-height-m: 12.5rem; /* 200px */
-  --image-height-l: 17.5rem; /* 280px */
-  --image-height-display: 28.75rem; /* 460px */
-  /* Icons */
-  --fa-base: 1.5em;
-  /* Icon font */
-  --icon-font-family: "MegasisIconsFont";
-  /* Components */
-  --size-checkbox-s: 0.75rem; /* 12px */
-  /* Transitions & Effects */
-  --transition-base: all 0.2s ease-in-out;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --truncate-width: 100%;
-  /* Dimensions */
-  --banner-height: 25rem; /* 400px */
-  --banner-height-phone: 19.3125rem; /* 309px */
-  --bottom-tab-width: 170px;
-  --bottom-tab-height: 60px;
-  /* Positioning */
-  --position-top-none: 0;
-  --position-right-none: 0;
-  --position-bottom-none: 0;
-  --position-left-none: 0;
-  /* Flip Card */
-  --flip-card-height: 15rem; /* 240px */
-  --flip-card-expanded-height: 30rem; /* 480px */
-  --flip-card-transition-time: 0.6s;
 }
 :root {
   /* Login (only for main) */
@@ -3177,7 +3161,7 @@ img {
 /* ==========================================================================*/
 /*                              COMPONENTS: MENU                             */
 /* ==========================================================================*/
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .menu-wrapper {
     padding: var(--space-m) var(--space-s);
     display: flex;
@@ -3186,11 +3170,6 @@ img {
     align-items: center;
     background-color: var(--color-neutral-3);
     border-bottom: var(--border-width) var(--border-style) var(--color-border-primary);
-  }
-  .menu-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
   }
   .menu-wrapper .app-menu-content {

@@ -8,7 +8,7 @@
 // Menu Styling - Second Row
 //-------------------------------------------
 
-@media (min-width: $breakpoint-tablet-horizontal) {
+@include bp-up(l) {
     .menu-wrapper {
         padding: var(--space-m) var(--space-s);
         display: flex;
@@ -17,12 +17,6 @@
         align-items: center;
         background-color: var(--color-neutral-3);
         border-bottom: var(--border-width) var(--border-style) var(--color-border-primary);
-    }
-
-    .menu-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100%;
     }
 
@@ -40,33 +34,33 @@
         flex-wrap: wrap;
         width: 100%;
         text-align: center;
-    }
 
-    .menu-wrapper .app-menu-content .app-menu-links > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .menu-wrapper .app-menu-content .app-menu-links a {
-        color: var(--color-neutral-8);
-        text-align: center;
-        font-size: var(--font-size-s);
-        transition: var(--transition-base);
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 var(--space-s);
-    }
+        a {
+            color: var(--color-neutral-8);
+            text-align: center;
+            font-size: var(--font-size-s);
+            transition: var(--transition-base);
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 var(--space-s);
 
-    .menu-wrapper .app-menu-content .app-menu-links a span {
-        text-align: center;
-        width: 100%;
-        display: block;
-    }
+            span {
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
 
-    .menu-wrapper .app-menu-content .app-menu-links a:hover {
-        color: var(--color-primary);
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
     }
 }

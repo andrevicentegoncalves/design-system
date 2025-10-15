@@ -28,7 +28,7 @@
         @include breakpoints.generate-breakpoints-tokens();
     }
     
-    // Colors  
+    // Colors 
     @if $categories == 'all' or list.index($categories, 'colors') {
         @include colors.generate-colors-tokens();
     }

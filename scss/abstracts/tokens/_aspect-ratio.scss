@@ -3,11 +3,31 @@
 
 @mixin generate-aspect-ratio-tokens() {
 
-/* ============================================================================ */
-/*                             TOKENS: ASPECT RATIO                             */
-/* ============================================================================ */
+/* ========================================================================== */
+/*                             TOKENS: ASPECT RATIO                           */
+/* ========================================================================== */
 
-    @each $name, $value in scale.$aspect-ratio-scale {
-        --aspect-ratio-#{$name}: #{$value};
-    }
+// Square
+--aspect-ratio-square: #{map.get(scale.$aspect-ratio-scale, 'square')};
+
+// Standard video/screen ratios
+--aspect-ratio-video: #{map.get(scale.$aspect-ratio-scale, 'video')};
+--aspect-ratio-16-9: #{map.get(scale.$aspect-ratio-scale, '16-9')};
+--aspect-ratio-4-3: #{map.get(scale.$aspect-ratio-scale, '4-3')};
+--aspect-ratio-21-9: #{map.get(scale.$aspect-ratio-scale, '21-9')};
+
+// Photo ratios
+--aspect-ratio-3-2: #{map.get(scale.$aspect-ratio-scale, '3-2')};
+--aspect-ratio-2-3: #{map.get(scale.$aspect-ratio-scale, '2-3')};
+
+// Portrait
+--aspect-ratio-9-16: #{map.get(scale.$aspect-ratio-scale, '9-16')};
+--aspect-ratio-portrait: #{map.get(scale.$aspect-ratio-scale, 'portrait')};
+
+// Wide screens
+--aspect-ratio-ultrawide: #{map.get(scale.$aspect-ratio-scale, 'ultrawide')};
+--aspect-ratio-cinema: #{map.get(scale.$aspect-ratio-scale, 'cinema')};
+
+// Golden ratio
+--aspect-ratio-golden: #{map.get(scale.$aspect-ratio-scale, 'golden')};
 }

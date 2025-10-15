@@ -2,54 +2,73 @@
 @use '../variables/foundation/focus-scale' as scale;
 
 @mixin generate-focus-tokens() {
-
   /* ========================================================================== */
   /*                                TOKENS: FOCUS                               */
   /* ========================================================================== */
 
   /* Width scale */
-  @each $name, $value in scale.$focus-width-scale {
-    --focus-width-#{$name}: #{$value};
-  }
+  --focus-width-1: #{map.get(scale.$focus-width-scale, '1')};
+  --focus-width-2: #{map.get(scale.$focus-width-scale, '2')};
+  --focus-width-3: #{map.get(scale.$focus-width-scale, '3')};
+  --focus-width-4: #{map.get(scale.$focus-width-scale, '4')};
 
   /* Offset scale */
-  @each $name, $value in scale.$focus-offset-scale {
-    --focus-offset-#{$name}: #{$value};
-  }
+  --focus-offset-0: #{map.get(scale.$focus-offset-scale, '0')};
+  --focus-offset-1: #{map.get(scale.$focus-offset-scale, '1')};
+  --focus-offset-2: #{map.get(scale.$focus-offset-scale, '2')};
+  --focus-offset-3: #{map.get(scale.$focus-offset-scale, '3')};
+  --focus-offset-4: #{map.get(scale.$focus-offset-scale, '4')};
 
   /* Spread scale */
-  @each $name, $value in scale.$focus-spread-scale {
-    --focus-spread-#{$name}: #{$value};
-  }
+  --focus-spread-0: #{map.get(scale.$focus-spread-scale, '0')};
+  --focus-spread-2: #{map.get(scale.$focus-spread-scale, '2')};
+  --focus-spread-4: #{map.get(scale.$focus-spread-scale, '4')};
+  --focus-spread-6: #{map.get(scale.$focus-spread-scale, '6')};
 
   /* Blur scale */
-  @each $name, $value in scale.$focus-blur-scale {
-    --focus-blur-#{$name}: #{$value};
-  }
+  --focus-blur-0: #{map.get(scale.$focus-blur-scale, '0')};
+  --focus-blur-4: #{map.get(scale.$focus-blur-scale, '4')};
+  --focus-blur-6: #{map.get(scale.$focus-blur-scale, '6')};
+  --focus-blur-8: #{map.get(scale.$focus-blur-scale, '8')};
+  --focus-blur-12: #{map.get(scale.$focus-blur-scale, '12')};
 
   /* Style scale */
-  @each $name, $value in scale.$focus-style-scale {
-    --focus-style-#{$name}: #{$value};
-  }
+  --focus-style-solid: #{map.get(scale.$focus-style-scale, 'solid')};
+  --focus-style-dashed: #{map.get(scale.$focus-style-scale, 'dashed')};
+  --focus-style-dotted: #{map.get(scale.$focus-style-scale, 'dotted')};
+  --focus-style-double: #{map.get(scale.$focus-style-scale, 'double')};
 
   /* Opacity scale */
-  @each $name, $value in scale.$focus-opacity-scale {
-    --focus-opacity-#{$name}: #{$value};
-  }
+  --focus-opacity-0: #{map.get(scale.$focus-opacity-scale, '0')};
+  --focus-opacity-10: #{map.get(scale.$focus-opacity-scale, '10')};
+  --focus-opacity-20: #{map.get(scale.$focus-opacity-scale, '20')};
+  --focus-opacity-30: #{map.get(scale.$focus-opacity-scale, '30')};
+  --focus-opacity-40: #{map.get(scale.$focus-opacity-scale, '40')};
+  --focus-opacity-50: #{map.get(scale.$focus-opacity-scale, '50')};
+  --focus-opacity-60: #{map.get(scale.$focus-opacity-scale, '60')};
+  --focus-opacity-70: #{map.get(scale.$focus-opacity-scale, '70')};
+  --focus-opacity-80: #{map.get(scale.$focus-opacity-scale, '80')};
+  --focus-opacity-90: #{map.get(scale.$focus-opacity-scale, '90')};
+  --focus-opacity-100: #{map.get(scale.$focus-opacity-scale, '100')};
 
   /* Transition duration scale */
-  @each $name, $value in scale.$focus-transition-duration-scale {
-    --focus-transition-duration-#{$name}: #{$value};
-  }
+  --focus-transition-duration-instant: #{map.get(scale.$focus-transition-duration-scale, 'instant')};
+  --focus-transition-duration-fast: #{map.get(scale.$focus-transition-duration-scale, 'fast')};
+  --focus-transition-duration-normal: #{map.get(scale.$focus-transition-duration-scale, 'normal')};
+  --focus-transition-duration-slow: #{map.get(scale.$focus-transition-duration-scale, 'slow')};
+  --focus-transition-duration-slower: #{map.get(scale.$focus-transition-duration-scale, 'slower')};
 
   /* Transition easing scale */
-  @each $name, $value in scale.$focus-transition-easing-scale {
-    --focus-transition-easing-#{$name}: #{$value};
-  }
+  --focus-transition-easing-linear: #{map.get(scale.$focus-transition-easing-scale, 'linear')};
+  --focus-transition-easing-ease: #{map.get(scale.$focus-transition-easing-scale, 'ease')};
+  --focus-transition-easing-ease-in: #{map.get(scale.$focus-transition-easing-scale, 'ease-in')};
+  --focus-transition-easing-ease-out: #{map.get(scale.$focus-transition-easing-scale, 'ease-out')};
+  --focus-transition-easing-ease-in-out: #{map.get(scale.$focus-transition-easing-scale, 'ease-in-out')};
 
   /* Contrast ratio scale */
-  @each $name, $value in scale.$focus-contrast-ratio-scale {
-    --focus-contrast-ratio-#{$name}: #{$value};
-  }
-
+  --focus-contrast-ratio-aa-normal: #{map.get(scale.$focus-contrast-ratio-scale, 'aa-normal')};
+  --focus-contrast-ratio-aa-large: #{map.get(scale.$focus-contrast-ratio-scale, 'aa-large')};
+  --focus-contrast-ratio-aaa-normal: #{map.get(scale.$focus-contrast-ratio-scale, 'aaa-normal')};
+  --focus-contrast-ratio-aaa-large: #{map.get(scale.$focus-contrast-ratio-scale, 'aaa-large')};
+  --focus-contrast-ratio-ui-component: #{map.get(scale.$focus-contrast-ratio-scale, 'ui-component')};
 }
