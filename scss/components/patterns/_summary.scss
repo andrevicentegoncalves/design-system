@@ -1,8 +1,9 @@
 @use '../../abstracts' as *;
+@use '../../abstracts/mixins/foundation/breakpoints' as bp;
 
-/* ==========================================================================*/
-/*                              PATTERNS: SUMMARY                            */
-/* ==========================================================================*/
+// ==========================================================================//
+//                              PATTERNS: SUMMARY                            //
+// ==========================================================================//
 
 //-------------------------------------------
 // List Container
@@ -16,7 +17,8 @@
         padding-top: var(--space-base);
         padding-bottom: var(--space-base);
 
-        @media (max-width: $breakpoint-tablet-horizontal) {
+        // tablet-horizontal → 'm' (typically ~1024px)
+        @include bp.bp-down(m) {
             flex-direction: column;
             padding: var(--space-base);
         }
@@ -53,14 +55,15 @@
                 width: 1px;
                 background-color: var(--color-neutral-3);
 
-                @media (max-width: $breakpoint-tablet-horizontal) {
+                // Hide separator on tablet and below
+                @include bp.bp-down(m) {
                     display: none;
                 }
             }
         }
 
         // Mobile Layout
-        @media (max-width: $breakpoint-tablet-horizontal) {
+        @include bp.bp-down(m) {
             margin-left: 0;
             margin-right: 0;
             padding: 0;
@@ -96,7 +99,7 @@
         width: 100%;
         padding: var(--space-base) var(--space-xs);
 
-        @media (max-width: $breakpoint-tablet-horizontal) {
+        @include bp.bp-down(m) {
             padding: 0;
         }
     }

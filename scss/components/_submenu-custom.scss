@@ -228,7 +228,10 @@
 // Global Arrow Rotation
 //-------------------------------------------
 
-.submenu-custom__header-arrow.icon.fa.fa-angle-down.rotate {
-  transform: rotate(180deg) !important;
-  transition: transform 0.3s ease-in-out;
+.submenu-custom__header-arrow {
+    @include rotate-transition(0deg, y); 
+  
+    &.rotate {
+      @include rotate-transition(180deg, y);
+    }
 }

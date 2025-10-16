@@ -1,0 +1,141 @@
+@use '../helpers/' as *;
+@use '../foundation/typography' as typo;
+
+// ========================================================================== //
+//                    GENERATOR: TYPOGRAPHY UTILITIES                         //
+// ========================================================================== //
+
+/// Generate ALL typography-related utilities
+@mixin generate-all-typography-utilities() {
+  // 1. Font Family utilities
+  @include generate-font-family-utilities();
+  
+  // 2. Font Weight utilities
+  @include generate-font-weight-utilities();
+  
+  // 3. Typography Preset utilities
+  @include generate-typography-preset-utilities();
+}
+
+// -------------------------------------------------------------------------- //
+//                         FONT FAMILY UTILITIES                              //
+// -------------------------------------------------------------------------- //
+
+/// Generate font family utilities
+/// Output: .font-sans, .font-serif, .font-mono, .font-display
+@mixin generate-font-family-utilities() {
+  .font-sans {
+    font-family: var(--font-family-sans);
+  }
+  
+  .font-serif {
+    font-family: var(--font-family-serif);
+  }
+  
+  .font-mono {
+    font-family: var(--font-family-mono);
+  }
+  
+  .font-display {
+    font-family: var(--font-family-display);
+  }
+}
+
+// -------------------------------------------------------------------------- //
+//                         FONT WEIGHT UTILITIES                              //
+// -------------------------------------------------------------------------- //
+
+/// Generate font weight utilities
+/// Output: .font-thin, .font-light, .font-regular, etc.
+@mixin generate-font-weight-utilities() {
+  .font-thin {
+    font-weight: var(--font-weight-thin);
+  }
+  
+  .font-light {
+    font-weight: var(--font-weight-light);
+  }
+  
+  .font-regular {
+    font-weight: var(--font-weight-regular);
+  }
+  
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .font-semibold {
+    font-weight: var(--font-weight-semi-bold);
+  }
+  
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+// -------------------------------------------------------------------------- //
+//                      TYPOGRAPHY PRESET UTILITIES                           //
+// -------------------------------------------------------------------------- //
+
+/// Generate utility classes for all typography presets (mobile-first)
+/// Output: .text-body-m, .text-headline-xl, etc.
+@mixin generate-typography-preset-utilities() {
+  
+  // Body utilities (.text-body-m, .text-body-l, etc.)
+  @include generate-category-utilities('body', (
+    'xl', 'l', 'm', 's', '2xs'
+  ));
+  
+  // Title utilities
+  @include generate-category-utilities('title', (
+    '3xl', '2xl', 'xl', 'l', 'm', 's', 'xs', '2xs', '3xs'
+  ));
+  
+  // Headline utilities
+  @include generate-category-utilities('headline', (
+    '3xl', '2xl', 'xl', 'l', 'm', 's', 'xs', '2xs', '3xs'
+  ));
+  
+  // Caption utilities
+  @include generate-category-utilities('caption', (
+    'm', 's', '2xs'
+  ));
+  
+  // Label utilities
+  @include generate-category-utilities('label', (
+    'm', 's'
+  ));
+  
+  // Action utilities (buttons, links)
+  .text-button-l { @include typo.typography('action', 'button-l', 'medium'); }
+  .text-button-m { @include typo.typography('action', 'button-m', 'medium'); }
+  .text-button-s { @include typo.typography('action', 'button-s', 'medium'); }
+  .text-link-navigation { @include typo.typography('action', 'link-navigation', 'regular'); }
+  .text-link-hyperlink { @include typo.typography('action', 'link-hyperlink', 'regular'); }
+  
+  // Eyebrow utilities
+  @include generate-category-utilities('eyebrow', (
+    'l', 'm', 's'
+  ));
+  
+  // Price utilities
+  @include generate-category-utilities('price', (
+    'xl', 'l', 'm', 's', 'xs', '2xs'
+  ));
+}
+
+/// Generate utilities for a specific category (mobile-first)
+@mixin generate-category-utilities($category, $sizes) {
+  @each $size in $sizes {
+    .text-#{$category}-#{$size} {
+      @include typo.typography($category, $size);
+    }
+    
+    // Weight variants (if they exist)
+    @each $weight in ('light', 'regular', 'medium', 'semi-bold', 'bold') {
+      .text-#{$category}-#{$size}-#{$weight} {
+        @include typo.typography($category, $size, $weight);
+      }
+    }
+  }
+}
