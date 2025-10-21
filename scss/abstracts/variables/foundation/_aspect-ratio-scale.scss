@@ -38,27 +38,6 @@ $aspect-ratio-scale: (
 ) !default;
 
 // ------------------------------------------
-// ACCESSIBILITY & READABILITY RATIOS
-// ------------------------------------------
-
-$aspect-ratio-content: (
-  'article-hero': math.div(12, 5),       // 12:5 - Article header images (not too tall)
-  'card-compact': math.div(5, 4),        // 5:4 - Compact cards with good text space
-  'banner-wide': math.div(5, 1),         // 5:1 - Wide promotional banners
-) !default;
-
-// ------------------------------------------
-// E-COMMERCE SPECIFIC RATIOS
-// ------------------------------------------
-
-$aspect-ratio-ecommerce: (
-  'product-square': math.div(1, 1),      // 1:1 - Most common product images
-  'product-portrait': math.div(4, 5),    // 4:5 - Fashion/apparel products
-  'product-landscape': math.div(3, 2),   // 3:2 - Electronics/wide products
-  'product-detail': math.div(3, 4),      // 3:4 - Detailed product views
-) !default;
-
-// ------------------------------------------
 // RESPONSIVE BREAKPOINT RATIOS
 // ------------------------------------------
 

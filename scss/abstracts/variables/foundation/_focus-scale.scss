@@ -1,121 +1,22 @@
 @use 'sass:map';
-@use 'sizing-scale' as sizing;
 
 // ========================================================================== //
 //                        FOUNDATION: FOCUS SCALE                             //
 // ========================================================================== //
 
-// -------------------------------------------
-// FOCUS WIDTH SCALE
-// -------------------------------------------
-// Standardized focus indicator widths
-
-$focus-width-scale: (
-  '1': sizing.$sizing-1,                  // 0.25rem / 4px  - Minimal
-  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Standard
-  '3': sizing.$sizing-3,                  // 0.75rem / 12px - Bold
-  '4': sizing.$sizing-4,                  // 1rem    / 16px - Extra bold
-) !default;
-
-// -------------------------------------------
-// FOCUS OFFSET SCALE
-// -------------------------------------------
-// Standardized spacing between element and focus indicator
-
-$focus-offset-scale: (
-  '0': 0,                                 // No offset (flush)
-  '1': sizing.$sizing-1,                  // 0.25rem / 4px  - Tight
-  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Standard
-  '3': sizing.$sizing-3,                  // 0.75rem / 12px - Loose
-  '4': sizing.$sizing-4,                  // 1rem    / 16px - Extra loose
-) !default;
-
-// -------------------------------------------
-// FOCUS SPREAD SCALE
-// -------------------------------------------
-// Box shadow spread values for glow effects
-
-$focus-spread-scale: (
-  '0': 0,                                 // No spread
-  '2': sizing.$sizing-2,                  // 0.5rem  / 8px  - Subtle
-  '4': sizing.$sizing-4,                  // 1rem    / 16px - Standard
-  '6': sizing.$sizing-6,                  // 1.5rem  / 24px - Prominent
-) !default;
-
-// -------------------------------------------
-// FOCUS BLUR SCALE
-// -------------------------------------------
-// Box shadow blur values for glow effects
-
-$focus-blur-scale: (
-  '0': 0,                                 // No blur (sharp)
-  '4': sizing.$sizing-4,                  // 1rem    / 16px - Soft
-  '6': sizing.$sizing-6,                  // 1.5rem  / 24px - Medium
-  '8': sizing.$sizing-8,                  // 2rem    / 32px - Diffused
-  '12': sizing.$sizing-12,                // 3rem    / 48px - Very soft
-) !default;
-
-// -------------------------------------------
-// FOCUS STYLE SCALE
-// -------------------------------------------
-// CSS border/outline style values
-
-$focus-style-scale: (
+$focus-scale: (
+  // Width (outline thickness)
+  'thin': 2px,                    // WCAG minimum
+  'medium': 3px,                  // Recommended
+  'thick': 4px,                   // High visibility
+  
+  // Offset (space between element and outline)
+  'none': 0px,
+  'sm': 2px,
+  'base': 4px,
+  
+  // Style
   'solid': solid,
   'dashed': dashed,
   'dotted': dotted,
-  'double': double,
-) !default;
-
-// -------------------------------------------
-// FOCUS OPACITY SCALE
-// -------------------------------------------
-// Opacity values for focus indicators
-
-$focus-opacity-scale: (
-  '0': 0,
-  '10': 0.1,
-  '20': 0.2,
-  '30': 0.3,
-  '40': 0.4,
-  '50': 0.5,
-  '60': 0.6,
-  '70': 0.7,
-  '80': 0.8,
-  '90': 0.9,
-  '100': 1,
-) !default;
-
-// -------------------------------------------
-// FOCUS TRANSITION SCALE
-// -------------------------------------------
-// Animation timing for focus state changes
-
-$focus-transition-duration-scale: (
-  'instant': 0ms,
-  'fast': 100ms,
-  'normal': 150ms,
-  'slow': 200ms,
-  'slower': 300ms,
-) !default;
-
-$focus-transition-easing-scale: (
-  'linear': linear,
-  'ease': ease,
-  'ease-in': ease-in,
-  'ease-out': ease-out,
-  'ease-in-out': ease-in-out,
-) !default;
-
-// -------------------------------------------
-// WCAG CONTRAST RATIO SCALE
-// -------------------------------------------
-// WCAG 2.1 contrast ratio requirements
-
-$focus-contrast-ratio-scale: (
-  'aa-normal': 4.5,                       // WCAG AA - Normal text (< 18pt)
-  'aa-large': 3,                          // WCAG AA - Large text (≥ 18pt)
-  'aaa-normal': 7,                        // WCAG AAA - Normal text
-  'aaa-large': 4.5,                       // WCAG AAA - Large text
-  'ui-component': 3,                      // WCAG AA - UI Components
 ) !default;

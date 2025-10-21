@@ -3,18 +3,30 @@
   /* ========================================================================== */
   /*                             TOKENS: ASPECT RATIO                           */
   /* ========================================================================== */
+  /* Standard ratios */
   --aspect-ratio-square: 1;
-  --aspect-ratio-video: 1.7777777778;
-  --aspect-ratio-16-9: ;
-  --aspect-ratio-4-3: ;
-  --aspect-ratio-21-9: ;
-  --aspect-ratio-3-2: ;
-  --aspect-ratio-2-3: ;
-  --aspect-ratio-9-16: ;
-  --aspect-ratio-portrait: 0.75;
+  --aspect-ratio-landscape: 1.3333333333;
+  --aspect-ratio-widescreen: 1.7777777778;
   --aspect-ratio-ultrawide: 2.3333333333;
-  --aspect-ratio-cinema: 2.39;
+  --aspect-ratio-portrait: 0.75;
+  --aspect-ratio-photo: 1.5;
+  /* Social media ratios */
+  --aspect-ratio-video: 1.7777777778;
+  --aspect-ratio-story: 0.5625;
+  --aspect-ratio-twitter-card: 2;
+  --aspect-ratio-facebook-cover: 2.6282051282;
+  --aspect-ratio-instagram-post: 1;
+  --aspect-ratio-youtube-thumbnail: 1.7777777778;
+  /* Design ratios */
   --aspect-ratio-golden: 1.618;
+  --aspect-ratio-silver: 1.414;
+  /* Cinema & Entertainment */
+  --aspect-ratio-cinema: 2.39;
+  --aspect-ratio-imax: 1.43;
+  /* Responsive ratios */
+  --aspect-ratio-mobile-hero: 0.75;
+  --aspect-ratio-tablet-hero: 1.3333333333;
+  --aspect-ratio-desktop-hero: 1.7777777778;
   /* ========================================================================== */
   /*                             TOKENS: BREAKPOINTS                            */
   /* ========================================================================== */
@@ -356,63 +368,18 @@
   /* ========================================================================== */
   /*                                TOKENS: FOCUS                               */
   /* ========================================================================== */
-  /* Width scale */
-  --focus-width-1: 0.0625rem;
-  --focus-width-2: 0.125rem;
-  --focus-width-3: 0.1875rem;
-  --focus-width-4: 0.25rem;
-  /* Offset scale */
-  --focus-offset-0: 0;
-  --focus-offset-1: 0.0625rem;
-  --focus-offset-2: 0.125rem;
-  --focus-offset-3: 0.1875rem;
-  --focus-offset-4: 0.25rem;
-  /* Spread scale */
-  --focus-spread-0: 0;
-  --focus-spread-2: 0.125rem;
-  --focus-spread-4: 0.25rem;
-  --focus-spread-6: 0.375rem;
-  /* Blur scale */
-  --focus-blur-0: 0;
-  --focus-blur-4: 0.25rem;
-  --focus-blur-6: 0.375rem;
-  --focus-blur-8: 0.5rem;
-  --focus-blur-12: 0.75rem;
-  /* Style scale */
+  /* Width */
+  --focus-width-thin: 2px;
+  --focus-width-medium: 3px;
+  --focus-width-thick: 4px;
+  /* Offset */
+  --focus-offset-none: 0px;
+  --focus-offset-sm: 2px;
+  --focus-offset-base: 4px;
+  /* Style */
   --focus-style-solid: solid;
   --focus-style-dashed: dashed;
   --focus-style-dotted: dotted;
-  --focus-style-double: double;
-  /* Opacity scale */
-  --focus-opacity-0: 0;
-  --focus-opacity-10: 0.1;
-  --focus-opacity-20: 0.2;
-  --focus-opacity-30: 0.3;
-  --focus-opacity-40: 0.4;
-  --focus-opacity-50: 0.5;
-  --focus-opacity-60: 0.6;
-  --focus-opacity-70: 0.7;
-  --focus-opacity-80: 0.8;
-  --focus-opacity-90: 0.9;
-  --focus-opacity-100: 1;
-  /* Transition duration scale */
-  --focus-transition-duration-instant: 0ms;
-  --focus-transition-duration-fast: 100ms;
-  --focus-transition-duration-normal: 150ms;
-  --focus-transition-duration-slow: 200ms;
-  --focus-transition-duration-slower: 300ms;
-  /* Transition easing scale */
-  --focus-transition-easing-linear: linear;
-  --focus-transition-easing-ease: ease;
-  --focus-transition-easing-ease-in: ease-in;
-  --focus-transition-easing-ease-out: ease-out;
-  --focus-transition-easing-ease-in-out: ease-in-out;
-  /* Contrast ratio scale */
-  --focus-contrast-ratio-aa-normal: 4.5;
-  --focus-contrast-ratio-aa-large: 3;
-  --focus-contrast-ratio-aaa-normal: 7;
-  --focus-contrast-ratio-aaa-large: 4.5;
-  --focus-contrast-ratio-ui-component: 3;
   /* ========================================================================== */
   /*                                 TOKENS: GRID                               */
   /* ========================================================================== */
@@ -590,22 +557,21 @@
   --thumbnail-size-l: ;
   --thumbnail-size-xl: ;
   /* -------------------------------------------------------------------------- */
+  /*                             IMAGES: COMPONENTS                             */
+  /* -------------------------------------------------------------------------- */
+  --image-star-alliance: 16.875rem; /* 270px - Star Alliance logo */
+  /* -------------------------------------------------------------------------- */
   /*                               IMAGES: LEGACY                               */
   /* -------------------------------------------------------------------------- */
   /* Maintained for backward compatibility                
 
-  /* Brand Images */
-  --image-star-alliance: 16.875rem; /* 270px - Star Alliance logo */
-  /* Form Images */
+  /* Form */
   --image-width-captcha: 17.875rem; /* 286px - Captcha width */
   --image-height-captcha: 2.5rem; /* 40px  - Captcha height */
   /* Logo Constraints */
   --logo-max-width: 11.25rem; /* 180px - Maximum logo width */
   /* ========================================================================== */
-  /*                               TOKENS: LAYOUT                               */
-  /* ========================================================================== */
-  /* ========================================================================== */
-  /*                              TOKENS: OPACITY                               */
+  /*                               TOKENS: OPACITY                              */
   /* ========================================================================== */
   --opacity-disabled: 0.4;
   --opacity-hover: ;
@@ -1213,11 +1179,9 @@
   --z-index-dropdown: 1000;
   --z-index-sticky: 1020;
   --z-index-fixed: 1030;
-  --z-index-banner: ;
   --z-index-modal-overlay: 1040;
   --z-index-modal: 1050;
   --z-index-popover: 1060;
-  --z-index-toast: ;
   --z-index-tooltip: 1070;
   --z-index-max: 10000;
   /* -------------------------------------------------------------------------- */

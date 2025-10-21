@@ -36,24 +36,27 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /*                               IMAGES: LEGACY                               */
+    /*                             IMAGES: COMPONENTS                             */
     /* -------------------------------------------------------------------------- */
-    /* Maintained for backward compatibility                
 
-    /* Brand Images */
     --image-star-alliance: 16.875rem;     /* 270px - Star Alliance logo */
-
-    /* Form Images */
-    --image-width-captcha: 17.875rem;     /* 286px - Captcha width */
-    --image-height-captcha: 2.5rem;       /* 40px  - Captcha height */
-
-    /* Logo Constraints */
-    --logo-max-width: 11.25rem;           /* 180px - Maximum logo width */
 
     @if flags.$is_main {
         & {
           --login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
         }
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                               IMAGES: LEGACY                               */
+    /* -------------------------------------------------------------------------- */
+    /* Maintained for backward compatibility                
+
+    /* Form */
+    --image-width-captcha: 17.875rem;     /* 286px - Captcha width */
+    --image-height-captcha: 2.5rem;       /* 40px  - Captcha height */
+
+    /* Logo Constraints */
+    --logo-max-width: 11.25rem;           /* 180px - Maximum logo width */
 
 }
