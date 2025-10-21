@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                      COMPONENTS: ICON FONT BASE                           */
+/* ==========================================================================*/
+// Base styles for custom icon fonts
+// Reusable for any icon font system (MegasisIconsFont, Font Awesome, etc.)
+/* ==========================================================================*/
+
+//-------------------------------------------
+// BASE ICON FONT STYLES
+//-------------------------------------------
+
+[class*="icon-"] {
+  display: inline;
+  width: auto;
+  line-height: inherit;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+
+  &:before {
+    font-family: var(--icon-font-family);
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 5px;
+  }
+}
+
+//-------------------------------------------
+// MODIFIER CLASSES
+//-------------------------------------------
+
+// Remove padding for icons with no text
+.no-text [class*="icon-"]:before {
+  padding-right: 0;
+}
+
+//-------------------------------------------
+// FONT AWESOME OVERRIDES
+//-------------------------------------------
+
+.fa {
+    &.fa-angle-down {
+        transform: rotate(0deg);
+        transition: transform 0.3s ease-in-out;
+        display: inline-block;
+        transform-origin: center;
+    }
+    &-base{
+        font-size: var(--fa-base);
+    }
+}
+
+//-------------------------------------------
+// LEGACY HELPER CLASSES
+//-------------------------------------------
+
+.icon-list {
+  font-size: 20px;
+  display: table;
+
+  span.box1 {
+    min-width: 250px;
+    display: inline-block;
+  }
+}

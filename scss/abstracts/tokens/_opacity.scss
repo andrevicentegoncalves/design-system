@@ -28,7 +28,11 @@
   --opacity-full: #{map.get(semantics.$opacity-semantic, 'full')};
   --opacity-none: #{map.get(semantics.$opacity-semantic, 'none')};
 
-  /* Legacy - DEPRECATED */
+  /* -------------------------------------------------------------------------- */
+  /*                              OPACITY: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */   
+
   --alpha-disabled: #{map.get(semantics.$legacy-opacity-tokens, 'alpha-disabled')};
   --alpha-hover: #{map.get(semantics.$legacy-opacity-tokens, 'alpha-hover')};
   --alpha-active: #{map.get(semantics.$legacy-opacity-tokens, 'alpha-active')};

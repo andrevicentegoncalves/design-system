@@ -101,3 +101,13 @@ $font-path: if(flags.$is_main, '/TapPortal_TH/',
                if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
              );
 
+// Login
+$login-form-width: fn.rem(432);
+$login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+
+// Icons
+$icon-font-family: 'MegasisIconsFont';
+
+// Banner
+$banner-height: fn.rem(400);
+$banner-height-phone: fn.rem(309);

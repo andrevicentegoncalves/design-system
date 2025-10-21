@@ -7,6 +7,10 @@
 //                  VARIABLES: FOUNDATION - TYPOGRAPHY SCALES                 //
 // ========================================================================== //
 
+$font-path: if(flags.$is_main, '/TapPortal_TH/', 
+               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
+             );
+             
 // -------------------------------------------
 // FONT FAMILY SCALE
 // -------------------------------------------
@@ -185,7 +189,3 @@ $text-decoration-scale: (
   'overline': overline,
   'line-through': line-through,
 ) !default;
-
-$font-path: if(flags.$is_main, '/TapPortal_TH/', 
-               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
-             );

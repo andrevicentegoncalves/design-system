@@ -19,7 +19,7 @@
 }
 @media (max-width: 480px) {
   .banner-news {
-    height: var(--banner-height-phone);
+    height: 19.3125rem;
   }
   .banner-news .phone .wide-bar.ThemeGrid_Container {
     padding-left: var(--space-none);
@@ -67,12 +67,12 @@
   z-index: var(--z-index-fixed);
 }
 .banner-news__wrapper {
-  height: var(--banner-height);
+  height: 25rem;
   width: 100%;
 }
 @media (max-width: 480px) {
   .banner-news__wrapper {
-    height: var(--banner-height-phone);
+    height: 19.3125rem;
   }
 }
 .banner-news__content {

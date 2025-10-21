@@ -45,9 +45,9 @@
     --letter-spacing-#{$name}: #{$value};
   }
 
-  /* ========================================================================== */
-  /*                  TOKENS: TYPOGRAPHYY - SEMANTIC PRESETS                    */
-  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                       TYPOGRAPHYY: SEMANTIC PRESETS                        */
+  /* -------------------------------------------------------------------------- */
 
   @include generate-semantic-tokens('body', semantics.$typography-body);
   @include generate-semantic-tokens('title', semantics.$typography-title);
@@ -58,11 +58,12 @@
   @include generate-semantic-tokens('eyebrow', semantics.$typography-eyebrow);
   @include generate-semantic-tokens('price', semantics.$typography-price);
 
-  // ========================================================================== //
-  //                         LEGACY TOKENS (Deprecated)                         //
-  // ========================================================================== //
+  /* -------------------------------------------------------------------------- */
+  /*                            TYPOGRAPHYY: LEGACY                             */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */            
 
-  /* Legacy Font Sizes  */
+  /* Font Sizes  */
   --font-size-xxxs: #{units.rem(5)};  
   --font-size-xxs: #{units.rem(11)};   
   --font-size-xs: #{units.rem(12)};    
@@ -72,6 +73,6 @@
   --font-size-l: #{map.get(foundation.$font-size-desktop, '2xs')};      
   --font-size-xl: #{map.get(foundation.$font-size-desktop, 's')};      
 
-  /* Legacy Font Family */
+  /* Font Family */
   --font-family-base: #{map.get(foundation.$font-family-scale, 'sans')};
 }

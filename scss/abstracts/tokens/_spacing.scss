@@ -39,7 +39,11 @@
   --spacing-112: #{map.get(scale.$spacing-numeric, '112')};
   --spacing-144: #{map.get(scale.$spacing-numeric, '144')};
 
-  /* Legacy Spacing Tokens (DEPRECATED) */
+  /* -------------------------------------------------------------------------- */
+  /*                              SPACING: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */            
+
   --space-none: 0;
   --space-xs: 0.25rem;         /* 4px */
   --space-s: 0.5rem;           /* 8px */

@@ -229,9 +229,9 @@
 //-------------------------------------------
 
 .submenu-custom__header-arrow {
-    @include rotate-transition(0deg, y); 
+    @include rotate-transition(0deg);
   
     &.rotate {
-      @include rotate-transition(180deg, y);
+      @include rotate-transition(180deg);
     }
 }

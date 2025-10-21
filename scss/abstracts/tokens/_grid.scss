@@ -127,7 +127,11 @@
    --container-query-xl: 1280px;
    --container-query-2xl: 1920px;
 
-   /* LEGACY - DEPRECATED */
+    /* -------------------------------------------------------------------------- */
+    /*                                 GRID: LEGACY                               */
+    /* -------------------------------------------------------------------------- */
+    /* Maintained for backward compatibility */     
+
    --grid-columns: 12;
    --grid-columns-standard: 4;
    --grid-gap: 25px;

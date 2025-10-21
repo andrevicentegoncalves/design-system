@@ -1,0 +1,62 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                        COMPONENTS: MATERIAL ICONS                         */
+/* ==========================================================================*/
+
+.material-icons {
+  font-family: var(--icon-font-family);
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  // Default size
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  // Support for browsers
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga'; // Enable ligatures for text-to-icon conversion
+
+  // Add transition for smooth size changes
+  transition: all var(--transition-base);
+
+  // Style variant - filled icons
+  &.filled {
+    font-weight: var(--font-weight-bold);
+  }
+
+  // Size variants
+  &.md-18 { font-size: var(--font-size-xs); }
+  &.md-24 { font-size: var(--font-size-m); }
+  &.md-36 { font-size: var(--font-size-l); }
+  &.md-48 { font-size: var(--font-size-xl); }
+
+  // Color variants
+  &.primary { color: var(--color-primary); }
+  &.secondary { color: var(--color-secondary); }
+  &.error { color: var(--color-danger); }
+  &.warning { color: var(--color-warning); }
+  &.success { color: var(--color-success); }
+
+  // Special styles
+  &.rounded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-0);
+    border-radius: 50%;
+    padding: var(--space-xs);
+    box-shadow: var(--box-shadow);
+  }
+
+  &.disabled {
+    opacity: var(--opacity-m);
+    cursor: not-allowed;
+  }
+}

@@ -5,6 +5,9 @@
 /*                           PATTERNS: BANNER NEWS                           */
 /* ==========================================================================*/
 
+$banner-height: rem(400);
+$banner-height-phone: rem(309);
+
 //-------------------------------------------
 // Base Container
 //-------------------------------------------
@@ -14,7 +17,7 @@
     height: $banner-height;
 
     @media (max-width: $breakpoint-phone) {
-        height: var(--banner-height-phone);
+        height: $banner-height-phone;
         
         .phone .wide-bar.ThemeGrid_Container {
             padding-left: var(--space-none);
@@ -62,11 +65,11 @@
     //-------------------------------------------
     
     &__wrapper {
-        height: var(--banner-height);
+        height: $banner-height;
         width: 100%;
 
         @media (max-width: $breakpoint-phone) {
-            height: var(--banner-height-phone);
+            height: $banner-height-phone;
         }
     }
 

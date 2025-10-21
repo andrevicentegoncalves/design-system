@@ -1,23 +1,31 @@
 @use "sass:list";
 @use '../flags' as flags;
+
+// Import all token modules
 @use 'colors';
-@use 'design-tokens';
-@use 'borders';
 @use 'typography';
-@use 'z-index';
 @use 'spacing';
+@use 'borders';
+@use 'shadows';
 @use 'opacity';
+@use 'z-index';
+@use 'timing';
+@use 'motion';
 @use 'breakpoints';
 @use 'aspect-ratio';
 @use 'grid';
 @use 'cursor';
 @use 'focus';
+@use 'images';
+@use 'icons';
+@use 'layout';
 
 // ============================================================================ //
 //                                 TOKENS: INDEX                                //
 // ============================================================================ //
 
 @mixin generate-tokens($categories: 'all') {
+    
     // Aspect Ratio  
     @if $categories == 'all' or list.index($categories, 'aspect-ratio') {
         @include aspect-ratio.generate-aspect-ratio-tokens();
@@ -30,7 +38,7 @@
     
     // Colors 
     @if $categories == 'all' or list.index($categories, 'colors') {
-        @include colors.generate-colors-tokens();
+        @include colors.generate-color-tokens();
     }
 
     // Cursor  
@@ -43,14 +51,34 @@
         @include borders.generate-border-tokens();
     }
 
-    // Design Tokens  
-    @if $categories == 'all' or list.index($categories, 'design-tokens') {
-        @include design-tokens.generate-tokens-tokens();
+    // Shadow/Elevation
+    @if $categories == 'all' or list.index($categories, 'shadows') {
+        @include shadows.generate-shadow-tokens();
     }
 
     // Focus 
     @if $categories == 'all' or list.index($categories, 'focus') {
         @include focus.generate-focus-tokens();
+    }
+
+    // Grid
+    @if $categories == 'all' or list.index($categories, 'grid') {
+        @include grid.generate-grid-tokens();
+    }
+
+    // Icons
+    @if $categories == 'all' or list.index($categories, 'icons') {
+        @include icons.generate-icon-tokens();
+    }
+    
+    // Images
+    @if $categories == 'all' or list.index($categories, 'images') {
+        @include images.generate-image-tokens();
+    }
+
+    // Layout
+    @if $categories == 'all' or list.index($categories, 'layout') {
+        @include layout.generate-layout-tokens();
     }
 
     // Opacity 
@@ -66,6 +94,16 @@
     // Typography 
     @if $categories == 'all' or list.index($categories, 'typography') {
         @include typography.generate-typography-tokens();
+    }
+
+    // Timing (Duration, Easing, Delay)
+    @if $categories == 'all' or list.index($categories, 'timing') {
+        @include timing.generate-timing-tokens();
+    }
+
+    // Motion (Animation Presets)
+    @if $categories == 'all' or list.index($categories, 'motion') {
+        @include motion.generate-motion-tokens();
     }
 
     // Z-Index 

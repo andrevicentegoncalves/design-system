@@ -1,15 +1,22 @@
 @use 'sass:map';
-@use '../../abstracts/variables/colors/theme-mapping' as theme;
 
-@mixin generate-colors-tokens() {
+@use '../../abstracts/variables/colors/theme-mapping' as theme;
+@use '../flags' as flags;
+
+@mixin generate-color-tokens() {
     
     /* ========================================================================== */
     /*                                TOKENS: COLORS                              */
     /* ========================================================================== */
     
-    color-scheme: light dark;
+    // Set color-scheme based on dark mode configuration
+    @if flags.$is_dark_mode_auto or flags.$is_dark_mode_forced {
+        color-scheme: light dark; 
+    } @else {
+        color-scheme: light;  
+    }
     
-    // Default theme tokens (Light) - No data-theme attribute
+    // Default theme tokens (Light) - applies when no data-theme attribute
     @each $token-name, $theme-map in theme.$theme-mappings {
         $light-color: map.get($theme-map, 'light');
         @if $light-color {
@@ -17,9 +24,10 @@
         }
     }
     
-    /* ========================================================================== */
-    /*                      TOKENS: LEGACY COLORS - DEPRECATED                    */
-    /* ========================================================================== */
+    /* -------------------------------------------------------------------------- */
+    /*                                COLORS: LEGACY                              */
+    /* -------------------------------------------------------------------------- */
+    /* Maintained for backward compatibility */     
     
     --color-primary-light: #F1F9EC;
     --color-success: #28a745;
@@ -37,37 +45,14 @@
     --border-color: hsl(97, 48%, 51%);
 
     // ----------------------------------------
-    // NESTED RULES COME AFTER ALL DECLARATIONS
+    // DARK MODE
     // ----------------------------------------
-    
-    // Force Light Theme
-    &[data-theme="light"] {
-        color-scheme: light;
-        
-        @each $token-name, $theme-map in theme.$theme-mappings {
-            $light-color: map.get($theme-map, 'light');
-            @if $light-color {
-                --color-#{$token-name}: #{$light-color};
-            }
-        }
-    }
-    
-    // Force Dark Theme
-    &[data-theme="dark"] {
-        color-scheme: dark;
-        
-        @each $token-name, $theme-map in theme.$theme-mappings {
-            $dark-color: map.get($theme-map, 'dark');
-            @if $dark-color {
-                --color-#{$token-name}: #{$dark-color};
-            }
-        }
-    }
 
-    // Automatically switch to dark mode based on browser preference
-    // Only when no manual data-theme is set
-    &:not([data-theme]) {
-        @media (prefers-color-scheme: dark) {
+    @if flags.$is_dark_mode_forced {
+        
+        &[data-theme="dark"] {
+            color-scheme: dark;
+            
             @each $token-name, $theme-map in theme.$theme-mappings {
                 $dark-color: map.get($theme-map, 'dark');
                 @if $dark-color {
@@ -76,7 +61,21 @@
             }
         }
     }
-
+    
+    @else if flags.$is_dark_mode_auto {
+        
+        @media (prefers-color-scheme: dark) {
+            color-scheme: dark;
+            
+            @each $token-name, $theme-map in theme.$theme-mappings {
+                $dark-color: map.get($theme-map, 'dark');
+                @if $dark-color {
+                    --color-#{$token-name}: #{$dark-color};
+                }
+            }
+        }
+    }
+    
     // ----------------------------------------
     // SMOOTH TRANSITIONS FOR THEME CHANGES
     // ----------------------------------------

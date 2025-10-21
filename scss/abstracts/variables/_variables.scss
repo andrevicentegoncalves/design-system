@@ -19,8 +19,6 @@ $line-height-base: 1.5;
 
 
 
-// Icons
-$icon-font-family: 'MegasisIconsFont';
 
 // -------------------------------------------
 // Layout & Spacing
@@ -74,9 +72,7 @@ $opaque: 1;
 // Feature-Specific
 // -------------------------------------------
 
-// Login
-$login-form-width: fn.rem(432);
-$login-background-image: url(/TapPortal_TH/img/TapPortal_TH.Login_Background.jpg);
+
 
 // Images & Icons
 
@@ -98,14 +94,11 @@ $image-height-captcha: fn.rem(40);
 $image-star-alliance: fn.rem(270);
 $logo-max-width: fn.rem(180);
 
-$fa-base: 1.5em;
+
 
 // Checkboxes
 $size-checkbox-s: fn.rem(12);
 
-// Banner
-$banner-height: fn.rem(400);
-$banner-height-phone: fn.rem(309);
 
 // Bottom Tabs
 $bottom-tab-width: 170px;
