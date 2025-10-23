@@ -28,6 +28,50 @@
   --aspect-ratio-tablet-hero: 1.3333333333;
   --aspect-ratio-desktop-hero: 1.7777777778;
   /* ========================================================================== */
+  /*                              TOKENS: BORDERS                               */
+  /* ========================================================================== */
+  /* Border Width */
+  --border-width-none: 0;
+  --border-width-2xs: 0.03125rem;
+  --border-width-xs: 0.0625rem;
+  --border-width-s: 0.125rem;
+  --border-width-m: 0.1875rem;
+  --border-width-l: 0.25rem;
+  --border-width-xl: 0.375rem;
+  /* Border Style */
+  --border-style-none: none;
+  --border-style-solid: solid;
+  --border-style-dashed: dashed;
+  --border-style-dotted: dotted;
+  --border-style-double: double;
+  --border-style-groove: groove;
+  --border-style-ridge: ridge;
+  --border-style-inset: inset;
+  --border-style-outset: outset;
+  --border-style-hidden: hidden;
+  /* Border Radius */
+  --border-radius-none: 0;
+  --border-radius-2xs: 0.125rem;
+  --border-radius-xs: 0.25rem;
+  --border-radius-s: 0.5rem;
+  --border-radius-m: 1rem;
+  --border-radius-l: 1.5rem;
+  --border-radius-xl: 2rem;
+  --border-radius-2xl: 3rem;
+  --border-radius-round: 62.5rem;
+  /* -------------------------------------------------------------------------- */
+  /*                               BORDER: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */
+  --border-size-none: 0px;
+  --border-size-xs: 0.5px;
+  --border-size-s: 1px;
+  --border-width-selected: 3px;
+  --border-width: 0.3px;
+  --border-style: solid;
+  --border-radius-soft: 4px;
+  --border-radius-extra-soft: 15px;
+  /* ========================================================================== */
   /*                             TOKENS: BREAKPOINTS                            */
   /* ========================================================================== */
   --breakpoint-xs: 320px;
@@ -152,18 +196,18 @@
   --color-on-surface-inverse-default: hsl(264, 4%, 100%);
   --color-on-surface-inverse-subtle: hsl(264, 4%, 100%);
   --color-on-surface-inverse-disabled: hsl(264, 4%, 68%);
-  --color-border-default: hsl(264, 4%, 84%);
-  --color-border-subtle: hsl(264, 4%, 92%);
-  --color-border-strong: hsl(264, 4%, 68%);
-  --color-border-primary-electric: hsl(89, 96%, 61%);
-  --color-border-primary: hsl(96, 71%, 46%);
-  --color-border-secondary: hsl(69, 68%, 52%);
-  --color-border-tertiary: hsl(130, 46%, 22%);
-  --color-border-hover: hsl(264, 4%, 76%);
-  --color-border-pressed: hsl(264, 4%, 72%);
-  --color-border-focus: hsl(220, 100%, 40%);
-  --color-border-error: hsl(357, 79%, 46%);
-  --color-border-success: hsl(120, 52%, 88%);
+  --border-color-default: hsl(264, 4%, 84%);
+  --border-color-subtle: hsl(264, 4%, 92%);
+  --border-color-strong: hsl(264, 4%, 68%);
+  --border-color-primary-electric: hsl(89, 96%, 61%);
+  --border-color-primary: hsl(96, 71%, 46%);
+  --border-color-secondary: hsl(69, 68%, 52%);
+  --border-color-tertiary: hsl(130, 46%, 22%);
+  --border-color-hover: hsl(264, 4%, 76%);
+  --border-color-pressed: hsl(264, 4%, 72%);
+  --border-color-focus: hsl(220, 100%, 40%);
+  --border-color-error: hsl(357, 79%, 46%);
+  --border-color-success: hsl(120, 52%, 88%);
   --color-tier-miles: hsl(96, 71%, 40%);
   --color-tier-miles-subtle: hsl(96, 71%, 91%);
   --color-tier-miles-hover: hsl(96, 71%, 36%);
@@ -203,7 +247,7 @@
   --color-footer: hsl(264, 4%, 22%);
   --color-footer-subtle: hsl(264, 4%, 19%);
   /* -------------------------------------------------------------------------- */
-  /*                                COLORS: LEGACY                              */
+  /*                                COLOR: LEGACY                               */
   /* -------------------------------------------------------------------------- */
   /* Maintained for backward compatibility */
   --color-primary-light: #F1F9EC;
@@ -220,6 +264,40 @@
   --color-dark: #272b30;
   --color-footer-section: #2C2C2C;
   --border-color: hsl(97, 48%, 51%);
+  /* ========================================================================== */
+  /*                             TOKENS: CONTAINER                              */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                        CONTAINER: MAX-WIDTH SCALE                          */
+  /* -------------------------------------------------------------------------- */
+  /* Breakpoint-based and semantic container widths */
+  --container-xs: 20rem;
+  --container-sm: 40rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
+  --container-2xl: 96rem;
+  --container-3xl: 120rem;
+  --container-content: 40rem;
+  --container-prose: 65ch;
+  --container-narrow: 30rem;
+  --container-wide: 90rem;
+  --container-full: 100%;
+  --container-screen: 100vw;
+  /* -------------------------------------------------------------------------- */
+  /*                         CONTAINER: PADDING SCALE                           */
+  /* -------------------------------------------------------------------------- */
+  /* Responsive padding for container elements */
+  --container-padding-xs: 1rem;
+  --container-padding-sm: 1.5rem;
+  --container-padding-md: 2rem;
+  --container-padding-lg: 3rem;
+  --container-padding-xl: 4rem;
+  /* -------------------------------------------------------------------------- */
+  /*                            CONTAINER: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */
+  --container-base: 80rem;
   /* ========================================================================== */
   /*                                TOKENS: CURSOR                              */
   /* ========================================================================== */
@@ -259,112 +337,6 @@
   --cursor-crosshair: crosshair;
   --cursor-no-drop: no-drop;
   --cursor-all-scroll: all-scroll;
-  /* ========================================================================== */
-  /*                              TOKENS: BORDERS                               */
-  /* ========================================================================== */
-  /* Border Width */
-  --border-width-none: 0;
-  --border-width-2xs: 0.03125rem;
-  --border-width-xs: 0.0625rem;
-  --border-width-s: 0.125rem;
-  --border-width-m: 0.1875rem;
-  --border-width-l: 0.25rem;
-  --border-width-xl: 0.375rem;
-  /* Border Style */
-  --border-style-none: none;
-  --border-style-solid: solid;
-  --border-style-dashed: dashed;
-  --border-style-dotted: dotted;
-  --border-style-double: double;
-  --border-style-groove: groove;
-  --border-style-ridge: ridge;
-  --border-style-inset: inset;
-  --border-style-outset: outset;
-  --border-style-hidden: hidden;
-  /* Border Radius */
-  --border-radius-none: 0;
-  --border-radius-2xs: 0.125rem;
-  --border-radius-xs: 0.25rem;
-  --border-radius-s: 0.5rem;
-  --border-radius-m: 1rem;
-  --border-radius-l: 1.5rem;
-  --border-radius-xl: 2rem;
-  --border-radius-2xl: 3rem;
-  --border-radius-round: 62.5rem;
-  /* -------------------------------------------------------------------------- */
-  /*                               BORDER: LEGACY                               */
-  /* -------------------------------------------------------------------------- */
-  /* Maintained for backward compatibility */
-  --border-size-none: 0px;
-  --border-size-xs: 0.5px;
-  --border-size-s: 1px;
-  --border-width-selected: 3px;
-  --border-width: 0.3px;
-  --border-style: solid;
-  --border-radius-soft: 4px;
-  --border-radius-extra-soft: 15px;
-  /* ========================================================================== */
-  /*                              TOKENS: SHADOWS                               */
-  /* ========================================================================== */
-  --shadow-xs: 0
-              0.0625rem
-              0.25rem
-              0
-              rgba(0, 0, 0, 0.1);
-  --shadow-s: 0
-              0.125rem
-              0.5rem
-              0
-              rgba(0, 0, 0, 0.12);
-  --shadow-m: 0
-              0.5rem
-              1rem
-              0
-              rgba(0, 0, 0, 0.15);
-  --shadow-l: 0
-              1rem
-              2rem
-              0
-              rgba(0, 0, 0, 0.18);
-  /* -------------------------------------------------------------------------- */
-  /*                              SHADOW: ELEVATION                             */
-  /* -------------------------------------------------------------------------- */
-  /* Semantic shadow names based on component elevation */
-  --shadow-card: var(--shadow-s);
-  --shadow-card-hover: var(--shadow-m);
-  --shadow-dropdown: var(--shadow-l);
-  --shadow-modal: var(--shadow-l);
-  --shadow-popover: var(--shadow-l);
-  --shadow-tooltip: var(--shadow-m);
-  --shadow-drawer: var(--shadow-l);
-  --shadow-sticky: var(--shadow-m);
-  --shadow-floating: var(--shadow-l);
-  /* -------------------------------------------------------------------------- */
-  /*                                SHADOW: INSET                               */
-  /* -------------------------------------------------------------------------- */
-  /* Inner shadows for pressed states and inputs */
-  --shadow-inset-xs: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-inset-s: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --shadow-inset-m: inset 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-  /* Semantic inner shadows */
-  --shadow-input-default: var(--shadow-inset-xs);
-  --shadow-input-focus: var(--shadow-inset-s);
-  --shadow-well: var(--shadow-inset-m);
-  /* -------------------------------------------------------------------------- */
-  /*                               SHADOW: COLORED                              */
-  /* -------------------------------------------------------------------------- */
-  /* Focus ring shadows (requires color override at component level) */
-  --shadow-focus-default: 0 0 0 3px rgba(59, 130, 246, 0.5);
-  --shadow-focus-error: 0 0 0 3px rgba(239, 68, 68, 0.5);
-  --shadow-focus-success: 0 0 0 3px rgba(34, 197, 94, 0.5);
-  --shadow-focus-warning: 0 0 0 3px rgba(234, 179, 8, 0.5);
-  /* -------------------------------------------------------------------------- */
-  /*                               SHADOW: LEGACY                               */
-  /* -------------------------------------------------------------------------- */
-  /* Maintained for backward compatibility */
-  /* Legacy - DEPRECATED */
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --box-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
   /* ========================================================================== */
   /*                                TOKENS: FOCUS                               */
   /* ========================================================================== */
@@ -517,6 +489,45 @@
   /* Default Icon Size */
   --icon-size-base: 1.5rem;
   /* ========================================================================== */
+  /*                            TOKENS: POSITIONING                             */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                            POSITIONING: NUMERIC                            */
+  /* -------------------------------------------------------------------------- */
+  --position-0: 0;
+  --position-1: 0.25rem;
+  --position-2: 0.5rem;
+  --position-3: 0.75rem;
+  --position-4: 1rem;
+  --position-6: 1.5rem;
+  --position-8: 2rem;
+  --position-10: 2.5rem;
+  --position-12: 3rem;
+  --position-16: 4rem;
+  --position-20: 5rem;
+  --position-24: 6rem;
+  --position-32: 8rem;
+  --position-40: 10rem;
+  --position-48: 12rem;
+  --position-64: 16rem;
+  /* -------------------------------------------------------------------------- */
+  /*                          POSITIONING: PERCENTAGE                           */
+  /* -------------------------------------------------------------------------- */
+  --position-0-percent: 0%;
+  --position-25-percent: 25%;
+  --position-50-percent: 50%;
+  --position-75-percent: 75%;
+  --position-100-percent: 100%;
+  /* -------------------------------------------------------------------------- */
+  /*                             POSITIONING: INSET                             */
+  /* -------------------------------------------------------------------------- */
+  --inset-none: 0;
+  --inset-xs: 0.25rem;
+  --inset-sm: 0.5rem;
+  --inset-md: 1rem;
+  --inset-lg: 1.5rem;
+  --inset-xl: 2rem;
+  /* ========================================================================== */
   /*                               TOKENS: IMAGES                               */
   /* ========================================================================== */
   /* -------------------------------------------------------------------------- */
@@ -570,6 +581,72 @@
   --image-height-captcha: 2.5rem; /* 40px  - Captcha height */
   /* Logo Constraints */
   --logo-max-width: 11.25rem; /* 180px - Maximum logo width */
+  --layout-max-width: 90rem; /* 1440px */
+  --layout-half-max-width: 45rem; /* 720px */
+  --popup-max-width: 40.625rem; /* 650px */
+  /* ========================================================================== */
+  /*                                TOKENS: MOTION                              */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                              ENTRANCE ANIMATIONS                           */
+  /* -------------------------------------------------------------------------- */
+  /* Enter Screen - For page/screen transitions */
+  --motion-enter-screen-duration: 300ms;
+  --motion-enter-screen-easing: cubic-bezier(0, 0, 0.2, 1);
+  /* Enter Element - For individual component appearance */
+  --motion-enter-element-duration: 200ms;
+  --motion-enter-element-easing: cubic-bezier(0, 0, 0.2, 1);
+  /* Enter Subtle - For subtle, gentle appearances */
+  --motion-enter-subtle-duration: 150ms;
+  --motion-enter-subtle-easing: ease-out;
+  /* -------------------------------------------------------------------------- */
+  /*                            EXIT ANIMATIONS                                 */
+  /* -------------------------------------------------------------------------- */
+  /* Exit Screen - For page/screen transitions out */
+  --motion-exit-screen-duration: 200ms;
+  --motion-exit-screen-easing: cubic-bezier(0.4, 0, 1, 1);
+  /* Exit Element - For individual component disappearance */
+  --motion-exit-element-duration: 150ms;
+  --motion-exit-element-easing: cubic-bezier(0.4, 0, 1, 1);
+  /* Exit Subtle - For subtle, gentle disappearances */
+  --motion-exit-subtle-duration: 100ms;
+  --motion-exit-subtle-easing: ease-in;
+  /* -------------------------------------------------------------------------- */
+  /*                         TRANSITION ANIMATIONS                              */
+  /* -------------------------------------------------------------------------- */
+  /* Transition Screen - For screen-to-screen transitions */
+  --motion-transition-screen-duration: 400ms;
+  --motion-transition-screen-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transition Element - For element state changes */
+  --motion-transition-element-duration: 250ms;
+  --motion-transition-element-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  /* -------------------------------------------------------------------------- */
+  /*                        MICRO-INTERACTION ANIMATIONS                        */
+  /* -------------------------------------------------------------------------- */
+  /* Hover - For hover state transitions */
+  --motion-hover-duration: 150ms;
+  --motion-hover-easing: ease-out;
+  /* Press - For press/active state transitions */
+  --motion-press-duration: 100ms;
+  --motion-press-easing: ease-in;
+  /* Focus - For focus state transitions */
+  --motion-focus-duration: 150ms;
+  --motion-focus-easing: ease-out;
+  /* -------------------------------------------------------------------------- */
+  /*                        SPECIAL EFFECT ANIMATIONS                           */
+  /* -------------------------------------------------------------------------- */
+  /* Expand - For expansion animations (accordions, dropdowns) */
+  --motion-expand-duration: 300ms;
+  --motion-expand-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Collapse - For collapse animations (accordions, dropdowns) */
+  --motion-collapse-duration: 250ms;
+  --motion-collapse-easing: ease-in-out;
+  /* Bounce - For attention-grabbing bounce effects */
+  --motion-bounce-duration: 600ms;
+  --motion-bounce-easing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Slow Reveal - For gradual, gentle reveals */
+  --motion-slow-reveal-duration: 800ms;
+  --motion-slow-reveal-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* ========================================================================== */
   /*                               TOKENS: OPACITY                              */
   /* ========================================================================== */
@@ -599,6 +676,107 @@
   --alpha-active: ;
   --alpha-subtle: ;
   --alpha-ghost: ;
+  /* ========================================================================== */
+  /*                              TOKENS: SHADOWS                               */
+  /* ========================================================================== */
+  --shadow-xs: 0
+              0.0625rem
+              0.25rem
+              0
+              rgba(0, 0, 0, 0.1);
+  --shadow-s: 0
+              0.125rem
+              0.5rem
+              0
+              rgba(0, 0, 0, 0.12);
+  --shadow-m: 0
+              0.5rem
+              1rem
+              0
+              rgba(0, 0, 0, 0.15);
+  --shadow-l: 0
+              1rem
+              2rem
+              0
+              rgba(0, 0, 0, 0.18);
+  /* -------------------------------------------------------------------------- */
+  /*                              SHADOW: ELEVATION                             */
+  /* -------------------------------------------------------------------------- */
+  /* Semantic shadow names based on component elevation */
+  --shadow-card: var(--shadow-s);
+  --shadow-card-hover: var(--shadow-m);
+  --shadow-dropdown: var(--shadow-l);
+  --shadow-modal: var(--shadow-l);
+  --shadow-popover: var(--shadow-l);
+  --shadow-tooltip: var(--shadow-m);
+  --shadow-drawer: var(--shadow-l);
+  --shadow-sticky: var(--shadow-m);
+  --shadow-floating: var(--shadow-l);
+  /* -------------------------------------------------------------------------- */
+  /*                                SHADOW: INSET                               */
+  /* -------------------------------------------------------------------------- */
+  /* Inner shadows for pressed states and inputs */
+  --shadow-inset-xs: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-inset-s: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-inset-m: inset 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  /* Semantic inner shadows */
+  --shadow-input-default: var(--shadow-inset-xs);
+  --shadow-input-focus: var(--shadow-inset-s);
+  --shadow-well: var(--shadow-inset-m);
+  /* -------------------------------------------------------------------------- */
+  /*                               SHADOW: COLORED                              */
+  /* -------------------------------------------------------------------------- */
+  /* Focus ring shadows (requires color override at component level) */
+  --shadow-focus-default: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  --shadow-focus-error: 0 0 0 3px rgba(239, 68, 68, 0.5);
+  --shadow-focus-success: 0 0 0 3px rgba(34, 197, 94, 0.5);
+  --shadow-focus-warning: 0 0 0 3px rgba(234, 179, 8, 0.5);
+  /* -------------------------------------------------------------------------- */
+  /*                               SHADOW: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */
+  /* Legacy - DEPRECATED */
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* ========================================================================== */
+  /*                               TOKENS: SIZING                               */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                           SIZING: CORE SCALE                               */
+  /* -------------------------------------------------------------------------- */
+  /* Pixel-perfect sizing system (1px base) for fixed dimensions */
+  --size-0: 0;
+  --size-1: 0.0625rem;
+  --size-2: 0.125rem;
+  --size-3: 0.1875rem;
+  --size-4: 0.25rem;
+  --size-6: 0.375rem;
+  --size-8: 0.5rem;
+  --size-10: 0.625rem;
+  --size-12: 0.75rem;
+  --size-16: 1rem;
+  --size-20: 1.25rem;
+  --size-24: 1.5rem;
+  --size-32: 2rem;
+  --size-40: 2.5rem;
+  --size-48: 3rem;
+  --size-56: 3.5rem;
+  --size-64: 4rem;
+  --size-1000: 62.5rem;
+  /* -------------------------------------------------------------------------- */
+  /*                          SIZING: COMPONENTS                                */
+  /* -------------------------------------------------------------------------- */
+  /* Checkbox Sizes */
+  --size-checkbox-xs: 0.625rem;
+  --size-checkbox-s: 0.75rem;
+  --size-checkbox-m: 1rem;
+  --size-checkbox-l: 1.25rem;
+  --size-checkbox-xl: 1.5rem;
+  /* -------------------------------------------------------------------------- */
+  /*                              SIZING: LEGACY                                */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility with existing components */
+  --sizing-base: 1px;
   /* ========================================================================== */
   /*                              TOKENS: SPACING                               */
   /* ========================================================================== */
@@ -649,6 +827,197 @@
   --space-xl: 2.5rem; /* 40px */
   --space-xxl: 3rem; /* 48px */
   --space-xxxl: 6rem; /* 96px */
+  /* ========================================================================== */
+  /*                               TOKENS: TIMING                               */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                              TIMING: DURATION                              */
+  /* -------------------------------------------------------------------------- */
+  /* Animation duration tokens */
+  --duration-instant: 0ms;
+  --duration-immediate: 50ms;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-comfortable: 300ms;
+  --duration-moderate: 400ms;
+  --duration-slow: 500ms;
+  --duration-slower: 750ms;
+  --duration-slowest: 1000ms;
+  /* -------------------------------------------------------------------------- */
+  /*                                TIMING: EASING                              */
+  /* -------------------------------------------------------------------------- */
+  /* Easing function tokens */
+  --easing-linear: linear;
+  --easing-ease: ease;
+  --easing-ease-in: ease-in;
+  --easing-ease-out: ease-out;
+  --easing-ease-in-out: ease-in-out;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-gentle: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* -------------------------------------------------------------------------- */
+  /*                                TIMING: DELAY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Animation delay tokens */
+  --delay-none: 0ms;
+  --delay-short: 50ms;
+  --delay-base: 100ms;
+  --delay-medium: 200ms;
+  --delay-long: 300ms;
+  --delay-longer: 500ms;
+  /* -------------------------------------------------------------------------- */
+  /*                               TIMING: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */
+  --transition-base: all 0.2s ease-in-out;
+  --animation-duration: 0.3s;
+  /* ========================================================================== */
+  /*                             TOKENS: TRANSFORM                              */
+  /* ========================================================================== */
+  /* -------------------------------------------------------------------------- */
+  /*                          TRANSFORM: SCALE VALUES                           */
+  /* -------------------------------------------------------------------------- */
+  /* Scale transformation values for zoom/resize effects */
+  --scale-0: 0;
+  --scale-25: 0.25;
+  --scale-50: 0.5;
+  --scale-75: 0.75;
+  --scale-90: 0.9;
+  --scale-95: 0.95;
+  --scale-100: 1;
+  --scale-105: 1.05;
+  --scale-110: 1.1;
+  --scale-125: 1.25;
+  --scale-150: 1.5;
+  --scale-200: 2;
+  /* -------------------------------------------------------------------------- */
+  /*                         TRANSFORM: ROTATE ANGLES                           */
+  /* -------------------------------------------------------------------------- */
+  /* Rotation angles for spin and orientation effects */
+  --rotate-0: 0deg;
+  --rotate-1: 1deg;
+  --rotate-2: 2deg;
+  --rotate-3: 3deg;
+  --rotate-6: 6deg;
+  --rotate-12: 12deg;
+  --rotate-45: 45deg;
+  --rotate-90: 90deg;
+  --rotate-180: 180deg;
+  --rotate-270: 270deg;
+  --rotate-360: 360deg;
+  --rotate--1: -1deg;
+  --rotate--2: -2deg;
+  --rotate--3: -3deg;
+  --rotate--6: -6deg;
+  --rotate--12: -12deg;
+  --rotate--45: -45deg;
+  --rotate--90: -90deg;
+  --rotate--180: -180deg;
+  /* -------------------------------------------------------------------------- */
+  /*                       TRANSFORM: TRANSLATE DISTANCES                       */
+  /* -------------------------------------------------------------------------- */
+  /* Translation distances for movement animations */
+  --translate-0: 0;
+  --translate-1: 0.25rem;
+  --translate-2: 0.5rem;
+  --translate-3: 0.75rem;
+  --translate-4: 1rem;
+  --translate-6: 1.5rem;
+  --translate-8: 2rem;
+  --translate-12: 3rem;
+  --translate-16: 4rem;
+  --translate-24: 6rem;
+  --translate-quarter: 25%;
+  --translate-half: 50%;
+  --translate-three-quarters: 75%;
+  --translate-full: 100%;
+  --translate--1: -0.25rem;
+  --translate--2: -0.5rem;
+  --translate--3: -0.75rem;
+  --translate--4: -1rem;
+  --translate--6: -1.5rem;
+  --translate--8: -2rem;
+  --translate--12: -3rem;
+  --translate--quarter: -25%;
+  --translate--half: -50%;
+  --translate--three-quarters: -75%;
+  --translate--full: -100%;
+  /* -------------------------------------------------------------------------- */
+  /*                          TRANSFORM: SKEW ANGLES                            */
+  /* -------------------------------------------------------------------------- */
+  /* Skew angles for perspective effects */
+  --skew-0: 0deg;
+  --skew-1: 1deg;
+  --skew-2: 2deg;
+  --skew-3: 3deg;
+  --skew-6: 6deg;
+  --skew-12: 12deg;
+  --skew--1: -1deg;
+  --skew--2: -2deg;
+  --skew--3: -3deg;
+  --skew--6: -6deg;
+  --skew--12: -12deg;
+  /* -------------------------------------------------------------------------- */
+  /*                       TRANSFORM: ORIGIN POSITIONS                          */
+  /* -------------------------------------------------------------------------- */
+  /* Transform origin points for rotation and scaling */
+  --transform-origin-center: center;
+  --transform-origin-top: top;
+  --transform-origin-top-right: top right;
+  --transform-origin-right: right;
+  --transform-origin-bottom-right: bottom right;
+  --transform-origin-bottom: bottom;
+  --transform-origin-bottom-left: bottom left;
+  --transform-origin-left: left;
+  --transform-origin-top-left: top left;
+  /* -------------------------------------------------------------------------- */
+  /*                      TRANSFORM: PERSPECTIVE VALUES                         */
+  /* -------------------------------------------------------------------------- */
+  /* Perspective values for 3D transformations */
+  --perspective-none: none;
+  --perspective-xs: 500px;
+  --perspective-s: 750px;
+  --perspective-m: 1000px;
+  --perspective-l: 1500px;
+  --perspective-xl: 2000px;
+  /* -------------------------------------------------------------------------- */
+  /*                        TRANSFORM: SEMANTIC PRESETS                         */
+  /* -------------------------------------------------------------------------- */
+  /* Pre-configured transform combinations for common animations */
+  /* Hover Effects */
+  --transform-hover-lift: scale(var(--scale-105)) translateY(calc(var(--translate-1) * -1));
+  --transform-hover-grow: scale(var(--scale-110));
+  --transform-hover-shrink: scale(var(--scale-95));
+  /* Press/Active Effects */
+  --transform-press-down: scale(var(--scale-95)) translateY(var(--translate-1));
+  --transform-press-shrink: scale(var(--scale-90));
+  /* Loading/Spin */
+  --transform-spin: rotate(var(--rotate-360));
+  --transform-spin-reverse: rotate(var(--rotate--180));
+  /* Entrance Effects */
+  --transform-enter-fade-up: translateY(var(--translate-2)) scale(var(--scale-95));
+  --transform-enter-fade-down: translateY(var(--translate--2)) scale(var(--scale-95));
+  --transform-enter-scale: scale(var(--scale-90));
+  /* Exit Effects */
+  --transform-exit-fade-up: translateY(var(--translate--2)) scale(var(--scale-95));
+  --transform-exit-fade-down: translateY(var(--translate-2)) scale(var(--scale-95));
+  /* Flip Effects */
+  --transform-flip-horizontal: rotateY(var(--rotate-180));
+  --transform-flip-vertical: rotateX(var(--rotate-180));
+  /* Tilt Effects */
+  --transform-tilt-left: rotate(var(--rotate--3));
+  --transform-tilt-right: rotate(var(--rotate-3));
+  /* -------------------------------------------------------------------------- */
+  /*                            TRANSFORM: LEGACY                               */
+  /* -------------------------------------------------------------------------- */
+  /* Maintained for backward compatibility */
+  --transform-scale-base: 1;
+  --transform-rotate-base: 0deg;
   /* ============================================================================ */
   /*                             TOKENS: TYPOGRAPHY                               */
   /* ============================================================================ */
@@ -1058,118 +1427,8 @@
   --font-size-xl: 48px;
   /* Font Family */
   --font-family-base: Arial, Helvetica Neue, Helvetica, sans-serif;
-  /* ========================================================================== */
-  /*                               TOKENS: TIMING                               */
-  /* ========================================================================== */
-  /* -------------------------------------------------------------------------- */
-  /*                              TIMING: DURATION                              */
-  /* -------------------------------------------------------------------------- */
-  /* Animation duration tokens */
-  --duration-instant: 0ms;
-  --duration-immediate: 50ms;
-  --duration-fast: 150ms;
-  --duration-base: 200ms;
-  --duration-comfortable: 300ms;
-  --duration-moderate: 400ms;
-  --duration-slow: 500ms;
-  --duration-slower: 750ms;
-  --duration-slowest: 1000ms;
-  /* -------------------------------------------------------------------------- */
-  /*                                TIMING: EASING                              */
-  /* -------------------------------------------------------------------------- */
-  /* Easing function tokens */
-  --easing-linear: linear;
-  --easing-ease: ease;
-  --easing-ease-in: ease-in;
-  --easing-ease-out: ease-out;
-  --easing-ease-in-out: ease-in-out;
-  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
-  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
-  --easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
-  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --easing-gentle: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* -------------------------------------------------------------------------- */
-  /*                                TIMING: DELAY                               */
-  /* -------------------------------------------------------------------------- */
-  /* Animation delay tokens */
-  --delay-none: 0ms;
-  --delay-short: 50ms;
-  --delay-base: 100ms;
-  --delay-medium: 200ms;
-  --delay-long: 300ms;
-  --delay-longer: 500ms;
-  /* -------------------------------------------------------------------------- */
-  /*                               TIMING: LEGACY                               */
-  /* -------------------------------------------------------------------------- */
-  /* Maintained for backward compatibility */
-  --transition-base: all 0.2s ease-in-out;
-  --animation-duration: 0.3s;
-  /* ========================================================================== */
-  /*                                TOKENS: MOTION                              */
-  /* ========================================================================== */
-  /* -------------------------------------------------------------------------- */
-  /*                              ENTRANCE ANIMATIONS                           */
-  /* -------------------------------------------------------------------------- */
-  /* Enter Screen - For page/screen transitions */
-  --motion-enter-screen-duration: 300ms;
-  --motion-enter-screen-easing: cubic-bezier(0, 0, 0.2, 1);
-  /* Enter Element - For individual component appearance */
-  --motion-enter-element-duration: 200ms;
-  --motion-enter-element-easing: cubic-bezier(0, 0, 0.2, 1);
-  /* Enter Subtle - For subtle, gentle appearances */
-  --motion-enter-subtle-duration: 150ms;
-  --motion-enter-subtle-easing: ease-out;
-  /* -------------------------------------------------------------------------- */
-  /*                            EXIT ANIMATIONS                                 */
-  /* -------------------------------------------------------------------------- */
-  /* Exit Screen - For page/screen transitions out */
-  --motion-exit-screen-duration: 200ms;
-  --motion-exit-screen-easing: cubic-bezier(0.4, 0, 1, 1);
-  /* Exit Element - For individual component disappearance */
-  --motion-exit-element-duration: 150ms;
-  --motion-exit-element-easing: cubic-bezier(0.4, 0, 1, 1);
-  /* Exit Subtle - For subtle, gentle disappearances */
-  --motion-exit-subtle-duration: 100ms;
-  --motion-exit-subtle-easing: ease-in;
-  /* -------------------------------------------------------------------------- */
-  /*                         TRANSITION ANIMATIONS                              */
-  /* -------------------------------------------------------------------------- */
-  /* Transition Screen - For screen-to-screen transitions */
-  --motion-transition-screen-duration: 400ms;
-  --motion-transition-screen-easing: cubic-bezier(0.4, 0, 0.2, 1);
-  /* Transition Element - For element state changes */
-  --motion-transition-element-duration: 250ms;
-  --motion-transition-element-easing: cubic-bezier(0.4, 0, 0.2, 1);
-  /* -------------------------------------------------------------------------- */
-  /*                        MICRO-INTERACTION ANIMATIONS                        */
-  /* -------------------------------------------------------------------------- */
-  /* Hover - For hover state transitions */
-  --motion-hover-duration: 150ms;
-  --motion-hover-easing: ease-out;
-  /* Press - For press/active state transitions */
-  --motion-press-duration: 100ms;
-  --motion-press-easing: ease-in;
-  /* Focus - For focus state transitions */
-  --motion-focus-duration: 150ms;
-  --motion-focus-easing: ease-out;
-  /* -------------------------------------------------------------------------- */
-  /*                        SPECIAL EFFECT ANIMATIONS                           */
-  /* -------------------------------------------------------------------------- */
-  /* Expand - For expansion animations (accordions, dropdowns) */
-  --motion-expand-duration: 300ms;
-  --motion-expand-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Collapse - For collapse animations (accordions, dropdowns) */
-  --motion-collapse-duration: 250ms;
-  --motion-collapse-easing: ease-in-out;
-  /* Bounce - For attention-grabbing bounce effects */
-  --motion-bounce-duration: 600ms;
-  --motion-bounce-easing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  /* Slow Reveal - For gradual, gentle reveals */
-  --motion-slow-reveal-duration: 800ms;
-  --motion-slow-reveal-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Truncaiton */
+  --truncate-width: 100%;
   /* ========================================================================== */
   /*                              TOKENS: Z-INDEX                               */
   /* ========================================================================== */
@@ -2096,8 +2355,8 @@ img {
 /*                            COMPONENTS: CHECKBOX                           */
 /* ==========================================================================*/
 .checkbox.checkbox-small {
-  width: var(--size-checkbox-s);
-  height: var(--size-checkbox-s);
+  width: var(--checkbox-size-s);
+  height: var(--checkbox-size-s);
   position: relative;
   cursor: pointer;
   -webkit-appearance: none;
@@ -2129,7 +2388,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--color-neutral-0);
-  font-size: calc(var(--size-checkbox-s) * 0.6);
+  font-size: calc(var(--checkbox-size-s) * 0.6);
 }
 .checkbox.checkbox-small:focus {
   box-shadow: 0 0 0 2px var(--color-focus);
@@ -3001,7 +3260,7 @@ img {
     justify-content: center;
     align-items: center;
     background-color: var(--color-neutral-3);
-    border-bottom: var(--border-width) var(--border-style) var(--color-border-primary);
+    border-bottom: var(--border-width) var(--border-style) var(--border-color-primary);
     width: 100%;
   }
   .menu-wrapper .app-menu-content {
@@ -5445,1256 +5704,847 @@ img {
 /* ========================================================================== */
 /*                            UTILITY CLASSES: COLOR                          */
 /* ========================================================================== */
-.color-primary-electric {
-  color: var(--color-primary-electric);
+.text-color-primary-electric {
+  color: var(--primary-electric);
 }
 
+.text-color-primary {
+  color: var(--primary);
+}
+
+.text-color-primary-subtle {
+  color: var(--primary-subtle);
+}
+
+.text-color-secondary {
+  color: var(--secondary);
+}
+
+.text-color-tertiary {
+  color: var(--tertiary);
+}
+
+.text-color-primary-electric-hover {
+  color: var(--primary-electric-hover);
+}
+
+.text-color-primary-electric-active {
+  color: var(--primary-electric-active);
+}
+
+.text-color-primary-electric-pressed {
+  color: var(--primary-electric-pressed);
+}
+
+.text-color-primary-electric-disabled {
+  color: var(--primary-electric-disabled);
+}
+
+.text-color-primary-hover {
+  color: var(--primary-hover);
+}
+
+.text-color-primary-active {
+  color: var(--primary-active);
+}
+
+.text-color-primary-pressed {
+  color: var(--primary-pressed);
+}
+
+.text-color-primary-disabled {
+  color: var(--primary-disabled);
+}
+
+.text-color-secondary-hover {
+  color: var(--secondary-hover);
+}
+
+.text-color-secondary-active {
+  color: var(--secondary-active);
+}
+
+.text-color-secondary-pressed {
+  color: var(--secondary-pressed);
+}
+
+.text-color-secondary-disabled {
+  color: var(--secondary-disabled);
+}
+
+.text-color-tertiary-hover {
+  color: var(--tertiary-hover);
+}
+
+.text-color-tertiary-active {
+  color: var(--tertiary-active);
+}
+
+.text-color-tertiary-pressed {
+  color: var(--tertiary-pressed);
+}
+
+.text-color-tertiary-disabled {
+  color: var(--tertiary-disabled);
+}
+
+.text-color-on-primary-electric {
+  color: var(--on-primary-electric);
+}
+
+.text-color-on-primary {
+  color: var(--on-primary);
+}
+
+.text-color-on-secondary {
+  color: var(--on-secondary);
+}
+
+.text-color-on-tertiary {
+  color: var(--on-tertiary);
+}
+
+.text-color-link-default {
+  color: var(--link-default);
+}
+
+.text-color-link-hover {
+  color: var(--link-hover);
+}
+
+.text-color-link-active {
+  color: var(--link-active);
+}
+
+.text-color-link-visited {
+  color: var(--link-visited);
+}
+
+.text-color-link-disabled {
+  color: var(--link-disabled);
+}
+
+.text-color-feedback-success {
+  color: var(--feedback-success);
+}
+
+.text-color-feedback-success-subtle {
+  color: var(--feedback-success-subtle);
+}
+
+.text-color-feedback-success-faint {
+  color: var(--feedback-success-faint);
+}
+
+.text-color-feedback-success-hover {
+  color: var(--feedback-success-hover);
+}
+
+.text-color-feedback-success-active {
+  color: var(--feedback-success-active);
+}
+
+.text-color-feedback-success-pressed {
+  color: var(--feedback-success-pressed);
+}
+
+.text-color-feedback-info {
+  color: var(--feedback-info);
+}
+
+.text-color-feedback-info-subtle {
+  color: var(--feedback-info-subtle);
+}
+
+.text-color-feedback-info-faint {
+  color: var(--feedback-info-faint);
+}
+
+.text-color-feedback-info-hover {
+  color: var(--feedback-info-hover);
+}
+
+.text-color-feedback-info-active {
+  color: var(--feedback-info-active);
+}
+
+.text-color-feedback-info-pressed {
+  color: var(--feedback-info-pressed);
+}
+
+.text-color-feedback-warning {
+  color: var(--feedback-warning);
+}
+
+.text-color-feedback-warning-subtle {
+  color: var(--feedback-warning-subtle);
+}
+
+.text-color-feedback-warning-faint {
+  color: var(--feedback-warning-faint);
+}
+
+.text-color-feedback-warning-hover {
+  color: var(--feedback-warning-hover);
+}
+
+.text-color-feedback-warning-active {
+  color: var(--feedback-warning-active);
+}
+
+.text-color-feedback-warning-pressed {
+  color: var(--feedback-warning-pressed);
+}
+
+.text-color-feedback-danger {
+  color: var(--feedback-danger);
+}
+
+.text-color-feedback-danger-subtle {
+  color: var(--feedback-danger-subtle);
+}
+
+.text-color-feedback-danger-faint {
+  color: var(--feedback-danger-faint);
+}
+
+.text-color-feedback-danger-hover {
+  color: var(--feedback-danger-hover);
+}
+
+.text-color-feedback-danger-active {
+  color: var(--feedback-danger-active);
+}
+
+.text-color-feedback-danger-pressed {
+  color: var(--feedback-danger-pressed);
+}
+
+.text-color-on-feedback {
+  color: var(--on-feedback);
+}
+
+.text-color-on-feedback-danger {
+  color: var(--on-feedback-danger);
+}
+
+.text-color-on-badge-success {
+  color: var(--on-badge-success);
+}
+
+.text-color-on-badge-info {
+  color: var(--on-badge-info);
+}
+
+.text-color-on-badge-warning {
+  color: var(--on-badge-warning);
+}
+
+.text-color-on-badge-danger {
+  color: var(--on-badge-danger);
+}
+
+.text-color-tier-miles {
+  color: var(--tier-miles);
+}
+
+.text-color-tier-miles-subtle {
+  color: var(--tier-miles-subtle);
+}
+
+.text-color-tier-miles-hover {
+  color: var(--tier-miles-hover);
+}
+
+.text-color-tier-miles-active {
+  color: var(--tier-miles-active);
+}
+
+.text-color-tier-miles-pressed {
+  color: var(--tier-miles-pressed);
+}
+
+.text-color-tier-gold {
+  color: var(--tier-gold);
+}
+
+.text-color-tier-gold-subtle {
+  color: var(--tier-gold-subtle);
+}
+
+.text-color-tier-gold-hover {
+  color: var(--tier-gold-hover);
+}
+
+.text-color-tier-gold-active {
+  color: var(--tier-gold-active);
+}
+
+.text-color-tier-gold-pressed {
+  color: var(--tier-gold-pressed);
+}
+
+.text-color-tier-silver {
+  color: var(--tier-silver);
+}
+
+.text-color-tier-silver-subtle {
+  color: var(--tier-silver-subtle);
+}
+
+.text-color-tier-silver-hover {
+  color: var(--tier-silver-hover);
+}
+
+.text-color-tier-silver-active {
+  color: var(--tier-silver-active);
+}
+
+.text-color-tier-silver-pressed {
+  color: var(--tier-silver-pressed);
+}
+
+.text-color-tier-navigator {
+  color: var(--tier-navigator);
+}
+
+.text-color-tier-navigator-subtle {
+  color: var(--tier-navigator-subtle);
+}
+
+.text-color-tier-navigator-hover {
+  color: var(--tier-navigator-hover);
+}
+
+.text-color-tier-navigator-active {
+  color: var(--tier-navigator-active);
+}
+
+.text-color-tier-navigator-pressed {
+  color: var(--tier-navigator-pressed);
+}
+
+.text-color-on-tier {
+  color: var(--on-tier);
+}
+
+.text-color-on-tier-navigator {
+  color: var(--on-tier-navigator);
+}
+
+.background-color-primary-electric {
+  background-color: var(--primary-electric);
+}
+
+.background-color-primary {
+  background-color: var(--primary);
+}
+
+.background-color-primary-subtle {
+  background-color: var(--primary-subtle);
+}
+
+.background-color-secondary {
+  background-color: var(--secondary);
+}
+
+.background-color-tertiary {
+  background-color: var(--tertiary);
+}
+
+.background-color-primary-electric-hover {
+  background-color: var(--primary-electric-hover);
+}
+
+.background-color-primary-electric-active {
+  background-color: var(--primary-electric-active);
+}
+
+.background-color-primary-electric-pressed {
+  background-color: var(--primary-electric-pressed);
+}
+
+.background-color-primary-electric-disabled {
+  background-color: var(--primary-electric-disabled);
+}
+
+.background-color-primary-hover {
+  background-color: var(--primary-hover);
+}
+
+.background-color-primary-active {
+  background-color: var(--primary-active);
+}
+
+.background-color-primary-pressed {
+  background-color: var(--primary-pressed);
+}
+
+.background-color-primary-disabled {
+  background-color: var(--primary-disabled);
+}
+
+.background-color-secondary-hover {
+  background-color: var(--secondary-hover);
+}
+
+.background-color-secondary-active {
+  background-color: var(--secondary-active);
+}
+
+.background-color-secondary-pressed {
+  background-color: var(--secondary-pressed);
+}
+
+.background-color-secondary-disabled {
+  background-color: var(--secondary-disabled);
+}
+
+.background-color-tertiary-hover {
+  background-color: var(--tertiary-hover);
+}
+
+.background-color-tertiary-active {
+  background-color: var(--tertiary-active);
+}
+
+.background-color-tertiary-pressed {
+  background-color: var(--tertiary-pressed);
+}
+
+.background-color-tertiary-disabled {
+  background-color: var(--tertiary-disabled);
+}
+
+.background-color-feedback-success {
+  background-color: var(--feedback-success);
+}
+
+.background-color-feedback-success-subtle {
+  background-color: var(--feedback-success-subtle);
+}
+
+.background-color-feedback-success-faint {
+  background-color: var(--feedback-success-faint);
+}
+
+.background-color-feedback-success-hover {
+  background-color: var(--feedback-success-hover);
+}
+
+.background-color-feedback-success-active {
+  background-color: var(--feedback-success-active);
+}
+
+.background-color-feedback-success-pressed {
+  background-color: var(--feedback-success-pressed);
+}
+
+.background-color-feedback-info {
+  background-color: var(--feedback-info);
+}
+
+.background-color-feedback-info-subtle {
+  background-color: var(--feedback-info-subtle);
+}
+
+.background-color-feedback-info-faint {
+  background-color: var(--feedback-info-faint);
+}
+
+.background-color-feedback-info-hover {
+  background-color: var(--feedback-info-hover);
+}
+
+.background-color-feedback-info-active {
+  background-color: var(--feedback-info-active);
+}
+
+.background-color-feedback-info-pressed {
+  background-color: var(--feedback-info-pressed);
+}
+
+.background-color-feedback-warning {
+  background-color: var(--feedback-warning);
+}
+
+.background-color-feedback-warning-subtle {
+  background-color: var(--feedback-warning-subtle);
+}
+
+.background-color-feedback-warning-faint {
+  background-color: var(--feedback-warning-faint);
+}
+
+.background-color-feedback-warning-hover {
+  background-color: var(--feedback-warning-hover);
+}
+
+.background-color-feedback-warning-active {
+  background-color: var(--feedback-warning-active);
+}
+
+.background-color-feedback-warning-pressed {
+  background-color: var(--feedback-warning-pressed);
+}
+
+.background-color-feedback-danger {
+  background-color: var(--feedback-danger);
+}
+
+.background-color-feedback-danger-subtle {
+  background-color: var(--feedback-danger-subtle);
+}
+
+.background-color-feedback-danger-faint {
+  background-color: var(--feedback-danger-faint);
+}
+
+.background-color-feedback-danger-hover {
+  background-color: var(--feedback-danger-hover);
+}
+
+.background-color-feedback-danger-active {
+  background-color: var(--feedback-danger-active);
+}
+
+.background-color-feedback-danger-pressed {
+  background-color: var(--feedback-danger-pressed);
+}
+
+.background-color-surface-base {
+  background-color: var(--surface-base);
+}
+
+.background-color-surface-default {
+  background-color: var(--surface-default);
+}
+
+.background-color-surface-subtle {
+  background-color: var(--surface-subtle);
+}
+
+.background-color-surface-strong {
+  background-color: var(--surface-strong);
+}
+
+.background-color-surface-bold {
+  background-color: var(--surface-bold);
+}
+
+.background-color-surface-disabled {
+  background-color: var(--surface-disabled);
+}
+
+.background-color-surface-hover {
+  background-color: var(--surface-hover);
+}
+
+.background-color-surface-pressed {
+  background-color: var(--surface-pressed);
+}
+
+.background-color-surface-inverse-default {
+  background-color: var(--surface-inverse-default);
+}
+
+.background-color-surface-inverse-subtle {
+  background-color: var(--surface-inverse-subtle);
+}
+
+.background-color-surface-inverse-disabled {
+  background-color: var(--surface-inverse-disabled);
+}
+
+.background-color-surface-inverse-hover {
+  background-color: var(--surface-inverse-hover);
+}
+
+.background-color-surface-inverse-pressed {
+  background-color: var(--surface-inverse-pressed);
+}
+
+.background-color-tier-miles {
+  background-color: var(--tier-miles);
+}
+
+.background-color-tier-miles-subtle {
+  background-color: var(--tier-miles-subtle);
+}
+
+.background-color-tier-miles-hover {
+  background-color: var(--tier-miles-hover);
+}
+
+.background-color-tier-miles-active {
+  background-color: var(--tier-miles-active);
+}
+
+.background-color-tier-miles-pressed {
+  background-color: var(--tier-miles-pressed);
+}
+
+.background-color-tier-gold {
+  background-color: var(--tier-gold);
+}
+
+.background-color-tier-gold-subtle {
+  background-color: var(--tier-gold-subtle);
+}
+
+.background-color-tier-gold-hover {
+  background-color: var(--tier-gold-hover);
+}
+
+.background-color-tier-gold-active {
+  background-color: var(--tier-gold-active);
+}
+
+.background-color-tier-gold-pressed {
+  background-color: var(--tier-gold-pressed);
+}
+
+.background-color-tier-silver {
+  background-color: var(--tier-silver);
+}
+
+.background-color-tier-silver-subtle {
+  background-color: var(--tier-silver-subtle);
+}
+
+.background-color-tier-silver-hover {
+  background-color: var(--tier-silver-hover);
+}
+
+.background-color-tier-silver-active {
+  background-color: var(--tier-silver-active);
+}
+
+.background-color-tier-silver-pressed {
+  background-color: var(--tier-silver-pressed);
+}
+
+.background-color-tier-navigator {
+  background-color: var(--tier-navigator);
+}
+
+.background-color-tier-navigator-subtle {
+  background-color: var(--tier-navigator-subtle);
+}
+
+.background-color-tier-navigator-hover {
+  background-color: var(--tier-navigator-hover);
+}
+
+.background-color-tier-navigator-active {
+  background-color: var(--tier-navigator-active);
+}
+
+.background-color-tier-navigator-pressed {
+  background-color: var(--tier-navigator-pressed);
+}
+
+.background-color-neutral-default {
+  background-color: var(--neutral-default);
+}
+
+.background-color-neutral-subtle {
+  background-color: var(--neutral-subtle);
+}
+
+.background-color-neutral-subdued {
+  background-color: var(--neutral-subdued);
+}
+
+.background-color-neutral-0 {
+  background-color: var(--neutral-0);
+}
+
+.background-color-neutral-1 {
+  background-color: var(--neutral-1);
+}
+
+.background-color-neutral-2 {
+  background-color: var(--neutral-2);
+}
+
+.background-color-neutral-3 {
+  background-color: var(--neutral-3);
+}
+
+.background-color-neutral-4 {
+  background-color: var(--neutral-4);
+}
+
+.background-color-neutral-5 {
+  background-color: var(--neutral-5);
+}
+
+.background-color-neutral-6 {
+  background-color: var(--neutral-6);
+}
+
+.background-color-neutral-7 {
+  background-color: var(--neutral-7);
+}
+
+.background-color-neutral-8 {
+  background-color: var(--neutral-8);
+}
+
+.background-color-neutral-9 {
+  background-color: var(--neutral-9);
+}
+
+.background-color-neutral-10 {
+  background-color: var(--neutral-10);
+}
+
+.background-color-footer {
+  background-color: var(--footer);
+}
+
+.background-color-footer-subtle {
+  background-color: var(--footer-subtle);
+}
+
+.border-color-default {
+  border-color: var(--border-color-default) !important;
+}
+
+.border-color-subtle {
+  border-color: var(--border-color-subtle) !important;
+}
+
+.border-color-strong {
+  border-color: var(--border-color-strong) !important;
+}
+
+.border-color-primary-electric {
+  border-color: var(--border-color-primary-electric) !important;
+}
+
+.border-color-primary {
+  border-color: var(--border-color-primary) !important;
+}
+
+.border-color-secondary {
+  border-color: var(--border-color-secondary) !important;
+}
+
+.border-color-tertiary {
+  border-color: var(--border-color-tertiary) !important;
+}
+
+.border-color-hover {
+  border-color: var(--border-color-hover) !important;
+}
+
+.border-color-pressed {
+  border-color: var(--border-color-pressed) !important;
+}
+
+.border-color-focus {
+  border-color: var(--border-color-focus) !important;
+}
+
+.border-color-error {
+  border-color: var(--border-color-error) !important;
+}
+
+.border-color-success {
+  border-color: var(--border-color-success) !important;
+}
+
+.badge-success {
+  color: var(--on-feedback);
+  background-color: var(--feedback-success);
+}
+.badge-info {
+  color: var(--on-feedback);
+  background-color: var(--feedback-info);
+}
+.badge-warning {
+  color: var(--on-feedback);
+  background-color: var(--feedback-warning);
+}
+.badge-danger {
+  color: var(--on-feedback-danger);
+  background-color: var(--feedback-danger);
+}
+
+.tier-miles {
+  color: var(--on-tier);
+  background-color: var(--tier-miles);
+}
+.tier-gold {
+  color: var(--on-tier);
+  background-color: var(--tier-gold);
+}
+.tier-silver {
+  color: var(--on-tier);
+  background-color: var(--tier-silver);
+}
+.tier-navigator {
+  color: var(--on-tier-navigator);
+  background-color: var(--tier-navigator);
+}
+
+/* LEGACY COLOR UTILITIES - DEPRECATED - DO NOT USE IN NEW CODE */
 .color-primary {
   color: var(--color-primary);
 }
 
-.color-primary-subtle {
-  color: var(--color-primary-subtle);
+.color-success {
+  color: var(--color-success);
 }
 
-.color-secondary {
-  color: var(--color-secondary);
+.color-danger {
+  color: var(--color-danger);
 }
 
-.color-tertiary {
-  color: var(--color-tertiary);
+.color-warning {
+  color: var(--color-warning);
 }
 
-.color-primary-electric-hover {
-  color: var(--color-primary-electric-hover);
-}
-
-.color-primary-electric-active {
-  color: var(--color-primary-electric-active);
-}
-
-.color-primary-electric-pressed {
-  color: var(--color-primary-electric-pressed);
-}
-
-.color-primary-electric-disabled {
-  color: var(--color-primary-electric-disabled);
-}
-
-.color-primary-hover {
-  color: var(--color-primary-hover);
-}
-
-.color-primary-active {
-  color: var(--color-primary-active);
-}
-
-.color-primary-pressed {
-  color: var(--color-primary-pressed);
-}
-
-.color-primary-disabled {
-  color: var(--color-primary-disabled);
-}
-
-.color-secondary-hover {
-  color: var(--color-secondary-hover);
-}
-
-.color-secondary-active {
-  color: var(--color-secondary-active);
-}
-
-.color-secondary-pressed {
-  color: var(--color-secondary-pressed);
-}
-
-.color-secondary-disabled {
-  color: var(--color-secondary-disabled);
-}
-
-.color-tertiary-hover {
-  color: var(--color-tertiary-hover);
-}
-
-.color-tertiary-active {
-  color: var(--color-tertiary-active);
-}
-
-.color-tertiary-pressed {
-  color: var(--color-tertiary-pressed);
-}
-
-.color-tertiary-disabled {
-  color: var(--color-tertiary-disabled);
-}
-
-.color-on-primary-electric {
-  color: var(--color-on-primary-electric);
-}
-
-.color-on-primary {
-  color: var(--color-on-primary);
-}
-
-.color-on-secondary {
-  color: var(--color-on-secondary);
-}
-
-.color-on-tertiary {
-  color: var(--color-on-tertiary);
-}
-
-.color-on-surface-primary {
-  color: var(--color-on-surface-primary);
-}
-
-.color-on-surface-secondary {
-  color: var(--color-on-surface-secondary);
-}
-
-.color-on-surface-tertiary {
-  color: var(--color-on-surface-tertiary);
-}
-
-.color-link-default {
-  color: var(--color-link-default);
-}
-
-.color-link-hover {
-  color: var(--color-link-hover);
-}
-
-.color-link-active {
-  color: var(--color-link-active);
-}
-
-.color-link-visited {
-  color: var(--color-link-visited);
-}
-
-.color-link-disabled {
-  color: var(--color-link-disabled);
-}
-
-.color-focus-ring {
-  color: var(--color-focus-ring);
-}
-
-.color-focus-ring-inverse {
-  color: var(--color-focus-ring-inverse);
-}
-
-.color-focus-ring-error {
-  color: var(--color-focus-ring-error);
-}
-
-.color-focus-ring-success {
-  color: var(--color-focus-ring-success);
-}
-
-.color-skeleton-base {
-  color: var(--color-skeleton-base);
-}
-
-.color-skeleton-highlight {
-  color: var(--color-skeleton-highlight);
-}
-
-.color-skeleton-shimmer {
-  color: var(--color-skeleton-shimmer);
-}
-
-.color-feedback-success {
-  color: var(--color-feedback-success);
-}
-
-.color-feedback-success-subtle {
-  color: var(--color-feedback-success-subtle);
-}
-
-.color-feedback-success-faint {
-  color: var(--color-feedback-success-faint);
-}
-
-.color-feedback-success-hover {
-  color: var(--color-feedback-success-hover);
-}
-
-.color-feedback-success-active {
-  color: var(--color-feedback-success-active);
-}
-
-.color-feedback-success-pressed {
-  color: var(--color-feedback-success-pressed);
-}
-
-.color-feedback-info {
-  color: var(--color-feedback-info);
-}
-
-.color-feedback-info-subtle {
-  color: var(--color-feedback-info-subtle);
-}
-
-.color-feedback-info-faint {
-  color: var(--color-feedback-info-faint);
-}
-
-.color-feedback-info-hover {
-  color: var(--color-feedback-info-hover);
-}
-
-.color-feedback-info-active {
-  color: var(--color-feedback-info-active);
-}
-
-.color-feedback-info-pressed {
-  color: var(--color-feedback-info-pressed);
-}
-
-.color-feedback-warning {
-  color: var(--color-feedback-warning);
-}
-
-.color-feedback-warning-subtle {
-  color: var(--color-feedback-warning-subtle);
-}
-
-.color-feedback-warning-faint {
-  color: var(--color-feedback-warning-faint);
-}
-
-.color-feedback-warning-hover {
-  color: var(--color-feedback-warning-hover);
-}
-
-.color-feedback-warning-active {
-  color: var(--color-feedback-warning-active);
-}
-
-.color-feedback-warning-pressed {
-  color: var(--color-feedback-warning-pressed);
-}
-
-.color-feedback-danger {
-  color: var(--color-feedback-danger);
-}
-
-.color-feedback-danger-subtle {
-  color: var(--color-feedback-danger-subtle);
-}
-
-.color-feedback-danger-faint {
-  color: var(--color-feedback-danger-faint);
-}
-
-.color-feedback-danger-hover {
-  color: var(--color-feedback-danger-hover);
-}
-
-.color-feedback-danger-active {
-  color: var(--color-feedback-danger-active);
-}
-
-.color-feedback-danger-pressed {
-  color: var(--color-feedback-danger-pressed);
-}
-
-.color-on-feedback {
-  color: var(--color-on-feedback);
-}
-
-.color-on-feedback-danger {
-  color: var(--color-on-feedback-danger);
-}
-
-.color-on-badge-success {
-  color: var(--color-on-badge-success);
-}
-
-.color-on-badge-info {
-  color: var(--color-on-badge-info);
-}
-
-.color-on-badge-warning {
-  color: var(--color-on-badge-warning);
-}
-
-.color-on-badge-danger {
-  color: var(--color-on-badge-danger);
-}
-
-.color-accent {
-  color: var(--color-accent);
-}
-
-.color-accent-subtle {
-  color: var(--color-accent-subtle);
-}
-
-.color-accent-hover {
-  color: var(--color-accent-hover);
-}
-
-.color-accent-active {
-  color: var(--color-accent-active);
-}
-
-.color-accent-pressed {
-  color: var(--color-accent-pressed);
-}
-
-.color-accent-disabled {
-  color: var(--color-accent-disabled);
-}
-
-.color-surface-base {
-  color: var(--color-surface-base);
-}
-
-.color-surface-default {
-  color: var(--color-surface-default);
-}
-
-.color-surface-subtle {
-  color: var(--color-surface-subtle);
-}
-
-.color-surface-strong {
-  color: var(--color-surface-strong);
-}
-
-.color-surface-bold {
-  color: var(--color-surface-bold);
-}
-
-.color-surface-disabled {
-  color: var(--color-surface-disabled);
-}
-
-.color-surface-hover {
-  color: var(--color-surface-hover);
-}
-
-.color-surface-pressed {
-  color: var(--color-surface-pressed);
-}
-
-.color-on-surface-base {
-  color: var(--color-on-surface-base);
-}
-
-.color-on-surface-default {
-  color: var(--color-on-surface-default);
-}
-
-.color-on-surface-subtle {
-  color: var(--color-on-surface-subtle);
-}
-
-.color-on-surface-strong {
-  color: var(--color-on-surface-strong);
-}
-
-.color-on-surface-bold {
-  color: var(--color-on-surface-bold);
-}
-
-.color-on-surface-disabled {
-  color: var(--color-on-surface-disabled);
-}
-
-.color-surface-inverse-default {
-  color: var(--color-surface-inverse-default);
-}
-
-.color-surface-inverse-subtle {
-  color: var(--color-surface-inverse-subtle);
-}
-
-.color-surface-inverse-disabled {
-  color: var(--color-surface-inverse-disabled);
-}
-
-.color-surface-inverse-hover {
-  color: var(--color-surface-inverse-hover);
-}
-
-.color-surface-inverse-pressed {
-  color: var(--color-surface-inverse-pressed);
-}
-
-.color-on-surface-inverse-default {
-  color: var(--color-on-surface-inverse-default);
-}
-
-.color-on-surface-inverse-subtle {
-  color: var(--color-on-surface-inverse-subtle);
-}
-
-.color-on-surface-inverse-disabled {
-  color: var(--color-on-surface-inverse-disabled);
-}
-
-.color-border-default {
-  color: var(--color-border-default);
-}
-
-.color-border-subtle {
-  color: var(--color-border-subtle);
-}
-
-.color-border-strong {
-  color: var(--color-border-strong);
-}
-
-.color-border-primary-electric {
-  color: var(--color-border-primary-electric);
-}
-
-.color-border-primary {
-  color: var(--color-border-primary);
-}
-
-.color-border-secondary {
-  color: var(--color-border-secondary);
-}
-
-.color-border-tertiary {
-  color: var(--color-border-tertiary);
-}
-
-.color-border-hover {
-  color: var(--color-border-hover);
-}
-
-.color-border-pressed {
-  color: var(--color-border-pressed);
-}
-
-.color-border-focus {
-  color: var(--color-border-focus);
-}
-
-.color-border-error {
-  color: var(--color-border-error);
-}
-
-.color-border-success {
-  color: var(--color-border-success);
-}
-
-.color-tier-miles {
-  color: var(--color-tier-miles);
-}
-
-.color-tier-miles-subtle {
-  color: var(--color-tier-miles-subtle);
-}
-
-.color-tier-miles-hover {
-  color: var(--color-tier-miles-hover);
-}
-
-.color-tier-miles-active {
-  color: var(--color-tier-miles-active);
-}
-
-.color-tier-miles-pressed {
-  color: var(--color-tier-miles-pressed);
-}
-
-.color-tier-gold {
-  color: var(--color-tier-gold);
-}
-
-.color-tier-gold-subtle {
-  color: var(--color-tier-gold-subtle);
-}
-
-.color-tier-gold-hover {
-  color: var(--color-tier-gold-hover);
-}
-
-.color-tier-gold-active {
-  color: var(--color-tier-gold-active);
-}
-
-.color-tier-gold-pressed {
-  color: var(--color-tier-gold-pressed);
-}
-
-.color-tier-silver {
-  color: var(--color-tier-silver);
-}
-
-.color-tier-silver-subtle {
-  color: var(--color-tier-silver-subtle);
-}
-
-.color-tier-silver-hover {
-  color: var(--color-tier-silver-hover);
-}
-
-.color-tier-silver-active {
-  color: var(--color-tier-silver-active);
-}
-
-.color-tier-silver-pressed {
-  color: var(--color-tier-silver-pressed);
-}
-
-.color-tier-navigator {
-  color: var(--color-tier-navigator);
-}
-
-.color-tier-navigator-subtle {
-  color: var(--color-tier-navigator-subtle);
-}
-
-.color-tier-navigator-hover {
-  color: var(--color-tier-navigator-hover);
-}
-
-.color-tier-navigator-active {
-  color: var(--color-tier-navigator-active);
-}
-
-.color-tier-navigator-pressed {
-  color: var(--color-tier-navigator-pressed);
-}
-
-.color-on-tier {
-  color: var(--color-on-tier);
-}
-
-.color-on-tier-navigator {
-  color: var(--color-on-tier-navigator);
-}
-
-.color-neutral-default {
-  color: var(--color-neutral-default);
-}
-
-.color-neutral-subtle {
-  color: var(--color-neutral-subtle);
-}
-
-.color-neutral-subdued {
-  color: var(--color-neutral-subdued);
-}
-
-.color-neutral-0 {
-  color: var(--color-neutral-0);
-}
-
-.color-neutral-1 {
-  color: var(--color-neutral-1);
-}
-
-.color-neutral-2 {
-  color: var(--color-neutral-2);
-}
-
-.color-neutral-3 {
-  color: var(--color-neutral-3);
-}
-
-.color-neutral-4 {
-  color: var(--color-neutral-4);
-}
-
-.color-neutral-5 {
-  color: var(--color-neutral-5);
-}
-
-.color-neutral-6 {
-  color: var(--color-neutral-6);
-}
-
-.color-neutral-7 {
-  color: var(--color-neutral-7);
-}
-
-.color-neutral-8 {
-  color: var(--color-neutral-8);
-}
-
-.color-neutral-9 {
-  color: var(--color-neutral-9);
-}
-
-.color-neutral-10 {
-  color: var(--color-neutral-10);
-}
-
-.color-footer {
-  color: var(--color-footer);
-}
-
-.color-footer-subtle {
-  color: var(--color-footer-subtle);
-}
-
-.background-primary-electric {
-  background-color: var(--color-primary-electric);
+.color-info {
+  color: var(--color-info);
 }
 
 .background-primary {
   background-color: var(--color-primary);
 }
 
-.background-primary-subtle {
-  background-color: var(--color-primary-subtle);
-}
-
-.background-secondary {
-  background-color: var(--color-secondary);
-}
-
-.background-tertiary {
-  background-color: var(--color-tertiary);
-}
-
-.background-primary-electric-hover {
-  background-color: var(--color-primary-electric-hover);
-}
-
-.background-primary-electric-active {
-  background-color: var(--color-primary-electric-active);
-}
-
-.background-primary-electric-pressed {
-  background-color: var(--color-primary-electric-pressed);
-}
-
-.background-primary-electric-disabled {
-  background-color: var(--color-primary-electric-disabled);
-}
-
-.background-primary-hover {
-  background-color: var(--color-primary-hover);
-}
-
-.background-primary-active {
-  background-color: var(--color-primary-active);
-}
-
-.background-primary-pressed {
-  background-color: var(--color-primary-pressed);
-}
-
-.background-primary-disabled {
-  background-color: var(--color-primary-disabled);
-}
-
-.background-secondary-hover {
-  background-color: var(--color-secondary-hover);
-}
-
-.background-secondary-active {
-  background-color: var(--color-secondary-active);
-}
-
-.background-secondary-pressed {
-  background-color: var(--color-secondary-pressed);
-}
-
-.background-secondary-disabled {
-  background-color: var(--color-secondary-disabled);
-}
-
-.background-tertiary-hover {
-  background-color: var(--color-tertiary-hover);
-}
-
-.background-tertiary-active {
-  background-color: var(--color-tertiary-active);
-}
-
-.background-tertiary-pressed {
-  background-color: var(--color-tertiary-pressed);
-}
-
-.background-tertiary-disabled {
-  background-color: var(--color-tertiary-disabled);
-}
-
-.background-link-default {
-  background-color: var(--color-link-default);
-}
-
-.background-link-hover {
-  background-color: var(--color-link-hover);
-}
-
-.background-link-active {
-  background-color: var(--color-link-active);
-}
-
-.background-link-visited {
-  background-color: var(--color-link-visited);
-}
-
-.background-link-disabled {
-  background-color: var(--color-link-disabled);
-}
-
-.background-focus-ring {
-  background-color: var(--color-focus-ring);
-}
-
-.background-focus-ring-inverse {
-  background-color: var(--color-focus-ring-inverse);
-}
-
-.background-focus-ring-error {
-  background-color: var(--color-focus-ring-error);
-}
-
-.background-focus-ring-success {
-  background-color: var(--color-focus-ring-success);
-}
-
-.background-feedback-success {
-  background-color: var(--color-feedback-success);
-}
-
-.background-feedback-success-subtle {
-  background-color: var(--color-feedback-success-subtle);
-}
-
-.background-feedback-success-faint {
-  background-color: var(--color-feedback-success-faint);
-}
-
-.background-feedback-success-hover {
-  background-color: var(--color-feedback-success-hover);
-}
-
-.background-feedback-success-active {
-  background-color: var(--color-feedback-success-active);
-}
-
-.background-feedback-success-pressed {
-  background-color: var(--color-feedback-success-pressed);
-}
-
-.background-feedback-info {
-  background-color: var(--color-feedback-info);
-}
-
-.background-feedback-info-subtle {
-  background-color: var(--color-feedback-info-subtle);
-}
-
-.background-feedback-info-faint {
-  background-color: var(--color-feedback-info-faint);
-}
-
-.background-feedback-info-hover {
-  background-color: var(--color-feedback-info-hover);
-}
-
-.background-feedback-info-active {
-  background-color: var(--color-feedback-info-active);
-}
-
-.background-feedback-info-pressed {
-  background-color: var(--color-feedback-info-pressed);
-}
-
-.background-feedback-warning {
-  background-color: var(--color-feedback-warning);
-}
-
-.background-feedback-warning-subtle {
-  background-color: var(--color-feedback-warning-subtle);
-}
-
-.background-feedback-warning-faint {
-  background-color: var(--color-feedback-warning-faint);
-}
-
-.background-feedback-warning-hover {
-  background-color: var(--color-feedback-warning-hover);
-}
-
-.background-feedback-warning-active {
-  background-color: var(--color-feedback-warning-active);
-}
-
-.background-feedback-warning-pressed {
-  background-color: var(--color-feedback-warning-pressed);
-}
-
-.background-feedback-danger {
-  background-color: var(--color-feedback-danger);
-}
-
-.background-feedback-danger-subtle {
-  background-color: var(--color-feedback-danger-subtle);
-}
-
-.background-feedback-danger-faint {
-  background-color: var(--color-feedback-danger-faint);
-}
-
-.background-feedback-danger-hover {
-  background-color: var(--color-feedback-danger-hover);
-}
-
-.background-feedback-danger-active {
-  background-color: var(--color-feedback-danger-active);
-}
-
-.background-feedback-danger-pressed {
-  background-color: var(--color-feedback-danger-pressed);
-}
-
-.background-accent {
-  background-color: var(--color-accent);
-}
-
-.background-accent-subtle {
-  background-color: var(--color-accent-subtle);
-}
-
-.background-accent-hover {
-  background-color: var(--color-accent-hover);
-}
-
-.background-accent-active {
-  background-color: var(--color-accent-active);
-}
-
-.background-accent-pressed {
-  background-color: var(--color-accent-pressed);
-}
-
-.background-accent-disabled {
-  background-color: var(--color-accent-disabled);
-}
-
-.background-surface-base {
-  background-color: var(--color-surface-base);
-}
-
-.background-surface-default {
-  background-color: var(--color-surface-default);
-}
-
-.background-surface-subtle {
-  background-color: var(--color-surface-subtle);
-}
-
-.background-surface-strong {
-  background-color: var(--color-surface-strong);
-}
-
-.background-surface-bold {
-  background-color: var(--color-surface-bold);
-}
-
-.background-surface-disabled {
-  background-color: var(--color-surface-disabled);
-}
-
-.background-surface-hover {
-  background-color: var(--color-surface-hover);
-}
-
-.background-surface-pressed {
-  background-color: var(--color-surface-pressed);
-}
-
-.background-surface-inverse-default {
-  background-color: var(--color-surface-inverse-default);
-}
-
-.background-surface-inverse-subtle {
-  background-color: var(--color-surface-inverse-subtle);
-}
-
-.background-surface-inverse-disabled {
-  background-color: var(--color-surface-inverse-disabled);
-}
-
-.background-surface-inverse-hover {
-  background-color: var(--color-surface-inverse-hover);
-}
-
-.background-surface-inverse-pressed {
-  background-color: var(--color-surface-inverse-pressed);
-}
-
-.background-border-default {
-  background-color: var(--color-border-default);
-}
-
-.background-border-subtle {
-  background-color: var(--color-border-subtle);
-}
-
-.background-border-strong {
-  background-color: var(--color-border-strong);
-}
-
-.background-border-primary-electric {
-  background-color: var(--color-border-primary-electric);
-}
-
-.background-border-primary {
-  background-color: var(--color-border-primary);
-}
-
-.background-border-secondary {
-  background-color: var(--color-border-secondary);
-}
-
-.background-border-tertiary {
-  background-color: var(--color-border-tertiary);
-}
-
-.background-border-hover {
-  background-color: var(--color-border-hover);
-}
-
-.background-border-pressed {
-  background-color: var(--color-border-pressed);
-}
-
-.background-border-focus {
-  background-color: var(--color-border-focus);
-}
-
-.background-border-error {
-  background-color: var(--color-border-error);
-}
-
-.background-border-success {
-  background-color: var(--color-border-success);
-}
-
-.background-tier-miles {
-  background-color: var(--color-tier-miles);
-}
-
-.background-tier-miles-subtle {
-  background-color: var(--color-tier-miles-subtle);
-}
-
-.background-tier-miles-hover {
-  background-color: var(--color-tier-miles-hover);
-}
-
-.background-tier-miles-active {
-  background-color: var(--color-tier-miles-active);
-}
-
-.background-tier-miles-pressed {
-  background-color: var(--color-tier-miles-pressed);
-}
-
-.background-tier-gold {
-  background-color: var(--color-tier-gold);
-}
-
-.background-tier-gold-subtle {
-  background-color: var(--color-tier-gold-subtle);
-}
-
-.background-tier-gold-hover {
-  background-color: var(--color-tier-gold-hover);
-}
-
-.background-tier-gold-active {
-  background-color: var(--color-tier-gold-active);
-}
-
-.background-tier-gold-pressed {
-  background-color: var(--color-tier-gold-pressed);
-}
-
-.background-tier-silver {
-  background-color: var(--color-tier-silver);
-}
-
-.background-tier-silver-subtle {
-  background-color: var(--color-tier-silver-subtle);
-}
-
-.background-tier-silver-hover {
-  background-color: var(--color-tier-silver-hover);
-}
-
-.background-tier-silver-active {
-  background-color: var(--color-tier-silver-active);
-}
-
-.background-tier-silver-pressed {
-  background-color: var(--color-tier-silver-pressed);
-}
-
-.background-tier-navigator {
-  background-color: var(--color-tier-navigator);
-}
-
-.background-tier-navigator-subtle {
-  background-color: var(--color-tier-navigator-subtle);
-}
-
-.background-tier-navigator-hover {
-  background-color: var(--color-tier-navigator-hover);
-}
-
-.background-tier-navigator-active {
-  background-color: var(--color-tier-navigator-active);
-}
-
-.background-tier-navigator-pressed {
-  background-color: var(--color-tier-navigator-pressed);
-}
-
-.background-neutral-default {
-  background-color: var(--color-neutral-default);
-}
-
-.background-neutral-subtle {
-  background-color: var(--color-neutral-subtle);
-}
-
-.background-neutral-subdued {
-  background-color: var(--color-neutral-subdued);
-}
-
-.background-neutral-0 {
-  background-color: var(--color-neutral-0);
-}
-
-.background-neutral-1 {
-  background-color: var(--color-neutral-1);
-}
-
-.background-neutral-2 {
-  background-color: var(--color-neutral-2);
-}
-
-.background-neutral-3 {
-  background-color: var(--color-neutral-3);
-}
-
-.background-neutral-4 {
-  background-color: var(--color-neutral-4);
-}
-
-.background-neutral-5 {
-  background-color: var(--color-neutral-5);
-}
-
-.background-neutral-6 {
-  background-color: var(--color-neutral-6);
-}
-
-.background-neutral-7 {
-  background-color: var(--color-neutral-7);
-}
-
-.background-neutral-8 {
-  background-color: var(--color-neutral-8);
-}
-
-.background-neutral-9 {
-  background-color: var(--color-neutral-9);
-}
-
-.background-neutral-10 {
-  background-color: var(--color-neutral-10);
-}
-
-.background-footer {
-  background-color: var(--color-footer);
-}
-
-.background-footer-subtle {
-  background-color: var(--color-footer-subtle);
-}
-
-.border-color-default {
-  border-color: var(--color-border-default);
-}
-
-.border-color-subtle {
-  border-color: var(--color-border-subtle);
-}
-
-.border-color-strong {
-  border-color: var(--color-border-strong);
-}
-
-.border-color-primary-electric {
-  border-color: var(--color-border-primary-electric);
-}
-
-.border-color-primary {
-  border-color: var(--color-border-primary);
-}
-
-.border-color-secondary {
-  border-color: var(--color-border-secondary);
-}
-
-.border-color-tertiary {
-  border-color: var(--color-border-tertiary);
-}
-
-.border-color-hover {
-  border-color: var(--color-border-hover);
-}
-
-.border-color-pressed {
-  border-color: var(--color-border-pressed);
-}
-
-.border-color-focus {
-  border-color: var(--color-border-focus);
-}
-
-.border-color-error {
-  border-color: var(--color-border-error);
-}
-
-.border-color-success {
-  border-color: var(--color-border-success);
-}
-
-.badge-success {
-  color: var(--color-on-feedback);
-  background-color: var(--color-feedback-success);
-}
-.badge-info {
-  color: var(--color-on-feedback);
-  background-color: var(--color-feedback-info);
-}
-.badge-warning {
-  color: var(--color-on-feedback);
-  background-color: var(--color-feedback-warning);
-}
-.badge-danger {
-  color: var(--color-on-feedback-danger);
-  background-color: var(--color-feedback-danger);
-}
-
-.tier-miles {
-  color: var(--color-on-tier);
-  background-color: var(--color-tier-miles);
-}
-.tier-gold {
-  color: var(--color-on-tier);
-  background-color: var(--color-tier-gold);
-}
-.tier-silver {
-  color: var(--color-on-tier);
-  background-color: var(--color-tier-silver);
-}
-.tier-navigator {
-  color: var(--color-on-tier-navigator);
-  background-color: var(--color-tier-navigator);
-}
-
-/* LEGACY COLOR UTILITIES - DEPRECATED */
-.color-primary-light {
-  color: var(--color-primary-light);
-}
-.color-success {
-  color: var(--color-success);
-}
-.color-danger {
-  color: var(--color-danger);
-}
-.color-danger-light {
-  color: var(--color-danger-light);
-}
-.color-danger-extra-light {
-  color: var(--color-danger-extra-light);
-}
-.color-warning {
-  color: var(--color-warning);
-}
-.color-warning-light {
-  color: var(--color-warning-light);
-}
-.color-info {
-  color: var(--color-info);
-}
-.color-info-light {
-  color: var(--color-info-light);
-}
-.color-info-extra-light {
-  color: var(--color-info-extra-light);
-}
-.color-light {
-  color: var(--color-light);
-}
-.color-dark {
-  color: var(--color-dark);
-}
-
-.background-primary-light {
-  background-color: var(--color-primary-light);
-}
 .background-success {
   background-color: var(--color-success);
 }
+
 .background-danger {
   background-color: var(--color-danger);
 }
-.background-danger-light {
-  background-color: var(--color-danger-light);
-}
-.background-danger-extra-light {
-  background-color: var(--color-danger-extra-light);
-}
+
 .background-warning {
   background-color: var(--color-warning);
 }
-.background-warning-light {
-  background-color: var(--color-warning-light);
-}
+
 .background-info {
   background-color: var(--color-info);
 }
-.background-info-light {
-  background-color: var(--color-info-light);
-}
-.background-info-extra-light {
-  background-color: var(--color-info-extra-light);
-}
-.background-light {
-  background-color: var(--color-light);
-}
-.background-dark {
-  background-color: var(--color-dark);
-}
-.background-footer-section {
-  background-color: var(--color-footer-section);
-}
 
 .link-no-decoration {
-  color: var(--color-link-default);
+  color: var(--link-default);
   text-decoration: none;
 }
 .link-no-decoration:hover {
-  color: var(--color-link-hover);
+  color: var(--link-hover);
   text-decoration: none;
 }
 .link-no-decoration:focus {
-  color: var(--color-link-default);
+  color: var(--link-default);
   text-decoration: none;
 }
 .link-no-decoration:visited {
-  color: var(--color-link-visited);
+  color: var(--link-visited);
   text-decoration: none;
 }
 
@@ -7108,13 +6958,13 @@ img {
   border-color: var(--border-color-primary);
 }
 .border-success {
-  border-color: var(--color-success);
+  border-color: var(--border-color-success);
 }
 .border-warning {
   border-color: var(--color-warning);
 }
 .border-danger {
-  border-color: var(--color-danger);
+  border-color: var(--border-color-error);
 }
 .border-radius-extra-soft {
   border-radius: var(--border-radius-extra-soft);
@@ -7151,7 +7001,7 @@ img {
 }
 
 /* ==========================================================================*/
-/*                              UTILITIES: FLEX                              */
+/*                           UTILITY CLASSES:: FLEX                          */
 /* ==========================================================================*/
 .flex-grow-0 {
   flex-grow: 0;
@@ -9784,7 +9634,7 @@ img {
 }
 
 /* ==========================================================================*/
-/*                             UTILITIES: IMAGE                              */
+/*                            UTILITY CLASSES: IMAGES                        */
 /* ==========================================================================*/
 .image-size-xs {
   width: var(--image-width-xs);
@@ -9999,7 +9849,7 @@ img {
 }
 
 /* ==========================================================================*/
-/*                             UTILITIES: ICON                               */
+/*                           UTILITY CLASSES:: ICONS                         */
 /* ==========================================================================*/
 .icon-xs {
   width: var(--icon-size-xs);
@@ -10080,6 +9930,86 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ============================================================================ */
+/*                         UTILITY CLASSES: POSITIONING                         */
+/* ============================================================================ */
+/* -------------------------------------------------------------------------- */
+/*                   POSITIONING: POSITION TYPE UTILITIES                     */
+/* -------------------------------------------------------------------------- */
+.position-static {
+  position: static !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-fixed {
+  position: fixed !important;
+}
+
+.position-sticky {
+  position: sticky !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        POSITIONING: EDGE (0 only)                          */
+/* -------------------------------------------------------------------------- */
+.top-0 {
+  top: 0 !important;
+}
+
+.right-0 {
+  right: 0 !important;
+}
+
+.bottom-0 {
+  bottom: 0 !important;
+}
+
+.left-0 {
+  left: 0 !important;
+}
+
+.inset-0 {
+  inset: 0 !important;
+}
+
+/* Auto values */
+.top-auto {
+  top: auto !important;
+}
+
+.right-auto {
+  right: auto !important;
+}
+
+.bottom-auto {
+  bottom: auto !important;
+}
+
+.left-auto {
+  left: auto !important;
+}
+
+.inset-auto {
+  inset: auto !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             POSITIONING: HELPERS                           */
+/* -------------------------------------------------------------------------- */
+.center-absolute {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 /* ==========================================================================*/

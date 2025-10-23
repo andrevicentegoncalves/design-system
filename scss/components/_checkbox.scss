@@ -9,8 +9,8 @@
 //-------------------------------------------
 
 .checkbox.checkbox-small {
-    width: var(--size-checkbox-s);
-    height: var(--size-checkbox-s);
+    width: var(--checkbox-size-s);
+    height: var(--checkbox-size-s);
     position: relative;
     cursor: pointer;
     -webkit-appearance: none;
@@ -47,7 +47,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: var(--color-neutral-0);
-            font-size: calc(var(--size-checkbox-s) * 0.6);
+            font-size: calc(var(--checkbox-size-s) * 0.6);
         }
     }
     

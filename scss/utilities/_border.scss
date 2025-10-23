@@ -68,27 +68,27 @@
     //-------------------------------------------
 
     &-width {
-        border-width: var(--border-width);  // Standard border width
+      border-width: var(--border-width);  // Standard border width
     }
 
     //-------------------------------------------
-    // Semantic Color Variations
+    // Semantic Color Variations (DEPRECATED)
     //-------------------------------------------
 
     &-primary {
-        border-color: var(--border-color-primary);  // Default border color
+        border-color: var(--border-color-primary);
     }
 
     &-success {
-        border-color: var(--color-success);  // Success state color
+        border-color: var(--border-color-success);  // Updated
     }
 
     &-warning {
-        border-color: var(--color-warning);  // Warning state color
+        border-color: var(--color-warning);  // Legacy
     }
 
     &-danger {
-        border-color: var(--color-danger);  // Danger state color
+        border-color: var(--border-color-error);  // Updated
     }
 
     //-------------------------------------------
@@ -96,7 +96,7 @@
     //-------------------------------------------
 
     &-radius-extra-soft {
-        border-radius: var(--border-radius-extra-soft);  // Extra soft corners
+      border-radius: var(--border-radius-extra-soft);
     }
 
     &-radius-top-extra-soft {

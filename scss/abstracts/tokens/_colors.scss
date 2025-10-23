@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 
 @use '../../abstracts/variables/colors/theme-mapping' as theme;
 @use '../flags' as flags;
@@ -20,12 +21,17 @@
     @each $token-name, $theme-map in theme.$theme-mappings {
         $light-color: map.get($theme-map, 'light');
         @if $light-color {
-            --color-#{$token-name}: #{$light-color};
+            // Check if token starts with 'border-'
+            @if string.index($token-name, 'border-') == 1 {
+                --#{$token-name}: #{$light-color};  // No prefix for borders
+            } @else {
+                --color-#{$token-name}: #{$light-color};  // Add color- prefix for others
+            }
         }
     }
     
     /* -------------------------------------------------------------------------- */
-    /*                                COLORS: LEGACY                              */
+    /*                                COLOR: LEGACY                               */
     /* -------------------------------------------------------------------------- */
     /* Maintained for backward compatibility */     
     

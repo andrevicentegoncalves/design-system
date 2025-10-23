@@ -1,8 +1,6 @@
 @use 'sass:map';
 @use '../variables/semantics/opacity' as semantics;
 
-
-
 @mixin generate-opacity-tokens() {
 
   /* ========================================================================== */

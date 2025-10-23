@@ -75,4 +75,7 @@
 
   /* Font Family */
   --font-family-base: #{map.get(foundation.$font-family-scale, 'sans')};
+
+  /* Truncaiton */
+  --truncate-width: 100%;
 }

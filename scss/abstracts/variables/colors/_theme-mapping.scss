@@ -467,59 +467,61 @@ $theme-mappings: (
   // ---------------------------------------------------------------------------//
   // BORDER COLORS
   // ---------------------------------------------------------------------------//
-
-  // Neutral borders
-  'border-default': (
-    'light': semantics.$color-border-default,
-    'dark': semantics.$color-border-default-dark,
+  
+  // Base borders
+  'border-color-default': (
+    'light': semantics.$border-color-default,
+    'dark': semantics.$border-color-default-dark,
   ),
-  'border-subtle': (
-    'light': semantics.$color-border-subtle,
-    'dark': semantics.$color-border-subtle-dark,
+  'border-color-subtle': (
+    'light': semantics.$border-color-subtle,
+    'dark': semantics.$border-color-subtle-dark,
   ),
-  'border-strong': (
-    'light': semantics.$color-border-strong,
-    'dark': semantics.$color-border-strong-dark,
+  'border-color-strong': (
+    'light': semantics.$border-color-strong,
+    'dark': semantics.$border-color-strong-dark,
   ),
 
   // Brand borders
-  'border-primary-electric': (
-    'light': semantics.$color-border-primary-electric,
-    'dark': semantics.$color-border-primary-electric,
+  'border-color-primary-electric': (
+    'light': semantics.$border-color-primary-electric,
+    'dark': semantics.$border-color-primary-electric,
   ),
-  'border-primary': (
-    'light': semantics.$color-border-primary,
-    'dark': semantics.$color-border-primary,
+  'border-color-primary': (
+    'light': semantics.$border-color-primary,
+    'dark': semantics.$border-color-primary,
   ),
-  'border-secondary': (
-    'light': semantics.$color-border-secondary,
-    'dark': semantics.$color-border-secondary,
+  'border-color-secondary': (
+    'light': semantics.$border-color-secondary,
+    'dark': semantics.$border-color-secondary,
   ),
-  'border-tertiary': (
-    'light': semantics.$color-border-tertiary,
-    'dark': semantics.$color-border-tertiary,
+  'border-color-tertiary': (
+    'light': semantics.$border-color-tertiary,
+    'dark': semantics.$border-color-tertiary,
   ),
 
-  // Border interaction states
-  'border-hover': (
-    'light': semantics.$color-border-hover,
-    'dark': semantics.$color-border-hover-dark,
+  // Interactive state borders
+  'border-color-hover': (
+    'light': semantics.$border-color-hover,
+    'dark': semantics.$border-color-hover-dark,
   ),
-  'border-pressed': (
-    'light': semantics.$color-border-pressed,
-    'dark': semantics.$color-border-pressed-dark,
+  'border-color-pressed': (
+    'light': semantics.$border-color-pressed,
+    'dark': semantics.$border-color-pressed-dark,
   ),
-  'border-focus': (
-    'light': semantics.$color-border-focus,
-    'dark': semantics.$color-border-focus,
+  'border-color-focus': (
+    'light': semantics.$border-color-focus,
+    'dark': semantics.$border-color-focus,
   ),
-  'border-error': (
-    'light': semantics.$color-border-error,
-    'dark': semantics.$color-border-error,
+
+  // Feedback borders
+  'border-color-error': (
+    'light': semantics.$border-color-error,
+    'dark': semantics.$border-color-error,
   ),
-  'border-success': (
-    'light': semantics.$color-border-success,
-    'dark': semantics.$color-border-success,
+  'border-color-success': (
+    'light': semantics.$border-color-success,
+    'dark': semantics.$border-color-success,
   ),
   
   // ---------------------------------------------------------------------------//

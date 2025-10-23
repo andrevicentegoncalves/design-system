@@ -57,20 +57,6 @@
   @error "State '#{$state}' not found for component '#{$component}'. Available: #{map.keys($transition)}";
 }
 
-/// Check if cursor type exists
-/// @param {String} $type - Cursor type
-/// @return {Boolean} Exists
-@function cursor-exists($type) {
-  @return map.has-key(scale.$cursor-scale, $type);
-}
-
-/// Check if semantic cursor exists
-/// @param {String} $context - Semantic context
-/// @return {Boolean} Exists
-@function cursor-semantic-exists($context) {
-  @return map.has-key(scale.$cursor-semantic, $context);
-}
-
 /// Get interactive cursor (pointer by default)
 /// @return {String} Cursor value for interactive elements
 @function cursor-interactive() {

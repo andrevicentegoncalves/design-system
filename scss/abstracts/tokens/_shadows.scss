@@ -7,7 +7,6 @@
     /*                              TOKENS: SHADOWS                               */
     /* ========================================================================== */
 
-
     --shadow-xs: #{map.get(map.get(scale.$shadow-components, 'xs'), 'offset-x')} 
                 #{map.get(map.get(scale.$shadow-components, 'xs'), 'offset-y')} 
                 #{map.get(map.get(scale.$shadow-components, 'xs'), 'blur')} 

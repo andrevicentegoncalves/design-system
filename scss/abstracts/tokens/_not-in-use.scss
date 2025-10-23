@@ -1,6 +1,6 @@
 @mixin generate-tokens-tokens() {
 
-  //Color Palette 
+  //Color Palette
   --color-primary: #72BE44;
   --color-primary-light: #F1F9EC;
   --color-primary-hover: #72BE44;
@@ -30,18 +30,18 @@
   --color-footer: #333333;
   --color-footer-section: #2C2C2C;
 
-   /* Border */
-   --border-size-none: 0px;
-   --border-size-xs: 0.5px;
-   --border-size-s: 1px;
-   --border-width-selected: 3px;
-   --border-width: 0.3px;
-   --border-style: solid;
-   --border-color: #72BE44;
-   --border-radius-soft: 4px;
-   --border-radius-extra-soft: 15px;
+  /* Border */
+  --border-size-none: 0px;
+  --border-size-xs: 0.5px;
+  --border-size-s: 1px;
+  --border-width-selected: 3px;
+  --border-width: 0.3px;
+  --border-style: solid;
+  --border-color: #72BE44;
+  --border-radius-soft: 4px;
+  --border-radius-extra-soft: 15px;
 
-     /* Typography */
+    /* Typography */
   --font-family-base: 'Arial', sans-serif;
   --font-size-xxxs: 0.3125rem;          /* 5px */
   --font-size-xxs: 0.625rem;            /* 10px */
@@ -61,16 +61,16 @@
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
-    /* Z-index */
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal-backdrop: 1040;
-    --z-index-modal: 1050;
-    --z-index-popover: 1060;
-    --z-index-tooltip: 1070;
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
 
-      /* Spacing */
+    /* Spacing */
   --space-none: 0;
   --space-xs: 0.25rem;                  /* 4px */
   --space-s: 0.5rem;                    /* 8px */
@@ -84,22 +84,22 @@
   --space-xxl: 3rem;                    /* 48px */
   --space-xxxl: 6rem;                   /* 96px */
 
-    /* Opacity */
-    --banner-overlay-opacity: 0.4;
-    --opacity-s: 40%;
-    --opacity-m: 60%;
-    --opacity-l: 80%;
-    --opacity-xl: 90%;
-    --opaque: 1;
+  /* Opacity */
+  --banner-overlay-opacity: 0.4;
+  --opacity-s: 40%;
+  --opacity-m: 60%;
+  --opacity-l: 80%;
+  --opacity-xl: 90%;
+  --opaque: 1;
 
-    --grid-columns: 12;
-    --grid-columns-standard: 4;
-    --grid-gap: 25px;
-    --grid-gutter-width: 30px;
+  --grid-columns: 12;
+  --grid-columns-standard: 4;
+  --grid-gap: 25px;
+  --grid-gutter-width: 30px;
 
-    --breakpoint-phone: 480px;
-    --breakpoint-phone-horizontal: 767px;
-    --breakpoint-tablet: 768px;
-    --breakpoint-tablet-horizontal: 1024px;
-    --breakpoint-desktop: 1200px;
+  --breakpoint-phone: 480px;
+  --breakpoint-phone-horizontal: 767px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet-horizontal: 1024px;
+  --breakpoint-desktop: 1200px;
 }

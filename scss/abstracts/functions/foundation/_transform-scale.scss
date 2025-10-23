@@ -169,24 +169,3 @@
   $y-value: if($y == 0, 0, transform-translate($y));
   @return translate($x-value, $y-value);
 }
-
-/// Check if scale value exists
-/// @param {String} $size - Scale key
-/// @return {Boolean} Exists
-@function scale-exists($size) {
-  @return map.has-key(scale.$scale-scale, $size);
-}
-
-/// Check if rotate value exists
-/// @param {String} $angle - Rotate key
-/// @return {Boolean} Exists
-@function rotate-exists($angle) {
-  @return map.has-key(scale.$rotate-scale, $angle);
-}
-
-/// Check if transform preset exists
-/// @param {String} $preset - Preset name
-/// @return {Boolean} Exists
-@function transform-preset-exists($preset) {
-  @return map.has-key(scale.$transform-presets, $preset);
-}

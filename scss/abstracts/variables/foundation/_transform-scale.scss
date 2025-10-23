@@ -11,7 +11,7 @@
 // -------------------------------------------
 /// Scale transformation values for zoom/resize effects
 
-$scale-scale: (
+$transform-scale: (
   '0': 0,           // Completely collapsed
   '25': 0.25,       // Tiny (1/4 size)
   '50': 0.5,        // Half size
@@ -30,12 +30,12 @@ $scale-scale: (
 // SCALE ALIASES
 // -------------------------------------------
 
-$scale-none: map.get($scale-scale, '100') !default;        // 1 (no scale)
-$scale-shrink-sm: map.get($scale-scale, '95') !default;    // 0.95
-$scale-shrink: map.get($scale-scale, '90') !default;       // 0.9
-$scale-grow-sm: map.get($scale-scale, '105') !default;     // 1.05
-$scale-grow: map.get($scale-scale, '110') !default;        // 1.1
-$scale-grow-lg: map.get($scale-scale, '125') !default;     // 1.25
+$scale-none: map.get($transform-scale, '100') !default;        // 1 (no scale)
+$scale-shrink-sm: map.get($transform-scale, '95') !default;    // 0.95
+$scale-shrink: map.get($transform-scale, '90') !default;       // 0.9
+$scale-grow-sm: map.get($transform-scale, '105') !default;     // 1.05
+$scale-grow: map.get($transform-scale, '110') !default;        // 1.1
+$scale-grow-lg: map.get($transform-scale, '125') !default;     // 1.25
 
 // -------------------------------------------
 // ROTATE TRANSFORMATIONS
@@ -80,35 +80,35 @@ $rotate-full: map.get($rotate-scale, '360') !default;      // 360deg
 $translate-scale: (
   // Using spacing scale for consistent movement
   '0': 0,
-  '1': map.get(spacing.$spacing-scale, 1),           // 8px
-  '2': map.get(spacing.$spacing-scale, 2),           // 16px
-  '3': map.get(spacing.$spacing-scale, 3),           // 24px
-  '4': map.get(spacing.$spacing-scale, 4),           // 32px
-  '6': map.get(spacing.$spacing-scale, 6),           // 48px
-  '8': map.get(spacing.$spacing-scale, 8),           // 64px
-  '12': map.get(spacing.$spacing-scale, 12),         // 96px
-  '16': map.get(spacing.$spacing-scale, 16),         // 128px
-  '24': map.get(spacing.$spacing-scale, 24),         // 192px
+  '1': map.get(spacing.$spacing-scale, 1),           // 4px
+  '2': map.get(spacing.$spacing-scale, 2),           // 8px
+  '3': map.get(spacing.$spacing-scale, 3),           // 12px
+  '4': map.get(spacing.$spacing-scale, 4),           // 16px
+  '6': map.get(spacing.$spacing-scale, 6),           // 24px
+  '8': map.get(spacing.$spacing-scale, 8),           // 32px
+  '12': map.get(spacing.$spacing-scale, 12),         // 48px
+  '16': map.get(spacing.$spacing-scale, 16),         // 64px
+  '24': map.get(spacing.$spacing-scale, 24),         // 96px
   
-  // Percentage-based (for responsive movement)
-  '1/4': 25%,
-  '1/2': 50%,
-  '3/4': 75%,
+  // Percentage-based (using - instead of /)
+  'quarter': 25%,
+  'half': 50%,
+  'three-quarters': 75%,
   'full': 100%,
   
-  // Negative values
-  '-1': map.get(spacing.$spacing-scale, -1),         // -8px
-  '-2': map.get(spacing.$spacing-scale, -2),         // -16px
-  '-3': map.get(spacing.$spacing-scale, -3),         // -24px
-  '-4': map.get(spacing.$spacing-scale, -4),         // -32px
-  '-6': map.get(spacing.$spacing-scale, -6),         // -48px
-  '-8': map.get(spacing.$spacing-scale, -8),         // -64px
-  '-12': map.get(spacing.$spacing-scale, -12),       // -96px
+  // Negative values (multiply by -1 in Sass, not CSS)
+  '-1': map.get(spacing.$spacing-scale, 1) * -1,    // -4px
+  '-2': map.get(spacing.$spacing-scale, 2) * -1,    // -8px
+  '-3': map.get(spacing.$spacing-scale, 3) * -1,    // -12px
+  '-4': map.get(spacing.$spacing-scale, 4) * -1,    // -16px
+  '-6': map.get(spacing.$spacing-scale, 6) * -1,    // -24px
+  '-8': map.get(spacing.$spacing-scale, 8) * -1,    // -32px
+  '-12': map.get(spacing.$spacing-scale, 12) * -1,  // -48px
   
   // Negative percentages
-  '-1/4': -25%,
-  '-1/2': -50%,
-  '-3/4': -75%,
+  '-quarter': -25%,
+  '-half': -50%,
+  '-three-quarters': -75%,
   '-full': -100%,
 ) !default;
 
@@ -155,23 +155,23 @@ $transform-origins: (
 $transform-presets: (
   // Hover effects
   'hover-lift': (
-    'scale': map.get($scale-scale, '105'),              // 1.05
-    'translate-y': map.get(spacing.$spacing-scale, -0.5),    // -4px
+    'scale': map.get($transform-scale, '105'),                        // 1.05
+    'translate-y': map.get(spacing.$spacing-scale, 1) * -1,          // -4px
   ),
   'hover-grow': (
-    'scale': map.get($scale-scale, '110'),              // 1.1
+    'scale': map.get($transform-scale, '110'),              // 1.1
   ),
   'hover-shrink': (
-    'scale': map.get($scale-scale, '95'),               // 0.95
+    'scale': map.get($transform-scale, '95'),               // 0.95
   ),
   
   // Press/Active effects
   'press-down': (
-    'scale': map.get($scale-scale, '95'),               // 0.95
-    'translate-y': map.get(spacing.$spacing-scale, 0.25),    // 2px
+    'scale': map.get($transform-scale, '95'),               // 0.95
+    'translate-y': map.get(spacing.$spacing-scale, 1),      // 4px
   ),
   'press-shrink': (
-    'scale': map.get($scale-scale, '90'),               // 0.9
+    'scale': map.get($transform-scale, '90'),               // 0.9
   ),
   
   // Loading/Spin animations
@@ -184,25 +184,25 @@ $transform-presets: (
   
   // Entrance animations
   'enter-fade-up': (
-    'translate-y': map.get(spacing.$spacing-scale, 2),       // 16px
-    'scale': map.get($scale-scale, '95'),               // 0.95
+    'translate-y': map.get(spacing.$spacing-scale, 2),       // 8px
+    'scale': map.get($transform-scale, '95'),                 // 0.95
   ),
   'enter-fade-down': (
-    'translate-y': map.get(spacing.$spacing-scale, -2),      // -16px
-    'scale': map.get($scale-scale, '95'),               // 0.95
+    'translate-y': map.get(spacing.$spacing-scale, 2) * -1,  // -8px
+    'scale': map.get($transform-scale, '95'),                 // 0.95
   ),
   'enter-scale': (
-    'scale': map.get($scale-scale, '90'),               // 0.9
+    'scale': map.get($transform-scale, '90'),               // 0.9
   ),
   
   // Exit animations
   'exit-fade-up': (
-    'translate-y': map.get(spacing.$spacing-scale, -2),      // -16px
-    'scale': map.get($scale-scale, '95'),               // 0.95
+    'translate-y': map.get(spacing.$spacing-scale, 2) * -1,  // -8px
+    'scale': map.get($transform-scale, '95'),                 // 0.95
   ),
   'exit-fade-down': (
-    'translate-y': map.get(spacing.$spacing-scale, 2),       // 16px
-    'scale': map.get($scale-scale, '95'),               // 0.95
+    'translate-y': map.get(spacing.$spacing-scale, 2),       // 8px
+    'scale': map.get($transform-scale, '95'),                 // 0.95
   ),
   
   // Flip effects

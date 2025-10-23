@@ -32,10 +32,3 @@
 @function z-index-offset($layer, $offset: 1) {
   @return z-index($layer) + $offset;
 }
-
-/// Check if z-index layer exists
-/// @param {String} $layer - Layer name
-/// @return {Boolean} True if exists
-@function z-index-exists($layer) {
-  @return map.has-key(scale.$z-index-layers, $layer);
-}

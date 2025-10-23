@@ -34,11 +34,3 @@
   }
   @error "Container preset '#{$preset}' not found";
 }
-
-/// Check if container size exists
-/// @param {String} $size - Container size name
-/// @return {Boolean}
-
-@function container-exists($size) {
-  @return map.has-key(scale.$container-scale, $size);
-}

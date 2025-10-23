@@ -74,20 +74,6 @@
   @return blur($blur-value);
 }
 
-/// Check if blur scale key exists
-/// @param {String} $size - Size to check
-/// @return {Boolean} Exists
-@function blur-exists($size) {
-  @return map.has-key(scale.$blur-scale, $size);
-}
-
-/// Check if semantic blur token exists
-/// @param {String} $token - Token to check
-/// @return {Boolean}
-@function blur-semantic-exists($token) {
-  @return map.has-key(scale.$blur-semantic, $token);
-}
-
 /// Get browser fallback color
 /// @param {String} $type - Fallback type
 /// @return {Color} Fallback color value

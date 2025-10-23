@@ -144,13 +144,6 @@
   );
 }
 
-/// Check if gradient direction exists
-/// @param {String} $direction - Direction to check
-/// @return {Boolean} Exists
-@function gradient-direction-exists($direction) {
-  @return map.has-key(scale.$gradient-directions, $direction);
-}
-
 /// Get animation distance value
 /// @param {String} $animation - Animation type
 /// @return {Number} Distance value

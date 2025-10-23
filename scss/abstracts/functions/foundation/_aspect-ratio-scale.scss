@@ -24,10 +24,3 @@
   }
   @error "Component aspect ratio '#{$component}' not found";
 }
-
-/// Check if aspect ratio exists
-/// @param {String} $name - Aspect ratio name
-/// @return {Boolean} aspect ratio exists
-@function aspect-ratio-exists($name) {
-  @return map.has-key(scale.$aspect-ratio-scale, $name);
-}

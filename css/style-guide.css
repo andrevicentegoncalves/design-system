@@ -506,6 +506,11 @@
 /* ==========================================================================*/
 /*                            PATTERNS: CAROUSEL TAB                         */
 /* ==========================================================================*/
+:root {
+  --bottom-tab-width: 170px;
+  --bottom-tab-height: 60px;
+}
+
 .responsive-carousel-wrapper .osui-carousel .splide.splide--loop.splide--ltr.splide--draggable.is-active .splide__arrows.splide__arrows--ltr .splide__arrow {
   background: none;
   border: none;

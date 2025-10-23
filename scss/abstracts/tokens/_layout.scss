@@ -3,7 +3,6 @@
 
 @mixin generate-layout-tokens() {
 
-
     @if flags.$is_main {
         & {
             /* ========================================================================== */
@@ -12,4 +11,8 @@
             --login-form-width: 27rem; 
         }
     }
+
+    --layout-max-width: 90rem;            /* 1440px */
+    --layout-half-max-width: 45rem;       /* 720px */
+    --popup-max-width: 40.625rem;         /* 650px */
 } 
