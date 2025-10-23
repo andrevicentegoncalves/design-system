@@ -72,6 +72,23 @@
   --border-radius-soft: 4px;
   --border-radius-extra-soft: 15px;
   /* ========================================================================== */
+  /*                               TOKENS: BLUR                                 */
+  /* ========================================================================== */
+  --blur-none: 0;
+  --blur-xs: 0.25rem;
+  --blur-s: 0.5rem;
+  --blur-m: 0.75rem;
+  --blur-l: 1rem;
+  --blur-xl: 1.5rem;
+  --blur-2xl: 2rem;
+  --blur-3xl: 2.5rem;
+  /* Semantic blur tokens */
+  --blur-backdrop-light: var(--blur-s);
+  --blur-backdrop-medium: var(--blur-m);
+  --blur-backdrop-heavy: var(--blur-l);
+  --blur-glass-effect: var(--blur-m);
+  --blur-disabled: var(--blur-xs);
+  /* ========================================================================== */
   /*                             TOKENS: BREAKPOINTS                            */
   /* ========================================================================== */
   --breakpoint-xs: 320px;
@@ -352,6 +369,45 @@
   --focus-style-solid: solid;
   --focus-style-dashed: dashed;
   --focus-style-dotted: dotted;
+  /* ========================================================================== */
+  /*                              TOKENS: GRADIENTS                             */
+  /* ========================================================================== */
+  /* Gradient Directions */
+  --gradient-direction-to-top: to top;
+  --gradient-direction-to-right: to right;
+  --gradient-direction-to-bottom: to bottom;
+  --gradient-direction-to-left: to left;
+  --gradient-direction-to-top-right: to top right;
+  --gradient-direction-to-top-left: to top left;
+  --gradient-direction-to-bottom-right: to bottom right;
+  --gradient-direction-to-bottom-left: to bottom left;
+  --gradient-direction-0deg: 0deg;
+  --gradient-direction-45deg: 45deg;
+  --gradient-direction-90deg: 90deg;
+  --gradient-direction-135deg: 135deg;
+  --gradient-direction-180deg: 180deg;
+  --gradient-direction-225deg: 225deg;
+  --gradient-direction-270deg: 270deg;
+  --gradient-direction-315deg: 315deg;
+  --gradient-direction-radial: radial;
+  --gradient-direction-radial-circle: circle;
+  --gradient-direction-radial-ellipse: ellipse;
+  --gradient-direction-conic: conic;
+  /* Radial Positions */
+  --gradient-radial-center: center;
+  --gradient-radial-top: top;
+  --gradient-radial-right: right;
+  --gradient-radial-bottom: bottom;
+  --gradient-radial-left: left;
+  --gradient-radial-top-left: top left;
+  --gradient-radial-top-right: top right;
+  --gradient-radial-bottom-left: bottom left;
+  --gradient-radial-bottom-right: bottom right;
+  /* Radial Sizes */
+  --gradient-size-closest-side: closest-side;
+  --gradient-size-closest-corner: closest-corner;
+  --gradient-size-farthest-side: farthest-side;
+  --gradient-size-farthest-corner: farthest-corner;
   /* ========================================================================== */
   /*                                 TOKENS: GRID                               */
   /* ========================================================================== */

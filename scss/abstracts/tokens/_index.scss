@@ -23,6 +23,8 @@
 @use 'typography';
 @use 'z-index';
 @use 'positioning';
+@use 'blur';
+@use 'gradient';
 
 // ============================================================================ //
 //                                 TOKENS: INDEX                                //
@@ -38,6 +40,11 @@
     // Borders
     @if $categories == 'all' or list.index($categories, 'borders') {
         @include borders.generate-border-tokens();
+    }
+
+    // Blur
+    @if $categories == 'all' or list.index($categories, 'blur') {
+        @include blur.generate-blur-tokens();
     }
 
     // Breakpoints  
@@ -63,6 +70,11 @@
     // Focus 
     @if $categories == 'all' or list.index($categories, 'focus') {
         @include focus.generate-focus-tokens();
+    }
+
+    // Gradient
+    @if $categories == 'all' or list.index($categories, 'gradient') {
+        @include gradient.generate-gradient-tokens();
     }
 
     // Grid
