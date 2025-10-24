@@ -26,13 +26,6 @@
   }
 }
 
-/// Apply border color from design token
-/// @param {String} $token-name - Design token name without -- prefix
-/// @example @include border-color('border-color-default');
-@mixin border-color($token-name) {
-  border-color: var(--#{$token-name});
-}
-
 /// Apply background color with opacity using pseudo-element
 /// @param {String} $color-var - CSS custom property name
 /// @param {Number} $opacity - Opacity value between 0-1

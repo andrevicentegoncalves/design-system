@@ -80,15 +80,19 @@
     }
 
     &-success {
-        border-color: var(--border-color-success);  // Updated
+        border-color: var(--border-color-success);  
     }
 
     &-warning {
-        border-color: var(--color-warning);  // Legacy
+        border-color: var(--border-color-warning); 
+    }
+
+    &-info {
+        border-color: var(--border-color-warning); 
     }
 
     &-danger {
-        border-color: var(--border-color-error);  // Updated
+        border-color: var(--border-color-error);  
     }
 
     //-------------------------------------------

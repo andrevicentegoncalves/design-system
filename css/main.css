@@ -6003,10 +6003,10 @@ img {
 
 .section-background {
   position: absolute;
-  top: var(--position-0);
-  right: var(--position-0);
-  bottom: var(--position-0);
-  left: var(--position-0);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -7358,7 +7358,10 @@ img {
   border-color: var(--border-color-success);
 }
 .border-warning {
-  border-color: var(--color-warning);
+  border-color: var(--border-color-warning);
+}
+.border-info {
+  border-color: var(--border-color-warning);
 }
 .border-danger {
   border-color: var(--border-color-error);
