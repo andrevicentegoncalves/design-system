@@ -399,6 +399,10 @@ $theme-mappings: (
     'light': semantics.$color-surface-pressed,
     'dark': semantics.$color-surface-pressed-dark,
   ),
+  'surface-selected': (
+    'light': semantics.$color-surface-selected,
+    'dark': semantics.$color-surface-selected,
+  ),
 
   // On-surface colors
   'on-surface-base': (
@@ -448,6 +452,10 @@ $theme-mappings: (
   'surface-inverse-pressed': (
     'light': semantics.$color-surface-inverse-pressed,
     'dark': semantics.$color-surface-inverse-pressed-dark,
+  ),
+  'surface-inverse-selected': (
+    'light': semantics.$color-surface-inverse-selected,
+    'dark': semantics.$color-surface-inverse-selected,
   ),
 
   // On-surface inverse colors
@@ -513,6 +521,10 @@ $theme-mappings: (
     'light': semantics.$border-color-focus,
     'dark': semantics.$border-color-focus,
   ),
+  'border-color-selected': (
+    'light': semantics.$border-color-selected,
+    'dark': semantics.$border-color-selected,
+  ),
 
   // Feedback borders
   'border-color-error': (
@@ -522,6 +534,14 @@ $theme-mappings: (
   'border-color-success': (
     'light': semantics.$border-color-success,
     'dark': semantics.$border-color-success,
+  ),
+  'border-color-warning': (
+    'light': semantics.$border-color-warning,
+    'dark': semantics.$border-color-warning,
+  ),
+  'border-color-info': (
+    'light': semantics.$border-color-info,
+    'dark': semantics.$border-color-info,
   ),
   
   // ---------------------------------------------------------------------------//

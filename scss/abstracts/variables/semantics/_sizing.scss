@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../foundation/sizing-scale' as scale;
+@use '../../functions/foundation/unit-conversion' as fn;
 
 // ============================================================================ //
 //                           SEMANTICS: SIZING                                  //
@@ -27,3 +28,8 @@ $checkbox-sizes: (
   'l': $checkbox-size-l,
   'xl': $checkbox-size-xl,
 ) !default;
+
+// ---------------------------------------------------------------------------- //
+// LEGACY
+// ---------------------------------------------------------------------------- //
+$size-checkbox-s: fn.rem(12);

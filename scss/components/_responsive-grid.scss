@@ -4,6 +4,10 @@
 /*                         COMPONENTS: RESPONSIVE GRID                       */
 /* ==========================================================================*/
 
+:root{
+    --responsive-grid-min-height: 15rem;
+}
+
 //-------------------------------------------
 // Grid Container & Layout
 //-------------------------------------------
@@ -35,7 +39,7 @@
         overflow: hidden;
         transition: var(--transition-base);
         height: auto !important;
-        min-height: var(--flip-card-height) !important;
+        min-height: var(--responsive-grid-min-height) !important;
         display: flex !important;
         flex-direction: column !important;
         background-color: var(--color-neutral-0);

@@ -103,7 +103,7 @@
                 }
 
                 &:focus:before {
-                    box-shadow: 0 0 0 2px rgba(var(--color-primary), var(--opacity-s));
+                    box-shadow: 0 0 0 2px rgba(var(--color-primary), var(--opacity-faded));
                 }
 
                 // Disabled State
@@ -163,7 +163,7 @@
     .feedback-container {
         textarea {
             width: var(--truncate-width);
-            min-height: calc($flip-card-height / 2);
+            min-height: 50px;
             padding: var(--space-s);
             border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
             border-radius: var(--border-radius-extra-soft);
@@ -175,7 +175,7 @@
             &:focus {
                 outline: none;
                 border-color: var(--color-primary);
-                box-shadow: 0 0 0 2px rgba($color-primary, $opacity-s);
+                box-shadow: 0 0 0 2px rgba($color-primary, var(--opacity-muted));
             }
 
             &::placeholder {
@@ -208,13 +208,13 @@
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 0 2px rgba($color-primary, $opacity-s);
+            box-shadow: 0 0 0 2px rgba($color-primary, var(--opacity-muted));
         }
 
         &:disabled {
             background-color: color.adjust($color-primary, $lightness: +20%);
             cursor: not-allowed;
-            opacity: var(--opacity-s);
+            opacity: var(--opacity-faded);
         }
     }
 }

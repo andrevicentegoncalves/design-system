@@ -5,6 +5,13 @@
 // =============================================================================
 @use '../../abstracts/variables' as *;
 
+// Positioning Reset
+$position-top-none: 0;
+$position-right-none: 0;
+$position-bottom-none: 0;
+$position-left-none: 0;
+
+
 // Implements a consistent typography system using predefined font families
 // Handles various weights (thin, light, regular, bold) for Roboto, Lato, and Montserrat
 // Usage: @include apply-font('roboto', 'bold');

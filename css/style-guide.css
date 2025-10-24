@@ -1511,7 +1511,7 @@
   border-color: var(--color-neutral-7);
 }
 .suggestion-content [data-radio-group] [data-radio-button] .radio-button:focus:before, .suggestion-content .radio-group [data-radio-button] .radio-button:focus:before {
-  box-shadow: 0 0 0 2px rgba(var(--color-primary), var(--opacity-s));
+  box-shadow: 0 0 0 2px rgba(var(--color-primary), var(--opacity-faded));
 }
 .suggestion-content [data-radio-group] [data-radio-button] .radio-button:disabled, .suggestion-content .radio-group [data-radio-button] .radio-button:disabled {
   background-color: transparent;
@@ -1549,7 +1549,7 @@
 }
 .suggestion-content .feedback-container textarea {
   width: var(--truncate-width);
-  min-height: 120px;
+  min-height: 50px;
   padding: var(--space-s);
   border: var(--border-width) var(--border-style-solid) var(--color-neutral-4);
   border-radius: var(--border-radius-extra-soft);
@@ -1561,7 +1561,7 @@
 .suggestion-content .feedback-container textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, 0.4);
+  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, var(--opacity-muted));
 }
 .suggestion-content .feedback-container textarea::placeholder {
   color: var(--color-neutral-6);
@@ -1585,12 +1585,12 @@
 }
 .suggestion-button button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, 0.4);
+  box-shadow: 0 0 0 2px rgba(116.0556, 190.026, 70.074, var(--opacity-muted));
 }
 .suggestion-button button:disabled {
   background-color: hsl(97, 48%, 71%);
   cursor: not-allowed;
-  opacity: var(--opacity-s);
+  opacity: var(--opacity-faded);
 }
 
 .is-rtl [data-radio-group] label {

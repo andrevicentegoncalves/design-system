@@ -25,6 +25,8 @@
 @use 'positioning';
 @use 'blur';
 @use 'gradient';
+@use 'transition';
+
 
 // ============================================================================ //
 //                                 TOKENS: INDEX                                //
@@ -135,6 +137,11 @@
     // Transform 
     @if $categories == 'all' or list.index($categories, 'transform') {
         @include transform.generate-transform-tokens();
+    }
+
+    // Transitions 
+    @if $categories == 'all' or list.index($categories, 'transition') {
+        @include transition.generate-transition-tokens();
     }
 
     // Typography 

@@ -199,6 +199,7 @@
   --color-surface-disabled: hsl(210, 14%, 98%);
   --color-surface-hover: hsl(210, 14%, 98.5%);
   --color-surface-pressed: hsl(210, 14%, 98%);
+  --color-surface-selected: hsl(210, 14%, 97.25%);
   --color-on-surface-base: hsl(210, 14%, 26%);
   --color-on-surface-default: hsl(210, 14%, 26%);
   --color-on-surface-subtle: hsl(210, 14%, 39%);
@@ -210,6 +211,7 @@
   --color-surface-inverse-disabled: hsl(210, 14%, 71%);
   --color-surface-inverse-hover: hsl(210, 14%, 26%);
   --color-surface-inverse-pressed: hsl(210, 14%, 34%);
+  --color-surface-inverse-selected: hsl(210, 14%, 37%);
   --color-on-surface-inverse-default: hsl(210, 14%, 100%);
   --color-on-surface-inverse-subtle: hsl(210, 14%, 100%);
   --color-on-surface-inverse-disabled: hsl(210, 14%, 89%);
@@ -222,9 +224,12 @@
   --border-color-tertiary: hsl(130, 46%, 22%);
   --border-color-hover: hsl(210, 14%, 93%);
   --border-color-pressed: hsl(210, 14%, 91%);
-  --border-color-focus: hsl(189, 77%, 40%);
+  --border-color-focus: hsl(97, 48%, 51%);
+  --border-color-selected: hsl(97, 48%, 51%);
   --border-color-error: hsl(354, 70%, 46%);
   --border-color-success: hsl(134, 61%, 88%);
+  --border-color-warning: hsl(45, 100%, 55%);
+  --border-color-info: hsl(189, 77%, 89%);
   --color-tier-miles: hsl(96, 71%, 40%);
   --color-tier-miles-subtle: hsl(96, 71%, 91%);
   --color-tier-miles-hover: hsl(96, 71%, 36%);
@@ -707,31 +712,31 @@
   /*                               TOKENS: OPACITY                              */
   /* ========================================================================== */
   --opacity-disabled: 0.4;
-  --opacity-hover: ;
+  --opacity-hover: 0.1;
   --opacity-active: 0.15;
-  --opacity-inactive: ;
-  --opacity-subtle: ;
-  --opacity-muted: ;
-  --opacity-faded: ;
-  --opacity-ghost: ;
+  --opacity-inactive: 0.5;
+  --opacity-subtle: 0.6;
+  --opacity-muted: 0.7;
+  --opacity-faded: 0.4;
+  --opacity-ghost: 0.1;
   --opacity-overlay-light: 0.4;
   --opacity-overlay-medium: 0.6;
-  --opacity-overlay-dark: ;
-  --opacity-backdrop: ;
-  --opacity-glass-light: ;
-  --opacity-glass-medium: ;
-  --opacity-glass-dark: ;
-  --opacity-full: ;
-  --opacity-none: ;
+  --opacity-overlay-dark: 0.8;
+  --opacity-backdrop: 0.5;
+  --opacity-glass-light: 0.7;
+  --opacity-glass-medium: 0.8;
+  --opacity-glass-dark: 0.9;
+  --opacity-full: 1;
+  --opacity-none: 0;
   /* -------------------------------------------------------------------------- */
   /*                              OPACITY: LEGACY                               */
   /* -------------------------------------------------------------------------- */
   /* Maintained for backward compatibility */
-  --alpha-disabled: ;
-  --alpha-hover: ;
-  --alpha-active: ;
-  --alpha-subtle: ;
-  --alpha-ghost: ;
+  --alpha-disabled: 0.4;
+  --alpha-hover: 0.1;
+  --alpha-active: 0.15;
+  --alpha-subtle: 0.6;
+  --alpha-ghost: 0.1;
   /* ========================================================================== */
   /*                              TOKENS: SHADOWS                               */
   /* ========================================================================== */
@@ -1074,6 +1079,24 @@
   /* Maintained for backward compatibility */
   --transform-scale-base: 1;
   --transform-rotate-base: 0deg;
+  /* ========================================================================== */
+  /*                            TOKENS: TRANSITIONS                             */
+  /* ========================================================================== */
+  /* Base Transitions */
+  --transition-base: all 200ms ease-in-out;
+  --transition-fast: all 150ms ease-out;
+  --transition-slow: all 300ms ease-in-out;
+  --transition-smooth: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Property-Specific */
+  --transition-color: color 200ms ease-in-out;
+  --transition-background: background-color 200ms ease-in-out;
+  --transition-opacity: opacity 150ms ease-out;
+  --transition-transform: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-shadow: box-shadow 200ms ease-in-out;
+  /* Interactive States */
+  --transition-hover: all 150ms ease-out;
+  --transition-active: all 100ms ease-in;
+  --transition-focus: all 150ms ease-out;
   /* ============================================================================ */
   /*                             TOKENS: TYPOGRAPHY                               */
   /* ============================================================================ */
@@ -3509,6 +3532,10 @@ img {
 /* ==========================================================================*/
 /*                         COMPONENTS: RESPONSIVE GRID                       */
 /* ==========================================================================*/
+:root {
+  --responsive-grid-min-height: 15rem;
+}
+
 .responsive-grid__container {
   width: 100%;
 }
@@ -3527,7 +3554,7 @@ img {
   overflow: hidden;
   transition: var(--transition-base);
   height: auto !important;
-  min-height: var(--flip-card-height) !important;
+  min-height: var(--responsive-grid-min-height) !important;
   display: flex !important;
   flex-direction: column !important;
   background-color: var(--color-neutral-0);
@@ -6300,6 +6327,10 @@ img {
   background-color: var(--surface-pressed);
 }
 
+.background-color-surface-selected {
+  background-color: var(--surface-selected);
+}
+
 .background-color-surface-inverse-default {
   background-color: var(--surface-inverse-default);
 }
@@ -6318,6 +6349,10 @@ img {
 
 .background-color-surface-inverse-pressed {
   background-color: var(--surface-inverse-pressed);
+}
+
+.background-color-surface-inverse-selected {
+  background-color: var(--surface-inverse-selected);
 }
 
 .background-color-tier-miles {
@@ -6504,12 +6539,24 @@ img {
   border-color: var(--border-color-focus) !important;
 }
 
+.border-color-selected {
+  border-color: var(--border-color-selected) !important;
+}
+
 .border-color-error {
   border-color: var(--border-color-error) !important;
 }
 
 .border-color-success {
   border-color: var(--border-color-success) !important;
+}
+
+.border-color-warning {
+  border-color: var(--border-color-warning) !important;
+}
+
+.border-color-info {
+  border-color: var(--border-color-info) !important;
 }
 
 .badge-success {

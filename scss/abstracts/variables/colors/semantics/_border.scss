@@ -26,12 +26,17 @@ $border-color-tertiary: brand.$color-brand-tertiary !default;
 // Interactive States
 $border-color-hover: neutral.$color-neutral-300 !default;
 $border-color-pressed: neutral.$color-neutral-350 !default;
-$border-color-focus: primitives.get-color('info', 500) !default;
+$border-color-focus: primitives.get-color('primary', 500) !default;
+$border-color-selected: primitives.get-color('primary', 500) !default;
 
 // Interactive States - Dark Mode
 $border-color-hover-dark: neutral.$color-neutral-550 !default;
 $border-color-pressed-dark: neutral.$color-neutral-525 !default;
+$border-color-focus: primitives.get-color('primary', 500) !default;
+$border-color-selected: primitives.get-color('primary', 500) !default;
 
 // Feedback States
 $border-color-error: feedback.$color-feedback-danger !default;
 $border-color-success: feedback.$color-feedback-success !default;
+$border-color-info: feedback.$color-feedback-info !default;
+$border-color-warning: feedback.$color-feedback-warning !default;
