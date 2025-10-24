@@ -1,0 +1,19 @@
+@use '../../../abstracts/tokens' as *;
+// ========================================================================== //
+//                        MIXINS: HELPERS - POSITION                          //
+// ========================================================================== //
+
+// Simplifies absolute positioning with optional edge offsets
+// Standardizes positioning across components using design tokens
+@mixin absolute(
+  $top: var(--position-0), 
+  $right: var(--position-0), 
+  $bottom: var(--position-0), 
+  $left: var(--position-0)
+) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
