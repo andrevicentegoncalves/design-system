@@ -1,0 +1,19 @@
+// ============================================================================= //
+//                                      FLAGS                                    //
+// ============================================================================= //
+
+// Main Type
+$is_main: false !default;
+$is_pat: false !default;
+
+// Color primitives
+$primitives-options: (
+  'default': 'primitives',
+  'flygroups': 'primitives-flygroups',
+) !default;
+
+$primitives: 'default' !default;
+
+// Darm mode 
+$is_dark_mode_auto: false !default;
+$is_dark_mode_forced: false !default;

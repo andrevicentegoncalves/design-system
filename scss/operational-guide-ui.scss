@@ -1,0 +1,22 @@
+// Abstract
+@use 'abstracts/variables' as *;
+
+// Patterns 
+@use 'components/patterns/form' as *;
+@use 'components/patterns/banner-news' as *;
+@use 'components/patterns/carousel-tab' as *;
+@use 'components/patterns/need-help' as *;
+@use 'components/patterns/breadcrumb' as *;
+@use 'components/patterns/summary' as *;
+@use 'components/patterns/arrow-list' as *;
+@use 'components/patterns/content-loading-placeholder' as *;
+@use 'components/patterns/suggestion' as *;
+@use 'components/patterns/grid-flip-card' as *;
+@use 'components/patterns/list' as *;
+@use 'components/patterns/highlight-content' as *;
+@use 'components/patterns/badge-list' as *;
+@use 'components/patterns/alert-bar' as *;
+
+// App Specific
+@use '../scss/app-specific/tap-agents/pages' as *; 
+//@use '../scss/app-specific/tap-agents/main-ckeditor' as *; 

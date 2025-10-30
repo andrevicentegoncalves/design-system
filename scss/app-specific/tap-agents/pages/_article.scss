@@ -1,0 +1,146 @@
+@use '../../../abstracts' as *;
+
+/* ==========================================================================*/
+/*                                PAGES: ARTICLE                             */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// Article Header Container
+//-------------------------------------------
+
+.article-header-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include prevent-overflow;
+
+    .line {
+        margin: 0 auto;
+    }
+}
+
+//-------------------------------------------
+// Main Header Layout
+//-------------------------------------------
+
+.article-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: var(--spacing-6);
+    @include prevent-overflow;
+}
+
+//-------------------------------------------
+// Article Title
+//-------------------------------------------
+
+.article-title {
+    flex: 1;
+    text-align: center;
+    @include text-container;
+    min-width: 0;
+
+    @include bp-down(m) {
+        padding-right: var(--spacing-0);
+        margin-bottom: var(--spacing-4);
+        margin-right: var(--spacing-0);
+    }
+}
+
+//-------------------------------------------
+// Article Subtitle
+//-------------------------------------------
+
+.article-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: var(--spacing-6);
+    width: 100%;
+    @include text-container;
+
+    @include bp-down(m) {
+        margin-top: var(--spacing-4);
+    }
+}
+
+//-------------------------------------------
+// Article Icon
+//-------------------------------------------
+
+.article-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: var(--spacing-2);
+    right: var(--spacing-0);
+    flex-shrink: 0;
+
+    @include bp-down(m) {
+        position: static;
+        margin-top: var(--spacing-4);
+        width: 100%;
+    }
+}
+
+//-------------------------------------------
+// Title with Bookmark Layout
+//-------------------------------------------
+
+.title-with-bookmark {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    justify-content: center;
+    text-align: center;
+    @include prevent-overflow;
+    
+    @include bp-down(xs) {
+        flex-direction: column;
+    }
+
+    .cke_contents_ltr {
+        text-align: center;
+    }
+
+    .article-bookmark {
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-base);
+        flex-shrink: 0;
+
+        @include bp-down(m) {
+            font-size: var(--font-size-h6);
+        }
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+}
+
+//-------------------------------------------
+// CKEditor Content Wrapper
+//-------------------------------------------
+
+.cke_contents_ltr,
+.article-content {
+    @include text-wrap;
+}
+
+.article-title,
+.article-subtitle,
+.title-with-bookmark {
+    h1, h2, h3, h4, h5, h6, p, span, div {
+        @include text-wrap;
+        max-width: 100%;
+    }
+}

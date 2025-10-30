@@ -1,0 +1,137 @@
+@use 'sass:map';
+@use '../../abstracts' as *;
+
+/* ==========================================================================*/
+/*                           PATTERNS: BANNER NEWS                           */
+/* ==========================================================================*/
+
+$banner-height: rem(400);
+$banner-height-phone: rem(309);
+
+//-------------------------------------------
+// Base Container
+//-------------------------------------------
+
+.banner-news {
+    position: relative;
+    height: $banner-height;
+
+    @media (max-width: $breakpoint-phone) {
+        height: $banner-height-phone;
+        
+        .phone .wide-bar.ThemeGrid_Container {
+            padding-left: var(--space-none);
+            padding-right: var(--space-none);
+        }
+    }
+
+    //-------------------------------------------
+    // Background Layer
+    //-------------------------------------------
+
+    &__background {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        z-index: var(--z-index-dropdown);
+        transition: var(--transition-base);
+    
+        // Background Image
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    
+        @media (max-width: $breakpoint-phone) {
+            background-position: 35% center;
+        }
+    
+        // Overlay using mixin
+        @include bg-color-alpha(--color-neutral-10, 0.4);
+    
+        &::before {
+            z-index: var(--z-index-sticky);
+        }
+    
+        // Content Z-index
+        > * {
+            position: relative;
+            z-index: var(--z-index-fixed);
+        }
+    }
+
+    //-------------------------------------------
+    // Main Wrapper
+    //-------------------------------------------
+    
+    &__wrapper {
+        height: $banner-height;
+        width: 100%;
+
+        @media (max-width: $breakpoint-phone) {
+            height: $banner-height-phone;
+        }
+    }
+
+    //-------------------------------------------
+    // Content Section
+    //-------------------------------------------
+    
+    &__content {
+        position: relative;
+        z-index: var(--z-index-fixed);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: var(--space-xl);
+
+        @media (max-width: $breakpoint-phone) {
+            padding-top: var(--space-base);
+        }
+
+        // Title
+        &-title {
+            position: relative;
+            z-index: var(--z-index-fixed);
+            font-weight: bold;
+            margin-bottom: var(--space-xs);
+            color: var(--color-neutral-0);
+            font-size: var(--font-size-h1);
+
+            @media (max-width: $breakpoint-phone) {
+                font-size: var(--font-size-h3);
+                padding-top: var(--space-base);
+            }
+        }
+
+        // Subtitle
+        &-subtitle {
+            position: relative;
+            z-index: var(--z-index-fixed);
+            margin-bottom: var(--space-l);
+            color: var(--color-neutral-0);
+            font-size: var(--font-size-h6);
+
+            @media (max-width: $breakpoint-phone) {
+                max-width: 100%;
+            }
+        }
+
+        // Button
+        &-button {
+            position: relative;
+            z-index: var(--z-index-fixed);
+            max-width: 200px;
+            font-size: var(--font-size-h6);
+
+            @media (max-width: $breakpoint-phone) {
+                font-size: var(--font-size-h6);
+                max-width: 100%;
+            }
+
+            .btn-primary {
+                opacity: var(--opaque);
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+@use 'neutral' as neutral;
+
+// ============================================================================= //
+//                      VARIABLES: COLOR SEMANTICS - SURFACE                     //
+// ============================================================================= //
+
+// ---------------------------------------------------------------------------//
+// BASE SURFACE COLORS - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-base: neutral.$color-neutral-25 !default;
+$color-surface-default: neutral.$color-neutral-0 !default;
+$color-surface-subtle: neutral.$color-neutral-25 !default;
+$color-surface-strong: neutral.$color-neutral-50 !default;
+$color-surface-bold: neutral.$color-neutral-150 !default;
+$color-surface-disabled: neutral.$color-neutral-100 !default;
+
+// ---------------------------------------------------------------------------//
+// INTERACTIVE SURFACE STATES - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-hover: neutral.$color-neutral-75 !default;
+$color-surface-pressed: neutral.$color-neutral-100 !default;
+$color-surface-selected: neutral.$color-neutral-125 !default;
+
+// ---------------------------------------------------------------------------//
+// BASE SURFACE COLORS - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-base-dark: neutral.$color-neutral-925 !default;
+$color-surface-default-dark: neutral.$color-neutral-900 !default;
+$color-surface-subtle-dark: neutral.$color-neutral-875 !default;
+$color-surface-strong-dark: neutral.$color-neutral-850 !default;
+$color-surface-bold-dark: neutral.$color-neutral-750 !default;
+$color-surface-disabled-dark: neutral.$color-neutral-800 !default;
+
+// ---------------------------------------------------------------------------//
+// INTERACTIVE SURFACE STATES - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-hover-dark: neutral.$color-neutral-875 !default;
+$color-surface-pressed-dark: neutral.$color-neutral-850 !default;
+$color-surface-selected-dark: neutral.$color-neutral-825 !default;
+
+// ---------------------------------------------------------------------------//
+// ON-SURFACE COLORS - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-on-surface-base: neutral.$color-neutral-825 !default;
+$color-on-surface-default: neutral.$color-neutral-825 !default;
+$color-on-surface-subtle: neutral.$color-neutral-750 !default;
+$color-on-surface-strong: neutral.$color-neutral-850 !default;
+$color-on-surface-bold: neutral.$color-neutral-825 !default;
+
+// ---------------------------------------------------------------------------//
+// ON-SURFACE COLORS - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-on-surface-base-dark: neutral.$color-neutral-100 !default;
+$color-on-surface-default-dark: neutral.$color-neutral-75 !default;
+$color-on-surface-subtle-dark: neutral.$color-neutral-375 !default;
+$color-on-surface-strong-dark: neutral.$color-neutral-0 !default;
+$color-on-surface-bold-dark: neutral.$color-neutral-0 !default;
+$color-on-surface-disabled-dark: neutral.$color-neutral-600 !default;
+
+// ---------------------------------------------------------------------------//
+// INVERSE SURFACE COLORS - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-inverse-default: neutral.$color-neutral-850 !default;
+$color-surface-inverse-subtle: neutral.$color-neutral-700 !default;
+$color-surface-inverse-disabled: neutral.$color-neutral-600 !default;
+
+// ---------------------------------------------------------------------------//
+// INTERACTIVE INVERSE SURFACE STATES - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-inverse-hover: neutral.$color-neutral-825 !default;
+$color-surface-inverse-pressed: neutral.$color-neutral-800 !default;
+$color-surface-inverse-selected: neutral.$color-neutral-775 !default;
+
+// ---------------------------------------------------------------------------//
+// INVERSE SURFACE COLORS - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-inverse-default-dark: neutral.$color-neutral-0 !default;
+$color-surface-inverse-subtle-dark: neutral.$color-neutral-100 !default;
+$color-surface-inverse-disabled-dark: neutral.$color-neutral-100 !default;
+
+// ---------------------------------------------------------------------------//
+// INTERACTIVE INVERSE SURFACE STATES - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-surface-inverse-hover-dark: neutral.$color-neutral-50 !default;
+$color-surface-inverse-pressed-dark: neutral.$color-neutral-75 !default;
+$color-surface-inverse-selected-dark: neutral.$color-neutral-100 !default;
+
+// ---------------------------------------------------------------------------//
+// ON-SURFACE INVERSE COLORS - Light Mode
+// ---------------------------------------------------------------------------//
+
+$color-on-surface-inverse-default: neutral.$color-neutral-0 !default;
+$color-on-surface-inverse-subtle: neutral.$color-neutral-0 !default;
+$color-on-surface-inverse-disabled: neutral.$color-neutral-400 !default;
+
+// ---------------------------------------------------------------------------//
+// ON-SURFACE INVERSE COLORS - Dark Mode
+// ---------------------------------------------------------------------------//
+
+$color-on-surface-inverse-default-dark: neutral.$color-neutral-900 !default;
+$color-on-surface-inverse-subtle-dark: neutral.$color-neutral-800 !default;
+$color-on-surface-inverse-disabled-dark: neutral.$color-neutral-600 !default;

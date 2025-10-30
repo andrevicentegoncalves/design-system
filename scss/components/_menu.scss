@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                              COMPONENTS: MENU                             */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// Menu Styling - Second Row
+//-------------------------------------------
+
+@include bp-up(l) {
+    .menu-wrapper {
+        padding: var(--space-m) var(--space-s);
+        display: flex;
+        gap: var(--space-l);
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-neutral-3);
+        border-bottom: var(--border-width) var(--border-style) var(--border-color-primary);
+        width: 100%;
+    }
+
+    .menu-wrapper .app-menu-content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-wrapper .app-menu-content .app-menu-links {
+        display: flex;
+        gap: var(--space-m);
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
+
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            color: var(--color-neutral-8);
+            text-align: center;
+            font-size: var(--font-size-s);
+            transition: var(--transition-base);
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 var(--space-s);
+
+            span {
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+}

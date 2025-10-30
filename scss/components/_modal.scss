@@ -1,0 +1,126 @@
+@use '../abstracts' as *;
+
+/* ==========================================================================*/
+/*                             COMPONENTS: MODAL                             */
+/* ==========================================================================*/
+
+//-------------------------------------------
+// Base Popup Styles
+//-------------------------------------------
+
+[data-popup-backdrop] {
+    z-index: var(--z-index-modal-overlay);
+}
+
+.popup {
+    &-dialog {
+        max-width: var(--popup-max-width);
+        border-radius: var(--border-radius-extra-soft);
+    }
+}
+
+//-------------------------------------------
+// Popup Content
+//-------------------------------------------
+
+.popup-template {
+    &__content {
+        max-height: calc(80vh - 150px);
+        overflow-y: auto;
+        margin: var(--space-m) 0 var(--space-s) 0;
+        
+        // Scrollbar Styling
+        &::-webkit-scrollbar {
+            width: 4px;
+            
+            &-track {
+                background: transparent;
+            }
+            
+            &-thumb {
+                background: var(--color-primary);
+                border-radius: var(--border-radius-soft);
+            }
+        }
+    }
+    
+    // Close Icon
+    &__icon {
+        i {
+            position: relative;
+            
+            &:after {
+                content: '×';
+                position: absolute;
+                transform: translate(-50%, -50%);
+                font-size: 3rem;
+                padding-right: var(--space-base);
+            }
+            
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+//-------------------------------------------
+// Popup Buttons
+//-------------------------------------------
+
+.popup-template {
+    // Button Container
+    &__buttons {
+        display: flex;
+        width: 100%;
+
+        @include bp-down(m) {
+            flex-direction: column;
+            gap: var(--space-m);
+        }
+
+        @include bp-down(m) {
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: var(--space-base);
+        }
+    }
+
+    // Button Variants
+    &__button {
+        // Main Action Button
+        &--main {
+            .btn {
+                color: var(--color-neutral-9);
+            }
+        }
+
+        // Cancel Button
+        &--cancel {
+            .btn {
+                border: 0;
+                color: var(--color-primary);
+                font-weight: 400;
+            }
+
+            @include bp-down(m) {
+                margin-left: 0 !important;
+            }
+
+            @include bp-down(m) {
+                order: -1;
+            }
+        }
+
+        // Responsive Button Styles
+        &--main, &--cancel {
+            @include bp-down(m) {
+                width: 100%;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

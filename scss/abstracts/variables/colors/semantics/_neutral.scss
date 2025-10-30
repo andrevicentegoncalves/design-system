@@ -1,0 +1,49 @@
+@use '../../../functions/colors/primitives-system' as primitives;
+
+// ============================================================================= //
+//                     VARIABLES: COLOR SEMANTICS - NEUTRAL                      //
+// ============================================================================= //
+
+$color-neutral-0:   primitives.get-color('neutral', 0) !default;
+$color-neutral-25:  primitives.get-color('neutral', 25) !default;
+$color-neutral-50:  primitives.get-color('neutral', 50) !default;
+$color-neutral-75:  primitives.get-color('neutral', 75) !default;
+$color-neutral-100: primitives.get-color('neutral', 100) !default;
+$color-neutral-125: primitives.get-color('neutral', 125) !default;
+$color-neutral-150: primitives.get-color('neutral', 150) !default;
+$color-neutral-175: primitives.get-color('neutral', 175) !default;
+$color-neutral-200: primitives.get-color('neutral', 200) !default;
+$color-neutral-225: primitives.get-color('neutral', 225) !default;
+$color-neutral-250: primitives.get-color('neutral', 250) !default;
+$color-neutral-275: primitives.get-color('neutral', 275) !default;
+$color-neutral-300: primitives.get-color('neutral', 300) !default;
+$color-neutral-325: primitives.get-color('neutral', 325) !default;
+$color-neutral-350: primitives.get-color('neutral', 350) !default;
+$color-neutral-375: primitives.get-color('neutral', 375) !default;
+$color-neutral-400: primitives.get-color('neutral', 400) !default;
+$color-neutral-425: primitives.get-color('neutral', 425) !default;
+$color-neutral-450: primitives.get-color('neutral', 450) !default;
+$color-neutral-475: primitives.get-color('neutral', 475) !default;
+$color-neutral-500: primitives.get-color('neutral', 500) !default;
+$color-neutral-525: primitives.get-color('neutral', 525) !default;
+$color-neutral-550: primitives.get-color('neutral', 550) !default;
+$color-neutral-575: primitives.get-color('neutral', 575) !default;
+$color-neutral-600: primitives.get-color('neutral', 600) !default;
+$color-neutral-625: primitives.get-color('neutral', 625) !default;
+$color-neutral-650: primitives.get-color('neutral', 650) !default;
+$color-neutral-675: primitives.get-color('neutral', 675) !default;
+$color-neutral-700: primitives.get-color('neutral', 700) !default;
+$color-neutral-725: primitives.get-color('neutral', 725) !default;
+$color-neutral-750: primitives.get-color('neutral', 750) !default;
+$color-neutral-775: primitives.get-color('neutral', 775) !default;
+$color-neutral-800: primitives.get-color('neutral', 800) !default;
+$color-neutral-825: primitives.get-color('neutral', 825) !default;
+$color-neutral-850: primitives.get-color('neutral', 850) !default;
+$color-neutral-875: primitives.get-color('neutral', 875) !default;
+$color-neutral-900: primitives.get-color('neutral', 900) !default;
+$color-neutral-925: primitives.get-color('neutral', 925) !default;
+$color-neutral-950: primitives.get-color('neutral', 950) !default;
+
+$color-neutral-default: $color-neutral-825 !default;
+$color-neutral-subtle: $color-neutral-750 !default;
+$color-neutral-subdued: $color-neutral-275 !default;
