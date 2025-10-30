@@ -1,0 +1,109 @@
+@use 'sass:map';
+
+// ============================================================================= //
+//                    VARIABLES: COLOR PRIMITIVES - DEFAULT                      //
+// ============================================================================= //
+
+$color-config: (
+  // Brand family 
+  'primary-electric': (hue: 89, saturation: 96%),
+  'primary': (hue: 97, saturation: 48%),
+  'secondary': (hue: 69, saturation: 68%),
+  'tertiary': (hue: 130, saturation: 46%),
+  
+  // Feedback family
+  'success': (hue: 134, saturation: 61%),         
+  'warning': (hue: 45, saturation: 100%),         
+  'info': (hue: 189, saturation: 77%),            
+  'danger': (hue: 354, saturation: 70%), 
+  
+  // Accent family
+  'accent': (hue: 189, saturation: 77%),
+  
+  // Neutral family 
+  'neutral': (hue: 210, saturation: 14%),
+  
+  // Tier family 
+  'tier-miles': (hue: 96, saturation: 71%),
+  'tier-gold': (hue: 43, saturation: 30%),
+  'tier-silver': (hue: 240, saturation: 2%),
+  'tier-navigator': (hue: 20, saturation: 4%)
+) !default;
+
+$neutral-scale: (
+  0: 100%,
+  25: 99.5%,
+  50: 99%,
+  75: 98.5%,
+  100: 98%,
+  125: 97.25%,
+  150: 96.5%,
+  175: 95.75%,
+  200: 95%,
+  225: 94.5%,
+  250: 94%,
+  275: 93.5%,
+  300: 93%,
+  325: 92%,
+  350: 91%,
+  375: 90%,
+  400: 89%,
+  425: 87.5%,
+  450: 86%,
+  475: 84.5%,
+  500: 83%,
+  525: 80%,
+  550: 77%,
+  575: 74%,
+  600: 71%,
+  625: 64.5%,
+  650: 58%,
+  675: 51%,
+  700: 44%,
+  725: 41.5%,
+  750: 39%,
+  775: 37%,
+  800: 34%,
+  825: 26%,
+  850: 21%,
+  875: 17%,
+  900: 12%,
+  925: 9.5%,
+  950: 7%
+) !default;
+
+$custom-lightness: (
+  'neutral': $neutral-scale,
+  'primary-electric': (500: 61%),
+  'primary': (
+    500: 51%,
+    750: 28%
+  ),
+  'secondary': (
+    450: 48%,
+    500: 52%,
+    900: 8%
+  ),
+  'tertiary': (
+    500: 22%,
+    700: 30%
+  ),
+  'success': (
+    200: 88%,
+    50: 94%
+  ),
+  'warning': (
+    500: 58%,
+    50: 90%
+  ),
+  'info': (
+    200: 89%,
+    50: 95%
+  ),
+  'danger': (
+    500: 46%,
+    50: 95%
+  ),
+  'tier-miles': (50: 91%),
+  'tier-gold': (50: 93%)
+) !default;

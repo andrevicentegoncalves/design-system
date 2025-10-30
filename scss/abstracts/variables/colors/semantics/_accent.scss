@@ -1,0 +1,13 @@
+@use '../../../functions/colors/primitives-system' as primitives;
+
+// ============================================================================= //
+//                      VARIABLES: COLOR SEMANTICS - ACCENT                      //
+// ============================================================================= //
+
+$color-accent: primitives.get-color('accent', 500) !default;
+$color-accent-subtle: primitives.get-color('accent', 50) !default;
+
+$color-accent-hover: primitives.get-color('accent', 600) !default;
+$color-accent-active: primitives.get-color('accent', 700) !default;
+$color-accent-pressed: primitives.get-color('accent', 750) !default;
+$color-accent-disabled: primitives.get-color('accent', 200) !default;

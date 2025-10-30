@@ -1,0 +1,100 @@
+@use 'sass:map';
+
+// ============================================================================= //
+//                    VARIABLES: COLOR PRIMITIVES - FLYGROUPS                    //
+// ============================================================================= //
+
+$color-config: (
+  'primary-electric': (hue: 89, saturation: 96%),
+  'primary': (hue: 96, saturation: 71%),
+  'secondary': (hue: 69, saturation: 68%),
+  'tertiary': (hue: 130, saturation: 46%),
+  'success': (hue: 120, saturation: 52%),
+  'warning': (hue: 55, saturation: 100%),
+  'info': (hue: 220, saturation: 100%),
+  'danger': (hue: 357, saturation: 79%),
+  'accent': (hue: 189, saturation: 77%),
+  'neutral': (hue: 264, saturation: 4%),
+  'tier-miles': (hue: 96, saturation: 71%),
+  'tier-gold': (hue: 43, saturation: 30%),
+  'tier-silver': (hue: 240, saturation: 2%),
+  'tier-navigator': (hue: 20, saturation: 4%)
+) !default;
+
+$neutral-scale: (
+  0: 100%,
+  25: 99%,
+  50: 97%,
+  75: 95%,
+  100: 92%,
+  125: 90%,
+  150: 88%,
+  175: 86%,
+  200: 84%,
+  225: 82%,
+  250: 80%,
+  275: 78%,
+  300: 76%,
+  325: 74%,
+  350: 72%,
+  375: 69%,
+  400: 68%,
+  425: 66%,
+  450: 64%,
+  475: 62%,
+  500: 60%,
+  525: 58%,
+  550: 56%,
+  575: 54%,
+  600: 52%,
+  625: 50%,
+  650: 48%,
+  675: 46%,
+  700: 43%,
+  725: 42%,
+  750: 40%,
+  775: 38%,
+  800: 36%,
+  825: 26%,
+  850: 22%,
+  875: 19%,
+  900: 16%,
+  925: 13%,
+  950: 8%
+) !default;
+
+$custom-lightness: (
+  'neutral': $neutral-scale,
+  'primary-electric': (500: 61%),
+  'primary': (
+    500: 46%,
+    750: 28%
+  ),
+  'secondary': (
+    450: 48%,
+    500: 52%,
+    900: 8%
+  ),
+  'tertiary': (
+    500: 22%,
+    700: 30%
+  ),
+  'success': (
+    200: 88%,
+    50: 94%
+  ),
+  'warning': (
+    500: 58%,
+    50: 90%
+  ),
+  'info': (
+    200: 89%,
+    50: 95%
+  ),
+  'danger': (
+    500: 46%,
+    50: 95%
+  ),
+  'tier-miles': (50: 91%),
+  'tier-gold': (50: 93%)
+) !default;
