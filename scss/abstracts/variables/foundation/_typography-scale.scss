@@ -1,15 +1,10 @@
 @use 'sass:map';
 @use '../../functions/foundation/unit-conversion' as units;
 @use 'core' as *;
-@use '../../flags' as flags;
 
 // ========================================================================== //
 //                  VARIABLES: FOUNDATION - TYPOGRAPHY SCALES                 //
 // ========================================================================== //
-
-$font-path: if(flags.$is_main, '/TapPortal_TH/', 
-               if(flags.$is_pat, '/TapPortal_PAT/', '/TapPortal_TH/')
-             );
              
 // -------------------------------------------
 // FONT FAMILY SCALE

@@ -14,19 +14,9 @@
 // ============================================================================= //
 
 @function get-color($family, $weight: 500) {
-  $color-config: null;
-  $base-lightness: null;
-  $custom-lightness: null;
-  
-  @if flags.$primitives == 'flygroups' {
-    $color-config: primitives.$flygroups-color-config;
-    $base-lightness: primitives.$base-base-lightness;
-    $custom-lightness: primitives.$flygroups-custom-lightness;
-  } @else {
-    $color-config: primitives.$default-color-config;
-    $base-lightness: primitives.$base-base-lightness;
-    $custom-lightness: primitives.$default-custom-lightness;
-  }
+  $color-config: primitives.$default-color-config;
+  $base-lightness: primitives.$base-base-lightness;
+  $custom-lightness: primitives.$default-custom-lightness;
   
   @return factory.create-color($color-config, $custom-lightness, $base-lightness, $family, $weight);
 }
