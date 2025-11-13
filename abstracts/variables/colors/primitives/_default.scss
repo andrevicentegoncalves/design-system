@@ -1,0 +1,91 @@
+@use 'sass:map';
+
+// ============================================================================= //
+//                    VARIABLES: COLOR PRIMITIVES - DEFAULT                      //
+// ============================================================================= //
+
+// Default theme color configuration
+// Based on Real Estate Design System - Material Design 3 conventions
+// Defines hue and saturation for each color family
+// Lightness is derived from base scale or custom overrides
+
+$color-config: (
+  // Brand colors - Real Estate theme
+  'primary': (hue: 160, saturation: 84%),      // Dark Emerald (#059669)
+  'secondary': (hue: 45, saturation: 88%),     // Mustard Yellow (#E6B017)
+  'tertiary': (hue: 160, saturation: 50%),     // Teal variant
+  
+  // Feedback colors - Material Design 3 semantic
+  'success': (hue: 142, saturation: 76%),      // Green (#10B981)
+  'warning': (hue: 38, saturation: 92%),       // Amber (#F59E0B)
+  'danger': (hue: 0, saturation: 84%),         // Red (#EF4444)
+  'info': (hue: 217, saturation: 91%),         // Blue (#3B82F6)
+  
+  // System colors
+  'accent': (hue: 217, saturation: 91%),       // Info blue for accents
+  'neutral': (hue: 215, saturation: 16%)       // Slate gray scale
+) !default;
+
+// Custom lightness overrides for specific families/weights
+// Only override when base scale doesn't meet brand requirements
+// Uses standard 12-weight scale: 0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+
+$custom-lightness: (
+  // Neutral uses custom scale matching Real Estate Design System
+  // Based on Tailwind Slate scale for consistency
+  'neutral': (
+    0: 100%,     // White
+    50: 98.4%,   // #F8FAFC
+    100: 97.1%,  // #F1F5F9
+    200: 93.7%,  // #E2E8F0
+    300: 86.5%,  // #CBD5E1
+    400: 68.2%,  // #94A3B8
+    500: 47.8%,  // #64748B
+    600: 33.7%,  // #475569
+    700: 24.7%,  // #334155
+    800: 16.9%,  // #1E293B
+    900: 8.6%,   // #0F172A
+    950: 3.5%    // #020617
+  ),
+  
+  // Primary (Emerald) adjustments for Real Estate brand
+  'primary': (
+    500: 43%,    // #059669 - Main brand color
+    600: 33%,    // #047857 - Dark variant
+    700: 26%     // Darker active state
+  ),
+  
+  // Secondary (Mustard) adjustments
+  'secondary': (
+    500: 56%,    // #E6B017 - Secondary brand color
+    600: 48%,    // Darker hover state
+    700: 40%     // Dark active state
+  ),
+  
+  // Success (already good at base, minor adjustments)
+  'success': (
+    50: 94%,     // Light container background
+    500: 45%     // #10B981 - Success green
+  ),
+  
+  // Warning adjustments for better contrast
+  'warning': (
+    50: 95%,     // Light container background
+    500: 55%,    // #F59E0B - Warning amber
+    800: 28%     // #D97706 - Dark mode warning
+  ),
+  
+  // Danger adjustments
+  'danger': (
+    50: 96%,     // Light container background
+    500: 48%,    // #EF4444 - Danger red
+    800: 32%     // #DC2626 - Dark mode danger
+  ),
+  
+  // Info (Blue) adjustments
+  'info': (
+    50: 96%,     // Light container background
+    500: 51%,    // #3B82F6 - Info blue
+    600: 42%     // Darker hover state
+  )
+) !default;
